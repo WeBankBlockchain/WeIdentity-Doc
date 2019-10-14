@@ -16,7 +16,7 @@ WeIdentity Endpoint Service 文档
 使用Endpoint Service
 -----------------------------
 
-您可以参照 \ `Endpoint Service API <./weidentity-endpoint-deploy.html>`_\ 文档，了解如何查询和调用您注册的Endpoint信息。
+您可以参照 \ `RestService API <./weidentity-rest-api.html>`_\ 文档中的Endpoint Service API部分，了解如何查询和调用您注册的Endpoint信息。
 
 技术细节
 --------------

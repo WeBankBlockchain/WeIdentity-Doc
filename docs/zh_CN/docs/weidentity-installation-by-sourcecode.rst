@@ -10,12 +10,12 @@ WeIdentity JAVA SDK安装部署文档（源码方式）
 """"""""""
 
 
-* `WeIdentity JAVA SDK <https://github.com/WeBankFinTech/weid-java-sdk.git>`_\ :raw-html-m2r:`<br>`
+* `WeIdentity JAVA SDK <https://github.com/WeBankFinTech/WeIdentity.git>`_\ :raw-html-m2r:`<br>`
   建议下载最新版本的release
   
 .. code-block:: shell
 
-  git clone https://github.com/WeBankFinTech/weid-java-sdk.git
+  git clone https://github.com/WeBankFinTech/WeIdentity.git
 
 
 
@@ -23,7 +23,7 @@ WeIdentity JAVA SDK安装部署文档（源码方式）
 
 ::
 
-    cd weid-java-sdk/src/main/resources/
+    cd WeIdentity/src/main/resources/
 
 
 若您使用FISCO BCOS 2.0, 请参考\ `2.0 web3sdk客户端配置 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/sdk/sdk.html#sdk>`__，

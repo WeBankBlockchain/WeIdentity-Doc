@@ -31,7 +31,7 @@ WeIdentity JAVA SDK 安装部署工具（部署智能合约）
  
 
 该工具默认会使用最新版本的
-`WeIdentity智能合约 <https://github.com/WeBankFinTech/weidentity-contract>`__\，该工具可以帮您发布智能合约和自动配置。
+`WeIdentity智能合约 <https://github.com/WeBankFinTech/weid-contract>`__\，该工具可以帮您发布智能合约和自动配置。
 
 
 1.2  配置基本信息
