@@ -7,7 +7,7 @@ WeIdentity Endpoint Service部署指引
 1. 代理端部署
 ^^^^^^^^^^^^^^^^^^^
 
-Endpoint Service在代理端依托于RestService，环境要求也与其一致，请见 \ `Endpoint Service 部署文档 <./weidentity-endpoint-deploy.html>`_\。
+Endpoint Service在代理端依托于RestService，环境要求也与其一致，请见 \ `Rest Service 部署文档 <./weidentity-rest-deploy.html>`_\。
 
 随后，在 ``dist/conf`` 目录下，修改 ``application.properties`` 文件中的主机端口列表这一项。您需要在此处以逗号分隔所有需要连接的远程服务端，指明其主机IP及端口。这样，Endpoint Service就会在后台以您配置的时间间隔（此处的 ``fetch.period.seconds`` ）去远程拉取注册在服务端的Endpoint。
 
@@ -29,12 +29,12 @@ Endpoint Service在代理端依托于RestService，环境要求也与其一致�
 - 服务端会自动将您的Endpoint写入本地Endpoint数据配置项中
 - 为了确保RPC服务端能够正确地获取这些Endpoint，需要使用之前获取的EndpointHandler实例，启动 ``RpcServer`` 的 ``main()`` 进程。
 
-详细的相关实现，可以参考源代码的 `EndpointSample.java <https://github.com/WeBankFinTech/weid-java-sdk/blob/master/src/main/java/com/webank/weid/suite/endpoint/EndpointSample.java>`_ 。
+详细的相关实现，可以参考源代码的 `EndpointSample.java <https://github.com/WeBankFinTech/WeIdentity/blob/master/src/main/java/com/webank/weid/suite/endpoint/EndpointSample.java>`_ 。
 
 3. 启动服务端
 ^^^^^^^^^^^^^^^^^^^
 
-Endpoint Service在服务端依托于WeIdentity-Java-SDK，环境要求也与其一致，请见 `Java-SDK 部署环境要求 <https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/docs/weidentity-installation.html>`_。
+Endpoint Service在服务端依托于WeIdentity-Java-SDK，环境要求也与其一致，请见 `Java-SDK 部署环境要求 <./weidentity-installation.html>`_。
 
 在 ``src/main/resources`` 目录下，修改 ``weidentity.properties`` 文件中的 ``rpc.listener.port`` 这一项内容，以具体确定在哪个端口上进行监听。
 

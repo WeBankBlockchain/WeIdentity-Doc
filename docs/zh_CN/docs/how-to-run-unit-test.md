@@ -4,11 +4,11 @@
 
 ### 前提条件
 
-单元测试的运行需要提前安装部署好WeIdentity JAVA SDK，请参考 [WeIdentity JAVA SDK 安装部署文档](https://weidentity.readthedocs.io/zh_CN/latest/docs/weidentity-installation.html) 安装部署WeIdentity。
+单元测试的运行需要提前安装部署好WeIdentity JAVA SDK，请参考 [WeIdentity JAVA SDK 安装部署文档](./weidentity-installation.html) 安装部署WeIdentity。
   
 ### 流程
 
-下载源代码后，以 `weid-java-sdk` 根目录为起点：
+下载源代码后，以 `WeIdentity` 根目录为起点：
 
 1, 进入dist/conf目录。
 

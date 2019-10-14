@@ -10,7 +10,7 @@ WeIdentity RestService 部署文档
 1.1 环境要求
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Server 的环境要求与 WeIdentity-Java-SDK 的 `环境要求 <https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/docs/weidentity-installation.html>`_ 类似，但它不需要 fisco-solc 编译环境：
+Server 的环境要求与 WeIdentity-Java-SDK 的 `环境要求 <./weidentity-installation.html>`_ 类似，但它不需要 fisco-solc 编译环境：
 
 
 .. list-table::
