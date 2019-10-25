@@ -107,7 +107,7 @@ WeIdentity DID与WeIdentity Credential的关系
 如何生成WeIdentity DID
 ^^^^^^^^^^^^^^^^^^^^^^
 
-WeIdentity DID = did:weid:net-id:bs-specific-string
+WeIdentity DID = did:weid:chain-id:bs-specific-string
 
 
 .. image:: images/weidentity-did-format1.png
@@ -123,7 +123,7 @@ WeIdentity DID = did:weid:net-id:bs-specific-string
      - 遵循DID规范，固定前缀did
    * - weid
      - WeIdentity DID规范的method name字段，固定为weid
-   * - net-id
+   * - chain-id
      - 网络id，用于路由到不同的网络
    * - bs-specific-string
      - 基于底层区块链平台生成，代表Entity在链上的地址，保证全网唯一
