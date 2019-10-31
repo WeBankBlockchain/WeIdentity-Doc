@@ -41,7 +41,6 @@ Server 的环境要求与 WeIdentity-Java-SDK 的 `环境要求 <./weidentity-in
 
 .. code-block:: bash
 
-   $ unzip dist.zip
    $ git clone https://github.com/WeBankFinTech/weid-http-service.git
    $ cd weid-http-service
    $ gradle build -x test
@@ -72,7 +71,7 @@ Server 的环境要求与 WeIdentity-Java-SDK 的 `环境要求 <./weidentity-in
 * 首先，确认 WeIdentity 合约已部署完毕，同时您所部署的 FISCO-BCOS 节点可以正常连通。目前支持 1.3.x 及 2.x 的 FISCO-BCOS 节点。
 * 修改合约地址。如果您使用部署工具部署了 WeIdentity 合约，那么只需将部署工具生成的 ``fisco.properties`` 及 ``weidentity.properties`` 拷贝到 ``dist/conf`` 目录下即可。如果您使用源码部署，请手动修改 ``dist/conf/fisco.properties.tpl`` 及 ``dist/conf/weidentity.properties.tpl`` ，更新合约地址及区块链节点信息；修改完成后，将两个文件的子扩展名 ``.tpl`` 去掉。详情：
 
-合约地址修改示例：更新 ``dist/conf/fisco.properties.tpl`` 下列属性中weId、cpt、issuer、evidence合约地址的值。
+合约地址修改示例：更新 ``dist/conf/fisco.properties`` 下列属性中weId、cpt、issuer、evidence合约地址的值。
 
 .. code-block:: xml
 
