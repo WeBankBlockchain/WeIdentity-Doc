@@ -3,7 +3,7 @@
 
 .. _weidentity-contract-design:
 
-WeIdentity智能合约设计文档
+WeIdentity 智能合约设计与实现
 ===============================
 
 WeIdentity智能合约概述
