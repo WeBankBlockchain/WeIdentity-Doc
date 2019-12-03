@@ -3,7 +3,7 @@
 
 .. _weidentity-installation:
 
-WeIdentity Java SDK 安装部署文档
+WeIdentity Java SDK 安装部署
 ================================
 
 

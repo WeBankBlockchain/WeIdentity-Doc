@@ -1,7 +1,7 @@
 
 .. _weidentity-endpoint:
 
-WeIdentity Endpoint Service 文档
+WeIdentity Endpoint Service
 =================================
 
 在开发过程中，您可能会有将自己的某些Java方法暴露给外部调用方调用的需求。在过去，您可能需要自己开发一套基于HTTP/HTTPS的请求，及基于RPC的Endpoint服务端点的创建、维护及处理服务，这可能会花费大量的开发人力和工时。

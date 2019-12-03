@@ -1,7 +1,7 @@
 
 .. _weidentity-rest:
 
-WeIdentity RestService 文档
+WeIdentity RestService
 ================================
 
 WeIdentity RestService提供了简化的WeIdentity集成方式与访问能力。使用者仅需将RestService部署到一台Java的机器并连接到FISCO-BCOS区块链上，便可以通过HTTP/HTTPS协议访问WeIdentity的功能了。请参见：
