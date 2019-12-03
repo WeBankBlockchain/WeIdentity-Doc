@@ -39,3 +39,8 @@ WeIdentity Java SDK 安装部署
 
 * `安装部署工具方式 <./weidentity-build-with-deploy.html>`_ （推荐方式）   
 * `源码方式 <./weidentity-installation-by-sourcecode.html>`_ 
+
+便捷工具
+----------
+
+我们提供了一些快捷工具，可以帮您快速上手体验 weid-java-sdk，请参考 \ `WeIdentity JAVA SDK 便捷工具使用 <./weidentity-quick-tools.html>`__\。

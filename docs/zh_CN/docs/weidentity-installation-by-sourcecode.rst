@@ -65,6 +65,8 @@ WeIdentity JAVA SDK安装部署文档（源码方式）
     #链标识
     chain_id=1 
  
+.. note::
+     注意：如果您使用了Gradle 6.0+，那么您需要手动修改build.gradle中spotbug的Gradle插件版本号为2.0.0+。具体地，打开WeIdentity/build.gradle，将“classpath "gradle.plugin.com.github.spotbugs:spotbugs-gradle-plugin:1.6.5"”中的1.6.5改成2.0.0或更高版本。
 
 
 2.安装部署
