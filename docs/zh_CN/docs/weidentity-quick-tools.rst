@@ -9,7 +9,7 @@ WeIdentity JAVA SDK 便捷使用工具
 整体介绍
 --------
 
-   通过便捷工具， 您可以快速的体验和使用 WeIdentity JAVA SDK。
+   通过便捷工具，您可以快速的体验和使用 WeIdentity JAVA SDK。
 
 部署步骤
 --------

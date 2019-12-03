@@ -8,7 +8,7 @@ LINUX 系统上通过 gradle 执行单元测试
 ~~~~~~~~
 
 单元测试的运行需要提前安装部署好WeIdentity JAVA SDK，请参考 
-`安装部署工具方式 <./weidentity-installation-by-sourcecode.html>`_
+\ `安装部署工具方式 <./weidentity-installation-by-sourcecode.html>`__\
 中的源码方式安装部署WeIdentity。
 
 流程
