@@ -4,7 +4,7 @@
 
 技术问题 FAQ 列表：  
 
-* [JAVA SDK FAQ](https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/docs/faq.html)
+* [JAVA SDK FAQ](./faq-java.html)
 * [WeIdentity 网络端口](./weidentity-ports.html)
 
 ---
@@ -154,13 +154,13 @@ Credential的重新生成则为重新发行一个Credential ID不相同的全新
 详见 [WeIdentity 存储容量预估](./capacity-estimation.md)
 
 ---
-- **字体安装说明**  
+- **如何给生成的PDF文档安装字体？**  
 
 **字体下载**<br>
 
  您可从此：[下载NotoSansCJKtc-Regular.ttf字体](https://raw.githubusercontent.com/WeBankFinTech/WeIdentity/master/dist/lib/NotoSansCJKtc-Regular.ttf)
 
-**Centos**   
+**CentOS**   
 1. 新建中文字体目录并拷贝字体到该目录
     ~~~
     sudo mkdir -p /usr/share/fonts/chinese

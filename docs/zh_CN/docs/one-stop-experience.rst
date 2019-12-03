@@ -47,11 +47,6 @@ Demo体验
    * - 学历信息电子化
      - \ `开始体验 <https://sandbox.webank.com/weid>`_\
      - 基于WeID，将用户身份同电子身份ID对应的学历信息电子化，Hash上链，保证身份和学历信息高效验证，不可篡改
-   * - 游戏积分上链
-     - \ `游戏页面 <https://sandbox.webank.com/weidgame/>`_\
-     
-       \ `计分板 <https://sandbox.webank.com/weidgame/scoreboard.html>`_\
-     - 基于WeID，用户游戏积分需要授权才会发到区块链上进行统计，可以看到详细的链上授权记录，不可篡改
 
 快速部署与上手
 ----------------
