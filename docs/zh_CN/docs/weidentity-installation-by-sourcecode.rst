@@ -26,7 +26,7 @@ WeIdentity JAVA SDK安装部署文档（源码方式）
     cd WeIdentity/src/main/resources/
 
 
-若您使用FISCO BCOS 2.0, 请参考\ `2.0 web3sdk客户端配置 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/sdk/sdk.html#sdk>`__，
+若您使用FISCO BCOS 2.0, 请参考\ `2.0 web3sdk客户端配置 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/sdk/java_sdk.html>`__，
 将证书文件 ``ca.crt``， ``node.crt`` 和 ``node.key`` 复制出来，拷贝至当前目录下。
 
 若您使用FISCO BCOS 1.3, 请参考\ `1.3 web3sdk客户端配置 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/release-1.3/docs/tools/web3sdk.html>`__，
