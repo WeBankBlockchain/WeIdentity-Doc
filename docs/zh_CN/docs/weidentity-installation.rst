@@ -43,4 +43,4 @@ WeIdentity Java SDK 安装部署
 便捷工具
 ----------
 
-我们提供了一些快捷工具，可以帮您快速上手体验 weid-java-sdk，请参考 \ `WeIdentity JAVA SDK 便捷工具使用 <./weidentity-quick-tools.html>`__\。
+当您部署SDK完成之后，可以通过一些便捷工具快速上手体验SDK，请参考 \ `WeIdentity JAVA SDK 便捷工具使用 <./weidentity-quick-tools.html>`__\。

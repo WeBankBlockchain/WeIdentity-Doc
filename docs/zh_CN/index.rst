@@ -25,8 +25,8 @@ WeIdentity文档
    docs/weidentity-contract-design.rst
    docs/faq.md
    docs/miscellaneous.md
-   docs/weidentity-rest.rst
    docs/weidentity-installation.rst
+   docs/weidentity-rest.rst
    docs/weidentity-sample.rst
    docs/weidentity-endpoint.rst
    WeIdentity Java SDK 文档 <https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/>

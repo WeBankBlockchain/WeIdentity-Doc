@@ -84,6 +84,9 @@ weid-java-sdk 可以同时支持 FISCO BCOS 1.3 版本和 FISCO BCOS 2.0 版本�
 
 保存退出，即完成基本配置。
 
+.. note::
+     如果您使用FISCO-BCOS 2.x，且需要跨群组部署WeIdentity，请参考\ `跨群组部署WeIdentity <./how-to-deploy-w-groupid.html>`__\ 。
+
 
 1.2.2 配置节点证书和秘钥文件
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
