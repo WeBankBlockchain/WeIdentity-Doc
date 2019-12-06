@@ -2,10 +2,9 @@
 
 ---
 
-技术问题 FAQ 列表：  
+技术问题列表：  
 
 * [JAVA SDK FAQ](./faq-java.html)
-* [WeIdentity 网络端口](./weidentity-ports.html)
 
 ---
 

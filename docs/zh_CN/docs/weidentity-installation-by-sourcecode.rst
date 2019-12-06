@@ -68,6 +68,8 @@ WeIdentity JAVA SDK安装部署文档（源码方式）
 .. note::
      注意：如果您使用了Gradle 6.0+，那么您需要手动修改build.gradle中spotbug的Gradle插件版本号为2.0.0+。具体地，打开WeIdentity/build.gradle，将“classpath "gradle.plugin.com.github.spotbugs:spotbugs-gradle-plugin:1.6.5"”中的1.6.5改成2.0.0或更高版本。
 
+.. note::
+     如果您使用FISCO-BCOS 2.x，且需要跨群组部署WeIdentity，请参考\ `跨群组部署WeIdentity <./how-to-deploy-w-groupid.html>`__\ 。
 
 2.安装部署
 """"""""""
