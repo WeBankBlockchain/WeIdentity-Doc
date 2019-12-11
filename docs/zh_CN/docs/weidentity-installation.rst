@@ -35,10 +35,14 @@ WeIdentity Java SDK 安装部署
 安装部署
 --------
 
-我们提供两种方式安装部署SDK：   
+我们提供两种方式安装部署SDK（包括两步：首先将WeIdentity智能合约部署到区块链上，再集成SDK到您的Java工程中）：
 
 * `安装部署工具方式 <./weidentity-build-with-deploy.html>`_ （推荐方式）   
 * `源码方式 <./weidentity-installation-by-sourcecode.html>`_ 
+
+.. note::
+     注意：如果您使用了针对oracle jdk1.8.0.231及以上版本，不论用哪种方式部署SDK，在使用时都需要配置jvm参数 -Djdk.tls.namedGroups="secp256k1" 。详细原因，请见Oracle JDK 8u231的Release Notes： https://www.oracle.com/technetwork/java/javase/8u231-relnotes-5592812.html
+
 
 便捷工具
 ----------
