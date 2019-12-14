@@ -1,9 +1,26 @@
 Java SDK FAQ
 ============
 
+----------------
+
+- 如何配置可信时间戳服务？
+
+当前，我们支持使用WeSign（https://fintech.webank.com/wesign/）作为时间戳的签发者服务方。未来，我们会进一步支持各种境内外的可信时间戳服务商。
+
+您首先需要联系WeSign团队，获取可用的测试或生产环境的URL及账号。接下来，访问您的weidentity.properties，将以下内容配置项填入：
+
+.. code:: shell
+
+  wesign.accessTokenUrl=<access token的地址>
+  wesign.signTicketUrl=<sign ticket的地址>
+  wesign.timestampUrl=<timestamp服务的地址>
+  wesign.appId=<服务商为您分配的appId>
+  wesign.secret=<服务商为您分配的secret>
+
+
 --------------
 
--  **智能合约升级和 SDK 升级相关问题**
+-  **智能合约和 SDK 版本号相关问题**
 
 详见\ `版本号管理 <./styleguides/versioning-management.html>`__\ 。
 
@@ -19,7 +36,7 @@ WeIdentity 智能合约是按分层设计的，分为：\ *数据层，逻辑层
 
 --------------
 
--  **如何查看当前 WeIdentity JAVA SDK（weidentity-java-sdk）的版本号？**
+-  **如何查看当前 WeIdentity JAVA SDK（weid-java-sdk）的版本号？**
 
 三种方式可以查看 SDK 的版本号：
 
@@ -33,13 +50,6 @@ WeIdentity 智能合约是按分层设计的，分为：\ *数据层，逻辑层
 
 3. 如果是下载的源代码，则项目的 ``build.gradle`` 文件里面的变量
    ``version`` 定义了 SDK 的版本号。
-
---------------
-
--  **如何查看WeIdentity Contract（weidentity-contract）的版本号？**
-
-下载的合约源代码里面，根目录有个名为 ``VERSION``
-的文件。查看这个文件即可。
 
 --------------
 
@@ -61,7 +71,7 @@ WeIdentity 智能合约是按分层设计的，分为：\ *数据层，逻辑层
 
 -  **目前支持哪些密钥管理套件？**
 
-目前，WeIdentity Java SDK使用ECDSA
+目前，我们使用ECDSA
 SECP256套件进行密钥生成、签名验证操作。未来会加入国密版本套件。
 
 --------------
