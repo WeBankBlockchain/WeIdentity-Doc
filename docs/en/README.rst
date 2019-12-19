@@ -113,7 +113,9 @@ WeIdentity is running on top of FISCO-BCOS with JAVA SDK provided for developers
                <a href="https://www.codacy.com/manual/chaoxinhu/WeIdentity?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=WeBankFinTech/WeIdentity&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/37d3bc478ede4839ba16ccac469ad3f2" /></a>
                <a href="https://www.codefactor.io/repository/github/webankfintech/weidentity"><img src="https://www.codefactor.io/repository/github/webankfintech/weidentity/badge" /></a>
                <a href="https://codecov.io/gh/WeBankFinTech/WeIdentity"><img src="https://codecov.io/gh/WeBankFinTech/WeIdentity/branch/master/graph/badge.svg" /></a>
-               <a href="https://www.gnu.org/licenses/lgpl-3.0"><img src="https://img.shields.io/badge/license-GNU%20LGPL%20v3.0-blue.svg" /></a>            </td>
+               <a href="https://www.gnu.org/licenses/lgpl-3.0"><img src="https://img.shields.io/badge/license-GNU%20LGPL%20v3.0-blue.svg" /></a>
+               <a href="https://github.com/WeBankFinTech/WeIdentity"><img src="https://sloc.xyz/github/WeBankFinTech/WeIdentity" /></a>
+            </td>
          </tr>
       </table>
       <br />
