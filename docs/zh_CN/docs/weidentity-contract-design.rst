@@ -289,3 +289,9 @@ WeIdentity的CPT（Claim Protocol Type）合约，用于在链上存储凭证的
 ^^^^^^^^
 
 一般CPT的ID从2000000开始自增。任何WeID均可以创建此类CPT。
+
+WeIdentity智能合约依赖关系
+----------------------------
+
+.. image:: ./images/contractdep.jpg
+   :alt: contractdep.jpg
