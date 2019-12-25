@@ -44,15 +44,22 @@ WeIdentity Java SDK 安装部署
      注意：如果您使用了针对oracle jdk1.8.0.231及以上版本，不论用哪种方式部署SDK，在使用时都需要配置jvm参数 -Djdk.tls.namedGroups="secp256k1" 。详细原因，请见Oracle JDK 8u231的Release Notes： https://www.oracle.com/technetwork/java/javase/8u231-relnotes-5592812.html
 
 
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   weidentity-build-with-deploy.rst
+   weidentity-installation-by-sourcecode.rst
+
+
 便捷工具
 ----------
 
 当您部署SDK完成之后，可以通过一些便捷工具快速上手体验SDK，请参考 \ `WeIdentity JAVA SDK 便捷工具使用 <./weidentity-quick-tools.html>`__\。
 
+
 .. toctree::
    :hidden:
    :maxdepth: 1
-   
-   weidentity-build-with-deploy.rst
-   weidentity-installation-by-sourcecode.rst
+
    weidentity-quick-tools.rst
