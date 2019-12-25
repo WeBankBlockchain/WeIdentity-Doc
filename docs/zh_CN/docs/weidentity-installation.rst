@@ -48,3 +48,11 @@ WeIdentity Java SDK 安装部署
 ----------
 
 当您部署SDK完成之后，可以通过一些便捷工具快速上手体验SDK，请参考 \ `WeIdentity JAVA SDK 便捷工具使用 <./weidentity-quick-tools.html>`__\。
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   
+   weidentity-build-with-deploy.rst
+   weidentity-installation-by-sourcecode.rst
+   weidentity-quick-tools.rst

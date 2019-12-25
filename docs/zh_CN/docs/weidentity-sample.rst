@@ -20,3 +20,10 @@ WeIdentity Sample 开发样例
    （推荐方式）
 
 -  `spring-boot方式使用 <./weidentity-sample-springboot.html>`__
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   
+   weidentity-sample-commandline.rst
+   weidentity-sample-springboot.rst
