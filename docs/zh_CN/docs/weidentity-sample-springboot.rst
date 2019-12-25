@@ -8,15 +8,15 @@ spring-boot服务方式使用
 
     使用 spring-boot 方式，weid-sample 程序将作为一个后台进程运行，您可以使用 http 方式体验交互流程。
 
-1. 下载 weid-sample 源码：
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+1. 下载源码
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: shell
 
     git clone https://github.com/WeBankFinTech/weid-sample.git
 
 2. 配置与部署
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 2.1 部署 weid-java-sdk 与配置基本信息
 ''''''''''''''''''''''''''''''''''''''

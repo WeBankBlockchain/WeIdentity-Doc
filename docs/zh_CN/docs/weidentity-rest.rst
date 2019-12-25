@@ -11,10 +11,22 @@ WeIdentity RestService提供了简化的WeIdentity集成方式与访问能力。
 
 您可以访问详细的 \ `部署指引 <./weidentity-rest-deploy.html>`_\ 文档，按照文中步骤部署RestService到您的Server上。
 
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   
+   weidentity-rest-deploy.rst
+
 使用RestService
 -----------------------------
 
 您可以访问具体的 \ `API接口文档 <./weidentity-rest-api.html>`_\ ，了解如何通过HTTP/HTTPS请求，访问WeIdentity的功能。
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   
+   weidentity-rest-api.rst
 
 深入了解RestService
 -----------------------------
@@ -25,6 +37,4 @@ WeIdentity RestService提供了简化的WeIdentity集成方式与访问能力。
    :hidden:
    :maxdepth: 1
    
-   weidentity-rest-deploy.rst
-   weidentity-rest-api.rst
    weidentity-rest-design.rst
