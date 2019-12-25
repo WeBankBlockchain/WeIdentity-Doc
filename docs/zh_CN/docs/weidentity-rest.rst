@@ -20,3 +20,11 @@ WeIdentity RestService提供了简化的WeIdentity集成方式与访问能力。
 -----------------------------
 
 您可以访问RestService的 \ `设计文档 <./weidentity-rest-design.html>`_\ 或 \ `GitHub仓库 <https://github.com/WeBankFinTech/weid-http-service>`_\ ，了解RestService的方方面面。
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   
+   weidentity-rest-deploy.rst
+   weidentity-rest-api.rst
+   weidentity-rest-design.rst

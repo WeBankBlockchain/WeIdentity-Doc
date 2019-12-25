@@ -15,6 +15,7 @@ WeIdentity文档
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
    :caption: Contents:
 
    README.rst

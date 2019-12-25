@@ -25,3 +25,9 @@ WeIdentity Endpoint Service
     - 目前Endpoint Service在此RPC库基础上自行实现了更加简单易用的按需断线重连机制。
     - 目前Endpoint Service以异步的方式实现远程调用，并通过指定时长内的本地轮询查询执行结果。如果您的方法可能耗时过长，可以调节轮询的最大等待时长。
 - Endpoint Service支持1:N的多集成端访问和多活机制。如果一个Endpoint可以由多台集成端访问，那么当其中某一台集成端访问出错时，访问其的请求会被自动导向其他注册了相同Endpoint的机器上。
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   
+   weidentity-endpoint-deploy.rst
