@@ -295,3 +295,10 @@ WeIdentity智能合约依赖关系
 
 .. image:: ./images/contractdep.jpg
    :alt: contractdep.jpg
+
+WeIdentity智能合约代码漫步
+----------------------------
+
+下面是我们的核心贡献者Robin Liu为WeIdentity智能合约撰写的
+\ `代码讲解 <http://roliu.work/2019/12/30/the-thinking-of-project-about-fisco-bcos/?from=timeline&isappinstalled=0&nsukey=6C4s%2B3FZt2fPBxEOUkHIadVg0tsPrNOHk1E3w9VaA5m%2B7vxI0ZFrXWBwjLqJMdXTjM1ORsz6QJB5ylBy5ABF%2BGB%2FFF6%2FRlhRr20SN8iTGliYHm%2Fz%2BV9aTovbW6pd%2B2MJ1TuvSvMKtlxrFbJZ3YP7ynozNPl5nIas4CW9Z%2BQvkNgEdiZSNxm4be7eHakKsBwW0GAwE9sH76UF%2Bws2Du6LkQ%3D%3D>`_\ 
+
