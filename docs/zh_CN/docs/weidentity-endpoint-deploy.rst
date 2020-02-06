@@ -25,6 +25,7 @@ Endpoint Service在代理端依托于RestService，环境要求也与其一致�
 - 为您需要注册的每个Endpoint，实现一个对应的 ``EndpointFunctor`` 接口。此接口包括两个方法： ``execute()`` 和 ``getDescription()`` 
     - 实现 ``execute()`` ，用来决定具体当代理端的RPC请求发送过来时需要进行的操作
     - 实现 ``getDescription()`` ，用来提供一段对此接口功能的描述
+
 - 在实现完成之后，调用 ``EndpointHandler`` 获取一个实例，并通过 ``registerEndpoint()`` 方法向此EndpointHandler内注册您的Endpoint
 - 服务端会自动将您的Endpoint写入本地Endpoint数据配置项中
 - 为了确保RPC服务端能够正确地获取这些Endpoint，需要使用之前获取的EndpointHandler实例，启动 ``RpcServer`` 的 ``main()`` 进程。

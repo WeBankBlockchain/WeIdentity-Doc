@@ -1,6 +1,5 @@
 # 规范
 
----
 
 ## 基本要求：
 
@@ -9,7 +8,7 @@
 * 代码文件中，每行最多100个字符（xml文件每行字符可以超过100个）。
 * 双斜杠的注释 ```//``` 只能在函数内部使用，其他注释请使用:
 
-    ```java
+    ```
     /**
     */
     ```
@@ -24,7 +23,7 @@
   * 【建议】类成员变量之间需要有空行分割。
   * 【建议】函数申明（定义）后 的第一个括号 ```{``` 跟第一行代码之间，建议有一行空行。
 
-    ```java
+    ```
     public ResponseData<CreateWeIDResult> createWeID(CreateWeIDArgs createWeIDArgs) {
 
         ResponseData<CreateWeIDResult> responseData = new ResponseData<CreateWeIDResult>();
@@ -88,7 +87,7 @@ SDK 侧（例如JAVA SDK， C++ SDK）都使用 WeIdentity DID 作为 key。通�
 
 * 函数的声明（函数定义）这一行如果超过了 100 个字符，请按每行一个参数的方式缩进（第一个参数从”函数名定义行“的下一行开始定义），且参数定义行相对于“函数名定义行”多缩进 4 个空格，例子如下：
 
-    ```java
+    ```
     //java函数定义的例子
     private static int resolveAttributeEvent(
         String weid,
@@ -100,7 +99,7 @@ SDK 侧（例如JAVA SDK， C++ SDK）都使用 WeIdentity DID 作为 key。通�
 
 * 函数调用如果超过了 100 个字符，请按每行一个参数的方式缩进，例子如下：
 
-    ```java
+    ```
     TransactionReceipt transactionReceipt = cptController.registerCpt(
         publisher,
         intArray,
@@ -121,7 +120,7 @@ SDK 侧（例如JAVA SDK， C++ SDK）都使用 WeIdentity DID 作为 key。通�
     4. import static
     ```
 
-    ```java
+    ```
     import java.*
     import javax.*
 
@@ -173,4 +172,3 @@ int ret = thisFunctionCallIsReallyLong(
 
 * 智能合约静态扫描工具： [Linter-for-Solidity](https://github.com/duaraghav8/Solium)。
 
----
