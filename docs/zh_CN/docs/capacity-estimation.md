@@ -32,14 +32,14 @@ Event 所占总空间 = (WeIdentity DID数量 * 1464 Bytes * 3)
 
 ## 1. WeIdentity Document，即每个 WeIdentity DID 的属性集合，存储在 Event。
 
-```JSON
+```
 所有的 WeIdentity Document 所占 Event 空间 = WeIdentity DID 数量 * 1464 Bytes * 3
 ```
 
 #### 解释：
 
 Event 的结构如下：
-```javascript
+```
 event WeIdAttributeChanged(
     address indexed identity ---> 20 Bytes
     bytes32 key ---> 32 Bytes
@@ -62,7 +62,7 @@ event WeIdAttributeChanged(
 
 WeIdentity DID 的总表，存储在链上，存储了所有公开的 WeIdentity DID 的 ID 到 Document 的映射关系。
 
-```javascript
+```
 WeIdentity DID 的总表在链上所占空间 = WeIdentity DID 数量 * 52 Bytes * 10
 ```
 
@@ -79,7 +79,7 @@ key 是 WeAddress，使用`address`存储，占 20 Bytes； WeAddress；Event �
 #### 解释：
 key 是 WeAddress，占 20 Bytes；单个 Evidence 在链上的数据结构如下，占200 Bytes：
 
-```javascript
+```
 {
 bytes32[] dataHash, ---> 动态数组，目前使用 2 个 byte32，占 64 Bytes。
 address[] signer, ---> 动态数组，目前使用 1 个 byte32， 占 32 Bytes。
@@ -92,14 +92,14 @@ bytes32[] extra ---> 动态数组，目前使用 32 Bytes。
 
 ## 4. 所有 CPT 的定义所占容量预估
 
-```javascript
+```
 CPT 在链上所占空间 = CPT 数量 * 4560 Bytes * 10
 ```
 
 #### 解释：
 key 是`uint`，占 32 Bytes；单个 CPT 在链上的存储结构如下，占用空间 4528 Bytes，如下所示：
 
-```javascript
+```
 {
 uint cptId ---> 8 Bytes
 address cptPublisher ---> 32 Bytes
@@ -114,14 +114,14 @@ bytes32 cptS ---> 32 Bytes
 
 ## 5. Authority Issuer 所占容量预估
 
-```javascript
+```
 Authority Issuer 合约在链上所占空间 = Authority Issuer 数量 * 724 Bytes * 10
 ```
 
 #### 解释：
 key 是 WeAddress，占 20 Bytes；单个Authority Issuer 在链上的存储结构，704 byte
 
-```javascript
+```
 {
 address addr, ---> 32 Bytes
 bytes32[16] attribBytes32, ---> 512 Bytes
@@ -132,14 +132,14 @@ bytes accValue ---> 32 Bytes
 
 ## 6. Specific Issuer 所占容量预估
 
-```javascript
+```
 Specific Issuer 合约在链上所占空间 = Specific Issuer 数量 * 372 Bytes * 10
 ```
 
 #### 解释：
 key 是 WeAddress，占 20 Bytes；单个 Specific Issuer 在链上存储结构，占 352 Bytes,结构如下：
 
-```javascript
+```
 {
 bytes32 typeName; ---> 32 Bytes
 address[] fellow; ---> 32 Bytes
