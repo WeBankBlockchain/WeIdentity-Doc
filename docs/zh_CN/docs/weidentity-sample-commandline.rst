@@ -1,5 +1,5 @@
 命令行方式使用
--------------
+---------------
 
 整体介绍
 ~~~~~~~~
@@ -8,18 +8,21 @@
 各个角色的基本流程如下：
 
 - Issuer
+
  | 创建 WeID
  | 注册成为 Authority Issuer
  | 注册 CPT
  | 创建 Credential
 
 - User Agent
+
  | 创建 WeID
  | 通过 AMOP 获取 Verifier 发布的 Presentation Policy
  | 创建 Presentation
  | 打包 Presentation 成 QRcode 或者 Json 串，发送给 Verifier
 
 - Verifier
+
  | 获取 User Agent 的 Presentation
  | 验证 Presentation
 

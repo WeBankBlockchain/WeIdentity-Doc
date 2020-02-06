@@ -13,3 +13,5 @@
 * [安全建议](./security-suggestion.html)
 
 * [WeIdentity 网络端口](./weidentity-ports.html)
+
+* [WeIdentity Java SDK 与各版本JDK的兼容性](./weid-compatibility-test.html)
