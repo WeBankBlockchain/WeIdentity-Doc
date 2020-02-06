@@ -732,22 +732,27 @@ WeIdentity核心API
 .. code-block:: java
 
     {
-        "respBody": {
-            "@context": "https://www.w3.org/2018/credentials/v1",
-            "cptId": 10,
-            "uuid" : "decd7c81-6b41-414d-8323-00161317a38e",
-            "issuer": "did:weid:0x12025448644151248e5c1115b23a3fe55f4158e4153",
-            "issuranceDate": "2019-03-19T21:12:33Z",
-            "expirationDate": "2019-04-18T21:12:33Z",
-            "claim": {
-                "name": "zhang san",
-                "gender": "F",
-                "age": 18
-            },
-            "signature": "MTIzNDU2NzgxMjM0NTY3ODMzMzM0NDQ0MTIzNDU2NzgxMjM0NTY3ODEyMzQ1Njc4MTIzNDU2NzgxMjM0NTY3ODU="
-        },
-        "ErrorCode": 0,
-        "ErrorMessage": "success"
+      "respBody": {
+          "@context": "https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1",
+          "claim": {
+              "content": "b1016358-cf72-42be-9f4b-a18fca610fca",
+              "receiver": "did:weid:101:0x7ed16eca3b0737227bc986dd0f2851f644cf4754",
+              "weid": "did:weid:101:0xfd28ad212a2de77fee518b4914b8579a40c601fa"
+          },
+          "cptId": 2000156,
+          "expirationDate": "2100-04-18T21:12:33Z",
+          "id": "da6fbdbb-b5fa-4fbe-8b0c-8659da2d181b",
+          "issuanceDate": "2020-02-06T22:24:00Z",
+          "issuer": "did:weid:101:0xfd28ad212a2de77fee518b4914b8579a40c601fa",
+          "proof": {
+              "created": "1580999040000",
+              "creator": "did:weid:101:0xfd28ad212a2de77fee518b4914b8579a40c601fa",
+              "signature": "G0XzzLY+MqUAo3xXkS3lxVsgFLnTtvdXM24p+G5hSNNMSIa5vAXYXXKl+Y79CO2ho5DIGPPvSs2hvAixmfIJGbw=",
+              "type": "Secp256k1"
+          }
+      },
+      "errorCode": 0,
+      "errorMessage": "success"
     }
 
 
@@ -780,7 +785,7 @@ WeIdentity核心API
      - Value
      - Required
    * - functionName
-     - createCredential
+     - verifyCredential
      - Y
    * - functionArg
      - 
@@ -806,7 +811,261 @@ WeIdentity核心API
    * - functionArg.expirationDate
      - 过期时间
      - Y
-   * - functionArg.signature
+   * - functionArg.proof
+     - Credential签名结构体
+     - Y
+   * - transactionArg
+     - 
+     - N，传空
+   * - v
+     - 版本号
+     - Y
+
+接口入参：
+
+.. code-block:: java
+
+    {
+        "functionArg": {
+          "@context": "https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1",
+          "claim": {
+              "content": "b1016358-cf72-42be-9f4b-a18fca610fca",
+              "receiver": "did:weid:101:0x7ed16eca3b0737227bc986dd0f2851f644cf4754",
+              "weid": "did:weid:101:0xfd28ad212a2de77fee518b4914b8579a40c601fa"
+          },
+          "cptId": 2000156,
+          "expirationDate": "2100-04-18T21:12:33Z",
+          "id": "da6fbdbb-b5fa-4fbe-8b0c-8659da2d181b",
+          "issuanceDate": "2020-02-06T22:24:00Z",
+          "issuer": "did:weid:101:0xfd28ad212a2de77fee518b4914b8579a40c601fa",
+          "proof": {
+              "created": "1580999040000",
+              "creator": "did:weid:101:0xfd28ad212a2de77fee518b4914b8579a40c601fa",
+              "signature": "G0XzzLY+MqUAo3xXkS3lxVsgFLnTtvdXM24p+G5hSNNMSIa5vAXYXXKl+Y79CO2ho5DIGPPvSs2hvAixmfIJGbw=",
+              "type": "Secp256k1"
+          }
+        },
+        "transactionArg": {
+        },
+        "functionName": "verifyCredential"
+        "v": "1.0.0"
+    }
+
+
+接口返回: application/json
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 50
+
+   * - Key
+     - Value
+   * - ErrorCode
+     - 错误码，0表示成功
+   * - ErrorMessage
+     - 错误信息
+   * - respBody
+     - True/False
+
+
+接口返回：
+
+.. code-block:: java
+
+    {
+        "respBody": true,
+        "ErrorCode": 0,
+        "ErrorMessage": "success"
+    }
+
+
+
+10. 创建CredentialPojo
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+调用接口：
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 50
+
+   * - 标题
+     - 描述
+   * - 接口名
+     - weid/api/invoke
+   * - Method
+     - POST
+   * - Content-Type
+     - application/json
+
+接口入参：
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 60 20
+
+   * - Key
+     - Value
+     - Required
+   * - functionName
+     - createCredentialPojo
+     - Y
+   * - functionArg
+     - 
+     - Y
+   * - functionArg.claim
+     - claim Json结构体，与 `SDK直接调用的方式入参 <https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/docs/weidentity-java-sdk-doc.html#createcredential>`_ 一致，下同     - Y
+   * - functionArg.cptId
+     - CPT ID
+     - Y
+   * - functionArg.issuer
+     - issuer WeIdentity DID
+     - Y
+   * - functionArg.expirationDate
+     - 过期时间（使用UTC格式）
+     - Y
+   * - transactionArg
+     - 
+     - Y
+   * - transactionArg.invokerWeId
+     - 用于索引私钥的WeIdentity DID，服务器端会凭此找到所托管的私钥
+     - Y
+   * - v
+     - 版本号
+     - Y
+
+接口入参：Json，以signature代替私钥
+
+.. code-block:: java
+
+    {
+        "functionArg": {
+            "cptId": 10,
+            "issuer": "did:weid:0x12025448644151248e5c1115b23a3fe55f4158e4153",
+            "expirationDate": "2019-04-18T21:12:33Z",
+            "claim": {
+                "name": "zhang san",
+                "gender": "F",
+                "age": 18
+            },
+        },
+        "transactionArg": {
+            "invokerWeId": "did:weid:0x12025448644151248e5c1115b23a3fe55f4158e4153"
+        },
+        "functionName": "createCredentialPojo",
+        "v": "1.0.0"
+    }
+
+接口返回: application/json
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 50
+
+   * - Key
+     - Value
+   * - ErrorCode
+     - 错误码，0表示成功
+   * - ErrorMessage
+     - 错误信息
+   * - respBody
+     - 完整的CredentialPojo信息
+
+
+接口返回示例:
+
+.. code-block:: java
+
+    {
+      "respBody": {
+          "cptId": 2000156,
+          "issuanceDate": 1580996777,
+          "context": "https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1",
+          "claim": {
+              "content": "b1016358-cf72-42be-9f4b-a18fca610fca",
+              "receiver": "did:weid:101:0x7ed16eca3b0737227bc986dd0f2851f644cf4754",
+              "weid": "did:weid:101:0xfd28ad212a2de77fee518b4914b8579a40c601fa"
+          },
+          "id": "21d10ab1-75fe-4733-9f1d-f0bad71b5922",
+          "proof": {
+              "created": 1580996777,
+              "creator": "did:weid:101:0xfd28ad212a2de77fee518b4914b8579a40c601fa#keys-0",
+              "salt": {
+                  "content": "ncZ5F",
+                  "receiver": "L0c40",
+                  "weid": "I4aop"
+              },
+              "signatureValue": "HEugP13uDVBg2G0kmmwbTkQXobsrWNqtGQJW6BoHU2Q2VQpwVhK382dArRMFN6BDq7ogozYBRC15QR8ueX5G3t8=",
+              "type": "Secp256k1"
+          },
+          "type": [
+              "VerifiableCredential",
+              "hashTree"
+          ],
+          "issuer": "did:weid:101:0xfd28ad212a2de77fee518b4914b8579a40c601fa",
+          "expirationDate": 4111737153
+      },
+      "errorCode": 0,
+      "errorMessage": "success"
+    }
+
+
+11. 验证CredentialPojo
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+调用接口：
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 50
+
+   * - 标题
+     - 描述
+   * - 接口名
+     - weid/api/invoke
+   * - Method
+     - POST
+   * - Content-Type
+     - application/json
+
+
+接口入参：
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 60 20
+
+   * - Key
+     - Value
+     - Required
+   * - functionName
+     - verifyCredentialPojo
+     - Y
+   * - functionArg
+     - 
+     - Y
+   * - functionArg.claim
+     - claim Json 结构体，与 `SDK直接调用的方式入参 <https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/docs/weidentity-java-sdk-doc.html#verify>`_ 一致，下同
+     - Y
+   * - functionArg.cptId
+     - CPT ID
+     - Y
+   * - functionArg.context
+     - context值
+     - Y
+   * - functionArg.uuid
+     - CredentialPojo的UUID
+     - Y
+   * - functionArg.issuer
+     - issuer WeIdentity DID
+     - Y
+   * - functionArg.issuranceDate
+     - 颁发时间
+     - Y
+   * - functionArg.expirationDate
+     - 过期时间
+     - Y
+   * - functionArg.proof
      - Credential签名值
      - Y
    * - transactionArg
@@ -822,22 +1081,36 @@ WeIdentity核心API
 
     {
         "functionArg": {
-            "@context": "https://www.w3.org/2018/credentials/v1",
-            "cptId": 10,
-            "uuid" : "decd7c81-6b41-414d-8323-00161317a38e",
-            "issuer": "did:weid:0x12025448644151248e5c1115b23a3fe55f4158e4153",
-            "issuranceDate": "2019-03-19T21:12:33Z",
-            "expirationDate": "2019-04-18T21:12:33Z",
-            "claim": {
-                "name": "zhang san",
-                "gender": "F",
-                "age": 18
-            },
-            "signature": "MTIzNDU2NzgxMjM0NTY3ODMzMzM0NDQ0MTIzNDU2NzgxMjM0NTY3ODEyMzQ1Njc4MTIzNDU2NzgxMjM0NTY3ODU="
+          "cptId": 2000156,
+          "issuanceDate": 1580996777,
+          "context": "https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1",
+          "claim": {
+              "content": "b1016358-cf72-42be-9f4b-a18fca610fca",
+              "receiver": "did:weid:101:0x7ed16eca3b0737227bc986dd0f2851f644cf4754",
+              "weid": "did:weid:101:0xfd28ad212a2de77fee518b4914b8579a40c601fa"
+          },
+          "id": "21d10ab1-75fe-4733-9f1d-f0bad71b5922",
+          "proof": {
+              "created": 1580996777,
+              "creator": "did:weid:101:0xfd28ad212a2de77fee518b4914b8579a40c601fa#keys-0",
+              "salt": {
+                  "content": "ncZ5F",
+                  "receiver": "L0c40",
+                  "weid": "I4aop"
+              },
+              "signatureValue": "HEugP13uDVBg2G0kmmwbTkQXobsrWNqtGQJW6BoHU2Q2VQpwVhK382dArRMFN6BDq7ogozYBRC15QR8ueX5G3t8=",
+              "type": "Secp256k1"
+          },
+          "type": [
+              "VerifiableCredential",
+              "hashTree"
+          ],
+          "issuer": "did:weid:101:0xfd28ad212a2de77fee518b4914b8579a40c601fa",
+          "expirationDate": 4111737153
         },
         "transactionArg": {
         },
-        "functionName": "verifyCredential"
+        "functionName": "verifyCredentialPojo"
         "v": "1.0.0"
     }
 

@@ -20,7 +20,7 @@ RestService的设计秉持以下原则：
 2.1 架构图
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: images/arch.svg
+.. image:: images/arch.jpg
 
 RestService架构包括以下模块：
 
@@ -43,7 +43,7 @@ RestService架构包括以下模块：
 3. 调用时序说明
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: images/fig2.svg
+.. image:: images/fig2.jpg
 
 步骤说明：
 
