@@ -1,7 +1,13 @@
 Java SDK FAQ
 ============
 
+即Maven上下载的weidentity-java-sdk
+
 ----------------
+
+- weidentity-java-sdk 跟能在哪些版本的 JDK 下运行?
+
+详见\ `WeIdentity Java SDK 与各版本JDK的兼容性 <./weid-compatibility-test.html>`__\ 。
 
 - 如何配置可信时间戳服务？
 

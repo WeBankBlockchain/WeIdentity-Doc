@@ -1,5 +1,5 @@
 spring-boot服务方式使用
--------------------
+-----------------------
 
 整体介绍
 ~~~~~~~~
@@ -34,6 +34,7 @@ spring-boot服务方式使用
 
    将您在\ `部署WeIdentity智能合约阶段 <https://weidentity.readthedocs.io/zh_CN/latest/docs/weidentity-build-with-deploy.html#id7>`__\ 生成的私钥文件拷贝至
    ``weid-sample/keys/priv/`` 目录中，此私钥后续将用于注册 Authority Issuer，weid-sample 会自动加载。
+
 .. note::
    此项配置并非必要，注册 Authority Issuer 需要委员会机构成员（ Committee Member ）权限，发布智能合约时生成的公私钥对会自动成为委员会机构成员，若您不是发布智能合约的机构，您无需关注此配置项。
    若您是智能合约发布的机构，您可以参考以下进行配置：
@@ -80,6 +81,7 @@ spring-boot服务方式使用
 假设您的服务部署在本地，地址是 ``127.0.0.1``，服务端口是 ``6101``。您可以在 ``src/main/resources`` 里修改端口信息。
 
 - 创建 WeID
+
 .. code:: shell
 
     curl -l -H "Content-type: application/json" -X POST   http://127.0.0.1:6101/createWeId
