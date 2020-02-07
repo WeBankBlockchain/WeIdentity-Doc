@@ -915,7 +915,8 @@ WeIdentity核心API
      - 
      - Y
    * - functionArg.claim
-     - claim Json结构体，与 `SDK直接调用的方式入参 <https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/docs/weidentity-java-sdk-doc.html#createcredential>`_ 一致，下同     - Y
+     - claim Json结构体，与 `SDK直接调用的方式入参 <https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/docs/weidentity-java-sdk-doc.html#createcredential>`_ 一致，下同     
+     - Y
    * - functionArg.cptId
      - CPT ID
      - Y
