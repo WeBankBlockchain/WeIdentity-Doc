@@ -32,19 +32,21 @@ RestService架构包括以下模块：
 
 过去的做法是：
 
-- 用户传入接口参数（包括私钥），直接调用RESTful接口，RestService调用sdk然后发送交易；
+* 用户传入接口参数（包括私钥），直接调用RESTful接口，RestService调用sdk然后发送交易；
 
 改造后：
 
 （轻客户端模式：两次交互）
-- 轻客户端传入接口参数（不包括私钥），然后POST /weid/api/encode，发送请求给RestService
-- RestService接受请求，根据接口参数组装、编码区块链原始交易串，返回给轻客户端
-- 轻客户端在本地使用自己的私钥，对原始交易串进行符合ECDSA的sha3签名，然后POST /weid/api/transact，发送请求给RestService
-- RestService接受请求，打包签名完成的交易串，直接发送交易给区块链节点
+
+* 轻客户端传入接口参数（不包括私钥），然后POST /weid/api/encode，发送请求给RestService
+* RestService接受请求，根据接口参数组装、编码区块链原始交易串，返回给轻客户端
+* 轻客户端在本地使用自己的私钥，对原始交易串进行符合ECDSA的sha3签名，然后POST /weid/api/transact，发送请求给RestService
+* RestService接受请求，打包签名完成的交易串，直接发送交易给区块链节点
 
 （托管模式：一次交互）
-- 用户应用调传入自己的私钥索引以指明自己使用哪个私钥，然后POST /weid/api/invoke，发送请求给RestService
-- RestService接受请求，依据索引载入所托管的私钥，调用weid-java-sdk的对应方法，发送交易给区块链节点
+
+* 用户应用调传入自己的私钥索引以指明自己使用哪个私钥，然后POST /weid/api/invoke，发送请求给RestService
+* RestService接受请求，依据索引载入所托管的私钥，调用weid-java-sdk的对应方法，发送交易给区块链节点
 
 3. 调用时序说明
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -54,5 +56,5 @@ RestService架构包括以下模块：
 步骤说明：
 
 （托管模式）
-- 用户组装方法名、业务输入参数、API版本号、私钥索引，然后POST /weid/api/invoke，要求调用函数。
-- Server访问SDK进行入参检测，若通过，索引其托管在Server端的私钥，使用私钥进行签名，随后调用SDK相关合约方法并返回结果。
+* 用户组装方法名、业务输入参数、API版本号、私钥索引，然后POST /weid/api/invoke，要求调用函数。
+* Server访问SDK进行入参检测，若通过，索引其托管在Server端的私钥，使用私钥进行签名，随后调用SDK相关合约方法并返回结果。
