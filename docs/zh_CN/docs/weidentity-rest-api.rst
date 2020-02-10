@@ -4,21 +4,22 @@
 WeIdentity RestService API 说明文档
 =====================================
 
-WeIdentity核心API
--------------------
+基于私钥托管模式的RestService API
+---------------------------------
 
 1. 总体介绍
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-具体地，每个API的入参都是满足以下格式的json字符串：
+每个API的入参都是满足以下格式的json字符串：
 
 .. code-block:: java
 
     {
         "functionArg": 随调用SDK方法而变的入参json字符串 {
+            ...
         },
         "transactionArg": 交易参数json字符串 {
-            "invokerWeId": 用于索引私钥的WeIdentity DID，服务器端会凭此找到所托管的私钥
+            "invokerWeId": 用于索引私钥的WeIdentity DID，服务器端会凭此找到所托管的私钥（非必须）
         }
         "functionName": 调用SDK方法名
         "v": API版本号
@@ -28,7 +29,7 @@ WeIdentity核心API
 
 * functionArg是随不同的SDK调用方法而变的，具体的参数可以查看SDK接口文档；后文会为每个所提及的接口给出对应的链接
 * transactionArg仅包括一个变量invokerWeId，由传入方决定使用在服务器端托管的具体哪个WeIdentity DID所对应的私钥
-    * 非必需，只有在那些需要使用不同身份发交易签名的方法（如CreateAuthorityIssuer等）才会需要；后文中详细说明
+    * 非必需，只有在那些需要使用不同身份进行写交易签名的方法（如CreateAuthorityIssuer等）才会需要；后文中详细说明
 * functionName是调用的SDK方法名，用于决定具体调用WeIdentity Java SDK的什么功能
 * v是调用的API方法版本
 
@@ -48,7 +49,7 @@ WeIdentity核心API
 
 在后文中，我们将会逐一说明目前所提供的功能及其使用方式。
 
-2. 创建WeIdentity DID
+2. 创建WeIdentity DID（无参创建方式）
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 调用接口：
@@ -88,6 +89,8 @@ WeIdentity核心API
      - 版本号
      - Y
 
+.. note::
+  基于托管模式的RestService不允许通过传入公钥参数的方式创建WeID。这是因为，这样生成的WeID私钥不存在于RestService本地，因此无法在后续过程中被调用。如果您需要通过传入公钥方式创建WeID，请使用基于轻客户端方式的接口创建。
 
 接口入参示例：
 
@@ -1141,6 +1144,197 @@ WeIdentity核心API
         "respBody": true,
         "ErrorCode": 0,
         "ErrorMessage": "success"
+    }
+
+基于轻客户端模式的RestService API
+------------------------------------
+
+1. 总体介绍
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+基于轻客户端模式的API的入参形式与基于私钥托管模式的API相同，也是满足以下格式的json字符串。
+最大的区别在于，流程包括两次交互，第一次是轻客户端提供接口参数发给RestService服务端，后者进行组装、编码区块链原始交易串并返回；第二次是轻客户端在本地使用自己的私钥，对原始交易串进行符合ECDSA的sha3签名，发给RestService服务端，后者打包并直接执行交易。
+
+- 第一次交互
+
+调用接口：
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 50
+
+   * - 标题
+     - 描述
+   * - 接口名
+     - weid/api/encode
+   * - Method
+     - POST
+   * - Content-Type
+     - application/json
+
+接口入参（Body）：
+
+.. code-block:: java
+
+    {
+        "functionArg": 随调用SDK方法而变的入参json字符串 {
+            ...
+        },
+        "transactionArg": 交易参数json字符串 {
+            "nonce": 用于防止重放攻击的交易随机数
+        }
+        "functionName": 调用SDK方法名
+        "v": API版本号
+    }
+
+参数说明：
+
+* functionArg是随不同的SDK调用方法而变的，具体的参数可以查看SDK接口文档；后文会为每个所提及的接口给出对应的链接
+* transactionArg仅包括一个变量nonce，用于防止重放攻击的交易随机数，您可以使用RestService jar的getNonce()，或其他类似方法生成此随机数。
+    * 必需，且必须妥善保存，这个nonce在第二次交互中还会用到
+* functionName是调用的SDK方法名，用于决定具体调用WeIdentity Java SDK的什么功能
+* v是调用的API方法版本
+
+第一次交互的接口返回是以下格式的json字符串：
+
+.. code-block:: java
+
+    {
+        "respBody": {
+            "encodedTransaction": 基于Base64编码的原始交易串信息
+            "data": 交易特征值
+        }
+        "ErrorCode": 错误码
+        "ErrorMessage": 错误信息，成功时为"success"
+    }
+
+返回结构体包含encodedTransaction和data两项。调用者随后需要使用自己的私钥对encodeTransaction进行交易签名，然后使用Base64对其进行编码，和data、nonce一起待用，进行第二次交互。
+
+- 第二次交互
+
+调用接口：
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 50
+
+   * - 标题
+     - 描述
+   * - 接口名
+     - weid/api/transact
+   * - Method
+     - POST
+   * - Content-Type
+     - application/json
+
+接口入参：
+
+.. code-block:: java
+
+    {
+        "functionArg": 空 {
+        },
+        "transactionArg": 交易参数json字符串 {
+            "nonce": 用于防止重放攻击的交易随机数
+            "data": 交易特征值，需和第一步中返回值一致
+            "signedMessage": 基于Base64编码的、使用私钥签名之后的encodedTransaction签名值
+        }
+        "functionName": 调用SDK方法名
+        "v": API版本号
+    }
+
+这一步的目的是将已签名交易的参数发给RestService，并由后者将交易打包上链。参数说明：
+
+* functionArg此时为空
+* transactionArg包括第一次交互起始阶段生成的nonce、第一次交互收到的data，以及最重要的，使用调用者本地私钥签名并通过Base64编码的encodedTransaction的签名值
+* functionName是调用的SDK方法名，用于决定具体调用WeIdentity Java SDK的什么功能
+* v是调用的API方法版本
+
+第二次交互的接口返回是以下格式的json字符串：
+
+.. code-block:: java
+
+    {
+        "respBody": 随调用SDK方法而变的输出值json字符串 {
+        }
+        "ErrorCode": 错误码
+        "ErrorMessage": 错误信息，成功时为"success"
+    }
+
+
+其中具体的输出值result亦是随不同的SDK调用方法而变的。
+可以看到，基于轻客户端的交易方式，本质上，是因为签名操作必须在本地完成，因此将原始交易串分成了两次交互完成。
+基于轻客户端的每个API的入参，也仅仅在第一次交互中不同。因此，在下文的介绍中，我们会忽略第二次交互的入参，只提供第一次交互的入参和第二次交互的返回值。
+
+2. 创建WeIdentity DID（有参创建方式）
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+第一次交互的接口入参：
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 60 20
+
+   * - Key
+     - Value
+     - Required
+   * - functionName
+     - createWeId
+     - Y
+   * - functionArg
+     - 
+     - Y
+   * - functionArg.publicKey
+     - ECDSA公钥，需要为10进制的整型数字，以字符串形式传入
+     - Y
+   * - transactionArg
+     - 
+     - Y
+   * - transactionArg.nonce
+     - 交易随机数
+     - Y
+   * - v
+     - 版本号
+     - Y
+
+接口入参示例：
+
+.. code-block:: java
+
+    {
+        "functionArg": {
+            "publicKey": "712679236821355231513532168231727831978932132185632517152735621683128"
+        },
+        "transactionArg": {
+            "nonce": "1474800601011307365506121304576347479508653499989424346408343855615822146039"
+        },
+        "functionName": "createWeId",
+        "v": "1.0.0"
+    }
+
+第二次交互的接口返回：
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 50
+
+   * - Key
+     - Value
+   * - ErrorCode
+     - 错误码，0表示成功
+   * - ErrorMessage
+     - 错误信息
+   * - respBody
+     - WeIdentity DID
+
+返回示例：
+
+.. code-block:: java
+
+    {
+        "ErrorCode": 0,
+        "ErrorMessage": "success",
+        "respBody": "did:weid:0x12025448644151248e5c1115b23a3fe55f4158e4153"
     }
 
 
