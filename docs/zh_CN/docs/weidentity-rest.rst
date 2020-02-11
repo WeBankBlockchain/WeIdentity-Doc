@@ -13,7 +13,7 @@ WeIdentity RestService提供了简化的WeIdentity集成方式与访问能力。
 
 .. toctree::
    :hidden:
-   :maxdepth: 1
+   :maxdepth: 2
    
    weidentity-rest-deploy.rst
 
@@ -24,7 +24,7 @@ WeIdentity RestService提供了简化的WeIdentity集成方式与访问能力。
 
 .. toctree::
    :hidden:
-   :maxdepth: 1
+   :maxdepth: 2
    
    weidentity-rest-api.rst
 

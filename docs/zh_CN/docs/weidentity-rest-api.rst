@@ -527,7 +527,7 @@ WeIdentity RestService API 说明文档
 
     {
         "respBody": {
-            "cptId": 10,
+            "cptId": 2000001,
             "cptVersion": 1
         },
         "ErrorCode": 0,
@@ -1208,7 +1208,20 @@ WeIdentity RestService API 说明文档
         "ErrorMessage": 错误信息，成功时为"success"
     }
 
-返回结构体包含encodedTransaction和data两项。调用者随后需要使用自己的私钥对encodeTransaction进行交易签名，然后使用Base64对其进行编码，和data、nonce一起待用，进行第二次交互。
+返回结构体包含encodedTransaction和data两项。
+调用者随后需要使用自己的私钥对encodeTransaction进行交易签名，然后使用Base64对其进行编码，和data、nonce一起待用，
+进行第二次交互。
+
+使用ECDSA私钥进行签名和Base64编码的范例代码见下：
+
+.. code-block:: java
+
+    // 依赖web3sdk 2.2.2和weid-java-sdk 1.5
+    byte[] encodedTransaction = DataToolUtils
+            .base64Decode("<encodedTransaction的值>".getBytes());
+        SignatureData clientSignedData = Sign.getSignInterface().signMessage(encodedTransactionClient, ecKeyPair);
+        String base64SignedMsg = new String(
+            DataToolUtils.base64Encode(TransactionEncoderUtilV2.simpleSignatureSerialization(clientSignedData)));
 
 - 第二次交互
 
@@ -1269,7 +1282,7 @@ WeIdentity RestService API 说明文档
 2. 创建WeIdentity DID（有参创建方式）
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-第一次交互的接口入参：
+第一次交互，POST /weid/api/encode 的接口入参：
 
 .. list-table::
    :header-rows: 1
@@ -1297,7 +1310,7 @@ WeIdentity RestService API 说明文档
      - 版本号
      - Y
 
-接口入参示例：
+第一次交互，POST /weid/api/encode 接口入参示例：
 
 .. code-block:: java
 
@@ -1307,6 +1320,21 @@ WeIdentity RestService API 说明文档
         },
         "transactionArg": {
             "nonce": "1474800601011307365506121304576347479508653499989424346408343855615822146039"
+        },
+        "functionName": "createWeId",
+        "v": "1.0.0"
+    }
+
+第二次交互，POST /weid/api/transact 接口入参示例：
+
+.. code-block:: java
+
+    {
+        "functionArg": {},
+        "transactionArg": {
+            "nonce": "1474800601011307365506121304576347479508653499989424346408343855615822146039",
+            "data": "809812638256c1235b1231000e000000001231287bacf213c",
+            "signedMessage": "HEugP13uDVBg2G0kmmwbTkQXobsrWNqtGQJW6BoHU2Q2VQpwVhK382dArRMFN6BDq7ogozYBRC15QR8ueX5G3t8=" 
         },
         "functionName": "createWeId",
         "v": "1.0.0"
@@ -1337,6 +1365,343 @@ WeIdentity RestService API 说明文档
         "respBody": "did:weid:0x12025448644151248e5c1115b23a3fe55f4158e4153"
     }
 
+3. 注册Authority Issuer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+第一次交互，POST /weid/api/encode 的接口入参：
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 60 20
+
+   * - Key
+     - Value
+     - Required
+   * - functionName
+     - registerAuthorityIssuer
+     - Y
+   * - functionArg
+     - 
+     - Y
+   * - functionArg.name
+     - 机构名
+     - Y
+   * - functionArg.weId
+     - WeIdentity DID，与 `SDK直接调用的方式入参 <https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/docs/weidentity-java-sdk-doc.html#registercpt>`_ 一致，下同
+     - Y
+   * - transactionArg
+     - 
+     - Y
+   * - transactionArg.nonce
+     - 交易随机数
+     - Y
+   * - v
+     - 版本号
+     - Y
+
+第一次交互，POST /weid/api/encode 接口入参示例：
+
+.. code-block:: java
+
+    {
+        "functionArg": {
+            "name": "BV-College",
+            "weId": "did:weid:0x12025448644151248e5c1115b23a3fe55f4158e4153"
+        },
+        "transactionArg": {
+            "nonce": "1474800601011307365506121304576347479508653499989424346408343855615822146039"
+        },
+        "functionName": "registerAuthorityIssuer",
+        "v": "1.0.0"
+    }
+
+第二次交互，POST /weid/api/transact 接口入参示例：
+
+.. code-block:: java
+
+    {
+        "functionArg": {},
+        "transactionArg": {
+            "nonce": "1474800601011307365506121304576347479508653499989424346408343855615822146039",
+            "data": "809812638256c1235b1231000e000000001231287bacf213c",
+            "signedMessage": "HEugP13uDVBg2G0kmmwbTkQXobsrWNqtGQJW6BoHU2Q2VQpwVhK382dArRMFN6BDq7ogozYBRC15QR8ueX5G3t8=" 
+        },
+        "functionName": "registerAuthorityIssuer",
+        "v": "1.0.0"
+    }
+
+第二次交互的接口返回：
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 50
+
+   * - Key
+     - Value
+   * - ErrorCode
+     - 错误码，0表示成功
+   * - ErrorMessage
+     - 错误信息
+   * - respBody
+     - Authority Isser信息
+
+返回示例：
+
+.. code-block:: java
+
+    {
+        "ErrorCode": 0,
+        "ErrorMessage": "success",
+        "respBody": {
+            "accValue": ,
+            "created": "1581420650",
+            "name": "BV-College",
+            "weId": "did:weid:0x12025448644151248e5c1115b23a3fe55f4158e4153"
+        }
+    }
+
+4. 创建CPT
+^^^^^^^^^^^^^
+
+第一次交互，POST /weid/api/encode 的接口入参：
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 60 20
+
+   * - Key
+     - Value
+     - Required
+   * - functionName
+     - registerCpt
+     - Y
+   * - functionArg
+     - 
+     - Y
+   * - functionArg.cptJsonSchema
+     - CPT Json Schema，与 `SDK直接调用的方式入参 <https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/docs/weidentity-java-sdk-doc.html#registercpt>`_ 一致，下同
+     - Y
+   * - functionArg.weId
+     - CPT创建者
+     - Y
+   * - functionArg.cptSignature
+     - 创建者使用自己的私钥对cptJsonSchema的签名（和私钥托管方式不同，本方式特有）
+     - Y
+   * - transactionArg
+     - 
+     - Y
+   * - transactionArg.nonce
+     - 交易随机数
+     - Y
+   * - v
+     - 版本号
+     - Y
+
+第一次交互，POST /weid/api/encode 接口入参示例：
+
+.. code-block:: java
+
+    {
+        "functionArg": {
+            "weId": "did:weid:0x1ae5b88d37327830307ab8da0ec5d8e8692a35d3",
+            "cptJsonSchema": {
+                "title": "cpt",
+                "description": "this is cpt",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "the name of certificate owner"
+                    },
+                    "gender": {
+                        "enum": [
+                            "F",
+                            "M"
+                        ],
+                        "type": "string",
+                        "description": "the gender of certificate owner"
+                    },
+                    "age": {
+                        "type": "number",
+                        "description": "the age of certificate owner"
+                    }
+                },
+                "required": [
+                    "name",
+                    "age"
+                ]
+            }
+            "cptSignature": "BaUeP13uDVBg2G0kmmwbTkQXobsrWNqtGQJW6BoHU2Q2VQpwVhK382dArRMFN6BDq7ogozYBRC15QR8ueX5G3t8=" 
+        },
+        "transactionArg": {
+            "nonce": "1474800601011307365506121304576347479508653499989424346408343855615822146039"
+        },
+        "functionName": "registerAuthorityIssuer",
+        "v": "1.0.0"
+    }
+
+第二次交互，POST /weid/api/transact 接口入参示例：
+
+.. code-block:: java
+
+    {
+        "functionArg": {},
+        "transactionArg": {
+            "nonce": "1474800601011307365506121304576347479508653499989424346408343855615822146039",
+            "data": "809812638256c1235b1231000e000000001231287bacf213c",
+            "signedMessage": "HEugP13uDVBg2G0kmmwbTkQXobsrWNqtGQJW6BoHU2Q2VQpwVhK382dArRMFN6BDq7ogozYBRC15QR8ueX5G3t8=" 
+        },
+        "functionName": "registerAuthorityIssuer",
+        "v": "1.0.0"
+    }
+
+第二次交互的接口返回：
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 50
+
+   * - Key
+     - Value
+   * - ErrorCode
+     - 错误码，0表示成功
+   * - ErrorMessage
+     - 错误信息
+   * - respBody
+     - Authority Isser信息
+
+返回示例：
+
+.. code-block:: java
+
+    {
+        "ErrorCode": 0,
+        "ErrorMessage": "success",
+        "respBody": {
+            "cptId": 2000001,
+            "cptVersion": 1
+        }
+    }
+
+5. 创建CredentialPojo
+^^^^^^^^^^^^^^^^^^^^^^^
+
+创建CredentialPojo不需要进行区块链交互，因此，只需要进行一次交互POST /weid/api/encode，然后对返回的结果进行签名即可：
+
+POST /weid/api/encode 接口入参
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 60 20
+
+   * - Key
+     - Value
+     - Required
+   * - functionName
+     - createCredentialPojo
+     - Y
+   * - functionArg
+     - 
+     - Y
+   * - functionArg.claim
+     - claim Json结构体，与 `SDK直接调用的方式入参 <https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/docs/weidentity-java-sdk-doc.html#createcredential>`_ 一致，下同     
+     - Y
+   * - functionArg.cptId
+     - CPT ID
+     - Y
+   * - functionArg.issuer
+     - issuer WeIdentity DID
+     - Y
+   * - functionArg.expirationDate
+     - 过期时间（使用UTC格式）
+     - Y
+   * - transactionArg
+     - 为空
+     - Y
+   * - v
+     - 版本号
+     - Y
+
+接口入参：Json，以signature代替私钥
+
+.. code-block:: java
+
+    {
+        "functionArg": {
+            "cptId": 10,
+            "issuer": "did:weid:0x12025448644151248e5c1115b23a3fe55f4158e4153",
+            "expirationDate": "2019-04-18T21:12:33Z",
+            "claim": {
+                "name": "zhang san",
+                "gender": "F",
+                "age": 18
+            },
+        },
+        "transactionArg": {
+        },
+        "functionName": "createCredentialPojo",
+        "v": "1.0.0"
+    }
+
+接口返回: application/json
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 50
+
+   * - Key
+     - Value
+   * - ErrorCode
+     - 错误码，0表示成功
+   * - ErrorMessage
+     - 错误信息
+   * - respBody
+     - 完整的CredentialPojo信息
+
+
+接口返回示例:
+
+.. code-block:: java
+
+    {
+      "respBody": {
+          "cptId": 2000156,
+          "issuanceDate": 1580996777,
+          "context": "https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1",
+          "claim": {
+              "content": "b1016358-cf72-42be-9f4b-a18fca610fca",
+              "receiver": "did:weid:101:0x7ed16eca3b0737227bc986dd0f2851f644cf4754",
+              "weid": "did:weid:101:0xfd28ad212a2de77fee518b4914b8579a40c601fa"
+          },
+          "id": "21d10ab1-75fe-4733-9f1d-f0bad71b5922",
+          "proof": {
+              "created": 1580996777,
+              "creator": "did:weid:101:0xfd28ad212a2de77fee518b4914b8579a40c601fa#keys-0",
+              "salt": {
+                  "content": "ncZ5F",
+                  "receiver": "L0c40",
+                  "weid": "I4aop"
+              },
+              "signatureValue": "{"claim":"{\"acc\":\"0x7773420d753e69eab620f2ce5b198bddb61f420c1e53495db6b7f47048e34b7f\",\"name\":\"0x8ba4c2d57e830a9810824716f94d3d734e5c17e77835570a2d9e184248d855cf\"}","context":"https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1","cptId":10,"expirationDate":2218367553,"id":"90a65d0a-eb3b-4ba4-882e-e6d48bb1256e","issuanceDate":1581422279,"issuer":"did:weid:101:0xb81d7948beedda55b46ce0da827bc21b0919736e","proof":null,"type":["VerifiableCredential","hashTree"]}",
+              "type": "Secp256k1"
+          },
+          "type": [
+              "VerifiableCredential",
+              "hashTree"
+          ],
+          "issuer": "did:weid:101:0xfd28ad212a2de77fee518b4914b8579a40c601fa",
+          "expirationDate": 4111737153
+      },
+      "errorCode": 0,
+      "errorMessage": "success"
+    }
+
+接下来，您只需要将这个CredentialPojo里面的签名值（proof中的signatureValue项）使用Issuer的私钥进行签名并Base64编码，就能得到一个正确的CredentialPojo了。
+
+使用ECDSA私钥进行签名和Base64编码的范例代码见下：
+
+.. code-block:: java
+
+    String signature = DataToolUtils.sign(signatureValue, privateKey);
 
 WeIdentity Endpoint Service API
 ------------------------------------
