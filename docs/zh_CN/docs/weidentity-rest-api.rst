@@ -1223,6 +1223,13 @@ WeIdentity RestService API 说明文档
         String base64SignedMsg = new String(
             DataToolUtils.base64Encode(TransactionEncoderUtilV2.simpleSignatureSerialization(clientSignedData)));
 
+.. note::
+    请注意使用的ECDSA签名算法的编码格式。一般来说，ECDSA的签名算法会生成R，S，V三个值，其中R和S是32个字节的二进制字节数组，而V，在以太坊原生的ECDSA算法里一般是0或1（有些签名族算法甚至不会提供V值）。您需要将R，S，V存入一个65个字节长的二进制字节数组，再进行Base64编码方可正确由RestService解析。
+    RestService只接受两种组成方式：
+    - 按照R, S, V的顺序拼接成一个65个字节长的数组并使用Base64编码（WeID Go轻客户端默认方式）
+    - 按照V+27, R, S的顺序拼接成一个65个字节长的数组并使用Base64编码（WeID Java SDK默认序列化方式）
+
+
 - 第二次交互
 
 调用接口：
