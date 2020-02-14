@@ -104,7 +104,7 @@ WeIdentity目前支持基于FISCO-BCOS的区块链，并提供Java SDK及RestSer
             </td>
          </tr>
       </table>
-      <br />
+      <br/>
     </embed>
 
 感受WeIdentity
