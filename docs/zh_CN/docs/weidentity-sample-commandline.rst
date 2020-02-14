@@ -4,7 +4,7 @@
 整体介绍
 ~~~~~~~~
 
-命令行方式比较完整的模拟了各个 \ `WeIdentity 角色 <https://weidentity.readthedocs.io/zh_CN/latest/docs/weidentity-spec.html#id9>`__\ 的工作流程，可以帮您快速体验 WeIdentity 也业务流程和运行机制。
+命令行方式比较完整的模拟了各个 \ `WeIdentity 角色 <./weidentity-spec.html#id9>`__\ 的工作流程，可以帮您快速体验 WeIdentity 也业务流程和运行机制。
 各个角色的基本流程如下：
 
 - Issuer
@@ -44,8 +44,8 @@
 -  安装部署 weid-java-sdk
 
    weid-sample 需要依赖 weid-java-sdk，您需要参考\ `WeIdentity JAVA
-   SDK安装部署 <https://weidentity.readthedocs.io/zh_CN/latest/docs/weidentity-installation.html>`__\ 完成
-   weid-java-sdk 的安装部署，并参照\ `Java应用集成章节 <https://weidentity.readthedocs.io/zh_CN/latest/docs/weidentity-build-with-deploy.html#weid-java-sdk>`__\ 完成
+   SDK安装部署 <./weidentity-installation.html>`__\ 完成
+   weid-java-sdk 的安装部署，并参照\ `Java应用集成章节 <./weidentity-build-with-deploy.html#weid-java-sdk>`__\ 完成
    weid-sample 的配置。
 
 
@@ -57,7 +57,7 @@
   若您是智能合约发布的机构，您可以参考以下进行配置：
 
 
-将您在\ `部署WeIdentity智能合约阶段 <https://weidentity.readthedocs.io/zh_CN/latest/docs/weidentity-build-with-deploy.html#id7>`__\ 生成的私钥文件拷贝至
+将您在\ `部署WeIdentity智能合约阶段 <./weidentity-build-with-deploy.html#id7>`__\ 生成的私钥文件拷贝至
 ``weid-sample/keys/priv/`` 目录中，此私钥后续将用于注册 Authority Issuer，weid-sample 会自动加载。
 
 
