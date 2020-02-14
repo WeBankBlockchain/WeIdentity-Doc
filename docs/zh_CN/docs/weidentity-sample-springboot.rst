@@ -24,15 +24,15 @@ spring-boot服务方式使用
 -  安装部署 weid-java-sdk
 
    weid-sample 需要依赖 weid-java-sdk，您需要参考\ `WeIdentity JAVA
-   SDK安装部署 <https://weidentity.readthedocs.io/zh_CN/latest/docs/weidentity-installation.html>`__\ 完成
+   SDK安装部署 <./weidentity-installation.html>`__\ 完成
    weid-java-sdk
-   的安装部署，并参照\ `Java应用集成章节 <https://weidentity.readthedocs.io/zh_CN/latest/docs/weidentity-build-with-deploy.html#weid-java-sdk>`__\ 完成
+   的安装部署，并参照\ `Java应用集成章节 <./weidentity-build-with-deploy.html#weid-java-sdk>`__\ 完成
    weid-sample 的配置。
 
 
 -  配置 Committee Member 私钥
 
-   将您在\ `部署WeIdentity智能合约阶段 <https://weidentity.readthedocs.io/zh_CN/latest/docs/weidentity-build-with-deploy.html#id7>`__\ 生成的私钥文件拷贝至
+   将您在\ `部署WeIdentity智能合约阶段 <./weidentity-build-with-deploy.html#id7>`__\ 生成的私钥文件拷贝至
    ``weid-sample/keys/priv/`` 目录中，此私钥后续将用于注册 Authority Issuer，weid-sample 会自动加载。
 
 .. note::
