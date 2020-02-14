@@ -1212,7 +1212,16 @@ WeIdentity RestService API 说明文档
 调用者随后需要使用自己的私钥对encodeTransaction进行交易签名，然后使用Base64对其进行编码，和data、nonce一起待用，
 进行第二次交互。
 
-使用ECDSA私钥进行签名和Base64编码的范例代码见下：
+
+.. note::
+    请注意使用的ECDSA签名算法的编码格式。WeID Java SDK所使用的是椭圆曲线Secp256k1算法，这也是WeID Go轻客户端的默认算法。一般来说，ECDSA的签名算法会生成R，S，V三个值，其中R和S是32个字节的二进制字节数组，而V，以太坊原生的Secp256k1算法的结果一般是0或1。
+    
+.. note::
+    当您生成签名的R，S，V之后，您需要将R，S，V存入一个65个字节长的二进制字节数组，再进行Base64编码方可正确由RestService解析。RestService只接受两种组成方式：
+    1. 按照R, S, V的顺序拼接成一个65个字节长的数组并使用Base64编码（这是WeID Go轻客户端默认方式，此时V的值为0或1）
+    2. 按照V+27, R, S的顺序拼接成一个65个字节长的数组并使用Base64编码（这是WeID Java SDK默认序列化方式，此时V的值为27或28）
+
+您可以参考Java侧的客户端代码，使用默认Secp256k1私钥进行签名和Base64编码的范例代码见下：
 
 .. code-block:: java
 
@@ -1222,14 +1231,6 @@ WeIdentity RestService API 说明文档
         SignatureData clientSignedData = Sign.getSignInterface().signMessage(encodedTransactionClient, ecKeyPair);
         String base64SignedMsg = new String(
             DataToolUtils.base64Encode(TransactionEncoderUtilV2.simpleSignatureSerialization(clientSignedData)));
-
-.. note::
-    请注意使用的ECDSA签名算法的编码格式。WeID Java SDK所使用的是椭圆曲线Secp256k1算法，这也是WeID Go轻客户端的默认算法。一般来说，ECDSA的签名算法会生成R，S，V三个值，其中R和S是32个字节的二进制字节数组，而V，以太坊原生的Secp256k1算法的结果一般是0或1。
-    
-.. note::
-    当您生成签名的R，S，V之后，您需要将R，S，V存入一个65个字节长的二进制字节数组，再进行Base64编码方可正确由RestService解析。RestService只接受两种组成方式：
-    1. 按照R, S, V的顺序拼接成一个65个字节长的数组并使用Base64编码（WeID Go轻客户端默认方式）
-    2. 按照V+27, R, S的顺序拼接成一个65个字节长的数组并使用Base64编码（WeID Java SDK默认序列化方式）
 
 
 - 第二次交互
