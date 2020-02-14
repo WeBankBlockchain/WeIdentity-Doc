@@ -129,7 +129,7 @@ WeIdentity RestService API 说明文档
     {
         "ErrorCode": 0,
         "ErrorMessage": "success",
-        "respBody": "did:weid:0x12025448644151248e5c1115b23a3fe55f4158e4153"
+        "respBody": "did:weid:0xfd28ad212a2de77fee518b4914b8579a40c601fa"
     }
 
 3. 获取WeIdentity DID Document
@@ -166,7 +166,7 @@ WeIdentity RestService API 说明文档
      - 
      - Y
    * - functionArg.weId
-     - WeIdentity DID，与 `SDK直接调用的方式入参 <https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/docs/weidentity-java-sdk-doc.html#getweiddocment>`_ 一致，下同
+     - WeIdentity DID，与SDK直接调用的方式入参要求一致，下同
      - Y
    * - transactionArg
      - 
@@ -181,7 +181,7 @@ WeIdentity RestService API 说明文档
 
     {
         "functionArg": {
-            "weId": "did:weid:0x12025448644151248e5c1115b23a3fe55f4158e4153"
+            "weId": "did:weid:0xfd28ad212a2de77fee518b4914b8579a40c601fa"
         },
         "transactionArg": {
         },
@@ -212,7 +212,7 @@ WeIdentity RestService API 说明文档
     {
         "respBody": {
             "@context" : "https://w3id.org/did/v1",
-            "id" : "did:weid:0x12025448644151248e5c1115b23a3fe55f4158e4153",
+            "id" : "did:weid:0xfd28ad212a2de77fee518b4914b8579a40c601fa",
             "created" : 1553224394993,
             "updated" : 1553224394993,
             "publicKey" : [ ],
@@ -259,7 +259,7 @@ WeIdentity RestService API 说明文档
      - 
      - Y
    * - functionArg.weId
-     - WeIdentity DID，与 `SDK直接调用的方式入参 <https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/docs/weidentity-java-sdk-doc.html#registercpt>`_ 一致，下同
+     - WeIdentity DID，与SDK直接调用的方式入参一致，下同
      - Y
    * - functionArg.name
      - 机构名
@@ -284,7 +284,7 @@ WeIdentity RestService API 说明文档
             "name": "Sample College"
         },
         "transactionArg": {
-            "invokerWeId": "did:weid:0x12025448644151248e5c1115b23a3fe55f4158e4153"
+            "invokerWeId": "did:weid:0xfd28ad212a2de77fee518b4914b8579a40c601fa"
         },
         "functionName": "registerAuthorityIssuer",
         "v": "1.0.0"
@@ -352,7 +352,7 @@ WeIdentity RestService API 说明文档
      - 
      - Y
    * - functionArg.weId
-     - WeIdentity DID，与 `SDK直接调用的方式入参 <https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/docs/weidentity-java-sdk-doc.html#queryauthorityissuer>`_ 一致，下同
+     - WeIdentity DID，与SDK直接调用的方式入参一致，下同
      - Y
    * - transactionArg
      - 
@@ -440,7 +440,7 @@ WeIdentity RestService API 说明文档
      - 
      - Y
    * - functionArg.cptJsonSchema
-     - CPT Json Schema，与 `SDK直接调用的方式入参 <https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/docs/weidentity-java-sdk-doc.html#registercpt>`_ 一致，下同
+     - CPT Json Schema，与SDK直接调用的方式入参一致，下同
      - Y
    * - functionArg.weId
      - CPT创建者
@@ -568,7 +568,7 @@ WeIdentity RestService API 说明文档
      - 
      - Y
    * - functionArg.cptId
-     - CPT ID，与 `SDK直接调用的方式入参 <https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/docs/weidentity-java-sdk-doc.html#querycpt>`_ 一致。
+     - CPT ID，与SDK直接调用的方式入参一致。
      - Y
    * - transactionArg
      - 
@@ -672,7 +672,7 @@ WeIdentity RestService API 说明文档
      - 
      - Y
    * - functionArg.claim
-     - claim Json结构体，与 `SDK直接调用的方式入参 <https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/docs/weidentity-java-sdk-doc.html#createcredential>`_ 一致，下同     
+     - claim Json结构体，与SDK直接调用的方式入参一致，下同     
      - Y
    * - functionArg.cptId
      - CPT ID
@@ -700,7 +700,7 @@ WeIdentity RestService API 说明文档
     {
         "functionArg": {
             "cptId": 10,
-            "issuer": "did:weid:0x12025448644151248e5c1115b23a3fe55f4158e4153",
+            "issuer": "did:weid:0xfd28ad212a2de77fee518b4914b8579a40c601fa",
             "expirationDate": "2019-04-18T21:12:33Z",
             "claim": {
                 "name": "zhang san",
@@ -709,7 +709,7 @@ WeIdentity RestService API 说明文档
             },
         },
         "transactionArg": {
-            "invokerWeId": "did:weid:0x12025448644151248e5c1115b23a3fe55f4158e4153"
+            "invokerWeId": "did:weid:0xfd28ad212a2de77fee518b4914b8579a40c601fa"
         },
         "functionName": "createCredential",
         "v": "1.0.0"
@@ -795,7 +795,7 @@ WeIdentity RestService API 说明文档
      - 
      - Y
    * - functionArg.claim
-     - claim Json 结构体，与 `SDK直接调用的方式入参 <https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/docs/weidentity-java-sdk-doc.html#verify>`_ 一致，下同
+     - claim Json 结构体，与SDK直接调用的方式入参一致，下同
      - Y
    * - functionArg.cptId
      - CPT ID
@@ -918,7 +918,7 @@ WeIdentity RestService API 说明文档
      - 
      - Y
    * - functionArg.claim
-     - claim Json结构体，与 `SDK直接调用的方式入参 <https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/docs/weidentity-java-sdk-doc.html#createcredential>`_ 一致，下同     
+     - claim Json结构体，与SDK直接调用的方式入参一致，下同     
      - Y
    * - functionArg.cptId
      - CPT ID
@@ -946,7 +946,7 @@ WeIdentity RestService API 说明文档
     {
         "functionArg": {
             "cptId": 10,
-            "issuer": "did:weid:0x12025448644151248e5c1115b23a3fe55f4158e4153",
+            "issuer": "did:weid:0xfd28ad212a2de77fee518b4914b8579a40c601fa",
             "expirationDate": "2019-04-18T21:12:33Z",
             "claim": {
                 "name": "zhang san",
@@ -955,7 +955,7 @@ WeIdentity RestService API 说明文档
             },
         },
         "transactionArg": {
-            "invokerWeId": "did:weid:0x12025448644151248e5c1115b23a3fe55f4158e4153"
+            "invokerWeId": "did:weid:0xfd28ad212a2de77fee518b4914b8579a40c601fa"
         },
         "functionName": "createCredentialPojo",
         "v": "1.0.0"
@@ -1050,7 +1050,7 @@ WeIdentity RestService API 说明文档
      - 
      - Y
    * - functionArg.claim
-     - claim Json 结构体，与 `SDK直接调用的方式入参 <https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/docs/weidentity-java-sdk-doc.html#verify>`_ 一致，下同
+     - claim Json 结构体，与SDK直接调用的方式入参要求一致，下同
      - Y
    * - functionArg.cptId
      - CPT ID
@@ -1372,7 +1372,7 @@ WeIdentity RestService API 说明文档
     {
         "ErrorCode": 0,
         "ErrorMessage": "success",
-        "respBody": "did:weid:0x12025448644151248e5c1115b23a3fe55f4158e4153"
+        "respBody": "did:weid:0xfd28ad212a2de77fee518b4914b8579a40c601fa"
     }
 
 3. 注册Authority Issuer
@@ -1397,7 +1397,7 @@ WeIdentity RestService API 说明文档
      - 机构名
      - Y
    * - functionArg.weId
-     - WeIdentity DID，与 `SDK直接调用的方式入参 <https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/docs/weidentity-java-sdk-doc.html#registercpt>`_ 一致，下同
+     - WeIdentity DID，与SDK直接调用的方式入参要求一致
      - Y
    * - transactionArg
      - 
@@ -1416,7 +1416,7 @@ WeIdentity RestService API 说明文档
     {
         "functionArg": {
             "name": "BV-College",
-            "weId": "did:weid:0x12025448644151248e5c1115b23a3fe55f4158e4153"
+            "weId": "did:weid:0xfd28ad212a2de77fee518b4914b8579a40c601fa"
         },
         "transactionArg": {
             "nonce": "1474800601011307365506121304576347479508653499989424346408343855615822146039"
@@ -1466,7 +1466,7 @@ WeIdentity RestService API 说明文档
             "accValue": ,
             "created": "1581420650",
             "name": "BV-College",
-            "weId": "did:weid:0x12025448644151248e5c1115b23a3fe55f4158e4153"
+            "weId": "did:weid:0xfd28ad212a2de77fee518b4914b8579a40c601fa"
         }
     }
 
@@ -1489,7 +1489,7 @@ WeIdentity RestService API 说明文档
      - 
      - Y
    * - functionArg.cptJsonSchema
-     - CPT Json Schema，与 `SDK直接调用的方式入参 <https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/docs/weidentity-java-sdk-doc.html#registercpt>`_ 一致，下同
+     - CPT Json Schema，与SDK直接调用的方式入参要求一致，下同
      - Y
    * - functionArg.weId
      - CPT创建者
@@ -1545,7 +1545,7 @@ WeIdentity RestService API 说明文档
         "transactionArg": {
             "nonce": "1474800601011307365506121304576347479508653499989424346408343855615822146039"
         },
-        "functionName": "registerAuthorityIssuer",
+        "functionName": "registerCpt",
         "v": "1.0.0"
     }
 
@@ -1613,7 +1613,7 @@ POST /weid/api/encode 接口入参
      - 
      - Y
    * - functionArg.claim
-     - claim Json结构体，与 `SDK直接调用的方式入参 <https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/docs/weidentity-java-sdk-doc.html#createcredential>`_ 一致，下同     
+     - claim Json结构体，与SDK直接调用的方式入参一致，下同     
      - Y
    * - functionArg.cptId
      - CPT ID
@@ -1638,7 +1638,7 @@ POST /weid/api/encode 接口入参
     {
         "functionArg": {
             "cptId": 10,
-            "issuer": "did:weid:0x12025448644151248e5c1115b23a3fe55f4158e4153",
+            "issuer": "did:weid:0xfd28ad212a2de77fee518b4914b8579a40c601fa",
             "expirationDate": "2019-04-18T21:12:33Z",
             "claim": {
                 "name": "zhang san",
@@ -1804,7 +1804,7 @@ WeIdentity Endpoint Service API
 .. code-block:: java
 
     {
-        "body": "did:weid:0x12025448644151248e5c1115b23a3fe55f4158e4153```25"
+        "body": "did:weid:0xfd28ad212a2de77fee518b4914b8579a40c601fa```25"
     }
 
 
