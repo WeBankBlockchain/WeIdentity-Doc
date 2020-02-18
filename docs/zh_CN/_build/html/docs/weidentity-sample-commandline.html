@@ -1,0 +1,448 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>命令行方式使用 &mdash; WeIdentity  文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/index.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="spring-boot服务方式使用" href="weidentity-sample-springboot.html" />
+    <link rel="prev" title="WeIdentity Sample 开发样例" href="weidentity-sample.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> WeIdentity
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">什么是 WeIdentity？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="one-stop-experience.html">WeIdentity 一站式体验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terminologies.html">术语</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use-cases.html">使用场景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-spec.html">WeIdentity 规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-installation.html">WeIdentity Java SDK 安装部署</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/">WeIdentity Java SDK 文档</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="weidentity-sample.html">WeIdentity Sample 开发样例</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="weidentity-sample.html#id2">环境准备</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="weidentity-sample.html#id3">快速体验</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">命令行方式使用</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">整体介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">1. 配置与部署</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">2. 流程演示</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="weidentity-sample-springboot.html">spring-boot服务方式使用</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="miscellaneous.html">杂项</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-rest.html">WeIdentity RestService</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-endpoint.html">WeIdentity Endpoint Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-contract-design.html">WeIdentity 智能合约设计与实现</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">WeIdentity</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="weidentity-sample.html">WeIdentity Sample 开发样例</a> &raquo;</li>
+        
+      <li>命令行方式使用</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/docs/weidentity-sample-commandline.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>命令行方式使用<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>整体介绍<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>命令行方式比较完整的模拟了各个 <a class="reference external" href="./weidentity-spec.html#id9">WeIdentity 角色</a>的工作流程，可以帮您快速体验 WeIdentity 也业务流程和运行机制。
+各个角色的基本流程如下：</p>
+<ul class="simple">
+<li><p>Issuer</p></li>
+</ul>
+<blockquote>
+<div><div class="line-block">
+<div class="line">创建 WeID</div>
+<div class="line">注册成为 Authority Issuer</div>
+<div class="line">注册 CPT</div>
+<div class="line">创建 Credential</div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li><p>User Agent</p></li>
+</ul>
+<blockquote>
+<div><div class="line-block">
+<div class="line">创建 WeID</div>
+<div class="line">通过 AMOP 获取 Verifier 发布的 Presentation Policy</div>
+<div class="line">创建 Presentation</div>
+<div class="line">打包 Presentation 成 QRcode 或者 Json 串，发送给 Verifier</div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li><p>Verifier</p></li>
+</ul>
+<blockquote>
+<div><div class="line-block">
+<div class="line">获取 User Agent 的 Presentation</div>
+<div class="line">验证 Presentation</div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="id3">
+<h2>1. 配置与部署<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="section" id="weid-sample">
+<h3>1.1 下载 weid-sample 源码：<a class="headerlink" href="#weid-sample" title="永久链接至标题">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/WeBankFinTech/weid-sample.git
+</pre></div>
+</div>
+</div>
+<div class="section" id="weid-java-sdk">
+<h3>1.2 部署 weid-java-sdk 与配置基本信息<a class="headerlink" href="#weid-java-sdk" title="永久链接至标题">¶</a></h3>
+<ul>
+<li><p>安装部署 weid-java-sdk</p>
+<p>weid-sample 需要依赖 weid-java-sdk，您需要参考<a class="reference external" href="./weidentity-installation.html">WeIdentity JAVA
+SDK安装部署</a>完成
+weid-java-sdk 的安装部署，并参照<a class="reference external" href="./weidentity-build-with-deploy.html#weid-java-sdk">Java应用集成章节</a>完成
+weid-sample 的配置。</p>
+</li>
+<li><p>配置 Committee Member 私钥</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>此项配置并非必要。由于注册 Authority Issuer 需要委员会机构成员（ Committee Member ）权限，若您不是发布智能合约的机构，您无需关注此配置项。
+若您是智能合约发布的机构，您可以参考以下进行配置：</p>
+</div>
+<p>将您在<a class="reference external" href="./weidentity-build-with-deploy.html#id7">部署WeIdentity智能合约阶段</a>生成的私钥文件拷贝至
+<code class="docutils literal notranslate"><span class="pre">weid-sample/keys/priv/</span></code> 目录中，此私钥后续将用于注册 Authority Issuer，weid-sample 会自动加载。</p>
+<ul class="simple">
+<li><p>修改节点和机构配置</p></li>
+</ul>
+<p>多个角色之间会使用 <a class="reference external" href="https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/manual/amop_protocol.html">AMOP</a> 进行通信，根据 AMOP 协议，每个机构需要配置为连接不同的区块链节点。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> weid-sample
+vim src/main/resources/weidentity.properties
+</pre></div>
+</div>
+<p>关键配置如下：</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">blockchain.orgid</span></code> ：机构名称。样例以 organizationA 为例，请修改为 organizationA。</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">nodes</span></code> ：区块链节点信息。你可以修改为您区块链网络中的任一节点即可。</div>
+</div>
+</div></blockquote>
+<p>配置样例：</p>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">blockchain.orgid</span><span class="o">=</span><span class="s">organizationA</span>
+<span class="na">nodes</span><span class="o">=</span><span class="s">10.10.10.10:20200</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>编译 weid-sample</p></li>
+</ul>
+<p>如果您是第一次运行 weid-sample，您需要先进行编译：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>chmod +x *.sh
+./build.sh
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>启动 AMOP 服务</p></li>
+</ul>
+<p>weid-sample 里的 AMOP 服务是模拟 Verifier 向 User Agent 发送获取秘钥的请求，因此 Verifier 和 User Agent 需要连接同一条链中的不同的区块链节点。
+先启动 Verifier 进程：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./command.sh daemon
+</pre></div>
+</div>
+<p>运行成功，会启动 Verifier 的 AMOP 服务，输出如下日志：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>the AMOP server start success.
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>修改 User Agent 配置</p></li>
+</ul>
+<p>在启动完 Verifier 进程之后，还需要修改 User Agent 的配置，确保 User Agent 连接的区块链节点和 Verifier 连接的区块链节点在同一条链上，且连接的是不同的区块链节点：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vim dist/conf/weidentity.properties
+</pre></div>
+</div>
+<p>此处主要是修改机构名称和区块链节点配置，要确保和 Verifier 连接的不是同一个区块链节点。</p>
+<p>配置样例：</p>
+<div class="highlight-properties notranslate"><div class="highlight"><pre><span></span><span class="na">blockchain.orgid</span><span class="o">=</span><span class="s">organizationB</span>
+<span class="na">nodes</span><span class="o">=</span><span class="s">10.10.10.11:20200</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>2. 流程演示<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>Issuer 操作流程演示</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./command.sh issuer
+</pre></div>
+</div>
+<p>若运行成功，则会打印包括创建 WeID、注册成为 Authority Issuer、注册 CPT 和创建 Credential 等运行流程。</p>
+<p>以下为截取的部分流程日志：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------</span> <span class="n">start</span> <span class="n">issuer</span> <span class="o">----------</span>
+<span class="n">issuer</span><span class="p">()</span> <span class="n">init</span><span class="o">...</span>
+
+<span class="n">begin</span> <span class="n">to</span> <span class="n">createWeId</span><span class="o">...</span>
+
+<span class="n">createWeId</span> <span class="n">result</span><span class="p">:</span>
+
+<span class="n">result</span><span class="p">:(</span><span class="n">com</span><span class="o">.</span><span class="n">webank</span><span class="o">.</span><span class="n">weid</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">CreateWeIdDataResult</span><span class="p">)</span>
+<span class="n">weId</span><span class="p">:</span> <span class="n">did</span><span class="p">:</span><span class="n">weid</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mh">0x7a276b294ecf0eb7b917765f308f024af2c99a38</span>
+<span class="n">userWeIdPublicKey</span><span class="p">:(</span><span class="n">com</span><span class="o">.</span><span class="n">webank</span><span class="o">.</span><span class="n">weid</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">base</span><span class="o">.</span><span class="n">WeIdPublicKey</span><span class="p">)</span>
+    <span class="n">publicKey</span><span class="p">:</span> <span class="mi">1443108387689714733821851716463554592846955595194902087319775398382966796515741745</span>
+    <span class="mi">951182105547115313067791999154982272567881519406873966935891855085705784</span>
+<span class="n">userWeIdPrivateKey</span><span class="p">:(</span><span class="n">com</span><span class="o">.</span><span class="n">webank</span><span class="o">.</span><span class="n">weid</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">base</span><span class="o">.</span><span class="n">WeIdPrivateKey</span><span class="p">)</span>
+    <span class="n">privateKey</span><span class="p">:</span> <span class="mi">46686865859949148045125507514815998920467147178097685958028816903332430030079</span>
+<span class="n">errorCode</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">errorMessage</span><span class="p">:</span> <span class="n">success</span>
+<span class="n">transactionInfo</span><span class="p">:(</span><span class="n">com</span><span class="o">.</span><span class="n">webank</span><span class="o">.</span><span class="n">weid</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">TransactionInfo</span><span class="p">)</span>
+<span class="n">blockNumber</span><span class="p">:</span> <span class="mi">2098</span>
+<span class="n">transactionHash</span><span class="p">:</span> <span class="mh">0x20fc5c2730e4636248b121d31ffdbf7fa12e95185068fc1dea060d1afa9d554e</span>
+<span class="n">transactionIndex</span><span class="p">:</span> <span class="mi">0</span>
+
+<span class="n">begin</span> <span class="n">to</span> <span class="n">setPublicKey</span><span class="o">...</span>
+
+<span class="n">setPublicKey</span> <span class="n">result</span><span class="p">:</span>
+
+<span class="n">result</span><span class="p">:</span> <span class="n">true</span>
+<span class="n">errorCode</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">errorMessage</span><span class="p">:</span> <span class="n">success</span>
+<span class="n">transactionInfo</span><span class="p">:(</span><span class="n">com</span><span class="o">.</span><span class="n">webank</span><span class="o">.</span><span class="n">weid</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">TransactionInfo</span><span class="p">)</span>
+<span class="n">blockNumber</span><span class="p">:</span> <span class="mi">2099</span>
+<span class="n">transactionHash</span><span class="p">:</span> <span class="mh">0x498d2bfd2d8ffa297af699c788e80de1bd51c255a7365307624637ae5a42f3a1</span>
+<span class="n">transactionIndex</span><span class="p">:</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>User Agent 操作流程演示</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./command.sh user_agent
+</pre></div>
+</div>
+<p>运行成功，则会打印包括创建 WeID、 通过 AMOP 获取 Verifier 发布的 Presentation Policy、创建 Presentation 以及打包 Presentation 成 QRcode 或者 Json 串的流程。
+以下为截取的部分日志：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------</span> <span class="n">start</span> <span class="n">User</span> <span class="n">Agent</span> <span class="o">----------</span>
+<span class="n">userAgent</span><span class="p">()</span> <span class="n">init</span><span class="o">...</span>
+
+<span class="n">begin</span> <span class="n">to</span> <span class="n">create</span> <span class="n">weId</span> <span class="k">for</span> <span class="n">useragent</span><span class="o">...</span>
+
+<span class="n">createWeId</span> <span class="n">result</span><span class="p">:</span>
+
+<span class="n">result</span><span class="p">:(</span><span class="n">com</span><span class="o">.</span><span class="n">webank</span><span class="o">.</span><span class="n">weid</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">CreateWeIdDataResult</span><span class="p">)</span>
+<span class="n">weId</span><span class="p">:</span> <span class="n">did</span><span class="p">:</span><span class="n">weid</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mh">0x38198689923961e8ecd6d57d88d027b1a6d1daf2</span>
+<span class="n">userWeIdPublicKey</span><span class="p">:(</span><span class="n">com</span><span class="o">.</span><span class="n">webank</span><span class="o">.</span><span class="n">weid</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">base</span><span class="o">.</span><span class="n">WeIdPublicKey</span><span class="p">)</span>
+    <span class="n">publicKey</span><span class="p">:</span> <span class="mi">12409513077193959265896252693672990701614851618753940603742819290794422690048786166</span>
+    <span class="mi">777486244492302423653282585338774488347536362368216536452956852123869456</span>
+<span class="n">userWeIdPrivateKey</span><span class="p">:(</span><span class="n">com</span><span class="o">.</span><span class="n">webank</span><span class="o">.</span><span class="n">weid</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">base</span><span class="o">.</span><span class="n">WeIdPrivateKey</span><span class="p">)</span>
+    <span class="n">privateKey</span><span class="p">:</span> <span class="mi">11700070604387246310492373601720779844791990854359896181912833510050901695117</span>
+<span class="n">errorCode</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">errorMessage</span><span class="p">:</span> <span class="n">success</span>
+<span class="n">transactionInfo</span><span class="p">:(</span><span class="n">com</span><span class="o">.</span><span class="n">webank</span><span class="o">.</span><span class="n">weid</span><span class="o">.</span><span class="n">protocol</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">TransactionInfo</span><span class="p">)</span>
+<span class="n">blockNumber</span><span class="p">:</span> <span class="mi">2107</span>
+<span class="n">transactionHash</span><span class="p">:</span> <span class="mh">0x2474141b82c367d8d5770a7f4d124aeaf985e7fa3e3e2f7f98eeed3d38d862f5</span>
+<span class="n">transactionIndex</span><span class="p">:</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Verifier 操作流程演示</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./command.sh verifier
+</pre></div>
+</div>
+<p>运行成功，则会打印 Verifier 反序列化 Presentation 以及验证 Presentation 的过程。
+以下为截取的部分日志，详细流程可以参考代码实现：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------</span> <span class="n">start</span> <span class="n">verifier</span> <span class="o">----------</span>
+<span class="n">verifier</span><span class="p">()</span> <span class="n">init</span><span class="o">...</span>
+
+<span class="n">begin</span> <span class="n">get</span> <span class="n">the</span> <span class="n">presentation</span> <span class="n">json</span><span class="o">...</span>
+</pre></div>
+</div>
+<p>至此，您已经体验了 weid-sample 实现的各个角色的运行流程，实现的入口类在weid-sample工程的 <code class="docutils literal notranslate"><span class="pre">com.webank.weid.demo.command.DemoCommand</span></code>，您可以参考进行您的 Java 应用开发。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="weidentity-sample-springboot.html" class="btn btn-neutral float-right" title="spring-boot服务方式使用" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="weidentity-sample.html" class="btn btn-neutral" title="WeIdentity Sample 开发样例" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright (2018) WeBank Co., Ltd.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

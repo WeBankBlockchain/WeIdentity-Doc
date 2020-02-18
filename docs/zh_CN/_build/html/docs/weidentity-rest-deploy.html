@@ -1,0 +1,388 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>WeIdentity RestService 部署文档 &mdash; WeIdentity  文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/index.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="WeIdentity RestService API 说明文档" href="weidentity-rest-api.html" />
+    <link rel="prev" title="WeIdentity RestService" href="weidentity-rest.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> WeIdentity
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">什么是 WeIdentity？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="one-stop-experience.html">WeIdentity 一站式体验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terminologies.html">术语</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use-cases.html">使用场景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-spec.html">WeIdentity 规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-installation.html">WeIdentity Java SDK 安装部署</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/">WeIdentity Java SDK 文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-sample.html">WeIdentity Sample 开发样例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="miscellaneous.html">杂项</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="weidentity-rest.html">WeIdentity RestService</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="weidentity-rest.html#restservice">部署RestService</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">WeIdentity RestService 部署文档</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#server">1. Server 部署说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">2. Server 使用说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#postman-restserver-api">3. 使用 Postman 访问 RestServer 的 API</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="weidentity-rest.html#id2">使用RestService</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weidentity-rest.html#id3">深入了解RestService</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-endpoint.html">WeIdentity Endpoint Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-contract-design.html">WeIdentity 智能合约设计与实现</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">WeIdentity</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="weidentity-rest.html">WeIdentity RestService</a> &raquo;</li>
+        
+      <li>WeIdentity RestService 部署文档</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/docs/weidentity-rest-deploy.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="weidentity-restservice">
+<span id="weidentity-rest-deploy"></span><h1>WeIdentity RestService 部署文档<a class="headerlink" href="#weidentity-restservice" title="永久链接至标题">¶</a></h1>
+<div class="section" id="server">
+<h2>1. Server 部署说明<a class="headerlink" href="#server" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id1">
+<h3>1.1 环境要求<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h3>
+<p>Server 的环境要求与 WeIdentity-Java-SDK 的 <a class="reference external" href="./weidentity-installation.html">环境要求</a> 类似，但它不需要 fisco-solc 编译环境：</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>物料</p></th>
+<th class="head"><p>版本</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CentOS/Ubuntu</p></td>
+<td><p>7.2 / 16.04，64位</p></td>
+<td><p>部署 RestServer 用</p></td>
+</tr>
+<tr class="row-odd"><td><p>JDK</p></td>
+<td><p>1.8+</p></td>
+<td><p>推荐使用 1.8u141 及以上</p></td>
+</tr>
+<tr class="row-even"><td><p>FISCO-BCOS 节点</p></td>
+<td><p>1.3.8（即中央仓库的1.2.5）或 2.x</p></td>
+<td><p>确保它可以和部署 Server 机器互相连通，可 telnet 其 channelPort 端口</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gradle</p></td>
+<td><p>4.6+</p></td>
+<td><p>同时支持 4.x 和 5.x 版本的 Gradle</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h3>1.2 生成安装包<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>您可以从 <a class="reference external" href="https://github.com/WeBankFinTech/weid-http-service">GitHub</a>下载 RestService 的源代码，并进行编译以生成安装包（默认置于 <code class="docutils literal notranslate"><span class="pre">/dist</span></code> 目录下）：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/WeBankFinTech/weid-http-service.git
+$ <span class="nb">cd</span> weid-http-service
+$ gradle build -x <span class="nb">test</span>
+$ <span class="nb">cd</span> dist
+</pre></div>
+</div>
+<p>如果您没有外网连接，也可以从 <a class="reference external" href="https://www.fisco.com.cn/cdn/weidentity/download/releases/weidentity.zip">金链盟CDN</a>下载 WeIdentity RestService 的离线安装包并拷贝进 Server。下载完成后，执行如下命令将 <code class="docutils literal notranslate"><span class="pre">http-service-dist.zip</span></code> 解压：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ unzip http-service-dist.zip
+</pre></div>
+</div>
+<p>两种方式均可以生成如下结构的安装包：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>└─ dist
+  ├─ app: 启动jar包
+  ├─ lib: 依赖库
+  ├─ conf: 配置文件
+  ├─ keys/priv: 托管私钥
+  ├─ server_status.sh：监控系统运行状态
+  ├─ start.sh：启动RestServer
+  └─ stop.sh：停止RestServer
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>1.3 修改配置文件<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>首先，确认 WeIdentity 合约已部署完毕，同时您所部署的 FISCO-BCOS 节点可以正常连通。目前支持 1.3.x 及 2.x 的 FISCO-BCOS 节点。</p></li>
+<li><p>拷贝节点证书。您需要将节点的 <code class="docutils literal notranslate"><span class="pre">ca.crt</span></code> 、节点SDK目录下的 <code class="docutils literal notranslate"><span class="pre">node.crt、node.key</span></code> 拷贝到 <code class="docutils literal notranslate"><span class="pre">dist/conf</span></code> 目录下。</p></li>
+<li><p>修改合约地址。如果您使用部署工具部署了 WeIdentity 合约，那么只需将部署工具生成的 <code class="docutils literal notranslate"><span class="pre">fisco.properties</span></code> 及 <code class="docutils literal notranslate"><span class="pre">weidentity.properties</span></code> 拷贝到 <code class="docutils literal notranslate"><span class="pre">dist/conf</span></code> 目录下即可。如果您使用源码部署，请手动修改 <code class="docutils literal notranslate"><span class="pre">dist/conf/fisco.properties.tpl</span></code> 及 <code class="docutils literal notranslate"><span class="pre">dist/conf/weidentity.properties.tpl</span></code> ，更新合约地址及区块链节点信息；修改完成后，将两个文件的子扩展名 <code class="docutils literal notranslate"><span class="pre">.tpl</span></code> 去掉。详情：</p></li>
+</ul>
+<p>合约地址修改示例：更新 <code class="docutils literal notranslate"><span class="pre">dist/conf/fisco.properties</span></code> 下列属性中weId、cpt、issuer、evidence合约地址的值。</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>weId.contractaddress=0xedfe29997c7783d618510f2da6510010ad5253f4
+cpt.contractaddress=0x8984cab94b7c3add9c56e6c21d4329e0020d73ad
+issuer.contractaddress=0xb5346fd29ac75e7bb682c548f2951b6f8bf7d754
+evidence.contractaddress=0xddddd42da68a40784f5f63ada7ead9b36a38d2e3
+specificissuer.contractaddress=0x215d5c4b8867ce9f52d1a599c9dfef190201c263
+</pre></div>
+</div>
+<p>区块链节点信息修改示例：更新 <code class="docutils literal notranslate"><span class="pre">dist/conf/weidentity.properties.tpl</span></code> 中 <code class="docutils literal notranslate"><span class="pre">nodes</span></code> 项的值，注意每一条信息都应包含区块链用户、节点IP、节点channel端口地址；多于一个区块链节点，请用 “,” 半角逗号分隔。</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>nodes=WeIdentity@127.0.0.1:8812,WeIdentity@127.0.0.1:8900
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>拷贝您 WeIdentity 合约部署者的私钥到 <code class="docutils literal notranslate"><span class="pre">keys/priv</span></code> 目录下，并重命名为 <code class="docutils literal notranslate"><span class="pre">ecdsa_key</span></code>。如果您使用部署工具部署了 WeIdentity 合约，这个文件在 <code class="docutils literal notranslate"><span class="pre">output/admin/</span></code> 目录。如果您使用源码部署，这个文件在源代码根目录下。</p></li>
+<li><p>修改 <code class="docutils literal notranslate"><span class="pre">dist/conf/application.properties</span></code> ，填入需要打开的监听端口地址（用于 RestServer 监听外来的 HTTP/HTTPS RESTful 请求，默认为 6000/6001，不可被其他程序占用）。同时，请确认用来调用默认合约部署者私钥的暗语；由于此暗语可直接调用 WeIdentity 合约部署者的私钥，权限较高（详见 <a class="reference external" href="./weidentity-rest-api.html">RestService API 说明文档</a>），因此请您务必对其进行修改。</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># HTTPS请求端口</span>
+server.port<span class="o">=</span><span class="m">6001</span>
+<span class="c1"># HTTP请求端口</span>
+server.http.port<span class="o">=</span><span class="m">6000</span>
+<span class="c1"># 合约部署者私钥暗语</span>
+default.passphrase<span class="o">=</span>ecdsa_key
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>2. Server 使用说明<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id6">
+<h3>2.1 Server 启动/停止<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>进入 dist 目录，执行以下命令以启动或停止 Rest Server：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 为脚本文件增加权限</span>
+$ chmod +x *.sh
+<span class="c1"># 启动应用</span>
+$ ./start.sh
+<span class="c1"># 观察应用状态</span>
+$ ./server_status.sh
+<span class="c1"># 停止应用</span>
+$ ./stop.sh
+</pre></div>
+</div>
+<p>执行 <code class="docutils literal notranslate"><span class="pre">./start.sh</span></code> 之后会输出以下提示，表示 RestServer 已经顺利启动：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>========================================================
+Starting com.webank.weid.http.Application ... [SUCCESS]
+========================================================
+</pre></div>
+</div>
+<p>请您通过执行 <code class="docutils literal notranslate"><span class="pre">./server_status.sh</span></code> 确认 RestServer 已经成功启动：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>========================================================
+com.webank.weid.http.Application is running(PID=100891)
+========================================================
+</pre></div>
+</div>
+<p>如果需要停止服务，请执行 <code class="docutils literal notranslate"><span class="pre">./stop.sh</span></code> ，之后会输出以下提示，表示 RestServer 已经顺利停止：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>========================================================
+Stopping com.webank.weid.http.Application ... [SUCCESS]
+========================================================
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="postman-restserver-api">
+<h2>3. 使用 Postman 访问 RestServer 的 API<a class="headerlink" href="#postman-restserver-api" title="永久链接至标题">¶</a></h2>
+<p>RestServer 支持任何使用标准 HTTP/HTTPS 协议的 RESTful API 客户端访问，详细接口说明可见 API 文档。我们提供了一套 Postman 的环境与请求集供快速集成。使用步骤如下：</p>
+<ul class="simple">
+<li><p>点击Postman的Import按钮，导入环境文件 <code class="docutils literal notranslate"><span class="pre">weidentity-restservice.postman_environment.json</span></code> 和请求集 <code class="docutils literal notranslate"><span class="pre">invoke.postman_collection.json</span></code> 。这两个文件可以在 GitHub代码仓库的 <a class="reference external" href="https://github.com/WeBankFinTech/weid-http-service/tree/develop/PostmanConfig">对应目录</a>下找到</p></li>
+<li><dl class="simple">
+<dt>确认 <code class="docutils literal notranslate"><span class="pre">weidentity-restservice</span></code> 这个环境文件已导入成功，它包含两个环境变量 <code class="docutils literal notranslate"><span class="pre">host</span></code> 和 <code class="docutils literal notranslate"><span class="pre">httpport</span></code></dt><dd><ul>
+<li><p>修改环境变量 <code class="docutils literal notranslate"><span class="pre">host</span></code> 属性的值为安装部署 <code class="docutils literal notranslate"><span class="pre">RestServer</span></code> 的服务器地址</p></li>
+<li><p>修改环境变量 <code class="docutils literal notranslate"><span class="pre">httpport</span></code> 属性的值配置文件中的 Server 监听端口地址</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>接下来确认 Invoke 这个命令集已导入成功。如果成功，可以从侧边栏中看到</p></li>
+<li><p>现在，可以调用 Invoke 这个命令集中的各类API了。您可以从无参数请求 CreateWeId 开始，看看返回结果是不是和 API 文档中一致，成功创建了一个 WeIdentity DID。</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="weidentity-rest-api.html" class="btn btn-neutral float-right" title="WeIdentity RestService API 说明文档" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="weidentity-rest.html" class="btn btn-neutral" title="WeIdentity RestService" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright (2018) WeBank Co., Ltd.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

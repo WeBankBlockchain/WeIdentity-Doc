@@ -1,0 +1,1012 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>WeIdentity 规范 &mdash; WeIdentity  文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/index.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="WeIdentity Java SDK 安装部署" href="weidentity-installation.html" />
+    <link rel="prev" title="使用场景" href="use-cases.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> WeIdentity
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">什么是 WeIdentity？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="one-stop-experience.html">WeIdentity 一站式体验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terminologies.html">术语</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use-cases.html">使用场景</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">WeIdentity 规范</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">1. 设计目标</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">2. 相关术语</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#weidentity-did">3. WeIdentity DID</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#weidentity-didweidentity-credential">WeIdentity DID与WeIdentity Credential的关系</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">总体流程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">如何生成WeIdentity DID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#weidentity-document">WeIdentity Document格式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">WeIdentity DID支持操作</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6">创建</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">读取/验证</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">更新</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#weidentity-credential">4. WeIdentity Credential</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">角色和关系</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">场景</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#credential">Credential结构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">区块链上的Credential结构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#claim-protocol-type-cpt">Claim Protocol Type（CPT）注册机制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#claim">Claim示例参考：</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">Credential操作</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id13">创建Credential</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">验证Credential</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">存储/提取Credential</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">撤销 Credential</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">选择性披露</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id18">如何为Credential生成签名</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id19">如何验证选择性披露的Credential</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">Credential撤销</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id21">撤销如何工作</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#issuer-credential">Issuer 如何撤销一个 Credential</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verifier-credential">Verifier 如何验证一个 Credential 有效（未被撤销）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#authority-issuer">5. Authority Issuer注册</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notification">6. Notification</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id24">WeIdentity DID注册事件的通知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id25">WeIdentity DID属性修改的通知</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id26">Notification携带业务数据</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id27">Notification订阅</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id28">7. 引用</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-installation.html">WeIdentity Java SDK 安装部署</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/">WeIdentity Java SDK 文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-sample.html">WeIdentity Sample 开发样例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="miscellaneous.html">杂项</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-rest.html">WeIdentity RestService</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-endpoint.html">WeIdentity Endpoint Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-contract-design.html">WeIdentity 智能合约设计与实现</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">WeIdentity</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>WeIdentity 规范</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/docs/weidentity-spec.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="weidentity">
+<span id="weidentity-spec"></span><h1>WeIdentity 规范<a class="headerlink" href="#weidentity" title="永久链接至标题">¶</a></h1>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>版本</p></th>
+<th class="head"><p>说明</p></th>
+<th class="head"><p>作者</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>V0.1.0</p></td>
+<td><p>完成整体协议框架</p></td>
+<td><p>张俊麒</p></td>
+</tr>
+<tr class="row-odd"><td><p>V0.2.0</p></td>
+<td><p>完善流程，ER等</p></td>
+<td><p>张俊麒</p></td>
+</tr>
+<tr class="row-even"><td><p>V0.3.0</p></td>
+<td><p>添加选择性披露，Notification机制</p></td>
+<td><p>张俊麒</p></td>
+</tr>
+<tr class="row-odd"><td><p>V0.3.1</p></td>
+<td><p>补充WeIdentity Document，增加CPT字段定义</p></td>
+<td><p>陈浩</p></td>
+</tr>
+<tr class="row-even"><td><p>V0.3.2</p></td>
+<td><p>描述修改</p></td>
+<td><p>张俊麒</p></td>
+</tr>
+<tr class="row-odd"><td><p>V0.3.3</p></td>
+<td><p>补充图解及撤销部分实现</p></td>
+<td><p>张俊麒，胡朝新</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id1">
+<h2>1. 设计目标<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<embed>
+  <table border='1' style="width:100%;border-collapse:collapse">
+     <tr>
+        <th width="100">目标</th>
+        <th>说明</th>
+     </tr>
+     <tr>
+        <td>多中心</td>
+        <td>分布式多中心的ID注册机制，摆脱对传统模式下单一中心ID注册的依赖</td>
+     </tr>
+     <tr>
+        <td>开源开放</td>
+        <td>技术方案完全开源，面向政府、企业、开发者服务</td>
+     </tr>
+     <tr>
+        <td>隐私保护</td>
+        <td>实体的现实身份和可验证数字凭证的内容进行链下存储。支持实体将信息最小化或者选择性披露给其他机构，同时防止任何第三方反向推测出实体在现实世界或其他场景语义中的身份</td>
+     </tr>
+     <tr>
+        <td>可移植性</td>
+        <td>基于WeIdentity规范，数据可移植至遵循同样规范的其他平台，兼容业务主流区块链底层平台</td>
+     </tr>
+     <tr>
+        <td>互操作性</td>
+        <td>提供标准化接口，支持跨链、跨平台互操作</td>
+     </tr>
+     <tr>
+        <td>可扩展性</td>
+        <td>保证操作性，可移植性或简单性的情况下，数据模型可以通过多种不同方式进行扩展</td>
+     </tr>
+  </table>
+  <br />
+</embed></div>
+<div class="section" id="id2">
+<h2>2. 相关术语<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>详见：<a class="reference internal" href="terminologies.html#terminologies"><span class="std std-ref">术语表</span></a></p>
+</div>
+<div class="section" id="weidentity-did">
+<h2>3. WeIdentity DID<a class="headerlink" href="#weidentity-did" title="永久链接至标题">¶</a></h2>
+<div class="section" id="weidentity-didweidentity-credential">
+<h3>WeIdentity DID与WeIdentity Credential的关系<a class="headerlink" href="#weidentity-didweidentity-credential" title="永久链接至标题">¶</a></h3>
+<img alt="weidentity-er.png" src="../_images/weidentity-er.png" />
+<p>从图中可见，WeIdentity DID与WeIdentity Credential的关系并非单纯的一对多：从设计目标上看，WeIdentity DID用来描述实体（人或物），WeIdentity Credential用来描述实体的身份、属性和实体间关系。因此，一个WeIdentity DID可以持有多个WeIdentity Credential；而一个WeIdentity Credential则会包含至少一个所描述的WeIdentity DID，可能会有多个。最后，每个WeIdentity DID都有一个WeIdentity Document，用来存储此DID的认证方式（如公钥、私钥套件）等信息，与WeIdentity Credential无关。</p>
+</div>
+<div class="section" id="id3">
+<h3>总体流程<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<img alt="overall-flow.png" src="../_images/overall-flow&#64;2x.png" />
+<p>一般来说，WeIdentity解决方案的基本流程如下：</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>用户根据业务需求，选择是否需要进行KYC认证。</p></li>
+<li><p>用户生成WeIdentity DID。</p></li>
+<li><p>用户向相关业务方申请Credential。</p></li>
+<li><p>相关业务方扮演Issuer的角色，发行Credential交给用户。</p></li>
+<li><p>用户成为了Credential的Holder。</p></li>
+<li><p>用户出示Credential，以完成业务需求。</p></li>
+<li><p>相关业务方扮演Verifier的角色，验证Credential有效性。</p></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="id4">
+<h3>如何生成WeIdentity DID<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>WeIdentity DID = did:weid:chain-id:bs-specific-string</p>
+<img alt="weidentity-did-format1.png" src="../_images/weidentity-did-format1.png" />
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>字段</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>did</p></td>
+<td><p>遵循DID规范，固定前缀did</p></td>
+</tr>
+<tr class="row-odd"><td><p>weid</p></td>
+<td><p>WeIdentity DID规范的method name字段，固定为weid</p></td>
+</tr>
+<tr class="row-even"><td><p>chain-id</p></td>
+<td><p>网络id，用于路由到不同的网络</p></td>
+</tr>
+<tr class="row-odd"><td><p>bs-specific-string</p></td>
+<td><p>基于底层区块链平台生成，代表Entity在链上的地址，保证全网唯一</p></td>
+</tr>
+</tbody>
+</table>
+<p>备注：bsSpecificString根据区块链底层平台和业务具体情况来确定生成规则，例如可以是随机字符串，或者区块链上的地址。</p>
+<p>示例: <code class="docutils literal notranslate"><span class="pre">&quot;did:weid:1:0x0086eb1f712ebc6f1c276e12ec21&quot;</span></code></p>
+</div>
+<div class="section" id="weidentity-document">
+<h3>WeIdentity Document格式<a class="headerlink" href="#weidentity-document" title="永久链接至标题">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>字段</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&#64;context</p></td>
+<td><p>用于描述WeIdentity Document结构等信息</p></td>
+</tr>
+<tr class="row-odd"><td><p>id</p></td>
+<td><p>WeIdentity DID，表示当前Document描述的Entity，用于自描述</p></td>
+</tr>
+<tr class="row-even"><td><p>created</p></td>
+<td><p>Document的创建时间</p></td>
+</tr>
+<tr class="row-odd"><td><p>updated</p></td>
+<td><p>Document的更新时间</p></td>
+</tr>
+<tr class="row-even"><td><p>publicKey</p></td>
+<td><p>公钥数组列表，格式如下</p></td>
+</tr>
+<tr class="row-odd"><td><p>publicKey.id</p></td>
+<td><p>公钥的ID</p></td>
+</tr>
+<tr class="row-even"><td><p>publicKey.type</p></td>
+<td><p>用于指定signature suite</p></td>
+</tr>
+<tr class="row-odd"><td><p>publicKey.owner</p></td>
+<td><p>指定控制对应私钥的Entity，遵从WeIdentity规范，如果为空，则表明owner是Document的id字段，如果是Credential类Entity，则owner一般是某用户</p></td>
+</tr>
+<tr class="row-even"><td><p>authentication</p></td>
+<td><p>用于Entity证明其与当前Document的关联性</p></td>
+</tr>
+<tr class="row-odd"><td><p>authentication.type</p></td>
+<td><p>用于指定signature suite</p></td>
+</tr>
+<tr class="row-even"><td><p>authentication.publicKey</p></td>
+<td><p>用来验证签名的公钥，引用publicKey数组里定义的公钥</p></td>
+</tr>
+<tr class="row-odd"><td><p>service</p></td>
+<td><p>service描述数组，用于描述跟当前DID相关的服务，格式如下</p></td>
+</tr>
+<tr class="row-even"><td><p>service.id</p></td>
+<td><p>service endpoint的ID</p></td>
+</tr>
+<tr class="row-odd"><td><p>service.type</p></td>
+<td><p>service endpoint的协议</p></td>
+</tr>
+<tr class="row-even"><td><p>service.serviceEndpoint</p></td>
+<td><p>serviceEndpoint列表，可以是URI或者一个JSON-LD对象</p></td>
+</tr>
+<tr class="row-odd"><td><p>service.其他</p></td>
+<td><p>待定</p></td>
+</tr>
+<tr class="row-even"><td><p>recovery</p></td>
+<td><p>WeIdentity DID私钥丢失后，可由本字段指定的WeIdentity进行公私钥重置。是否需要抽象一层合约层来实现待定</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>WeIdentity DID的Authorization机制及Recovery机制由补充规范实现，不在本文中定义。</p></li>
+</ul>
+<p>示例：</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;@context&quot;</span><span class="o">:</span> <span class="s2">&quot;https://weidentity.webank.com/did/v1&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;did:weid:1:123456789abcdefghi&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;created&quot;</span><span class="o">:</span> <span class="s2">&quot;2017-09-24T17:00:00Z&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;updated&quot;</span><span class="o">:</span> <span class="s2">&quot;2018-09-24T02:41:00Z&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;publicKey&quot;</span><span class="o">:</span> <span class="p">[{</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;did:example:123456789abcdefghi#keys-1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;RsaVerificationKey2018&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;owner&quot;</span><span class="o">:</span> <span class="s2">&quot;did:example:123456789abcdefghi&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;publicKeyPem&quot;</span><span class="o">:</span> <span class="s2">&quot;-----BEGIN PUBLIC KEY...END PUBLIC KEY-----\r\n&quot;</span>
+  <span class="p">},</span> <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;did:example:123456789abcdefghi#keys-2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Secp256k1VerificationKey2018&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;owner&quot;</span><span class="o">:</span> <span class="s2">&quot;did:example:123456789abcdefghi&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;publicKeyHex&quot;</span><span class="o">:</span> <span class="s2">&quot;02b97c30de767f084ce3080168ee293053ba33b235d7116a3263d29f1450936b71&quot;</span>
+  <span class="p">}],</span>
+  <span class="s2">&quot;authentication&quot;</span><span class="o">:</span> <span class="p">[{</span>
+    <span class="c1">// this key can be used to authenticate as DID ...9938</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;RsaSignatureAuthentication2018&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;publicKey&quot;</span><span class="o">:</span> <span class="s2">&quot;did:weid:1:123456789abcdefghi#keys-1&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;service&quot;</span><span class="o">:</span> <span class="p">[{</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;drivingCardService&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;serviceEndpoint&quot;</span><span class="o">:</span> <span class="s2">&quot;https://weidentity.webank.com/endpoint/8377464&quot;</span>
+    <span class="p">},</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;padiCertificateService&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;serviceEndpoint&quot;</span><span class="o">:</span> <span class="s2">&quot;https://weidentity.webank.com/endpoint/8377465&quot;</span>
+  <span class="p">}],</span>
+  <span class="s2">&quot;recovery&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;did:weid:1:2323e3e3dweweewew2&quot;</span><span class="p">,</span><span class="s2">&quot;did:weid:1:2323e3e3dweweewew3&quot;</span><span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>WeIdentity DID支持操作<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id6">
+<h4>创建<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h4>
+<p>创建一个WeIdentity DID（以及对应的WeIdentity Document）</p>
+</div>
+<div class="section" id="id7">
+<h4>读取/验证<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h4>
+<p>通过WeIdentity DID读取到WeIdentity Document，并验证</p>
+</div>
+<div class="section" id="id8">
+<h4>更新<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
+<p>更新WeIdentity Document的相关属性</p>
+</div>
+</div>
+</div>
+<div class="section" id="weidentity-credential">
+<h2>4. WeIdentity Credential<a class="headerlink" href="#weidentity-credential" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id9">
+<h3>角色和关系<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<img alt="roles-relation.png" src="../_images/roles-relation.png" />
+<p>如图所示在WeIdentity生态中，存在着以下角色：</p>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>角色</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>User (Entity)</p></td>
+<td><p>用户（实体）。会注册属于自己的WeIdentity DID，申请Credential，并通过出示给相关业务方来使用之。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Issuer</p></td>
+<td><p>Credential的发行者。会首先验证实体对WeIdentity DID的所有权，其次发行Credential交给实体。</p></td>
+</tr>
+<tr class="row-even"><td><p>Verifier</p></td>
+<td><p>Credential的使用者。会首先验证实体对WeIdentity DID的所有权，其次验证Credential的有效性。</p></td>
+</tr>
+<tr class="row-odd"><td><p>User Agent / Credential Repository</p></td>
+<td><p>用户（实体）在此生成WeIdentity DID。为了便于使用，实体也可将自己的私钥、持有的Credential托管于此。</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="id10">
+<h3>场景<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<img alt="scenario.png" src="../_images/scenario.png" />
+<p>上图展示了五个WeIdentity生态下Credential在不同角色间流转的场景：</p>
+<ol class="arabic simple">
+<li><p>身份证明机构作为Issuer向用户发行「实名认证Credential」，政府机构作为Verifier在办理公共事务时对其进行验证。</p></li>
+<li><p>学校作为Issuer向用户发行「学历证明Credential」，公司作为Verifier在对候选人进行背景调查时对其进行验证。</p></li>
+<li><p>出入境机构作为Issuer向用户发行「签证Credential」，海关作为Verifier在出入境时对其进行验证。</p></li>
+<li><p>公司作为Issuer向用户发行「收入证明Credential」，银行作为Verifier在发放贷款时对其进行验证。</p></li>
+<li><p>商户作为Issuer向用户发行「优惠券Credential」，商户自己作为Verifier在对优惠券核销时对其进行验证。</p></li>
+</ol>
+<p>更多使用场景，可见： <a class="reference internal" href="use-cases.html#use-cases"><span class="std std-ref">使用场景文档</span></a>。</p>
+</div>
+<div class="section" id="credential">
+<h3>Credential结构<a class="headerlink" href="#credential" title="永久链接至标题">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>属性</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&#64;context</p></td>
+<td><p>用于描述Credential的字段信息等</p></td>
+</tr>
+<tr class="row-odd"><td><p>id</p></td>
+<td><p>本Credential的ID，按UUID生成</p></td>
+</tr>
+<tr class="row-even"><td><p>issuer</p></td>
+<td><p>Issuer的DID，遵从WeIdentity规范</p></td>
+</tr>
+<tr class="row-odd"><td><p>issued</p></td>
+<td><p>issue日期</p></td>
+</tr>
+<tr class="row-even"><td><p>claim</p></td>
+<td><p>Claim的具体细节，数据结构由CPT定义，详见CPT介绍</p></td>
+</tr>
+<tr class="row-odd"><td><p>claim.primeNumberIdx</p></td>
+<td><p>素数在素数表中的index</p></td>
+</tr>
+<tr class="row-even"><td><p>claim.type</p></td>
+<td><p>Claim Protocol Type的ID，申请按序递增，例如中国内地驾照设置为CPT100</p></td>
+</tr>
+<tr class="row-odd"><td><p>revocation</p></td>
+<td><p>撤销相关实现，待补充</p></td>
+</tr>
+<tr class="row-even"><td><p>signature</p></td>
+<td><p>Issuer的签名列表，是一个数组，可由holder和issuer分别打上签名</p></td>
+</tr>
+<tr class="row-odd"><td><p>signature.type</p></td>
+<td><p>签名类型</p></td>
+</tr>
+<tr class="row-even"><td><p>signature.created</p></td>
+<td><p>签名的创建时间</p></td>
+</tr>
+<tr class="row-odd"><td><p>signature.creator</p></td>
+<td><p>签名机构的WeIdentity DID</p></td>
+</tr>
+<tr class="row-even"><td><p>signature.domain</p></td>
+<td><p>domain</p></td>
+</tr>
+<tr class="row-odd"><td><p>signature.nonce</p></td>
+<td><p>随机数</p></td>
+</tr>
+<tr class="row-even"><td><p>signature.signatureValue</p></td>
+<td><p>签名的具体value，对整个Credential结构中除去signature字段的其他字段做签名</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id11">
+<h3>区块链上的Credential结构<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>属性</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>id</p></td>
+<td><p>同上</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p>同上</p></td>
+</tr>
+<tr class="row-even"><td><p>issued</p></td>
+<td><p>同上</p></td>
+</tr>
+<tr class="row-odd"><td><p>claimHash</p></td>
+<td><p>Claim结构内容的hash</p></td>
+</tr>
+<tr class="row-even"><td><p>revocation</p></td>
+<td><p>同上</p></td>
+</tr>
+<tr class="row-odd"><td><p>signature</p></td>
+<td><p>同上</p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;@context&quot;</span><span class="o">:</span> <span class="s2">&quot;https://weidentity.webank.com/vc/v1&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;dsfewr23sdcsdfeqeddadfd&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;Credential&quot;</span><span class="p">,</span> <span class="s2">&quot;cpt100&quot;</span><span class="p">],</span>
+  <span class="s2">&quot;issuer&quot;</span><span class="o">:</span> <span class="s2">&quot;did:weid:1:2323e3e3dweweewew2&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;issued&quot;</span><span class="o">:</span> <span class="s2">&quot;2010-01-01T21:19:10Z&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;claim&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;primeNumberIdx&quot;</span><span class="o">:</span><span class="s2">&quot;1234&quot;</span>
+    <span class="c1">//the other properties in this structure varied according to different CPT</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;revocation&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="s2">&quot;did:weid:1:2323e3e3dweweewew2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;SimpleRevocationList2017&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;signature&quot;</span><span class="o">:</span> <span class="p">[{</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;LinkedDataSignature2015&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;created&quot;</span><span class="o">:</span> <span class="s2">&quot;2016-06-18T21:19:10Z&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;creator&quot;</span><span class="o">:</span> <span class="s2">&quot;did:weid:1:2323e3e3dweweewew2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="s2">&quot;www.diriving_card.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;nonce&quot;</span><span class="o">:</span> <span class="s2">&quot;598c63d6&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;signatureValue&quot;</span><span class="o">:</span> <span class="s2">&quot;BavEll0/I1zpYw8XNi1bgVg/sCneO4Jugez8RwDg/+MCRVpjOboDoe4SxxKjkC</span>
+<span class="s2">  OvKiCHGDvc4krqi6Z1n0UfqzxGfmatCuFibcC1wpsPRdW+gGsutPTLzvueMWmFhwYmfIFpbBu95t501+r</span>
+<span class="s2">    SLHIEuujM/+PXr9Cky6Ed+W3JT24=&quot;</span>
+  <span class="p">}]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="claim-protocol-type-cpt">
+<h3>Claim Protocol Type（CPT）注册机制<a class="headerlink" href="#claim-protocol-type-cpt" title="永久链接至标题">¶</a></h3>
+<p>不同的Issuer按业务场景需要，各自定义不同类型数据结构的Claim，所有的Claim结构都需要到CPT合约注册，以保证全网唯一。所有的CPT定义文件（JSON-LD格式）可以从CPT合约下载。</p>
+<ul class="simple">
+<li><p>CPT格式</p></li>
+</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>属性</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&#64;context</p></td>
+<td><p>用于描述CPT等信息</p></td>
+</tr>
+<tr class="row-odd"><td><p>id</p></td>
+<td><p>CPT的编号，要保证唯一</p></td>
+</tr>
+<tr class="row-even"><td><p>version</p></td>
+<td><p>CPT的版本号</p></td>
+</tr>
+<tr class="row-odd"><td><p>publisher</p></td>
+<td><p>CPT的发布者的WeIdentity DID</p></td>
+</tr>
+<tr class="row-even"><td><p>signature</p></td>
+<td><p>CPT的发布者的签名</p></td>
+</tr>
+<tr class="row-odd"><td><p>claim</p></td>
+<td><p>Claim的格式定义</p></td>
+</tr>
+<tr class="row-even"><td><p>created</p></td>
+<td><p>创建时间</p></td>
+</tr>
+<tr class="row-odd"><td><p>updated</p></td>
+<td><p>更新时间</p></td>
+</tr>
+<tr class="row-even"><td><p>description</p></td>
+<td><p>CPT的描述信息</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>CPT例子</p></li>
+</ul>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;CPT&quot;</span><span class="o">:</span> <span class="p">{</span>
+  <span class="s2">&quot;@context&quot;</span> <span class="o">:</span> <span class="s2">&quot;https://weidentity.webank.com/cpt100/v1&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;version&quot;</span> <span class="o">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="s2">&quot;CPT100&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;publisher&quot;</span> <span class="o">:</span> <span class="s2">&quot;did:weid:1:2323e3e3dweweewew2&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;signature&quot;</span> <span class="o">:</span> <span class="s2">&quot;BavEll0/I1zpYw8XNi1bgVg/sCneO4Jugez8RwDg/+MCRVpjOboDoe4SxxKjkC</span>
+<span class="s2">  OvKiCHGDvc4krqi6Z1n0UfqzxGfmatCuFibcC1wpsPRdW+gGsutPTLzvueMWmFhwYmfIFpbBu95t501+r</span>
+<span class="s2">    SLHIEuujM/+PXr9Cky6Ed+W3JT24=&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;claim&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;address&quot;</span> <span class="o">:</span> <span class="s2">&quot;重庆&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;class&quot;</span> <span class="o">:</span> <span class="s2">&quot;C1&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;created&quot;</span> <span class="o">:</span> <span class="s2">&quot;2010-06-20T21:19:10Z&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;updated&quot;</span> <span class="o">:</span> <span class="s2">&quot;2016-06-20T21:19:10Z&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;description&quot;</span> <span class="o">:</span> <span class="s2">&quot;中国内地驾照&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<img alt="cpt-er.png" src="../_images/cpt-er.png" />
+<p>其中CPT为模板类，定义了Claim包含的数据字段及各字段属性要求。Claim为CPT的实例。Issuer将Claim进行签名，即可生成Credential。</p>
+</div>
+<div class="section" id="claim">
+<h3>Claim示例参考：<a class="headerlink" href="#claim" title="永久链接至标题">¶</a></h3>
+<p><a class="reference internal" href="cpt-templates.html#cpt-templates"><span class="std std-ref">Claim实例</span></a></p>
+</div>
+<div class="section" id="id12">
+<h3>Credential操作<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id13">
+<h4>创建Credential<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h4>
+<p>任何实体都可以issue一个Credential。</p>
+</div>
+<div class="section" id="id14">
+<h4>验证Credential<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h4>
+<p>通过这个接口，一个Entity可以对一个Credential进行验证。</p>
+</div>
+<div class="section" id="id15">
+<h4>存储/提取Credential<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h4>
+<p>Credential的holder可以转移这个Credential，或者提取完整的Credential私下存储。</p>
+</div>
+<div class="section" id="id16">
+<h4>撤销 Credential<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h4>
+<p>Credential的Issuer可以撤销这个Credential。</p>
+</div>
+</div>
+<div class="section" id="id17">
+<h3>选择性披露<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id18">
+<h4>如何为Credential生成签名<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h4>
+<p>Issuer生成Credential签名的过程：</p>
+<ol class="arabic simple">
+<li><p>Claim中的每个字段计算生成一个对应的hash值。</p></li>
+<li><p>将Claim中的每个字段的hash值以某种形式拼接起来形成一个字符串Claim_Hash，然后跟Credential原有的其他字段组成一个新的用于计算hash的Credential结构。</p></li>
+<li><p>对这个包含Claim_Hash的Credential结构计算hash，得到Credential Hash。</p></li>
+<li><p>使用Private Key对这个Credential Hash进行签名，得到签名的值Signature。</p></li>
+</ol>
+<img alt="sign-credential.png" src="../_images/sign-credential.png" />
+</div>
+<div class="section" id="id19">
+<h4>如何验证选择性披露的Credential<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h4>
+<p>用户选择需要披露的字段集合（可以是一个或者几个字段，这个例子中是Field_1），需要披露的字段提供原文，其他字段提供hash值。将包含这个Claim结构的Credential披露给Verifier。下面是Verifier验证的过程：</p>
+<ol class="arabic simple">
+<li><p>Verifier从Credential提取用户披露的Claim字段。</p></li>
+<li><p>Verifier对用户披露的字段分别计算hash（这个例子中是Field_1,计算出Field_1_hash）,然后得到一个包含所有字段hash值的Claim结构。</p></li>
+<li><p>对这个Claim结构中的每个字段的hash值以某种形式拼接起来形成一个字符串Claim_Hash，然后跟Credential原有的其他字段组成一个新的用于计算hash的Credential结构。</p></li>
+<li><p>对这个包含Claim_Hash的Credential结构计算hash，得到Credential Hash。</p></li>
+<li><p>使用Credential的Signature和Issuer的public key进行decrypt，得到一个签名的计算值。</p></li>
+<li><p>比较Credential的Signature与签名的计算值，看是否相等，确认这个Credential的合法性。</p></li>
+</ol>
+<img alt="verify-credential.png" src="../_images/verify-credential.png" />
+</div>
+</div>
+<div class="section" id="id20">
+<h3>Credential撤销<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id21">
+<h4>撤销如何工作<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h4>
+<p>Credential撤销机制利用了下面两点：</p>
+<ol class="arabic simple">
+<li><p>任意大于1的整数 a，如果 a 不是素数，则 a 可以表示为一系列素数的乘积，且这个表示是唯一的（不考虑顺序）。参见：<a class="reference external" href="https://en.wikipedia.org/wiki/Fundamental_theorem_of_arithmetic">算数基本定理</a></p></li>
+<li><p>目前没有一个有效率的算法，对两个足够大的素数乘积得到的半素数（<a class="reference external" href="https://en.wikipedia.org/wiki/Semiprime">semiprime</a>）进行整数分解。参见：<a class="reference external" href="https://en.wikipedia.org/wiki/Integer_factorization">整数分解</a></p></li>
+</ol>
+<p>WeIdentity 会公开一个大素数的文件，每个素数会有一个 index，供所有 Issuer 使用。Issuer 发行一个 Credential 的时候，就随机从这个大素数文件中选择一个素数，这个素数的 index 会作为这个 Credential 的属性之一。并把以往所有发行的未撤销的 Credential 的素数相乘，得到一个大数 Accumulator（每个 Issuer 会维护自己的 Accumulator），并将这个 Accumulator 公开供所有接入方查询。</p>
+</div>
+<div class="section" id="issuer-credential">
+<h4>Issuer 如何撤销一个 Credential<a class="headerlink" href="#issuer-credential" title="永久链接至标题">¶</a></h4>
+<p>用这个 Credential 对应的大素数去除 Issuer 自己的 Accumulator，将结果更新为新的 Accumulator。</p>
+</div>
+<div class="section" id="verifier-credential">
+<h4>Verifier 如何验证一个 Credential 有效（未被撤销）<a class="headerlink" href="#verifier-credential" title="永久链接至标题">¶</a></h4>
+<p>用这个 Credential 对应的大素数去除 Credential 的 Issuer 公开的 Accumulator，如果能整除，则表明是 Credential 是有效的（未被撤销）。</p>
+<img alt="before-revocation.png" src="../_images/before-revocation.png" />
+<img alt="after-revocation.png" src="../_images/after-revocation.png" />
+</div>
+</div>
+</div>
+<div class="section" id="authority-issuer">
+<h2>5. Authority Issuer注册<a class="headerlink" href="#authority-issuer" title="永久链接至标题">¶</a></h2>
+<p>链上每个WeIdentity DID持有者（包括人，机构，或者物）都可以issue一个Claim，并打上自己的签名，但只有联盟链里面的权威机构才可以在公共合约注册成为Authority Issuer。每个注册为Authority Issuer的新成员需要联盟链内其他机构投票通过。</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>字段</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>version</p></td>
+<td><p>version描述</p></td>
+</tr>
+<tr class="row-odd"><td><p>id</p></td>
+<td><p>Authority Issuer的WeIdentity DID，符合WeIdentity规范的ID</p></td>
+</tr>
+<tr class="row-even"><td><p>name</p></td>
+<td><p>Authority Issuer机构的名字</p></td>
+</tr>
+<tr class="row-odd"><td><p>created</p></td>
+<td><p>创建日期</p></td>
+</tr>
+<tr class="row-even"><td><p>updated</p></td>
+<td><p>更新日期</p></td>
+</tr>
+<tr class="row-odd"><td><p>publicKey</p></td>
+<td><p>Authority Issuer公开的公钥列表</p></td>
+</tr>
+<tr class="row-even"><td><p>validCrenRef</p></td>
+<td><p>Authority Issuer公布的自己的当前所有未撤销的credential的primeNumber字段的累加乘积</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="notification">
+<h2>6. Notification<a class="headerlink" href="#notification" title="永久链接至标题">¶</a></h2>
+<p>通用字段如下，根据不同的type，notification的payload结构不同。</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>字段</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>type</p></td>
+<td><p>通知的类型：register, update</p></td>
+</tr>
+<tr class="row-odd"><td><p>weid</p></td>
+<td><p>notification描述的实体的WeIdentity DID</p></td>
+</tr>
+<tr class="row-even"><td><p>payload</p></td>
+<td><p>Notification机制里，用以描述业务相关信息的字段</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id24">
+<h3>WeIdentity DID注册事件的通知<a class="headerlink" href="#id24" title="永久链接至标题">¶</a></h3>
+<p>当创建WeIdentity DID时，注册了该notification的机构会收到这个通知，表明有新的WeIdentity DID被注册。</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>字段</p></th>
+<th class="head"><p>值</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>type</p></td>
+<td><p>register</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>payload结构：</p></li>
+</ul>
+<p>暂定为NULL。</p>
+</div>
+<div class="section" id="id25">
+<h3>WeIdentity DID属性修改的通知<a class="headerlink" href="#id25" title="永久链接至标题">¶</a></h3>
+<p>当WeIdentity DID的属性有更新时，注册了该notification的机构会收到这个通知，例如public key改变或者其他meta data值改变。</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>字段</p></th>
+<th class="head"><p>值</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>type</p></td>
+<td><p>document_mod，表示WeIdentity Document有修改</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>payload结构（此payload是一个数组，以支持多个属性变更的通知。）：</p></li>
+</ul>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>字段</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>operation</p></td>
+<td><p>add, update 或者 remove</p></td>
+</tr>
+<tr class="row-odd"><td><p>field</p></td>
+<td><p>变动的字段的key</p></td>
+</tr>
+<tr class="row-even"><td><p>original</p></td>
+<td><p>原值</p></td>
+</tr>
+<tr class="row-odd"><td><p>new</p></td>
+<td><p>新值</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id26">
+<h3>Notification携带业务数据<a class="headerlink" href="#id26" title="永久链接至标题">¶</a></h3>
+<p>用于传输小段数据，例如机构间传递Credential的明文可以通过这类通知，payload由机构双方自行约定结构。</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>字段</p></th>
+<th class="head"><p>值</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>type</p></td>
+<td><p>transportation</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id27">
+<h3>Notification订阅<a class="headerlink" href="#id27" title="永久链接至标题">¶</a></h3>
+<p>支持对感兴趣的通知进行注册。依赖于实现。</p>
+</div>
+</div>
+<div class="section" id="id28">
+<h2>7. 引用<a class="headerlink" href="#id28" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://w3c-ccg.github.io/did-spec">W3C DID Spec</a></p></li>
+<li><p><a class="reference external" href="https://w3c.github.io/vc-data-model">W3C Verifiable Credentials</a></p></li>
+<li><p><a class="reference external" href="https://w3c-dvcg.github.io/ld-signatures/">Linked Data Signatures 1.0 Draft</a></p></li>
+<li><p><a class="reference external" href="https://w3c-dvcg.github.io/lds-rsa2018/">RSA Signature Suite 2018</a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="weidentity-installation.html" class="btn btn-neutral float-right" title="WeIdentity Java SDK 安装部署" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="use-cases.html" class="btn btn-neutral" title="使用场景" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright (2018) WeBank Co., Ltd.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
