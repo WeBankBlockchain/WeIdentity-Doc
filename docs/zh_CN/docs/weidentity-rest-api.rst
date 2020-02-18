@@ -1290,7 +1290,7 @@ WeIdentity RestService API 说明文档
 基于轻客户端的每个API的入参，也仅仅在第一次交互中不同。因此，在下文的介绍中，我们会忽略第二次交互的入参，只提供第一次交互的入参和第二次交互的返回值。
 
 2. 创建WeIdentity DID（有参创建方式）
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 第一次交互，POST /weid/api/encode 的接口入参：
 
@@ -1691,7 +1691,7 @@ POST /weid/api/encode 接口入参
                   "receiver": "L0c40",
                   "weid": "I4aop"
               },
-              "signatureValue": "{"claim":"{\"acc\":\"0x7773420d753e69eab620f2ce5b198bddb61f420c1e53495db6b7f47048e34b7f\",\"name\":\"0x8ba4c2d57e830a9810824716f94d3d734e5c17e77835570a2d9e184248d855cf\"}","context":"https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1","cptId":10,"expirationDate":2218367553,"id":"90a65d0a-eb3b-4ba4-882e-e6d48bb1256e","issuanceDate":1581422279,"issuer":"did:weid:101:0xb81d7948beedda55b46ce0da827bc21b0919736e","proof":null,"type":["VerifiableCredential","hashTree"]}",
+              "signatureValue": "HJPbDmoi39xgZBGi/aj1zB6VQL5QLyt4qTV6GOvQwzfgUJEZTazKZXe1dRg5aCt8Q44GwNF2k+l1rfhpY1hc/ls=",
               "type": "Secp256k1"
           },
           "type": [
@@ -1705,13 +1705,13 @@ POST /weid/api/encode 接口入参
       "errorMessage": "success"
     }
 
-接下来，您只需要将这个CredentialPojo里面的签名值（proof中的signatureValue项）使用Issuer的私钥进行签名并Base64编码，就能得到一个正确的CredentialPojo了。
+请注意，这个生成的CredentialPojo的签名值（proof中的signatureValue项）并没有经过私钥签名。因此，您还需要其经过Base64解码之后，再使用Issuer的私钥进行签名并Base64编码，就能得到一个正确的CredentialPojo了。
 
 使用ECDSA私钥进行签名和Base64编码的范例代码见下：
 
 .. code-block:: java
 
-    String signature = DataToolUtils.sign(signatureValue, privateKey);
+    String signature = DataToolUtils.sign(new String(DataToolUtils.base64Decode(signatureValue)), privateKey);
 
 WeIdentity Endpoint Service API
 ------------------------------------
