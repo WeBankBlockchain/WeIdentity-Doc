@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>从ApplicationContext.xml到properties的配置方式转变 &mdash; WeIdentity  文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/index.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> WeIdentity
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">什么是 WeIdentity？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="one-stop-experience.html">WeIdentity 一站式体验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terminologies.html">术语</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use-cases.html">使用场景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-spec.html">WeIdentity 规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-installation.html">WeIdentity Java SDK 安装部署</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/">WeIdentity Java SDK 文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-sample.html">WeIdentity Sample 开发样例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="miscellaneous.html">杂项</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-rest.html">WeIdentity RestService</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-endpoint.html">WeIdentity Endpoint Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-contract-design.html">WeIdentity 智能合约设计与实现</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">WeIdentity</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>从ApplicationContext.xml到properties的配置方式转变</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/docs/from-application-context-to-properties.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="applicationcontext-xmlproperties">
+<h1>从ApplicationContext.xml到properties的配置方式转变<a class="headerlink" href="#applicationcontext-xmlproperties" title="永久链接至标题">¶</a></h1>
+<p>自从WeIdentity-Java-SDK 1.2.0版本开始，您可能已经关注到，我们的配置文件已经弃用了ApplicationContext.xml。这种做法基于以下考虑：</p>
+<ul class="simple">
+<li><p>使用ApplicationContext.xml，与使用Spring Boot的调用方式是互斥的。</p></li>
+<li><p>ApplicationContext.xml不必要地引入了大量Spring的依赖，同时包括了大量不必要的配置项，较为臃肿。</p></li>
+</ul>
+<p>当前，我们使用fisco.properties及weidentity.properties两者组合。其中，fisco.properties记录了与FISCO-BCOS区块链节点相关的配置项，而weidentity.properties包括了WeIdentity SDK特有的功能配置项。实现上，其加载方式也对应由Spring Bean的注入方式转变成了显式读取。</p>
+<p>如果您使用的是WeIdentity-Java-SDK 1.1.x，又需要升级到1.2.x及以上的版本，那么需要您对配置文件和调用方式进行一些处理：</p>
+<div class="section" id="id1">
+<h2>配置文件<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>如果您使用 <a class="reference external" href="./weidentity-build-with-deploy.html">安装部署工具方式</a> ，重新部署了智能合约，那么这一部分可以跳过。</p>
+<p>如果您不需要重新部署合约，或不准备使用部署工具，则需要执行以下步骤：</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>更新fisco.properties中的对应项</dt><dd><ul>
+<li><p>将fisco.properties.tpl改名为fisco.properties</p></li>
+<li><p>更新合约地址</p></li>
+<li><p>设置chain.id，默认可设置为1</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>更新完毕之后，将fisco.properties放到/resources/目录中</p></li>
+<li><dl class="simple">
+<dt>更新weidentity.properties中的对应项</dt><dd><ul>
+<li><p>将weidentity.properties.tpl改名为weidentity.properties</p></li>
+<li><dl class="simple">
+<dt>更新节点信息nodes</dt><dd><ul>
+<li><p>如果您的FISCO-BCOS链为1.3版，格式为：“WeIdentity&#64;节点IP:端口号”</p></li>
+<li><p>如果您的FISCO-BCOS链为2.x版，格式为：“节点IP:端口号”</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>更新blockchain.orgid，为您的机构名，默认可设置为“test”</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>更新完毕之后，将weidentity.properties放到/resources/目录中</p></li>
+<li><dl class="simple">
+<dt>最后，更新节点的配置文件放到/resources/目录中</dt><dd><ul>
+<li><p>如果您的FISCO-BCOS链为1.3版，请拷贝ca.crt和client.keystore</p></li>
+<li><p>如果您的FISCO-BCOS链为2.x版，请拷贝ca.crt，node.crt和node.key</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>下面是两个可用的样例：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># fisco.properties</span>
+<span class="c1"># FISCO-BCOS blockchain node related properties</span>
+
+<span class="c1"># Blockchain version. 1.x and 2.x are both allowed.</span>
+bcos.version<span class="o">=</span><span class="m">1</span>.3
+
+<span class="c1"># WeIdentity Contract addresses, formatted as &quot;0xab0f7a80152ba6d65cb28a164be6094bd1de3fa2&quot;.</span>
+weId.contractaddress<span class="o">=</span>0xab0f7a80152ba6d65cb28a164be6094bd1de3fab
+cpt.contractaddress<span class="o">=</span>0xc594245558b7daf8c1e386771eaab8688fa06656
+issuer.contractaddress<span class="o">=</span>0xa33143f3e7dd190f0ca63729a85b224b22729f81
+evidence.contractaddress<span class="o">=</span>0x9bce2c5f1687b7d50a7a36290a467b923d8313ca
+specificissuer.contractaddress<span class="o">=</span>0x329220c0353ed40dfe44d3755d456f767735042c
+
+<span class="c1"># Specified blockchain ID you are targeting to.</span>
+chain.id<span class="o">=</span><span class="m">101</span>
+
+<span class="c1"># Blockchain connection params. Do NOT change these unless you are troubleshooting!</span>
+web3sdk.timeout<span class="o">=</span><span class="m">10000</span>
+web3sdk.core-pool-size<span class="o">=</span><span class="m">100</span>
+web3sdk.max-pool-size<span class="o">=</span><span class="m">200</span>
+web3sdk.queue-capacity<span class="o">=</span><span class="m">1000</span>
+web3sdk.keep-alive-seconds<span class="o">=</span><span class="m">60</span>
+
+<span class="c1"># Fisco-Bcos 2.x params, including Group ID and Encrypt Type.</span>
+group.id<span class="o">=</span><span class="m">1</span>
+encrypt.type<span class="o">=</span><span class="m">0</span>
+
+<span class="c1"># Config files locations and params. These should be originated from blockchain nodes.</span>
+v1.ca-crt-path<span class="o">=</span>ca.crt
+v1.client-crt-password<span class="o">=</span><span class="m">123456</span>
+v1.client-key-store-path<span class="o">=</span>client.keystore
+v1.key-store-password<span class="o">=</span><span class="m">123456</span>
+v2.ca-crt-path<span class="o">=</span>ca.crt
+v2.node-crt-path<span class="o">=</span>node.crt
+v2.node-key-path<span class="o">=</span>node.key
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># weidentity.properties</span>
+<span class="c1"># The organization ID for AMOP communication.</span>
+blockchain.orgid<span class="o">=</span>organizationA
+
+<span class="c1"># Persistence Layer configurations. Do NOT change this if you are not using Persistence Layer features!</span>
+<span class="c1"># MySQL connection config</span>
+jdbc.url<span class="o">=</span>jdbc:mysql://0.0.0.0:3306/mysql?useUnicode<span class="o">=</span>true<span class="p">&amp;</span><span class="nv">characterEncoding</span><span class="o">=</span>utf-8<span class="p">&amp;</span><span class="nv">allowMultiQueries</span><span class="o">=</span>true<span class="p">&amp;</span><span class="nv">useSSL</span><span class="o">=</span><span class="nb">false</span>
+jdbc.username<span class="o">=</span>user
+jdbc.password<span class="o">=</span>password
+jdbc.maxActive<span class="o">=</span><span class="m">50</span>
+jdbc.minIdle<span class="o">=</span><span class="m">5</span>
+jdbc.maxIdle<span class="o">=</span><span class="m">5</span>
+jdbc.maxWait<span class="o">=</span><span class="m">10000</span>
+jdbc.timeBetweenEvictionRunsMillis<span class="o">=</span><span class="m">600000</span>
+jdbc.numTestsPerEvictionRun<span class="o">=</span><span class="m">5</span>
+jdbc.minEvictableIdleTimeMillis<span class="o">=</span><span class="m">1800000</span>
+
+<span class="c1"># Proof salt length for Proof creation.</span>
+salt.length<span class="o">=</span><span class="m">5</span>
+
+<span class="c1"># AMOP Config</span>
+<span class="c1"># Timeout for amop request, default: 5000ms</span>
+amop.request.timeout<span class="o">=</span><span class="m">5000</span>
+
+<span class="c1"># Blockchain node info.</span>
+<span class="nv">nodes</span><span class="o">=</span><span class="m">127</span>.0.0.1:8888
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>调用方式<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>目前，不再支持使用&#64;Autowire的方式去加载WeIdService等服务。您需要使用以下代码直接创建服务实例：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">WeIdService</span> <span class="n">weIdService</span> <span class="o">=</span> <span class="k">new</span> <span class="n">WeIdServiceImpl</span><span class="o">();</span>
+<span class="n">AuthorityIssuerService</span> <span class="n">authorityIssuerService</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AuthorityIssuerServiceImpl</span><span class="o">();</span>
+<span class="n">CptService</span> <span class="n">cptService</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CptServiceImpl</span><span class="o">();</span>
+<span class="n">CredentialService</span> <span class="n">credentialService</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CredentialServiceImpl</span><span class="o">();</span>
+<span class="n">EvidenceService</span> <span class="n">evidenceService</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EvidenceServiceImpl</span><span class="o">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright (2018) WeBank Co., Ltd.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

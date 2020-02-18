@@ -1,0 +1,379 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>WeIdentity JAVA SDK 便捷使用工具 &mdash; WeIdentity  文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/index.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="WeIdentity Sample 开发样例" href="weidentity-sample.html" />
+    <link rel="prev" title="WeIdentity JAVA SDK安装部署文档（源码方式）" href="weidentity-installation-by-sourcecode.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> WeIdentity
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">什么是 WeIdentity？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="one-stop-experience.html">WeIdentity 一站式体验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terminologies.html">术语</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use-cases.html">使用场景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-spec.html">WeIdentity 规范</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="weidentity-installation.html">WeIdentity Java SDK 安装部署</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="weidentity-installation.html#id1">整体介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weidentity-installation.html#id2">准备工作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weidentity-installation.html#id3">安装部署</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="weidentity-installation.html#id6">便捷工具</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">WeIdentity JAVA SDK 便捷使用工具</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">整体介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">部署步骤</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/">WeIdentity Java SDK 文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-sample.html">WeIdentity Sample 开发样例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="miscellaneous.html">杂项</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-rest.html">WeIdentity RestService</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-endpoint.html">WeIdentity Endpoint Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-contract-design.html">WeIdentity 智能合约设计与实现</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">WeIdentity</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="weidentity-installation.html">WeIdentity Java SDK 安装部署</a> &raquo;</li>
+        
+      <li>WeIdentity JAVA SDK 便捷使用工具</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/docs/weidentity-quick-tools.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="weidentity-java-sdk">
+<span id="weidentity-quick-tools"></span><h1>WeIdentity JAVA SDK 便捷使用工具<a class="headerlink" href="#weidentity-java-sdk" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>整体介绍<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><p>通过便捷工具，您可以快速的体验和使用 WeIdentity JAVA SDK。</p>
+</div></blockquote>
+</div>
+<div class="section" id="id2">
+<h2>部署步骤<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>在使用之前，要确保您已完成 WeIdentity JAVA SDK 的安装部署，若您还没有完成，请参考<a class="reference external" href="./weidentity-build-with-deploy.html">WeIdentity JAVA SDK 安装部署（部署智能合约）</a>或者<a class="reference external" href="./weidentity-build-without-deploy.html">WeIdentity JAVA SDK 安装部署（不部署智能合约）</a>。</p>
+<p>此步骤提供快速创建 WeIdentity DID、注册 Authority Issuer、发布 CPT、拉取 CPT 并生成 presentation policy 的能力。</p>
+<div id="section-1"><div class="section" id="weidentity-did">
+<h3>1 创建您的 WeIdentity DID<a class="headerlink" href="#weidentity-did" title="永久链接至标题">¶</a></h3>
+</div><p>这个步骤会帮您快速创建一个 WeIdentity DID。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">../</span><span class="n">tools</span>
+<span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="o">*.</span><span class="n">sh</span>
+<span class="o">./</span><span class="n">create_weid</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>若执行成功，则会打印以下信息。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">New</span> <span class="n">weid</span> <span class="n">has</span> <span class="n">been</span> <span class="n">created</span> <span class="o">----&gt;</span> <span class="n">did</span><span class="p">:</span><span class="n">weid</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mh">0x405a7ae297fc6d6fb02fb548db64b29f08114ca1</span>
+<span class="n">The</span> <span class="n">related</span> <span class="n">private</span> <span class="n">key</span> <span class="ow">and</span> <span class="n">public</span> <span class="n">key</span> <span class="n">can</span> <span class="n">be</span> <span class="n">found</span> <span class="n">at</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">tonychen</span><span class="o">/</span><span class="n">test_gradle</span><span class="o">/</span><span class="n">weid</span><span class="o">-</span><span class="n">build</span><span class="o">-</span><span class="n">tools</span><span class="o">/</span><span class="n">output</span><span class="o">/</span><span class="n">create_weid</span><span class="o">/</span><span class="mh">0x405a7ae297fc6d6fb02fb548db64b29f08114ca1</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>表明创建的 <code class="docutils literal notranslate"><span class="pre">WeID</span></code> 是did:weid:1:0x405a7ae297fc6d6fb02fb548db64b29f08114ca1。</p>
+<p>在 <code class="docutils literal notranslate"><span class="pre">weid-build-tools/output/create_weid/</span></code> 目录下看到一些以 0x 开头的目录，找到跟刚刚生成的 WeIdentity DID 匹配的目录，里面包含了 WeIdentity DID，公钥 <code class="docutils literal notranslate"><span class="pre">ecdsa_key.pub</span></code> 和私钥 <code class="docutils literal notranslate"><span class="pre">ecdsa_key</span></code>。</p>
+</div>
+<div class="section" id="authority-issuer">
+<h3>2 注册 Authority Issuer (权威凭证发行者)<a class="headerlink" href="#authority-issuer" title="永久链接至标题">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>只有 Committee Member（委员会机构成员）可以进行本节操作，若您不是 Committee Member，您可以将您的 WeIdentity DID 和机构名称发给 Committee Member，让其帮您注册成 Authority Issuer。</p>
+</div>
+<ul class="simple">
+<li><p>注册 Authority Issuer</p></li>
+</ul>
+<p>假设您要注册的 Authority Issuer 的 WeIdentity DID 为did:weid:1:0x5efd256d02c1a27675de085b86989fa2ac1baddb，机构名称是 test。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">register_authority_issuer</span><span class="o">.</span><span class="n">sh</span> <span class="o">--</span><span class="n">org</span><span class="o">-</span><span class="nb">id</span> <span class="n">test</span> <span class="o">--</span><span class="n">weid</span> <span class="n">did</span><span class="p">:</span><span class="n">weid</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mh">0x5efd256d02c1a27675de085b86989fa2ac1baddb</span>
+</pre></div>
+</div>
+<p>如果执行成功，会打印以下信息。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Registering</span> <span class="n">authorityissuer</span> <span class="o">---&gt;</span> <span class="n">did</span><span class="p">:</span><span class="n">weid</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mh">0x5efd256d02c1a27675de085b86989fa2ac1baddb</span><span class="p">,</span> <span class="n">name</span> <span class="ow">is</span> <span class="p">:</span><span class="n">test</span>
+<span class="n">Execute</span> <span class="n">succeed</span><span class="o">.</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>移除Authority Issuer</p></li>
+</ul>
+<p>如果您需要移除某个Authority Issuer，比如您要移除did:weid:1:0x5efd256d02c1a27675de085b86989fa2ac1baddb：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">register_authority_issuer</span><span class="o">.</span><span class="n">sh</span> <span class="o">--</span><span class="n">remove</span><span class="o">-</span><span class="n">issuer</span> <span class="n">did</span><span class="p">:</span><span class="n">weid</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mh">0x5efd256d02c1a27675de085b86989fa2ac1baddb</span>
+</pre></div>
+</div>
+<p>若执行成功，则会打印以下信息。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Removing</span> <span class="n">authority</span> <span class="n">issuer</span> <span class="o">---&gt;</span> <span class="n">did</span><span class="p">:</span><span class="n">weid</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mh">0x5efd256d02c1a27675de085b86989fa2ac1baddb</span><span class="o">...</span>
+<span class="n">Execute</span> <span class="n">succeed</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="specific-issuer">
+<h3>3 注册 Specific Issuer(特定类型的发行者)<a class="headerlink" href="#specific-issuer" title="永久链接至标题">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>只有委员会成员（ Committee Member ）可以进行本节操作，若您不是委员会成员，您可以将您的 WeIdentity DID 和机构名称发给委员会成员，让其帮您注册成 Specific Issuer。</p>
+</div>
+<ul class="simple">
+<li><p>注册特定类型机构</p></li>
+</ul>
+<p>假设您要注册的机构的 WeIdentity DID 为did:weid:1:0x5efd256d02c1a27675de085b86989fa2ac1baddb，注册类型为 college，只需执行此下命令：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">register_specific_issuer</span><span class="o">.</span><span class="n">sh</span> <span class="o">--</span><span class="nb">type</span> <span class="n">college</span> <span class="o">--</span><span class="n">weid</span> <span class="n">did</span><span class="p">:</span><span class="n">weid</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mh">0x5efd256d02c1a27675de085b86989fa2ac1baddb</span>
+</pre></div>
+</div>
+<p>执行成功，则会打印以下信息。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">RegisterIssuer</span><span class="p">]</span> <span class="n">Adding</span> <span class="n">WeIdentity</span> <span class="n">DID</span> <span class="n">did</span><span class="p">:</span><span class="n">weid</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mh">0xe10e52f6b7c6751bd03afc023b8e617d7fd0429c</span> <span class="ow">in</span> <span class="nb">type</span><span class="p">:</span> <span class="n">college</span>
+<span class="n">Specific</span> <span class="n">issuers</span> <span class="ow">and</span> <span class="n">types</span> <span class="n">have</span> <span class="n">been</span> <span class="n">successfully</span> <span class="n">registered</span> <span class="n">on</span> <span class="n">blockchain</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>如果您需要注册多个机构，请将其 WeIdentity DID 用分号分割开，如下所示：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">register_specific_issuer</span><span class="o">.</span><span class="n">sh</span> <span class="o">--</span><span class="nb">type</span> <span class="n">college</span> <span class="o">--</span><span class="n">weid</span> <span class="n">did</span><span class="p">:</span><span class="n">weid</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mh">0x5efd256d02c1a27675de085b86989fa2ac1baddb</span><span class="p">;</span><span class="n">did</span><span class="p">:</span><span class="n">weid</span><span class="p">:</span><span class="mh">0x6efd256d02c1a27675de085b86989fa2ac1baddb</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>移除特定类型机构</p></li>
+</ul>
+<p>比如您要从 college 类型中移除 WeID 为 did:weid:1:0x6efd256d02c1a27675de085b86989fa2ac1baddb 的 Specific Issuer：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">register_specific_issuer</span><span class="o">.</span><span class="n">sh</span> <span class="o">--</span><span class="nb">type</span> <span class="n">college</span> <span class="o">--</span><span class="n">remove</span><span class="o">-</span><span class="n">issuer</span> <span class="n">did</span><span class="p">:</span><span class="n">weid</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mh">0x6efd256d02c1a27675de085b86989fa2ac1baddb</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cpt">
+<h3>4 机构发布 CPT<a class="headerlink" href="#cpt" title="永久链接至标题">¶</a></h3>
+<p>此步骤会帮助机构发布指定的 CPT 到区块链上。</p>
+<p>如果您的 WeIdentity DID 是执行<a class="reference external" href="#section-1">第1节</a>生成的，您可以不用传入私钥，只用指定 CPT 的路径和 WeID 即可。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>以下样例中的 <code class="docutils literal notranslate"><span class="pre">test_data/single/</span></code> 已预置测试CPT。您也可以更改为其他包含您CPT的目录。</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">register_cpt</span><span class="o">.</span><span class="n">sh</span> <span class="o">--</span><span class="n">cpt</span><span class="o">-</span><span class="nb">dir</span> <span class="n">test_data</span><span class="o">/</span><span class="n">single</span><span class="o">/</span> <span class="o">--</span><span class="n">weid</span> <span class="n">did</span><span class="p">:</span><span class="n">weid</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mh">0x5efd256d02c1a27675de085b86989fa2ac1baddb</span>
+</pre></div>
+</div>
+<p>若执行成功，则会打印以下信息：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">RegisterCpt</span><span class="p">]</span> <span class="n">register</span> <span class="n">cpt</span> <span class="n">file</span><span class="p">:</span><span class="n">JsonSchema</span><span class="o">.</span><span class="n">json</span> <span class="n">result</span> <span class="o">---&gt;</span> <span class="n">success</span><span class="o">.</span> <span class="n">cpt</span> <span class="nb">id</span> <span class="o">---&gt;</span> <span class="mi">1000</span>
+<span class="p">[</span><span class="n">RegisterCpt</span><span class="p">]</span> <span class="n">register</span> <span class="n">cpt</span> <span class="n">file</span><span class="p">:</span><span class="n">JsonSchema</span><span class="o">.</span><span class="n">json</span> <span class="k">with</span> <span class="n">success</span><span class="o">.</span>
+<span class="n">Execute</span> <span class="n">succeed</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>如果您是通过其他途径创建的 WeIdentity DID，您需要自己指定私钥的位置。
+假如机构的 WeID 是 did:weid:1:0x5efd256d02c1a27675de085b86989fa2ac1baddb，私钥文件路径为 <code class="docutils literal notranslate"><span class="pre">/home/test/private_key/ecdsa_key</span></code>：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">register_cpt</span><span class="o">.</span><span class="n">sh</span> <span class="o">--</span><span class="n">cpt</span><span class="o">-</span><span class="nb">dir</span> <span class="n">test_data</span><span class="o">/</span><span class="n">single</span><span class="o">/</span> <span class="o">--</span><span class="n">weid</span> <span class="n">did</span><span class="p">:</span><span class="n">weid</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mh">0x5efd256d02c1a27675de085b86989fa2ac1baddb</span> <span class="o">--</span><span class="n">private</span><span class="o">-</span><span class="n">key</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="n">private_key</span><span class="o">/</span><span class="n">ecdsa_key</span>
+</pre></div>
+</div>
+<p>若执行成功，则会打印以下信息：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">RegisterCpt</span><span class="p">]</span> <span class="n">register</span> <span class="n">cpt</span> <span class="n">file</span><span class="p">:</span><span class="n">JsonSchema</span><span class="o">.</span><span class="n">json</span> <span class="n">result</span> <span class="o">---&gt;</span> <span class="n">success</span><span class="o">.</span> <span class="n">cpt</span> <span class="nb">id</span> <span class="o">---&gt;</span> <span class="mi">1000</span>
+<span class="p">[</span><span class="n">RegisterCpt</span><span class="p">]</span> <span class="n">register</span> <span class="n">cpt</span> <span class="n">file</span><span class="p">:</span><span class="n">JsonSchema</span><span class="o">.</span><span class="n">json</span> <span class="k">with</span> <span class="n">success</span><span class="o">.</span>
+<span class="n">Execute</span> <span class="n">succeed</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cptpresentation-policy">
+<h3>5 拉取CPT并生成presentation policy模板<a class="headerlink" href="#cptpresentation-policy" title="永久链接至标题">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>此步骤，可以帮使用者从区块链上拉取指定的已发布的 CPT，并转化成 POJO，同时也会根据您生成一个 presentation policy 模板。</p>
+</div>
+<p>假如您需要将 CPT id 为 1000 的 CPT 从区块链上拉取下来，并基于 CPT 1000 生成 presentation policy 的配置模板。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">cpt_to_pojo</span><span class="o">.</span><span class="n">sh</span> <span class="o">--</span><span class="n">cpt</span><span class="o">-</span><span class="nb">list</span> <span class="mi">1000</span>
+</pre></div>
+</div>
+<p>若执行成功，则会打印以下信息。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Begin</span> <span class="n">to</span> <span class="n">generate</span> <span class="n">pojo</span> <span class="kn">from</span> <span class="nn">cpt...</span>
+<span class="n">All</span> <span class="n">cpt</span><span class="p">:[</span><span class="mi">1000</span><span class="p">]</span> <span class="n">are</span> <span class="n">successfully</span> <span class="n">transformed</span> <span class="n">to</span> <span class="n">pojo</span><span class="o">.</span>
+
+<span class="n">The</span> <span class="n">weidentity</span><span class="o">-</span><span class="n">cpt</span><span class="o">.</span><span class="n">jar</span> <span class="n">can</span> <span class="n">be</span> <span class="n">found</span> <span class="ow">in</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">tonychen</span><span class="o">/</span><span class="n">test_gradle</span><span class="o">/</span><span class="n">weid</span><span class="o">-</span><span class="n">build</span><span class="o">-</span><span class="n">tools</span><span class="o">/</span><span class="n">dist</span><span class="o">/</span><span class="n">app</span><span class="o">/</span>
+<span class="n">Begin</span> <span class="n">to</span> <span class="n">generate</span> <span class="n">presentation</span> <span class="n">policy</span> <span class="o">...</span>
+<span class="n">Presentation</span> <span class="n">policy</span> <span class="n">template</span> <span class="ow">is</span> <span class="n">successfully</span> <span class="n">generated</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="n">find</span> <span class="n">it</span> <span class="n">at</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">tonychen</span><span class="o">/</span><span class="n">test_gradle</span><span class="o">/</span><span class="n">weid</span><span class="o">-</span><span class="n">build</span><span class="o">-</span><span class="n">tools</span><span class="o">/</span><span class="n">output</span><span class="o">/</span><span class="n">presentation_policy</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>表明生成的 CPT 的 POJO 的jar包在 <code class="docutils literal notranslate"><span class="pre">/home/app/tonychen/test_gradle/weid-build-tools/dist/app/</span></code> 目录下， 生成的 presentation policy 模板在 <code class="docutils literal notranslate"><span class="pre">/home/app/tonychen/test_gradle/weid-build-tools/output/presentation_policy</span></code> 。</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="weidentity-sample.html" class="btn btn-neutral float-right" title="WeIdentity Sample 开发样例" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="weidentity-installation-by-sourcecode.html" class="btn btn-neutral" title="WeIdentity JAVA SDK安装部署文档（源码方式）" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright (2018) WeBank Co., Ltd.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

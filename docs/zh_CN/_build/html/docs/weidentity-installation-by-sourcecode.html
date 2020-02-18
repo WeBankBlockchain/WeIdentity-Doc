@@ -1,0 +1,370 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>WeIdentity JAVA SDK安装部署文档（源码方式） &mdash; WeIdentity  文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/index.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="WeIdentity JAVA SDK 便捷使用工具" href="weidentity-quick-tools.html" />
+    <link rel="prev" title="WeIdentity JAVA SDK 安装部署工具（部署智能合约）" href="weidentity-build-with-deploy.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> WeIdentity
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">什么是 WeIdentity？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="one-stop-experience.html">WeIdentity 一站式体验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terminologies.html">术语</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use-cases.html">使用场景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-spec.html">WeIdentity 规范</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="weidentity-installation.html">WeIdentity Java SDK 安装部署</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="weidentity-installation.html#id1">整体介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weidentity-installation.html#id2">准备工作</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="weidentity-installation.html#id3">安装部署</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="weidentity-build-with-deploy.html">WeIdentity JAVA SDK 安装部署工具（部署智能合约）</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">WeIdentity JAVA SDK安装部署文档（源码方式）</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">1.下载源码</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">2.安装部署</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">查看WeIdentity JAVA SDK部署结果</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="weidentity-installation.html#id6">便捷工具</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/">WeIdentity Java SDK 文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-sample.html">WeIdentity Sample 开发样例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="miscellaneous.html">杂项</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-rest.html">WeIdentity RestService</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-endpoint.html">WeIdentity Endpoint Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-contract-design.html">WeIdentity 智能合约设计与实现</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">WeIdentity</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="weidentity-installation.html">WeIdentity Java SDK 安装部署</a> &raquo;</li>
+        
+      <li>WeIdentity JAVA SDK安装部署文档（源码方式）</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/docs/weidentity-installation-by-sourcecode.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="weidentity-java-sdk">
+<span id="weidentity-installation-by-sourcecode"></span><h1>WeIdentity JAVA SDK安装部署文档（源码方式）<a class="headerlink" href="#weidentity-java-sdk" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>1.下载源码<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>注意：如果您使用了openjdk13，那么您需要手动修改build.gradle，禁用spotbugs相关功能。具体地，请打开build.gradle，然后将所有spotbugs相关项注释掉即可。</p>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/WeBankFinTech/WeIdentity.git">WeIdentity JAVA SDK</a><span class="raw-html-m2r"><br></span>
+建议下载最新版本的release</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/WeBankFinTech/WeIdentity.git
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>配置节点证书和秘钥文件</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">WeIdentity</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">resources</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>若您使用FISCO BCOS 2.0, 请参考<a class="reference external" href="https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/sdk/java_sdk.html">2.0 web3sdk客户端配置</a>，
+将证书文件 <code class="docutils literal notranslate"><span class="pre">ca.crt</span></code>， <code class="docutils literal notranslate"><span class="pre">node.crt</span></code> 和 <code class="docutils literal notranslate"><span class="pre">node.key</span></code> 复制出来，拷贝至当前目录下。</p>
+<p>若您使用FISCO BCOS 1.3, 请参考<a class="reference external" href="https://fisco-bcos-documentation.readthedocs.io/zh_CN/release-1.3/docs/tools/web3sdk.html">1.3 web3sdk客户端配置</a>，
+将证书文件 <code class="docutils literal notranslate"><span class="pre">ca.crt</span></code> 和 <code class="docutils literal notranslate"><span class="pre">client.keystore</span></code> 复制出来，拷贝至当前目录下 。</p>
+<ul class="simple">
+<li><p>配置基本信息</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">../../../</span><span class="n">build</span><span class="o">-</span><span class="n">tools</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span>
+<span class="n">vim</span> <span class="n">run</span><span class="o">.</span><span class="n">config</span>
+</pre></div>
+</div>
+<p>主要的配置文件 <code class="docutils literal notranslate"><span class="pre">run.config</span></code> ，配置一些运行时需要的一些参数.</p>
+<ul class="simple">
+<li><p>配置说明：</p></li>
+</ul>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">blockchain_address</span></code> ： 区块链节点 IP 和channel端口， channel端口的配置可以参考<a class="reference external" href="https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/manual/configuration.html#rpc">FISCO BCOS 2.0 配置项说明</a> 进行配置，FISCO BCOS 1.3可以参考<a class="reference external" href="https://fisco-bcos-documentation.readthedocs.io/zh_CN/release-1.3/docs/web3sdk/config_web3sdk.html#java">FISCO BCOS 1.3 配置项说明</a> 进行配置。</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">blockchain_fiscobcos_version</span></code> ：对接的FISCO BCOS版本。</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">org_id</span></code> ：机构名称，该名称也被用作后续机构间的通信标识。</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">chain_id</span></code> ：用于标识您接入的区块链网络。</div>
+</div>
+</div></blockquote>
+<p>配置样例：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#节点的连接串，节点IP为10.10.10.10，和channel端口为20200。</span>
+<span class="n">blockchain_address</span><span class="o">=</span><span class="mf">10.10</span><span class="o">.</span><span class="mf">10.10</span><span class="p">:</span><span class="mi">20200</span>
+
+<span class="c1"># 2表示FISCO BCOS的版本为2.0, 1则表示FISCO BCOS 1.3</span>
+<span class="n">blockchain_fiscobcos_version</span><span class="o">=</span><span class="mi">2</span>
+
+<span class="c1">#机构名称</span>
+<span class="n">org_id</span><span class="o">=</span><span class="n">organizationA</span>
+
+<span class="c1">#链标识</span>
+<span class="n">chain_id</span><span class="o">=</span><span class="mi">1</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>注意：如果您使用了Gradle 6.0+，那么您需要手动修改build.gradle中spotbug的Gradle插件版本号为2.0.0+。具体地，打开WeIdentity/build.gradle，将“classpath “gradle.plugin.com.github.spotbugs:spotbugs-gradle-plugin:1.6.5””中的1.6.5改成2.0.0或更高版本。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>如果您使用FISCO-BCOS 2.x，且需要跨群组部署WeIdentity，请参考<a class="reference external" href="./how-to-deploy-w-groupid.html">跨群组部署WeIdentity</a>。</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>2.安装部署<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>运行下面的命令，自动完成代码编译，智能合约编译，智能合约部署和所有配置文件的配置：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="o">*.</span><span class="n">sh</span>
+<span class="o">./</span><span class="n">run</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>出现下列输出，则表示安装部署成功。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>contract deployment <span class="k">done</span>.
+begin to modify sdk config...
+modify sdk config finished...
+begin to clean config...
+clean finished...
+</pre></div>
+</div>
+<p>到这里，您已经完成了weid-java-sdk的安装和部署的全部步骤，您可以开始使用WeIdentity来构建您的分布式身份管理的Java应用了。</p>
+<p>Have fun!!!</p>
+<div class="section" id="id4">
+<h3>备注<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>查看WeIdentity JAVA SDK部署结果<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>进入dist目录</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ../../dist/
+ls
+</pre></div>
+</div>
+<p>dist目录包含以下目录： <code class="docutils literal notranslate"><span class="pre">app</span></code>， <code class="docutils literal notranslate"><span class="pre">conf</span></code> 和 <code class="docutils literal notranslate"><span class="pre">lib</span></code></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>目录名</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>app</p></td>
+<td><p>打包好的weid-java-sdk jar包。</p></td>
+</tr>
+<tr class="row-odd"><td><p>conf</p></td>
+<td><p>weid-java-sdk运行时的一些配置，Java应用集成weid-java-sdk的时候，需要将此目录下的文件放到您自己的Java应用的classpath下。</p></td>
+</tr>
+<tr class="row-even"><td><p>lib</p></td>
+<td><p>依赖的jar包。</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>进入源码根目录</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ../
+ls
+</pre></div>
+</div>
+<p>根目录下生成的文件 <code class="docutils literal notranslate"><span class="pre">ecdsa_key</span></code> 为weid-java-sdk部署合约动态生成的秘钥文件，您的Java应用集成weid-java-sdk的时候可能需要使用此文件，请妥善保管。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="weidentity-quick-tools.html" class="btn btn-neutral float-right" title="WeIdentity JAVA SDK 便捷使用工具" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="weidentity-build-with-deploy.html" class="btn btn-neutral" title="WeIdentity JAVA SDK 安装部署工具（部署智能合约）" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright (2018) WeBank Co., Ltd.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

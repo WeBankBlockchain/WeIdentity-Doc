@@ -1,0 +1,358 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>WeIdentity 存储容量预估 &mdash; WeIdentity  文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/index.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> WeIdentity
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">什么是 WeIdentity？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="one-stop-experience.html">WeIdentity 一站式体验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terminologies.html">术语</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use-cases.html">使用场景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-spec.html">WeIdentity 规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-installation.html">WeIdentity Java SDK 安装部署</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/">WeIdentity Java SDK 文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-sample.html">WeIdentity Sample 开发样例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="miscellaneous.html">杂项</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-rest.html">WeIdentity RestService</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-endpoint.html">WeIdentity Endpoint Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-contract-design.html">WeIdentity 智能合约设计与实现</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">WeIdentity</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>WeIdentity 存储容量预估</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/docs/capacity-estimation.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="weidentity">
+<span id="weidentity"></span><h1>WeIdentity 存储容量预估<a class="headerlink" href="#weidentity" title="永久链接至标题">¶</a></h1>
+<p>WeIdentity 在区块链上存储的信息主要包括：</p>
+<ol class="simple">
+<li><p>WeIdentity Document（存储在 Event）。</p></li>
+<li><p>WeIdentity DID 的总表。</p></li>
+<li><p>WeIdentity Credential 在链上的存证（即Evidence）。</p></li>
+<li><p>所有 CPT 的定义（以JSON格式存储）。</p></li>
+<li><p>Authority Issuer。</p></li>
+<li><p>Specific Issuer。</p></li>
+</ol>
+<p>一般情况下，需要注意上面的第1，2，3项的容量。</p>
+<p>WeIdentity 容量预估：</p>
+<div class="highlight-JAVA notranslate"><div class="highlight"><pre><span></span><span class="n">链上所占总空间</span> <span class="o">=</span> <span class="o">(</span><span class="n">WeIdentity</span> <span class="n">DID数量</span> <span class="o">*</span> <span class="mi">52</span> <span class="n">Bytes</span> <span class="o">*</span> <span class="mi">10</span><span class="o">)</span>
+  <span class="o">+</span> <span class="o">(</span><span class="n">Evidence数量</span> <span class="o">*</span> <span class="mi">220</span> <span class="n">Bytes</span> <span class="o">*</span> <span class="mi">10</span><span class="o">)</span>
+  <span class="o">+</span> <span class="o">(</span><span class="n">CPT数量</span> <span class="o">*</span> <span class="mi">4560</span> <span class="n">Bytes</span> <span class="o">*</span> <span class="mi">10</span><span class="o">)</span>
+  <span class="o">+</span> <span class="o">(</span><span class="n">Authority</span> <span class="n">Issuer数量</span> <span class="o">*</span> <span class="mi">724</span> <span class="n">Bytes</span> <span class="o">*</span> <span class="mi">10</span><span class="o">)</span>
+  <span class="o">+</span> <span class="o">(</span><span class="n">Specific</span> <span class="n">Issuer数量</span> <span class="o">*</span> <span class="mi">372</span> <span class="n">Bytes</span> <span class="o">*</span> <span class="mi">10</span><span class="o">)</span>
+</pre></div>
+</div>
+<div class="highlight-JAVA notranslate"><div class="highlight"><pre><span></span><span class="n">Event</span> <span class="n">所占总空间</span> <span class="o">=</span> <span class="o">(</span><span class="n">WeIdentity</span> <span class="n">DID数量</span> <span class="o">*</span> <span class="mi">1464</span> <span class="n">Bytes</span> <span class="o">*</span> <span class="mi">3</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>例如，假设一条联盟链，总共创建<code class="docutils literal notranslate"><span class="pre">1000万个</span></code>WeID，并且将Credential的存证上链，每天 <code class="docutils literal notranslate"><span class="pre">20000</span> <span class="pre">条</span></code>存证上链（这种情况下，容量评估可以只考虑上面列出的前三项）。则<code class="docutils literal notranslate"><span class="pre">两年</span></code>时间，部署 WeIdentity 的区块链节点，大概会占用的空间（仅做参考）：</p>
+<ul class="simple">
+<li><p>链上所占总空间 = 10000000 * 52 Bytes * 10 + 2 * 365 * 20000 * 220 Bytes * 10 = 35.6 GBytes</p></li>
+<li><p>Event 所占总空间 = 10000000 * 1464 Bytes * 3 =  41.9 GBytes</p></li>
+</ul>
+<p>综上，单节点占用空间 35.6 + 41.9 = 77.5 GBytes</p>
+<div class="section" id="weidentity-document-weidentity-did-event">
+<span id="weidentity-document-weidentity-did-event"></span><h2>1. WeIdentity Document，即每个 WeIdentity DID 的属性集合，存储在 Event。<a class="headerlink" href="#weidentity-document-weidentity-did-event" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">所有的</span> <span class="n">WeIdentity</span> <span class="n">Document</span> <span class="n">所占</span> <span class="n">Event</span> <span class="n">空间</span> <span class="o">=</span> <span class="n">WeIdentity</span> <span class="n">DID</span> <span class="n">数量</span> <span class="o">*</span> <span class="mi">1464</span> <span class="n">Bytes</span> <span class="o">*</span> <span class="mi">3</span>
+</pre></div>
+</div>
+<div class="section" id="">
+<span id="id1"></span><h3>解释：<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>Event 的结构如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>event WeIdAttributeChanged(
+    address indexed identity ---&gt; 20 Bytes
+    bytes32 key ---&gt; 32 Bytes
+    bytes value ---&gt; 不同的 Attribute，value所占空间不通。下面详细解释。
+    uint previousBlock ---&gt; 8 Bytes
+    int updated ---&gt; 8 Bytes
+);
+</pre></div>
+</div>
+<p>这里假设，每个 WeIdentity Document 包含了下面的字段：</p>
+<ul class="simple">
+<li><p>1 个 Created 字段，保存在 1 个 Event 中。long型的 timestamp，转为 String，value 占 13 Bytes。单个 Event 结构占 81 Bytes。</p></li>
+<li><p>3 个 Public Key 字段，保存在 3 个 Event 中。保存形式是<code class="docutils literal notranslate"><span class="pre">&quot;PublicKey/address&quot;</span></code>，value 占64+1+20 = 85 Bytes。单个 Event 结构占 153 Bytes。(即没增加一个 Public Key，增加 153 Bytes)。</p></li>
+<li><p>3 个 Authentication 字段，保存在 3 个 Event 中。保存形式是<code class="docutils literal notranslate"><span class="pre">&quot;PublicKey/address&quot;</span></code>，value 占 64+1+20 = 85 Bytes。单个 Event 结构占 153 Bytes(即没增加一个 Authentication，增加 153 Bytes)。</p></li>
+<li><p>5 个 Service Endpoint 字段，保存在 5 个 Event 中。这里预估每个 value 占 30 Bytes。单个 Event 结构占 98 Bytes。</p></li>
+</ul>
+<p>即总共需要使用 12 个 Event 结构存储 WeIdentity Document 的所有属性。因此，单个 WeIdentity Document 所占 Event 存储空间为 81 + 3 * 153 + 3 * 153 + 5 * 93 = 1464 Bytes。</p>
+</div>
+</div>
+<div class="section" id="weidentity-did">
+<span id="weidentity-did"></span><h2>2. WeIdentity DID 的总表所占容量预估<a class="headerlink" href="#weidentity-did" title="永久链接至标题">¶</a></h2>
+<p>WeIdentity DID 的总表，存储在链上，存储了所有公开的 WeIdentity DID 的 ID 到 Document 的映射关系。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">WeIdentity</span> <span class="n">DID</span> <span class="n">的总表在链上所占空间</span> <span class="o">=</span> <span class="n">WeIdentity</span> <span class="n">DID</span> <span class="n">数量</span> <span class="o">*</span> <span class="mi">52</span> <span class="n">Bytes</span> <span class="o">*</span> <span class="mi">10</span>
+</pre></div>
+</div>
+<div class="section" id="">
+<span id="id2"></span><h3>解释：<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>key 是 WeAddress，使用<code class="docutils literal notranslate"><span class="pre">address</span></code>存储，占 20 Bytes； WeAddress；Event 所在块位置使用<code class="docutils literal notranslate"><span class="pre">unit</span></code>存储，占 32 Bytes（256 bits）。单个 WeID 占用52 Bytes。</p>
+</div>
+</div>
+<div class="section" id="weidentity-credential-evidence">
+<span id="weidentity-credential-evidence"></span><h2>3. WeIdentity Credential 的 Evidence 所占容量预估<a class="headerlink" href="#weidentity-credential-evidence" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">所有</span> <span class="n">Evidence</span> <span class="n">在链上所占空间</span> <span class="o">=</span> <span class="n">Evidence</span> <span class="n">数量</span> <span class="o">*</span> <span class="mi">220</span> <span class="n">Bytes</span> <span class="o">*</span> <span class="mi">10</span>
+</pre></div>
+</div>
+<div class="section" id="">
+<span id="id3"></span><h3>解释：<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>key 是 WeAddress，占 20 Bytes；单个 Evidence 在链上的数据结构如下，占200 Bytes：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
+bytes32[] dataHash, ---&gt; 动态数组，目前使用 2 个 byte32，占 64 Bytes。
+address[] signer, ---&gt; 动态数组，目前使用 1 个 byte32， 占 32 Bytes。
+bytes32 r, ---&gt; 占 32 Bytes。
+bytes32 s, ---&gt; 占 32 Bytes。
+uint8 v, ---&gt; 占 8 Bytes。
+bytes32[] extra ---&gt; 动态数组，目前使用 32 Bytes。
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="cpt">
+<span id="cpt"></span><h2>4. 所有 CPT 的定义所占容量预估<a class="headerlink" href="#cpt" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CPT</span> <span class="n">在链上所占空间</span> <span class="o">=</span> <span class="n">CPT</span> <span class="n">数量</span> <span class="o">*</span> <span class="mi">4560</span> <span class="n">Bytes</span> <span class="o">*</span> <span class="mi">10</span>
+</pre></div>
+</div>
+<div class="section" id="">
+<span id="id4"></span><h3>解释：<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>key 是<code class="docutils literal notranslate"><span class="pre">uint</span></code>，占 32 Bytes；单个 CPT 在链上的存储结构如下，占用空间 4528 Bytes，如下所示：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="n">uint</span> <span class="n">cptId</span> <span class="o">---&gt;</span> <span class="mi">8</span> <span class="n">Bytes</span>
+<span class="n">address</span> <span class="n">cptPublisher</span> <span class="o">---&gt;</span> <span class="mi">32</span> <span class="n">Bytes</span>
+<span class="nb">int</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="n">cptIntArray</span> <span class="o">---&gt;</span> <span class="mi">64</span> <span class="n">Bytes</span>
+<span class="n">bytes32</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="n">cptBytes32Array</span> <span class="o">---&gt;</span> <span class="mi">256</span> <span class="n">Bytes</span>
+<span class="n">bytes32</span><span class="p">[</span><span class="mi">128</span><span class="p">]</span> <span class="n">cptJsonSchemaArray</span> <span class="o">---&gt;</span> <span class="mi">4096</span> <span class="n">Bytes</span>
+<span class="n">uint8</span> <span class="n">cptV</span> <span class="o">---&gt;</span> <span class="mi">8</span> <span class="n">Bytes</span>
+<span class="n">bytes32</span> <span class="n">cptR</span> <span class="o">---&gt;</span> <span class="mi">32</span> <span class="n">Bytes</span>
+<span class="n">bytes32</span> <span class="n">cptS</span> <span class="o">---&gt;</span> <span class="mi">32</span> <span class="n">Bytes</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="authority-issuer">
+<span id="authority-issuer"></span><h2>5. Authority Issuer 所占容量预估<a class="headerlink" href="#authority-issuer" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Authority</span> <span class="n">Issuer</span> <span class="n">合约在链上所占空间</span> <span class="o">=</span> <span class="n">Authority</span> <span class="n">Issuer</span> <span class="n">数量</span> <span class="o">*</span> <span class="mi">724</span> <span class="n">Bytes</span> <span class="o">*</span> <span class="mi">10</span>
+</pre></div>
+</div>
+<div class="section" id="">
+<span id="id5"></span><h3>解释：<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>key 是 WeAddress，占 20 Bytes；单个Authority Issuer 在链上的存储结构，704 byte</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="n">address</span> <span class="n">addr</span><span class="p">,</span> <span class="o">---&gt;</span> <span class="mi">32</span> <span class="n">Bytes</span>
+<span class="n">bytes32</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span> <span class="n">attribBytes32</span><span class="p">,</span> <span class="o">---&gt;</span> <span class="mi">512</span> <span class="n">Bytes</span>
+<span class="nb">int</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span> <span class="n">attribInt</span><span class="p">,</span> <span class="o">---&gt;</span> <span class="mi">128</span> <span class="n">Bytes</span>
+<span class="nb">bytes</span> <span class="n">accValue</span> <span class="o">---&gt;</span> <span class="mi">32</span> <span class="n">Bytes</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="specific-issuer">
+<span id="specific-issuer"></span><h2>6. Specific Issuer 所占容量预估<a class="headerlink" href="#specific-issuer" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Specific</span> <span class="n">Issuer</span> <span class="n">合约在链上所占空间</span> <span class="o">=</span> <span class="n">Specific</span> <span class="n">Issuer</span> <span class="n">数量</span> <span class="o">*</span> <span class="mi">372</span> <span class="n">Bytes</span> <span class="o">*</span> <span class="mi">10</span>
+</pre></div>
+</div>
+<div class="section" id="">
+<span id="id6"></span><h3>解释：<a class="headerlink" href="#" title="永久链接至标题">¶</a></h3>
+<p>key 是 WeAddress，占 20 Bytes；单个 Specific Issuer 在链上存储结构，占 352 Bytes,结构如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="n">bytes32</span> <span class="n">typeName</span><span class="p">;</span> <span class="o">---&gt;</span> <span class="mi">32</span> <span class="n">Bytes</span>
+<span class="n">address</span><span class="p">[]</span> <span class="n">fellow</span><span class="p">;</span> <span class="o">---&gt;</span> <span class="mi">32</span> <span class="n">Bytes</span>
+<span class="n">mapping</span> <span class="p">(</span><span class="n">address</span> <span class="o">=&gt;</span> <span class="nb">bool</span><span class="p">)</span> <span class="n">isFellow</span><span class="p">;</span> <span class="o">---&gt;</span> <span class="mi">32</span> <span class="n">Bytes</span>
+<span class="n">bytes32</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="n">extra</span><span class="p">;</span> <span class="o">---&gt;</span> <span class="mi">256</span> <span class="n">Bytes</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright (2018) WeBank Co., Ltd.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

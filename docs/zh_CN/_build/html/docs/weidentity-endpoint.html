@@ -1,0 +1,260 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>WeIdentity Endpoint Service &mdash; WeIdentity  文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/index.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="WeIdentity Endpoint Service部署指引" href="weidentity-endpoint-deploy.html" />
+    <link rel="prev" title="WeIdentity RestService 设计文档" href="weidentity-rest-design.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> WeIdentity
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">什么是 WeIdentity？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="one-stop-experience.html">WeIdentity 一站式体验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terminologies.html">术语</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use-cases.html">使用场景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-spec.html">WeIdentity 规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-installation.html">WeIdentity Java SDK 安装部署</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/">WeIdentity Java SDK 文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-sample.html">WeIdentity Sample 开发样例</a></li>
+<li class="toctree-l1"><a class="reference internal" href="miscellaneous.html">杂项</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-rest.html">WeIdentity RestService</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">WeIdentity Endpoint Service</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#endpoint-service">部署Endpoint Service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="weidentity-endpoint-deploy.html">WeIdentity Endpoint Service部署指引</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">使用Endpoint Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">技术细节</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-contract-design.html">WeIdentity 智能合约设计与实现</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">WeIdentity</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>WeIdentity Endpoint Service</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/docs/weidentity-endpoint.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="weidentity-endpoint-service">
+<span id="weidentity-endpoint"></span><h1>WeIdentity Endpoint Service<a class="headerlink" href="#weidentity-endpoint-service" title="永久链接至标题">¶</a></h1>
+<p>在开发过程中，您可能会有将自己的某些Java方法暴露给外部调用方调用的需求。在过去，您可能需要自己开发一套基于HTTP/HTTPS的请求，及基于RPC的Endpoint服务端点的创建、维护及处理服务，这可能会花费大量的开发人力和工时。</p>
+<p>现在，WeIdentity提供了一套标准化的Endpoint服务的参考实现样例。只要您已经集成了WeIdentity及RestService，便可以直接使用这一功能。您只需要在自己的Java集成环境里调用WeIdentity Java SDK，进行Endpoint的注册，之后您的方法就会自动出现在RestService对外暴露的API列表里，并可供外部调用了。</p>
+<div class="section" id="endpoint-service">
+<h2>部署Endpoint Service<a class="headerlink" href="#endpoint-service" title="永久链接至标题">¶</a></h2>
+<p>您可以参照 <a class="reference external" href="./weidentity-endpoint-deploy.html">部署指引</a>文档，进行Endpoint Service的部署及初始化。</p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="id2">
+<h2>使用Endpoint Service<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>您可以参照 <a class="reference external" href="./weidentity-rest-api.html">RestService API</a>文档中的Endpoint Service API部分，了解如何查询和调用您注册的Endpoint信息。</p>
+</div>
+<div class="section" id="id3">
+<h2>技术细节<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Endpoint Service的RPC库基于 <a class="reference external" href="https://gitee.com/smartboot/smart-socket">smart-socket 1.4.2</a>这一Java AIO框架。</dt><dd><ul>
+<li><p>目前Endpoint Service在此RPC库基础上自行实现了更加简单易用的按需断线重连机制。</p></li>
+<li><p>目前Endpoint Service以异步的方式实现远程调用，并通过指定时长内的本地轮询查询执行结果。如果您的方法可能耗时过长，可以调节轮询的最大等待时长。</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Endpoint Service支持1:N的多集成端访问和多活机制。如果一个Endpoint可以由多台集成端访问，那么当其中某一台集成端访问出错时，访问其的请求会被自动导向其他注册了相同Endpoint的机器上。</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="weidentity-endpoint-deploy.html" class="btn btn-neutral float-right" title="WeIdentity Endpoint Service部署指引" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="weidentity-rest-design.html" class="btn btn-neutral" title="WeIdentity RestService 设计文档" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright (2018) WeBank Co., Ltd.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

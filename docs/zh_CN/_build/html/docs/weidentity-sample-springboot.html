@@ -1,0 +1,456 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>spring-boot服务方式使用 &mdash; WeIdentity  文档</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/index.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="杂项" href="miscellaneous.html" />
+    <link rel="prev" title="命令行方式使用" href="weidentity-sample-commandline.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> WeIdentity
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">什么是 WeIdentity？</a></li>
+<li class="toctree-l1"><a class="reference internal" href="one-stop-experience.html">WeIdentity 一站式体验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terminologies.html">术语</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use-cases.html">使用场景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-spec.html">WeIdentity 规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-installation.html">WeIdentity Java SDK 安装部署</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/">WeIdentity Java SDK 文档</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="weidentity-sample.html">WeIdentity Sample 开发样例</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="weidentity-sample.html#id2">环境准备</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="weidentity-sample.html#id3">快速体验</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="weidentity-sample-commandline.html">命令行方式使用</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">spring-boot服务方式使用</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">整体介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">1. 下载源码</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">2. 配置与部署</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="miscellaneous.html">杂项</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-rest.html">WeIdentity RestService</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-endpoint.html">WeIdentity Endpoint Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weidentity-contract-design.html">WeIdentity 智能合约设计与实现</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">WeIdentity</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="weidentity-sample.html">WeIdentity Sample 开发样例</a> &raquo;</li>
+        
+      <li>spring-boot服务方式使用</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/docs/weidentity-sample-springboot.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="spring-boot">
+<h1>spring-boot服务方式使用<a class="headerlink" href="#spring-boot" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>整体介绍<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>使用 spring-boot 方式，weid-sample 程序将作为一个后台进程运行，您可以使用 http 方式体验交互流程。
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>1. 下载源码<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/WeBankFinTech/weid-sample.git
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>2. 配置与部署<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<div class="section" id="weid-java-sdk">
+<h3>2.1 部署 weid-java-sdk 与配置基本信息<a class="headerlink" href="#weid-java-sdk" title="永久链接至标题">¶</a></h3>
+<ul>
+<li><p>安装部署 weid-java-sdk</p>
+<p>weid-sample 需要依赖 weid-java-sdk，您需要参考<a class="reference external" href="./weidentity-installation.html">WeIdentity JAVA
+SDK安装部署</a>完成
+weid-java-sdk
+的安装部署，并参照<a class="reference external" href="./weidentity-build-with-deploy.html#weid-java-sdk">Java应用集成章节</a>完成
+weid-sample 的配置。</p>
+</li>
+<li><p>配置 Committee Member 私钥</p>
+<p>将您在<a class="reference external" href="./weidentity-build-with-deploy.html#id7">部署WeIdentity智能合约阶段</a>生成的私钥文件拷贝至
+<code class="docutils literal notranslate"><span class="pre">weid-sample/keys/priv/</span></code> 目录中，此私钥后续将用于注册 Authority Issuer，weid-sample 会自动加载。</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>此项配置并非必要，注册 Authority Issuer 需要委员会机构成员（ Committee Member ）权限，发布智能合约时生成的公私钥对会自动成为委员会机构成员，若您不是发布智能合约的机构，您无需关注此配置项。
+若您是智能合约发布的机构，您可以参考以下进行配置：</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>2.2 基本流程的演示<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id5">
+<h4>2.2.1 编译和运行<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h4>
+<ul class="simple">
+<li><p>编译 weid-sample</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> weid-sample
+chmod +x *.sh
+./build.sh
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>启动 weid-sample 服务:</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./start.sh
+</pre></div>
+</div>
+<p>若启动成功，则会打印以下信息：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">main</span><span class="p">]</span> <span class="n">INFO</span>  <span class="n">AnnotationMBeanExporter</span><span class="p">()</span> <span class="o">-</span> <span class="n">Registering</span> <span class="n">beans</span> <span class="k">for</span> <span class="n">JMX</span> <span class="n">exposure</span> <span class="n">on</span> <span class="n">startup</span>
+<span class="p">[</span><span class="n">main</span><span class="p">]</span> <span class="n">INFO</span>  <span class="n">Http11NioProtocol</span><span class="p">()</span> <span class="o">-</span> <span class="n">Initializing</span> <span class="n">ProtocolHandler</span> <span class="p">[</span><span class="s2">&quot;https-jsse-nio-6101&quot;</span><span class="p">]</span>
+<span class="p">[</span><span class="n">main</span><span class="p">]</span> <span class="n">INFO</span>  <span class="n">Http11NioProtocol</span><span class="p">()</span> <span class="o">-</span> <span class="n">Starting</span> <span class="n">ProtocolHandler</span> <span class="p">[</span><span class="s2">&quot;https-jsse-nio-6100&quot;</span><span class="p">]</span>
+<span class="p">[</span><span class="n">main</span><span class="p">]</span> <span class="n">INFO</span>  <span class="n">NioSelectorPool</span><span class="p">()</span> <span class="o">-</span> <span class="n">Using</span> <span class="n">a</span> <span class="n">shared</span> <span class="n">selector</span> <span class="k">for</span> <span class="n">servlet</span> <span class="n">write</span><span class="o">/</span><span class="n">read</span>
+<span class="p">[</span><span class="n">main</span><span class="p">]</span> <span class="n">INFO</span>  <span class="n">Http11NioProtocol</span><span class="p">()</span> <span class="o">-</span> <span class="n">Initializing</span> <span class="n">ProtocolHandler</span> <span class="p">[</span><span class="s2">&quot;http-nio-6101&quot;</span><span class="p">]</span>
+<span class="p">[</span><span class="n">main</span><span class="p">]</span> <span class="n">INFO</span>  <span class="n">NioSelectorPool</span><span class="p">()</span> <span class="o">-</span> <span class="n">Using</span> <span class="n">a</span> <span class="n">shared</span> <span class="n">selector</span> <span class="k">for</span> <span class="n">servlet</span> <span class="n">write</span><span class="o">/</span><span class="n">read</span>
+<span class="p">[</span><span class="n">main</span><span class="p">]</span> <span class="n">INFO</span>  <span class="n">Http11NioProtocol</span><span class="p">()</span> <span class="o">-</span> <span class="n">Starting</span> <span class="n">ProtocolHandler</span> <span class="p">[</span><span class="s2">&quot;http-nio-6101&quot;</span><span class="p">]</span>
+<span class="p">[</span><span class="n">main</span><span class="p">]</span> <span class="n">INFO</span>  <span class="n">TomcatEmbeddedServletContainer</span><span class="p">()</span> <span class="o">-</span> <span class="n">Tomcat</span> <span class="n">started</span> <span class="n">on</span> <span class="n">port</span><span class="p">(</span><span class="n">s</span><span class="p">):</span> <span class="mi">6100</span> <span class="p">(</span><span class="n">https</span><span class="p">)</span> <span class="mi">6101</span> <span class="p">(</span><span class="n">http</span><span class="p">)</span>
+<span class="p">[</span><span class="n">main</span><span class="p">]</span> <span class="n">INFO</span>  <span class="n">SampleApp</span><span class="p">()</span> <span class="o">-</span> <span class="n">Started</span> <span class="n">SampleApp</span> <span class="ow">in</span> <span class="mf">3.588</span> <span class="n">seconds</span> <span class="p">(</span><span class="n">JVM</span> <span class="n">running</span> <span class="k">for</span> <span class="mf">4.294</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h4>2.2.2 流程演示<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h4>
+<p>以下将为您演示
+假设您的服务部署在本地，地址是 <code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code>，服务端口是 <code class="docutils literal notranslate"><span class="pre">6101</span></code>。您可以在 <code class="docutils literal notranslate"><span class="pre">src/main/resources</span></code> 里修改端口信息。</p>
+<ul class="simple">
+<li><p>创建 WeID</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl -l -H <span class="s2">&quot;Content-type: application/json&quot;</span> -X POST   http://127.0.0.1:6101/createWeId
+</pre></div>
+</div>
+<p>若调用成功，则会打印以下信息：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;result&quot;</span><span class="p">:{</span>
+        <span class="s2">&quot;weId&quot;</span><span class="p">:</span><span class="s2">&quot;did:weid:101:0xd613fbc0249f2ce5088ed484fa6b7b51ecb95e24&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;userWeIdPublicKey&quot;</span><span class="p">:{</span>
+            <span class="s2">&quot;publicKey&quot;</span><span class="p">:</span><span class="s2">&quot;3170902924087212850995053706205512080445198963430287429721846825598988998466716040533782467342119206581749393570668868631792331397183368695050591746049552&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;userWeIdPrivateKey&quot;</span><span class="p">:</span><span class="n">null</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;errorCode&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;errorMessage&quot;</span><span class="p">:</span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;transactionInfo&quot;</span><span class="p">:{</span>
+        <span class="s2">&quot;blockNumber&quot;</span><span class="p">:</span><span class="mi">60643</span><span class="p">,</span>
+        <span class="s2">&quot;transactionHash&quot;</span><span class="p">:</span><span class="s2">&quot;0xc73b7ba6af39614761423dc8fcbbbc7e5f24c82e8187bc467cf0398b4ce4330b&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;transactionIndex&quot;</span><span class="p">:</span><span class="mi">0</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>表明创建的 WeID 是 did:weid:101:0xd613fbc0249f2ce5088ed484fa6b7b51ecb95e24。</p>
+<ul class="simple">
+<li><p>注册 Authority Issuer</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl -l -H <span class="s2">&quot;Content-type: application/json&quot;</span> -X POST -d <span class="s1">&#39;{&quot;issuer&quot;:&quot;did:weid:101:0xd613fbc0249f2ce5088ed484fa6b7b51ecb95e24&quot;,&quot;org-id&quot;:&quot;webank&quot;}&#39;</span>
+http://127.0.0.1:6101/registerAuthorityIssuer
+</pre></div>
+</div>
+<p>运行成功，则会打印以下信息：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;errorCode&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;errorMessage&quot;</span><span class="p">:</span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;transactionInfo&quot;</span><span class="p">:{</span>
+        <span class="s2">&quot;blockNumber&quot;</span><span class="p">:</span><span class="mi">60668</span><span class="p">,</span>
+        <span class="s2">&quot;transactionHash&quot;</span><span class="p">:</span><span class="s2">&quot;0xa0b84473705da2679cfec9119e2cdef03175df0f1af676e0579d5809e4e8d6cd&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;transactionIndex&quot;</span><span class="p">:</span><span class="mi">0</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>注册 CPT</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl -l -H <span class="s2">&quot;Content-type: application/json&quot;</span> -X POST -d <span class="s1">&#39;{&quot;publisher&quot;: &quot;did:weid:101:0xd613fbc0249f2ce5088ed484fa6b7b51ecb95e24&quot;,</span>
+<span class="s1">&quot;claim&quot;: {&quot;properties&quot;: {&quot;id&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;user weid&quot;},&quot;name&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;user name&quot;},&quot;gender&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;user gender&quot;}}}}&#39;</span>
+http://127.0.0.1:6101/registCpt
+</pre></div>
+</div>
+<p>运行成功，则会打印以下信息：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;result&quot;</span><span class="p">:{</span>
+        <span class="s2">&quot;cptId&quot;</span><span class="p">:</span><span class="mi">1189</span><span class="p">,</span>
+        <span class="s2">&quot;cptVersion&quot;</span><span class="p">:</span><span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;errorCode&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;errorMessage&quot;</span><span class="p">:</span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;transactionInfo&quot;</span><span class="p">:{</span>
+        <span class="s2">&quot;blockNumber&quot;</span><span class="p">:</span><span class="mi">60676</span><span class="p">,</span>
+        <span class="s2">&quot;transactionHash&quot;</span><span class="p">:</span><span class="s2">&quot;0x72d55eb1d020acd09b115177a46e230ffdb0177ab5dd74e16765d79338522093&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;transactionIndex&quot;</span><span class="p">:</span><span class="mi">0</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>表明注册 CPT 成功，CPT ID 为 1189。</p>
+<ul class="simple">
+<li><p>创建 Credential</p></li>
+</ul>
+<p>创建 Credential 依赖于具体的 CPT，参数里的 cptId 传入刚刚注册的 CPT 的 ID：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl -l -H <span class="s2">&quot;Content-type: application/json&quot;</span> -X POST -d
+<span class="s1">&#39;{&quot;cptId&quot;: &quot;1189&quot;,&quot;issuer&quot;: &quot;did:weid:101:0xd613fbc0249f2ce5088ed484fa6b7b51ecb95e24&quot;,</span>
+<span class="s1">&quot;claimData&quot;: {&quot;id&quot;:&quot;did:weid:101:0xf36fb2308d36bb94c579f568bdf670743d949deb&quot;,&quot;name&quot;:&quot;zhangsan&quot;,&quot;gender&quot;:&quot;F&quot;}}&#39;</span>
+http://127.0.0.1:6101/createCredential
+</pre></div>
+</div>
+<p>若运行成功，则会打印以下信息：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;result&quot;</span><span class="p">:{</span>
+        <span class="s2">&quot;credential&quot;</span><span class="p">:{</span>
+            <span class="s2">&quot;context&quot;</span><span class="p">:</span><span class="s2">&quot;https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;e4f4accd-6026-4fd0-9392-1379ddd4f778&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cptId&quot;</span><span class="p">:</span><span class="mi">1189</span><span class="p">,</span>
+            <span class="s2">&quot;issuer&quot;</span><span class="p">:</span><span class="s2">&quot;did:weid:101:0xd613fbc0249f2ce5088ed484fa6b7b51ecb95e24&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;issuanceDate&quot;</span><span class="p">:</span><span class="mi">1564371227764</span><span class="p">,</span>
+            <span class="s2">&quot;expirationDate&quot;</span><span class="p">:</span><span class="mi">1595475227763</span><span class="p">,</span>
+            <span class="s2">&quot;claim&quot;</span><span class="p">:{</span>
+                <span class="s2">&quot;gender&quot;</span><span class="p">:</span><span class="s2">&quot;F&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;zhangsan&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;did:weid:101:0xf36fb2308d36bb94c579f568bdf670743d949deb&quot;</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;proof&quot;</span><span class="p">:{</span>
+                <span class="s2">&quot;creator&quot;</span><span class="p">:</span><span class="s2">&quot;did:weid:101:0xd613fbc0249f2ce5088ed484fa6b7b51ecb95e24&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;signature&quot;</span><span class="p">:</span><span class="s2">&quot;G2kD4u4jrnmYbq/oVl9idmTEQzP3a0KEomHGJaVpWzhITIE+dDYSRMyF9TDy+jPANpYRJGg7pGnANM+QeJ9Ba00=&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;created&quot;</span><span class="p">:</span><span class="s2">&quot;1564371227764&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;EcdsaSignature&quot;</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;signature&quot;</span><span class="p">:</span><span class="s2">&quot;G2kD4u4jrnmYbq/oVl9idmTEQzP3a0KEomHGJaVpWzhITIE+dDYSRMyF9TDy+jPANpYRJGg7pGnANM+QeJ9Ba00=&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;proofType&quot;</span><span class="p">:</span><span class="s2">&quot;EcdsaSignature&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;disclosure&quot;</span><span class="p">:{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;gender&quot;</span><span class="p">:</span><span class="mi">1</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;errorCode&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;errorMessage&quot;</span><span class="p">:</span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;transactionInfo&quot;</span><span class="p">:</span><span class="n">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>表明创建 Credential 成功，Credential 的具体信息为输出中的 Credential 字段对应的内容。</p>
+<ul class="simple">
+<li><p>验证 Credential</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl -l -H <span class="s2">&quot;Content-type: application/json&quot;</span> -X POST -d
+<span class="s1">&#39;{&quot;context&quot;:&quot;https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1&quot;,</span>
+<span class="s1">&quot;id&quot;:&quot;e4f4accd-6026-4fd0-9392-1379ddd4f778&quot;,&quot;cptId&quot;:1189,&quot;issuer&quot;:&quot;did:weid:101:0xd613fbc0249f2ce5088ed484fa6b7b51ecb95e24&quot;,</span>
+<span class="s1">&quot;issuanceDate&quot;:1564371227764,&quot;expirationDate&quot;:1595475227763,&quot;claim&quot;:{&quot;gender&quot;:&quot;F&quot;,&quot;name&quot;:&quot;zhangsan&quot;,&quot;id&quot;:&quot;did:weid:101:0xf36fb2308d36bb94c579f568bdf670743d949deb&quot;},</span>
+<span class="s1">&quot;proof&quot;:{&quot;creator&quot;:&quot;did:weid:101:0xd613fbc0249f2ce5088ed484fa6b7b51ecb95e24&quot;,&quot;signature&quot;:&quot;G2kD4u4jrnmYbq/oVl9idmTEQzP3a0KEomHGJaVpWzhITIE+dDYSRMyF9TDy+jPANpYRJGg7pGnANM+QeJ9Ba00=&quot;,</span>
+<span class="s1">&quot;created&quot;:&quot;1564371227764&quot;,&quot;type&quot;:&quot;EcdsaSignature&quot;},&quot;signature&quot;:&quot;G2kD4u4jrnmYbq/oVl9idmTEQzP3a0KEomHGJaVpWzhITIE+dDYSRMyF9TDy+jPANpYRJGg7pGnANM+QeJ9Ba00=&quot;,&quot;proofType&quot;:&quot;EcdsaSignature&quot;},</span>
+<span class="s1">&quot;disclosure&quot;:{&quot;name&quot;:1,&quot;id&quot;:1,&quot;gender&quot;:1}&#39;</span>
+http://127.0.0.1:6101/verifyCredential
+</pre></div>
+</div>
+<p>若运行成功，则会打印以下信息：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;result&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;errorCode&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;errorMessage&quot;</span><span class="p">:</span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;transactionInfo&quot;</span><span class="p">:</span><span class="n">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>表明 Credential 验证成功。</p>
+<p>至此，您已经体验了 weid-sample 实现的各个角色的运行流程，实现的入口类在weid-sample工程的 <code class="docutils literal notranslate"><span class="pre">com.webank.weid.demo.server.SampleApp</span></code>，您可以参考进行您的 Java 应用开发。</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="miscellaneous.html" class="btn btn-neutral float-right" title="杂项" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="weidentity-sample-commandline.html" class="btn btn-neutral" title="命令行方式使用" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright (2018) WeBank Co., Ltd.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
