@@ -120,3 +120,9 @@ Control）。此外，在一个不需要token的区块链世界里，tx.origin�
            <artifactId>weid-java-sdk</artifactId>
            <version>1.4.0</version>
        </dependency>
+
+--------------
+
+-  **同一个节点证书node.crt，是否可以放到不同的节点上？**
+
+不可以。每个节点证书都有一个唯一的node id，作为节点的唯一标识，不同的节点不能用相同的node id，如果把一个node.crt放到多个节点上，由于node id的冲突，会导致链直接起不来。
