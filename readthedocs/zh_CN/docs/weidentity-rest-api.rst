@@ -1705,13 +1705,30 @@ POST /weid/api/encode 接口入参
       "errorMessage": "success"
     }
 
-请注意，这个生成的CredentialPojo的签名值（proof中的signatureValue项）并没有经过私钥签名。因此，您还需要其经过Base64解码之后，再使用Issuer的私钥进行签名并Base64编码，就能得到一个正确的CredentialPojo了。
+请注意，这个生成的CredentialPojo的签名值（proof中的signatureValue项）并没有经过私钥签名。正确的签名方式包括下面几步：
+- base64解码，生成一个二进制字节数组
+- 对解码的byte[]做一次secp256k1的hash
+- 对完成hash过byte[]，再做一次hash（如果您使用的是Java web3sdk的SignMessage()，这一步它替您完成了）
+- 传入私钥，进行签名，得到r，s，v
+- 对进行序列化
+- 把序列化的byte进行base64编码发回RestService
 
-使用ECDSA私钥进行签名和Base64编码的范例代码见下：
+使用ECDSA私钥进行签名和Base64编码的范例代码见下（Java和Go）：
 
 .. code-block:: java
 
     String signature = DataToolUtils.sign(new String(DataToolUtils.base64Decode(signatureValue)), privateKey);
+
+.. code-block:: go
+
+    base64SignatureValue := credentialEncodeResponse.RespBody.Proof.SignatureValue
+    signatureValue, err3 := base64.StdEncoding.DecodeString(base64SignatureValue)
+    hashedMsg := Hash(signatureValue)
+    doubleHashedMsg := Hash(hashedMsg)
+    privateKeyBytes := ConvertPrivateKeyBigIntToPrivateKeyBytes(privateKeyBigInt)
+    signatureBytes, err4 := SignSignature(doubleHashedMsg, privateKeyBytes)
+    signatureBase64String := base64.StdEncoding.EncodeToString(signatureBytes)
+
 
 WeIdentity Endpoint Service API
 ------------------------------------
@@ -1799,7 +1816,7 @@ WeIdentity Endpoint Service API
      - 以```分隔的多个传入服务端用于执行API的参数
      - Y
 
-接口入参：
+接口入参示例：
 
 .. code-block:: java
 
@@ -1831,4 +1848,102 @@ WeIdentity Endpoint Service API
         "ErrorCode": 0,
         "ErrorMessage": "success",
         "respBody": "did:weid:0x1Ae5b88d37327830307ab8da0ec5D8E8692A35D3",
+    }
+
+WeIdentity 数据授权 API
+------------------------------------
+
+调用接口：
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 50
+
+   * - 标题
+     - 描述
+   * - 接口名
+     - weid/api/authorize/fetch-data
+   * - Method
+     - POST
+   * - Content-Type
+     - application/json
+
+
+接口入参：
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 60 20
+
+   * - Key
+     - Value
+     - Required
+   * - authToken
+     - CPT101数据授权凭证
+     - Y
+   * - signedNonce
+     - 签名的Nonce值（当前暂不校验，可任意填入）
+     - Y
+
+接口入参示例：
+
+.. code-block:: java
+
+    {
+      "authToken": {
+          "claim": {
+              "duration": 360000,
+              "fromWeId": "did:weid:101:0x69cd071e4be5fd878e1519ff476563dc2f4c6168",
+              "resourceId": "4b077c17-9612-42ee-9e36-3a3d46b27e81",
+              "serviceUrl": "http://127.0.0.1:6010/fetch-data",
+              "toWeId": "did:weid:101:0x68bedb2cbe55b4c8e3473faa63f121c278f6dba9"
+          },
+          "context": "https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1",
+          "cptId": 101,
+          "expirationDate": 1581347039,
+          "id": "48b75424-9411-4d22-b925-4e730b445a31",
+          "issuanceDate": 1580987039,
+          "issuer": "did:weid:101:0x69cd071e4be5fd878e1519ff476563dc2f4c6168",
+          "proof": {
+              "created": 1580987039,
+              "creator": "did:weid:101:0x69cd071e4be5fd878e1519ff476563dc2f4c6168#keys-0",
+              "salt": {
+                  "duration": "fmk5A",
+                  "fromWeId": "DEvFy",
+                  "resourceId": "ugVeN",
+                  "serviceUrl": "nVdeE",
+                  "toWeId": "93Z1E"
+              },
+              "signatureValue": "HCZwyTzGst87cjCDaUEzPrO8QRlsPvCYXvRTUVBUTDKRSoGDgu4h4HLrMZ+emDacRnmQ/yke38u1jBnilNnCh6c=",
+              "type": "Secp256k1"
+          },
+          "type": ["VerifiableCredential", "hashTree"]
+      },
+      "signedNonce": "123123"
+    }
+
+
+接口返回: application/json
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 50
+
+   * - Key
+     - Value
+   * - ErrorCode
+     - 错误码，0表示成功
+   * - ErrorMessage
+     - 错误信息
+   * - respBody
+     - SDK侧的返回值，String
+
+接口返回：
+
+.. code-block:: java
+
+    {
+        "ErrorCode": 0,
+        "ErrorMessage": "success",
+        "respBody": "sample data",
     }

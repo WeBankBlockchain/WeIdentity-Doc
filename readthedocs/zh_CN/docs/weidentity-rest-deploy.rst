@@ -82,25 +82,26 @@ Server 的环境要求与 WeIdentity-Java-SDK 的 `环境要求 <./weidentity-in
     evidence.contractaddress=0xddddd42da68a40784f5f63ada7ead9b36a38d2e3
     specificissuer.contractaddress=0x215d5c4b8867ce9f52d1a599c9dfef190201c263
 
-区块链节点信息修改示例：更新 ``dist/conf/weidentity.properties.tpl`` 中 ``nodes`` 项的值，注意每一条信息都应包含区块链用户、节点IP、节点channel端口地址；多于一个区块链节点，请用 “,” 半角逗号分隔。
-
+区块链节点信息修改示例：更新 ``dist/conf/weidentity.properties`` 中 ``nodes`` 项的值，注意每一条信息都应包含区块链用户、节点IP、节点channel端口地址；多于一个区块链节点，请用 “,” 半角逗号分隔。
 
 .. code-block:: xml
 
-    nodes=WeIdentity@127.0.0.1:8812,WeIdentity@127.0.0.1:8900
+    nodes=127.0.0.1:8812,127.0.0.1:8900
 
 * 拷贝您 WeIdentity 合约部署者的私钥到 ``keys/priv`` 目录下，并重命名为 ``ecdsa_key``。如果您使用部署工具部署了 WeIdentity 合约，这个文件在 ``output/admin/`` 目录。如果您使用源码部署，这个文件在源代码根目录下。
 
-* 修改 ``dist/conf/application.properties`` ，填入需要打开的监听端口地址（用于 RestServer 监听外来的 HTTP/HTTPS RESTful 请求，默认为 6000/6001，不可被其他程序占用）。同时，请确认用来调用默认合约部署者私钥的暗语；由于此暗语可直接调用 WeIdentity 合约部署者的私钥，权限较高（详见 \ `RestService API 说明文档 <./weidentity-rest-api.html>`_\ ），因此请您务必对其进行修改。
+* 修改 ``dist/conf/application.properties`` ，填入需要打开的监听端口地址（用于 RestServer 监听外来的 HTTP/HTTPS RESTful 请求，默认为 6001/6000，不可被其他程序占用；HTTPS接口默认不开放）。同时，请确认用来调用默认合约部署者私钥的暗语；由于此暗语可直接调用 WeIdentity 合约部署者的私钥，权限较高（详见 \ `RestService API 说明文档 <./weidentity-rest-api.html>`_\ ），因此请您务必对其进行修改。
 
 .. code-block:: bash
 
-    # HTTPS请求端口
-    server.port=6001
     # HTTP请求端口
+    server.port=6001
+    # HTTPS请求端口，默认不开放
     server.http.port=6000
     # 合约部署者私钥暗语
     default.passphrase=ecdsa_key
+
+* 如果您需要连接使用MySQL，则需要在``dist/conf/weidentity.properties``内修改关于datasource相关的MySQL配置。
 
 2. Server 使用说明
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

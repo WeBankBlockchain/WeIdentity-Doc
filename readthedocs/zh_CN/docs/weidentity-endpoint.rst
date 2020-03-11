@@ -24,6 +24,24 @@ WeIdentity Endpoint Service
 
 您可以参照 \ `RestService API <./weidentity-rest-api.html>`_\ 文档中的Endpoint Service API部分，了解如何查询和调用您注册的Endpoint信息。
 
+基于Endpoint Service的数据授权
+------------------------------------
+
+WeIdentity提供依托于Endpoint Service而存在的数据授权。授权的详细信息会以可信可验证的凭证（Credential）方式展现，并由Endpoint Service服务端进行验证。
+
+一个标准的数据授权凭证其CPT ID为101。它的Claim中包括以下内容：
+
+- 授权发起者（fromWeId）：表示这个凭证是由哪个WeID所发起的
+    - 必须和凭证的Issuer一致，且在链上存在
+- 授权接收者（toWeId）：表示这个凭证是由哪个WeID所接收的
+- 授权时间（duration）：表示此授权的持续时间，单位为毫秒
+- 服务地址（serviceUrl）：表示此授权的目的服务地址
+    - 只支持HTTP/HTTPS协议
+    - 必须是以标准URL形式存储，必须包括主机名、端口及路径
+- 资源ID（resourceId）：表示此授权所请求的资源ID，以UUID形式表示
+
+简而言之，调用者必须传入一个CPT101授权凭证，此凭证中包含数据授权的主机地址、资源ID，由Endpoint Service的服务端进行查验，确认凭证合法且服务地址（serviceUrl）已在本服务端后台注册过。查验通过后，Endpoint Service会将请求以RPC请求的形式转向在本服务端注册的各端点后台，并由各后台根据传入的资源ID，返回资源信息。具体的调用方式可以查阅API文档。
+
 技术细节
 --------------
 
