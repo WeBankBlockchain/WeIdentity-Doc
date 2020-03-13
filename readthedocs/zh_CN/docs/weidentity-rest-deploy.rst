@@ -90,18 +90,47 @@ Server 的环境要求与 WeIdentity-Java-SDK 的 `环境要求 <./weidentity-in
 
 * 拷贝您 WeIdentity 合约部署者的私钥到 ``keys/priv`` 目录下，并重命名为 ``ecdsa_key``。如果您使用部署工具部署了 WeIdentity 合约，这个文件在 ``output/admin/`` 目录。如果您使用源码部署，这个文件在源代码根目录下。
 
-* 修改 ``dist/conf/application.properties`` ，填入需要打开的监听端口地址（用于 RestServer 监听外来的 HTTP/HTTPS RESTful 请求，默认为 6001/6000，不可被其他程序占用；HTTPS接口默认不开放）。同时，请确认用来调用默认合约部署者私钥的暗语；由于此暗语可直接调用 WeIdentity 合约部署者的私钥，权限较高（详见 \ `RestService API 说明文档 <./weidentity-rest-api.html>`_\ ），因此请您务必对其进行修改。
+* 修改 ``dist/conf/application.properties`` ，填入需要打开的监听端口地址（用于 RestServer 监听外来的 HTTP/HTTPS RESTful 请求，默认为 6001，不可被其他程序占用）。
 
 .. code-block:: bash
 
-    # HTTP请求端口
+    # 默认的HTTP/HTTPS请求端口
     server.port=6001
-    # HTTPS请求端口，默认不开放
+    # 当开启HTTPS时的HTTP请求端口，默认未实现重定向，可忽略
     server.http.port=6000
+
+* 如果您需要启用HTTPS，``dist/conf/application.properties`` 中，请将SSL开启，同时配置服务端证书并将证书的详细信息填入以下配置项中。如果您暂时没有合适的证书，当前，Rest Service已经默认提供了一份自签（Self-Signed）证书，其keystore默认密码也已给出。
+
+.. code-block:: bash
+
+    # 是否启用HTTPS：默认为否，需要改成true
+    server.ssl.enabled=true
+    # 证书的keystore
+    server.ssl.key-store=classpath:tomcat.keystore
+    # keystore的访问密码，默认的自签证书密码为123456
+    server.ssl.key-store-password=
+    # keystore种类（如JKS，PKCS12）
+    server.ssl.keyStoreType=JKS
+    # key的假名
+    server.ssl.keyAlias=tomcat
+
+.. note::
+    当前，Rest Service 不论是 HTTP/HTTPS 方式，其访问 IP 均为 6001。出于安全考量，我们暂时未实现在启用 HTTPS 方式时的 HTTP 访问重定向功能。
+
+.. note::
+    如果您使用了自签证书，且准备通过使用 Postman 作为客户端访问 HTTPS，您需要在 Postman 的设置 File -> Setting -> General 中，手动将 SSL certificate verification 关闭；如果您使用 CA 签名证书，则需要在 Postman 的设置菜单 File -> Setting -> Certificates 中，安装此证书（及其证书链）。
+
+.. note::
+    关于如何生成您自己的自签名证书，可以参考以下文档：https://hutter.io/2016/02/09/java-create-self-signed-ssl-certificates-for-tomcat/ 。本教程不涉生成 CA 证书的步骤。
+
+* 同时，请在 ``dist/conf/application.properties`` 中确认用来调用默认合约部署者私钥的暗语；由于此暗语可直接调用 WeIdentity 合约部署者的私钥，权限较高（详见 \ `RestService API 说明文档 <./weidentity-rest-api.html>`_\ ），因此请您务必对其进行修改。
+
+.. code-block:: bash
+
     # 合约部署者私钥暗语
     default.passphrase=ecdsa_key
 
-* 如果您需要连接使用MySQL，则需要在``dist/conf/weidentity.properties``内修改关于datasource相关的MySQL配置。
+* 最后，如果您需要连接使用MySQL，则需要在``dist/conf/weidentity.properties``内修改关于datasource相关的MySQL配置。
 
 2. Server 使用说明
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

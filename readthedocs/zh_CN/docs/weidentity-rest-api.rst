@@ -1879,7 +1879,7 @@ WeIdentity 数据授权 API
      - Value
      - Required
    * - authToken
-     - CPT101数据授权凭证
+     - CPT101数据授权凭证，需通过DataToolUtils.serialize()方式生成
      - Y
    * - signedNonce
      - 签名的Nonce值（当前暂不校验，可任意填入）
