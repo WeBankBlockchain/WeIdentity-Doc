@@ -216,9 +216,9 @@ Credential的重新生成则为重新发行一个Credential ID不相同的全新
 
 - **项目启动报错问题集及解决方法**
 
-**问题一**
+**问题一**<br>
     
-    报错如下：
+    ***报错如下***：
     ~~~
     Exception in thread "main" java.lang.IncompatibleClassChangeError: class com.github.fge.jackson.JsonNumEquals has interface com.google.common.base.Equivalence as super class
 	at java.lang.ClassLoader.defineClass1(Native Method)
@@ -251,7 +251,7 @@ Credential的重新生成则为重新发行一个Credential ID不相同的全新
 	at Issuer.main(Issuer.java:49)
     ~~~
 
-    该错误是由于包冲突引起，可尝试如下解决方法：
+    ***该错误是由于包冲突引起，可尝试如下解决方法：***
     ~~~
     用IDE的类查找工具在项目中查找Equivalence类。如Idea使用快捷键Ctrl+N,再输入Equivalence，点击查找。发现项目内有两个相同的类名，源于两个不同版本的guava的jar包，随后在pom.xml文件里注释其中一个依赖即可解决问题（注：项目为maven才会有pom.xml文件）。
     ~~~
