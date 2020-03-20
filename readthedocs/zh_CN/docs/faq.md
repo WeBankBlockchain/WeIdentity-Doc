@@ -252,6 +252,8 @@ Credential的重新生成则为重新发行一个Credential ID不相同的全新
 
 该错误是由于包冲突引起，可尝试如下解决方法：
 
-    用IDE的类查找工具在项目中查找Equivalence类。如Idea使用快捷键Ctrl+N,再输入Equivalence，点击查找。发现项目内有两个相同的类名，源于两个不同版本的guava的jar包，随后在pom.xml文件里注释其中一个依赖即可解决问题（注：项目为maven才会有pom.xml文件）。
+    用IDE的类查找工具在项目中查找Equivalence类。如Idea使用快捷键Ctrl+N,再输入Equivalence，点击查找。
+    发现项目内有两个相同的类名，源于两个不同版本的guava的jar包，随后在pom.xml文件里注释其中一个依赖即可解决问题
+    （注：项目为maven才会有pom.xml文件）。
 
 ---
