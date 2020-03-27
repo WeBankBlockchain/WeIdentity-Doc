@@ -36,7 +36,7 @@ WeIdentity JAVA SDK 安装部署工具（部署智能合约）
 
 1.2  配置基本信息
 '''''''''''''''''''''''''''''
-weid-java-sdk 可以同时支持 FISCO BCOS 1.3 版本和 FISCO BCOS 2.0 版本。
+最新版本的build-tool工具仅支持 FISCO BCOS 2.0 版本。
 
 
 1.2.1  基本配置
@@ -50,7 +50,7 @@ weid-java-sdk 可以同时支持 FISCO BCOS 1.3 版本和 FISCO BCOS 2.0 版本�
 - 配置区块链节点信息，填入区块链节点 IP 和 Channel端口，示例如下：
 
 .. note::
-     区块链节点的Channel端口说明见\ `FISCO BCOS 2.0配置文件说明 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/manual/configuration.html#rpc>`__\ 或 `FISCO BCOS 1.3 配置文件说明 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/release-1.3/docs/web3sdk/config_web3sdk.html#java>`__\ 。
+     区块链节点的Channel端口说明见\ `FISCO BCOS 2.0配置文件说明 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/manual/configuration.html#rpc>`__\ 。
 
 .. code:: shell
 
@@ -61,14 +61,6 @@ weid-java-sdk 可以同时支持 FISCO BCOS 1.3 版本和 FISCO BCOS 2.0 版本�
 .. code:: shell
 
     blockchain_address=10.10.10.10:20200,10.10.10.11:20200
-
-
-- 配置 FISCO BCOS 版本信息，如果您使用 FISCO BCOS 2.0 版本则配置为2，FISCO BCOS 1.3 则配置为 1：
-
-.. code:: shell
-
-    blockchain_fiscobcos_version=2
-
 
 - 配置机构名称，该名称也被用作后续机构间的 \ `AMOP <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/manual/amop_protocol.html>`__ 通信标识。假设您的机构名为 test，您可以配置为：
 
@@ -81,6 +73,15 @@ weid-java-sdk 可以同时支持 FISCO BCOS 1.3 版本和 FISCO BCOS 2.0 版本�
 .. code:: shell
 
     chain_id=1
+
+- 配置数据库相关，该配置用于SDK存储相关数据使用：
+
+.. code:: shell
+
+    mysql_address=0.0.0.0:3306
+    mysql_database=database
+    mysql_username=username
+    mysql_password=password
 
 保存退出，即完成基本配置。
 
@@ -96,9 +97,6 @@ weid-java-sdk 可以同时支持 FISCO BCOS 1.3 版本和 FISCO BCOS 2.0 版本�
     cd resources/
 
 FISCO BCOS 2.0请参考\ `2.0 web3sdk客户端配置 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/sdk/sdk.html#sdk>`__\，将证书文件 ``ca.crt``， ``node.crt`` 和 ``node.key`` 复制出来，拷贝至当前目录下。
-
-FISCO BCOS 1.3请参考\ `1.3 web3sdk客户端配置 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/release-1.3/docs/tools/web3sdk.html>`__\，将证书文件 ``ca.crt`` 和 ``client.keystore`` 复制出来，拷贝至当前目录下 。
-
 
 1.3 部署智能合约并自动生成配置文件
 '''''''''''''''''''''''''''''''''''
@@ -147,7 +145,7 @@ FISCO BCOS 1.3请参考\ `1.3 web3sdk客户端配置 <https://fisco-bcos-documen
 .. note::
   | 发布 WeIdentity 智能合约的机构将会自动注册为委员会机构成员（ Committee Member ）。
   | 发布 WeIdentity 智能合约会同时会在 ``weid-build-tools/output/admin`` 目录下动态生成私钥文件 ``ecdsa_key``，以及对应的公钥文件 ``ecdsa_key.pub``，此私钥后续用于注册权威机构，您可以将其保存到您的其他存储库里。
-
+  | 在根目录下会生成一个hash文件，此文件用于给其他不部署合约的机构使用。
 
 至此，您已经完成 weid-java-sdk 的安装部署，您可以开始您的 Java 应用集成以及便捷工具体验。
 
@@ -160,11 +158,15 @@ FISCO BCOS 1.3请参考\ `1.3 web3sdk客户端配置 <https://fisco-bcos-documen
 2.1 在自己的 Java 应用中引入 weid-java-sdk
 '''''''''''''''''''''''''''''''''''''''''''''
 
-在自己的 Java 应用通过 ``build.gradle`` 引入，目前 weid-java-sdk 暂时只支持 gradle 方式引入。
+在自己的 Java 应用通过 ``build.gradle`` 引入。
 
 ::
 
-    compile("com.webank:weid-java-sdk:1.3.2")
+    compile("com.webank:weid-java-sdk:x.x.x")
+
+.. note::
+   x.x.x为您使用的weid-java-sdk版本，建议使用最新版本。
+
 
 
 2.2 配置您的 Java 应用
