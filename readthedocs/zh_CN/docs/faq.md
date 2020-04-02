@@ -214,4 +214,4 @@ Credential的重新生成则为重新发行一个Credential ID不相同的全新
 
 - **在 FISCO-BCOS 上部署 WeIdentity，WeIdentity常用接口的性能数据是？**
 
-详见 [WeIdentity 性能数据](./capacity-estimation.md)
+详见 [WeIdentity 性能数据](./performance.md)
