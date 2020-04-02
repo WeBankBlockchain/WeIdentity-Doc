@@ -212,3 +212,6 @@ Credential的重新生成则为重新发行一个Credential ID不相同的全新
 **Window**<br>
 1. 双击字体文件进行安装即可。（window10可能存在安装字体后程序仍然报字体错误情况，此时右键点击字体文件选择为所有用户安装）
 
+- **在 FISCO-BCOS 上部署 WeIdentity，WeIdentity常用接口的性能数据是？**
+
+详见 [WeIdentity 性能数据](./capacity-estimation.md)
