@@ -212,6 +212,51 @@ Credential的重新生成则为重新发行一个Credential ID不相同的全新
 **Window**<br>
 1. 双击字体文件进行安装即可。（window10可能存在安装字体后程序仍然报字体错误情况，此时右键点击字体文件选择为所有用户安装）
 
+---
+
+- **项目启动报错问题集及解决方法**
+
+**问题一**<br>
+    
+报错如下:
+
+    Exception in thread "main" java.lang.IncompatibleClassChangeError: class com.github.fge.jackson.JsonNumEquals has interface com.google.common.base.Equivalence as super class
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:763)
+	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
+	at java.net.URLClassLoader.defineClass(URLClassLoader.java:467)
+	at java.net.URLClassLoader.access$100(URLClassLoader.java:73)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:368)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:362)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:361)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at com.github.fge.jsonschema.core.keyword.syntax.checkers.common.EnumSyntaxChecker.<clinit>(EnumSyntaxChecker.java:46)
+	at com.github.fge.jsonschema.core.keyword.syntax.dictionaries.CommonSyntaxCheckerDictionary.<clinit>(CommonSyntaxCheckerDictionary.java:152)
+	at com.github.fge.jsonschema.core.keyword.syntax.dictionaries.DraftV3SyntaxCheckerDictionary.<clinit>(DraftV3SyntaxCheckerDictionary.java:55)
+	at com.github.fge.jsonschema.library.DraftV3Library.<clinit>(DraftV3Library.java:32)
+	at com.github.fge.jsonschema.cfg.ValidationConfigurationBuilder.<clinit>(ValidationConfigurationBuilder.java:63)
+	at com.github.fge.jsonschema.cfg.ValidationConfiguration.newBuilder(ValidationConfiguration.java:92)
+	at com.github.fge.jsonschema.cfg.ValidationConfiguration.byDefault(ValidationConfiguration.java:102)
+	at com.github.fge.jsonschema.main.JsonSchemaFactoryBuilder.<init>(JsonSchemaFactoryBuilder.java:68)
+	at com.github.fge.jsonschema.main.JsonSchemaFactory.newBuilder(JsonSchemaFactory.java:123)
+	at com.github.fge.jsonschema.main.JsonSchemaFactory.byDefault(JsonSchemaFactory.java:113)
+	at com.webank.weid.util.DataToolUtils.isValidJsonSchema(DataToolUtils.java:451)
+	at com.webank.weid.util.DataToolUtils.isCptJsonSchemaValid(DataToolUtils.java:465)
+	at com.webank.weid.service.impl.CptServiceImpl.validateCptJsonSchemaMap(CptServiceImpl.java:358)
+	at com.webank.weid.service.impl.CptServiceImpl.validateCptArgs(CptServiceImpl.java:325)
+	at com.webank.weid.service.impl.CptServiceImpl.registerCpt(CptServiceImpl.java:167)
+	at Issuer.main(Issuer.java:49)
+
+该错误是由于包冲突引起，可尝试如下解决方法：
+
+    用IDE的类查找工具在项目中查找Equivalence类。如Idea使用快捷键Ctrl+N,再输入Equivalence，点击查找。
+    发现项目内有两个相同的类名，源于两个不同版本的guava的jar包，随后在pom.xml文件里注释其中一个依赖即可解决问题
+    （注：项目为maven才会有pom.xml文件）。
+
+---
 - **在 FISCO-BCOS 上部署 WeIdentity，WeIdentity常用接口的性能数据是？**
 
 详见 [WeIdentity 性能数据](./performance.md)
