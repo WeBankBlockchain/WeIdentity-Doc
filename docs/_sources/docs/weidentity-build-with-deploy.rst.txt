@@ -146,7 +146,7 @@ FISCO BCOS 1.3请参考\ `1.3 web3sdk客户端配置 <https://fisco-bcos-documen
 
 .. note::
   | 发布 WeIdentity 智能合约的机构将会自动注册为委员会机构成员（ Committee Member ）。
-  | 发布 WeIdentity 智能合约会同时会在 ``weid-build-tools/output/admin`` 目录下动态生成私钥文件 ``ecdsa_key``，以及对应的公钥文件 ``ecdsa_key.pub``，此私钥后续用于注册权威机构，您可以将起保存到您的其他存储库里。
+  | 发布 WeIdentity 智能合约会同时会在 ``weid-build-tools/output/admin`` 目录下动态生成私钥文件 ``ecdsa_key``，以及对应的公钥文件 ``ecdsa_key.pub``，此私钥后续用于注册权威机构，您可以将其保存到您的其他存储库里。
 
 
 至此，您已经完成 weid-java-sdk 的安装部署，您可以开始您的 Java 应用集成以及便捷工具体验。
