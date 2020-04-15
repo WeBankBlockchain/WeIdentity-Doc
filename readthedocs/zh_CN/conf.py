@@ -29,6 +29,13 @@ author = 'WeIdentity Team'
 
 # source_suffix = ['.rst']
 
+extensions = [
+    'sphinx_markdown_tables',
+    # 'sphinx.ext.autodoc',
+    # 'sphinx.ext.napoleon',
+    # 'sphinx.ext.mathjax',
+]
+
 source_suffix = ['.rst', '.md']
 source_parsers = {
     '.md': recommonmark.parser.CommonMarkParser,
@@ -48,13 +55,6 @@ release = version
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = [
-    # 'recommonmark',
-    # 'sphinx_markdown_tables',
-    # 'sphinx.ext.autodoc',
-    # 'sphinx.ext.napoleon',
-    # 'sphinx.ext.mathjax',
-]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -329,3 +329,4 @@ html_context = {
         '_static/index.css',  # table css
         ],
      }
+
