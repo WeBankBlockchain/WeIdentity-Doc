@@ -45,11 +45,15 @@ WeIdentity JAVA SDK 便捷使用工具
 ::
 
     New weid has been created ----> did:weid:1:0x405a7ae297fc6d6fb02fb548db64b29f08114ca1
-    The related private key and public key can be found at /home/app/tonychen/test_gradle/weid-build-tools/output/create_weid/0x405a7ae297fc6d6fb02fb548db64b29f08114ca1.
+    The related private key and public key can be found at /home/app/tonychen/test_gradle/weid-build-tools/output/create_weid/xxx/0x405a7ae297fc6d6fb02fb548db64b29f08114ca1.
 
 表明创建的 ``WeID`` 是did:weid:1:0x405a7ae297fc6d6fb02fb548db64b29f08114ca1。
 
-在 ``weid-build-tools/output/create_weid/`` 目录下看到一些以 0x 开头的目录，找到跟刚刚生成的 WeIdentity DID 匹配的目录，里面包含了 WeIdentity DID，公钥 ``ecdsa_key.pub`` 和私钥 ``ecdsa_key``。
+在 ``weid-build-tools/output/create_weid/xxx`` 目录下看到一些以 0x 开头的目录，找到跟刚刚生成的 WeIdentity DID 匹配的目录，里面包含了 WeIdentity DID，公钥 ``ecdsa_key.pub`` 和私钥 ``ecdsa_key``。
+
+.. note::
+   xxx为您启用的CNS地址
+
 
 2 注册 Authority Issuer (权威凭证发行者)
 '''''''''''''''''''''''''''''''''''''''''''''''
@@ -105,11 +109,11 @@ WeIdentity JAVA SDK 便捷使用工具
     [RegisterIssuer] Adding WeIdentity DID did:weid:1:0xe10e52f6b7c6751bd03afc023b8e617d7fd0429c in type: college
     Specific issuers and types have been successfully registered on blockchain.
 
-如果您需要注册多个机构，请将其 WeIdentity DID 用分号分割开，如下所示：
+如果您需要注册多个机构，请将其 WeIdentity DID 用逗号分割开，如下所示：
 
 ::
 
-    ./register_specific_issuer.sh --type college --weid did:weid:1:0x5efd256d02c1a27675de085b86989fa2ac1baddb;did:weid:0x6efd256d02c1a27675de085b86989fa2ac1baddb
+    ./register_specific_issuer.sh --type college --weid did:weid:1:0x5efd256d02c1a27675de085b86989fa2ac1baddb,did:weid:0x6efd256d02c1a27675de085b86989fa2ac1baddb
 
 - 移除特定类型机构
 
@@ -174,8 +178,9 @@ WeIdentity JAVA SDK 便捷使用工具
     Begin to generate pojo from cpt...
     All cpt:[1000] are successfully transformed to pojo.
 
-    The weidentity-cpt.jar can be found in /home/app/tonychen/test_gradle/weid-build-tools/dist/app/
+    The weidentity-cpt.jar can be found in /home/app/tonychen/test_gradle/weid-build-tools/output/pojo/0x8ce1fc7af86917b503d7d5aaa2987a33ccf97f767199a360712fee667a54ef80/d8acebb597d0428fac682ad188e4312d/weidentity-cpt.jar
     Begin to generate presentation policy ...
     Presentation policy template is successfully generated, you can find it at /home/app/tonychen/test_gradle/weid-build-tools/output/presentation_policy.
 
-表明生成的 CPT 的 POJO 的jar包在 ``/home/app/tonychen/test_gradle/weid-build-tools/dist/app/`` 目录下， 生成的 presentation policy 模板在 ``/home/app/tonychen/test_gradle/weid-build-tools/output/presentation_policy`` 。
+表明生成的 CPT 的 POJO 的jar包在 ``/home/app/tonychen/test_gradle/weid-build-tools/output/pojo/0x8ce1fc7af86917b503d7d5aaa2987a33ccf97f767199a360712fee667a54ef80/d8acebb597d0428fac682ad188e4312d/`` 目录下， 
+生成的 presentation policy 模板在 ``/home/app/tonychen/test_gradle/weid-build-tools/output/presentation_policy`` 。
