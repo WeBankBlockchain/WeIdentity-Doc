@@ -32,9 +32,6 @@ WeIdentity JAVA SDK安装部署文档（源码方式）
 若您使用FISCO BCOS 2.0, 请参考\ `2.0 web3sdk客户端配置 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/sdk/java_sdk.html>`__，
 将证书文件 ``ca.crt``， ``node.crt`` 和 ``node.key`` 复制出来，拷贝至当前目录下。
 
-若您使用FISCO BCOS 1.3, 请参考\ `1.3 web3sdk客户端配置 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/release-1.3/docs/tools/web3sdk.html>`__，
-将证书文件 ``ca.crt`` 和 ``client.keystore`` 复制出来，拷贝至当前目录下 。
-
 
 - 配置基本信息
 
@@ -48,10 +45,14 @@ WeIdentity JAVA SDK安装部署文档（源码方式）
 
 -  配置说明：
 
- | ``blockchain_address`` ： 区块链节点 IP 和channel端口， channel端口的配置可以参考\ `FISCO BCOS 2.0 配置项说明 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/manual/configuration.html#rpc>`__ 进行配置，FISCO BCOS 1.3可以参考\ `FISCO BCOS 1.3 配置项说明 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/release-1.3/docs/web3sdk/config_web3sdk.html#java>`__ 进行配置。
- | ``blockchain_fiscobcos_version`` ：对接的FISCO BCOS版本。
+ | ``blockchain_address`` ： 区块链节点 IP 和channel端口， channel端口的配置可以参考\ `FISCO BCOS 2.0 配置项说明 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/manual/configuration.html#rpc>`__ 进行配置。
  | ``org_id`` ：机构名称，该名称也被用作后续机构间的通信标识。
  | ``chain_id`` ：用于标识您接入的区块链网络。
+ | ``mysql_address`` ：配置数据库的ip和port，例：0.0.0.0:3306
+ | ``mysql_database`` ：配置数据库名称
+ | ``mysql_username`` ：配置数据库用户名
+ | ``mysql_password`` ：配置数据库用户对应的密码
+ 
 
 配置样例：
 ::
@@ -59,14 +60,23 @@ WeIdentity JAVA SDK安装部署文档（源码方式）
     #节点的连接串，节点IP为10.10.10.10，和channel端口为20200。
     blockchain_address=10.10.10.10:20200
 
-    # 2表示FISCO BCOS的版本为2.0, 1则表示FISCO BCOS 1.3
-    blockchain_fiscobcos_version=2
-
     #机构名称
     org_id=organizationA
 
     #链标识
     chain_id=1 
+    
+    #数据库ip和port
+    mysql_address=0.0.0.0:3306
+    
+    #数据库名称
+    mysql_database=database
+    
+    #数据库用户名
+    mysql_username=username
+    
+    #数据库密码
+    mysql_password=password
  
 .. note::
      注意：如果您使用了Gradle 6.0+，那么您需要手动修改build.gradle中spotbug的Gradle插件版本号为2.0.0+。具体地，打开WeIdentity/build.gradle，将“classpath "gradle.plugin.com.github.spotbugs:spotbugs-gradle-plugin:1.6.5"”中的1.6.5改成2.0.0或更高版本。
