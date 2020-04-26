@@ -33,7 +33,7 @@ WeIdentity JAVA SDK安装部署文档（可视化版本）
 
 .. code-block:: shell
 
-  source ./build.sh
+  ./build.sh
 
 4.启动Web服务
 """"""""""
