@@ -28,7 +28,14 @@ WeIdentity JAVA SDK安装部署文档（可视化版本）
 
   source ./install_build_tool.sh
 
-3.启动Web服务
+3.执行构建脚本
+""""""""""
+
+.. code-block:: shell
+
+  source ./build.sh
+
+4.启动Web服务
 """"""""""
 
 .. code-block:: shell
