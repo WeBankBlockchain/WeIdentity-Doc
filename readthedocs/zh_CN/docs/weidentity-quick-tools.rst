@@ -182,5 +182,8 @@ WeIdentity JAVA SDK 便捷使用工具
     Begin to generate presentation policy ...
     Presentation policy template is successfully generated, you can find it at /home/app/tonychen/test_gradle/weid-build-tools/output/presentation_policy.
 
-表明生成的 CPT 的 POJO 的jar包在 ``/home/app/tonychen/test_gradle/weid-build-tools/output/pojo/0x8ce1fc7af86917b503d7d5aaa2987a33ccf97f767199a360712fee667a54ef80/d8acebb597d0428fac682ad188e4312d/`` 目录下， 
+表明生成的 CPT 的 POJO 的jar包在 ``/home/app/tonychen/test_gradle/weid-build-tools/output/pojo/xxx/`` 目录下， 
 生成的 presentation policy 模板在 ``/home/app/tonychen/test_gradle/weid-build-tools/output/presentation_policy`` 。
+
+.. note::
+   xxx为您启用的CNS地址
