@@ -30,15 +30,23 @@ LINUX 系统上通过 gradle 执行单元测试
 
    cp fisco.properties weidentity.properties  ../../src/test/resources/
 
-3, 将生成好的 ``ca.crt`` 和 ``client.keystore`` 复制到
-``src/test/resources`` 目录, 这两个证书是 WeIdentity 运行所需要的 SDK
-证书。
+3, 将证书文件复制到 ``src/test/resources`` 目录，证书是 WeIdentity 运行所需要的 SDK 证书。
+
+* 如果您使用的是 FISCO BCOS2.X 版本，请将您的 ``ca.crt``、``node.crt`` 和 ``node.key`` 复制到 ``src/test/resources`` 目录。
 
 .. code:: shell
 
-   cp ca.crt client.keystore  ../../src/test/resources/
+   cp ca.crt node.crt node.key  ../../src/test/resources/
 
-4, 回到项目根目录，执行测试命令。
+4, 将字体 ``NotoSansCJKtc-Regular.ttf`` 复制到 ``src/test/resources`` 目录，并进行字体安装。
+
+.. code:: shell
+
+   cp ../lib/NotoSansCJKtc-Regular.ttf  ../../src/test/resources/
+
+注：字体安装请参照 \ `技术问题列表 <./faq.html>`__\  中的字体安装说明。
+
+5, 回到项目根目录，执行测试命令。
 
 .. code:: shell
 
