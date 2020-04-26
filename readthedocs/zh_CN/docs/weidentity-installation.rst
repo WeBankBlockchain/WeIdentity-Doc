@@ -23,7 +23,7 @@ WeIdentity Java SDK 安装部署
    * - 操作系统
      - CentOS （7.2 64位）或Ubuntu（16.04 64位）。
    * - FISCO-BCOS区块链环境
-     - 您需要有一套可以运行的FISCO-BCOS区块链环境，如果没有，可以参考\ `「FISCO-BCOS 2.0节点安装方法」 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/installation.html>`_\ 或\ `「FISCO-BCOS 1.3节点安装方法」 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/release-1.3/docs/tools/index.html>`_\ 来搭建一套区块链环境。
+     - 您需要有一套可以运行的FISCO-BCOS区块链环境，如果没有，可以参考\ `「FISCO-BCOS 2.0节点安装方法」 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/installation.html>`_\ 来搭建一套区块链环境。
    * - JDK
      - 要求\ `JDK1.8+ <https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html>`_\ ，推荐使用jdk8u141。JDK 跟 WeID 直接的兼容性，可见\ `兼容性文档 <https://weidentity.readthedocs.io/zh_CN/latest/docs/weid-compatibility-test.html>`_\
    * - gradle
@@ -37,8 +37,8 @@ WeIdentity Java SDK 安装部署
 
 我们提供两种方式安装部署SDK（包括两步：首先将WeIdentity智能合约部署到区块链上，再集成SDK到您的Java工程中）：
 
-* `安装部署工具方式 - 可视化版本<./weidentity-installation-by-web.html>`_ （推荐方式）   
-* `安装部署工具方式 - 命令版本<./weidentity-build-with-deploy.html>`_ 
+* `安装部署工具方式 - 可视化版本 <./weidentity-installation-by-web.html>`_ （推荐方式）
+* `安装部署工具方式 - 命令版本 <./weidentity-build-with-deploy.html>`_ 
 * `源码方式 <./weidentity-installation-by-sourcecode.html>`_ 
 
 .. note::
