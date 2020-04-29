@@ -32,6 +32,9 @@ Server 的环境要求与 WeIdentity-Java-SDK 的 `环境要求 <./weidentity-in
    * - Gradle
      - 4.6+
      - 同时支持 4.x 和 5.x 版本的 Gradle
+   * - MySQL
+     - 5 +
+     - 需要MySQL存储必要的链上数据进行缓存
 
 
 1.2 生成安装包
@@ -46,13 +49,7 @@ Server 的环境要求与 WeIdentity-Java-SDK 的 `环境要求 <./weidentity-in
    $ gradle build -x test
    $ cd dist
 
-如果您没有外网连接，也可以从 \ `金链盟CDN <https://www.fisco.com.cn/cdn/weidentity/download/releases/weidentity.zip>`_\ 下载 WeIdentity RestService 的离线安装包并拷贝进 Server。下载完成后，执行如下命令将 ``http-service-dist.zip`` 解压：
-
-.. code-block:: bash
-
-   $ unzip http-service-dist.zip
-
-两种方式均可以生成如下结构的安装包：
+默认为develop分支。您可以生成如下结构的安装包：
 
 .. code-block:: text
 
@@ -68,19 +65,14 @@ Server 的环境要求与 WeIdentity-Java-SDK 的 `环境要求 <./weidentity-in
 1.3 修改配置文件
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* 首先，确认 WeIdentity 合约已部署完毕，同时您所部署的 FISCO-BCOS 节点可以正常连通。目前支持 1.3.x 及 2.x 的 FISCO-BCOS 节点。
+* 首先，确认 WeIdentity 合约已部署完毕，同时您所部署的 FISCO-BCOS 节点可以正常连通。目前支持 2.x 的 FISCO-BCOS 节点。
 * 拷贝节点证书。您需要将节点的 ``ca.crt`` 、节点SDK目录下的 ``node.crt、node.key`` 拷贝到 ``dist/conf`` 目录下。
 * 修改合约地址。如果您使用部署工具部署了 WeIdentity 合约，那么只需将部署工具生成的 ``fisco.properties`` 及 ``weidentity.properties`` 拷贝到 ``dist/conf`` 目录下即可。如果您使用源码部署，请手动修改 ``dist/conf/fisco.properties.tpl`` 及 ``dist/conf/weidentity.properties.tpl`` ，更新合约地址及区块链节点信息；修改完成后，将两个文件的子扩展名 ``.tpl`` 去掉。详情：
 
-合约地址修改示例：更新 ``dist/conf/fisco.properties`` 下列属性中weId、cpt、issuer、evidence合约地址的值。
+合约地址修改示例。更新 ``dist/conf/fisco.properties`` 下列属性中cns.contract.follow的值。
 
 .. code-block:: xml
-
-    weId.contractaddress=0xedfe29997c7783d618510f2da6510010ad5253f4
-    cpt.contractaddress=0x8984cab94b7c3add9c56e6c21d4329e0020d73ad
-    issuer.contractaddress=0xb5346fd29ac75e7bb682c548f2951b6f8bf7d754
-    evidence.contractaddress=0xddddd42da68a40784f5f63ada7ead9b36a38d2e3
-    specificissuer.contractaddress=0x215d5c4b8867ce9f52d1a599c9dfef190201c263
+   cns.contract.follow=0x161bcbd5afbdd2bb2c7f6cc31ed5897f041271c8c984284239370c1572e8545d
 
 区块链节点信息修改示例：更新 ``dist/conf/weidentity.properties`` 中 ``nodes`` 项的值，注意每一条信息都应包含区块链用户、节点IP、节点channel端口地址；多于一个区块链节点，请用 “,” 半角逗号分隔。
 
@@ -127,8 +119,8 @@ Server 的环境要求与 WeIdentity-Java-SDK 的 `环境要求 <./weidentity-in
 
 .. code-block:: bash
 
-    # 合约部署者私钥暗语
-    default.passphrase=ecdsa_key
+    # 合约部署者私钥暗语。改成admin，您就可以使用此来调用合约部署者的私钥发交易了。
+    default.passphrase=admin
 
 * 最后，如果您需要连接使用MySQL，则需要在``dist/conf/weidentity.properties``内修改关于datasource相关的MySQL配置。
 
