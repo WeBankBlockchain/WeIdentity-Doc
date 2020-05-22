@@ -217,7 +217,7 @@ Credential的重新生成则为重新发行一个Credential ID不相同的全新
 - **项目启动报错问题集及解决方法**
 
 **问题一**<br>
-    
+
 报错如下:
 
     Exception in thread "main" java.lang.IncompatibleClassChangeError: class com.github.fge.jackson.JsonNumEquals has interface com.google.common.base.Equivalence as super class
@@ -257,6 +257,49 @@ Credential的重新生成则为重新发行一个Credential ID不相同的全新
     （注：项目为maven才会有pom.xml文件）。
 
 ---
+
 - **在 FISCO-BCOS 上部署 WeIdentity，WeIdentity常用接口的性能数据是？**
 
 详见 [WeIdentity 性能数据](./performance.md)
+
+---
+
+- **Evidence 链上结构**
+
+Evidence的key是数据的hash值（通过WeIdentity SDK提供的sha3函数计算得出）。
+
+| 字段	| 类型| 说明| 
+| ----- | ----- | ----- | 
+| hash|  bytes32[] | 存证数据的 hash，同时也是key |
+| signer| address[]| 签名人的地址（WeAddress）
+| sigs|  string[] | 对应每个签名人的签名值 |
+| logs|  string[]| 每一个 Evidence 可以附加额外数据，放入 logs 字段 |
+| updated| uint256[]| 更新时间 |
+| extraKey|  string[] | Evidence 的另外一个key，用户可以设置一个额外的key，用于查询这个evidence（效率会低于通过hash查询） |
+
+
+* 例子
+
+```
+"hash": "0x64e604787cbf194841e7b68d7cd28786f6c9a0a3ab9f8b0a0e87cb4387ab0107"
+
+//hash 和extraKey是Evidence的key，Evidence的value在链上的结构类似下面
+
+{
+"signer": ["did:weid:1000:0x4d3091830e74235a9c2e2041700c162ff75cc13d"],
+"logs": [
+    "tempLog",
+    "tempLog",
+    "tempLog",
+    "tempLog",
+    "tempLog",
+    "tempLog"
+],
+"signature": ["AELc1QRvC+OEwwIjzZ6KrffiHpTFoxanq29H6KO3juV1NKg5Ip59/c/8pgwISVNEV8mXaqhYVf2o\b0JuyZCc0f5Q="],
+"updated": "1590136873"
+}
+
+```
+
+---
+

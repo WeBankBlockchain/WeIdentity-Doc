@@ -3,6 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+My Title
+*********
+
 ##############################################################
 WeIdentity文档
 ##############################################################
@@ -13,7 +16,7 @@ WeIdentity文档
 =======
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :hidden:
    :caption: Contents:
 

@@ -72,6 +72,7 @@ Server 的环境要求与 WeIdentity-Java-SDK 的 `环境要求 <./weidentity-in
 合约地址修改示例。更新 ``dist/conf/fisco.properties`` 下列属性中cns.contract.follow的值。
 
 .. code-block:: xml
+
    cns.contract.follow=0x161bcbd5afbdd2bb2c7f6cc31ed5897f041271c8c984284239370c1572e8545d
 
 区块链节点信息修改示例：更新 ``dist/conf/weidentity.properties`` 中 ``nodes`` 项的值，注意每一条信息都应包含区块链用户、节点IP、节点channel端口地址；多于一个区块链节点，请用 “,” 半角逗号分隔。
