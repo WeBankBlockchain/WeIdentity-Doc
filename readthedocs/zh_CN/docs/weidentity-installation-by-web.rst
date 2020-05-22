@@ -26,7 +26,8 @@ WeIdentity JAVA SDK安装部署文档（可视化版本）
 
 .. code-block:: shell
 
-  source ./install_build_tool.sh
+  chmod u+x install_build_tool.sh
+  ./install_build_tool.sh
 
 3.执行构建脚本
 """"""""""
