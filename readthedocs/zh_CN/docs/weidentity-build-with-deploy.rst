@@ -3,7 +3,7 @@
 
 .. _weidentity-build-with-deploy:
 
-WeIdentity JAVA SDK 安装部署工具（部署智能合约）
+WeIdentity JAVA SDK 安装部署工具（命令部署方式）
 =============================================================
 
 整体介绍

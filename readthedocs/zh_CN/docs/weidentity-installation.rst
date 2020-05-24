@@ -38,7 +38,7 @@ WeIdentity Java SDK 安装部署
 我们提供两种方式安装部署SDK（包括两步：首先将WeIdentity智能合约部署到区块链上，再集成SDK到您的Java工程中）：
 
 * `安装部署工具方式 - 可视化版本 <./weidentity-installation-by-web.html>`_ （推荐方式）
-* `安装部署工具方式 - 命令版本 <./weidentity-build-with-deploy.html>`_ 
+* `安装部署工具方式 - 命令部署方式 <./weidentity-build-with-deploy.html>`_ 
 * `源码方式 <./weidentity-installation-by-sourcecode.html>`_ 
 
 .. note::
@@ -49,6 +49,7 @@ WeIdentity Java SDK 安装部署
    :hidden:
    :maxdepth: 1
 
+   weidentity-installation-by-web.rst
    weidentity-build-with-deploy.rst
    weidentity-installation-by-sourcecode.rst
 

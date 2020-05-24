@@ -8,7 +8,7 @@
 
 * [离线部署 WeIdentity](./how-to-run-without-internet.html)
 
-* [跨群组部署 WeIdentity](./how-to-deploy-w-groupid.html)
+* [指定群组ID部署 WeIdentity](./how-to-deploy-w-groupid.html)
 
 * [安全建议](./security-suggestion.html)
 
@@ -17,3 +17,5 @@
 * [WeIdentity Java SDK 与各版本JDK的兼容性](./weid-compatibility-test.html)
 
 * [WeIdentity 接口性能测试](./performance.html)
+
+* [跨群组分离部署 WeIdentity DID相关合约与存证合约](./weid-separate-grouped-deployment.html)

@@ -1,4 +1,4 @@
-# 在FISCO-BCOS上跨群组部署WeIdentity
+# 在FISCO-BCOS上指定群组ID并部署WeIdentity
 
 WeIdentity支持FISCO-BCOS 2.x的跨群组功能。您可以在确定被访问的节点存在多个群组的前提下，通过指定群组ID，达到跨群组部署、执行WeIdentity功能的目的。具体场景和步骤如下。
 
