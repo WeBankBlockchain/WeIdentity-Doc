@@ -53,10 +53,10 @@ weid-build-tools需要使用1.0.11及以上版本，便可通过可视化工具�
 weid-http-service需要使用1.5.2及以上版本。
 
 如果您想要在weid-http-service里使用跨群组分离功能，需要执行以下步骤：
-- 在`dist/conf/application.properties`里，在``evidence.group.id``这一项中填入存证合约的群组ID号。
 - 在`dist/conf/weidentity.properties`里，填入已经写入存证合约部署信息的数据库。
     - 如果您使用部署工具（不论命令行/可视化工具均可），只需将生成完成的`src/main/weidentity.properites`拷贝到weid-http-service的`dist/conf`目录下。
     - 如果您使用源码方式，只需将生成完成的`dist/conf/weidentity.properites`拷贝到weid-http-service的`dist/conf`目录下。
+- 在需要调用的存证接口（目前为createEvidence和verifyLiteCredential）的transactionArg里，加入`groupId`项，指定需要访问的群组ID。
 
 ## 工作原理
 
