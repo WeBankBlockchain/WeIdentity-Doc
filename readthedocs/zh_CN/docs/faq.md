@@ -303,3 +303,9 @@ Evidence的key是数据的hash值（通过WeIdentity SDK提供的sha3函数计�
 
 ---
 
+- **注意配置MYSQL的最大链接数**
+
+如果MYSQL有设置最大链接数，请注意将连接数设置为：业务系统连接池maxActive + SDK的maxActive。否则有可能出现数据库锁表的情况。
+
+---
+
