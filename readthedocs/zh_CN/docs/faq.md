@@ -303,6 +303,14 @@ Evidence的key是数据的hash值（通过WeIdentity SDK提供的sha3函数计�
 
 ---
 
+- **CredentialService和CredentialPojoService的区别在哪？**
+
+1. CredentialService相比CredentialPojoService是比较老的方式，现在使用的都是CredentialPojoService，后续版本会去掉CredentialService，请使用CredentialPojoService来创建凭证。
+2. CredentialPojo支持嵌套、Lite化、Presentation、PDF/二维码生成、零知识证明、时间戳服务等，前者不支持。
+3. AmopService中的requestIssueCredential方法是零知识证明使用环节中需要的一步，如果是普通的Credential 请使用CredentialPojoService来创建来创建。
+
+---
+
 - **注意配置MYSQL的最大链接数**
 
 如果MYSQL有设置最大链接数，请注意将连接数设置为：业务系统连接池maxActive + SDK的maxActive。否则有可能出现数据库锁表的情况。
