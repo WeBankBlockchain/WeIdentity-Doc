@@ -17,27 +17,37 @@ WeIdentity JAVA SDK安装部署文档（可视化版本）
 
 1.下载安装脚本
 """"""""""
+
+* 国内用户下载途径：
 .. code-block:: shell
 
-  wget -c  https://github.com/WeBankFinTech/weid-build-tools/raw/master/script/install_build_tool.sh
+  wget -c https://www.fisco.com.cn/cdn/weevent/weidentity/download/releases/weid-install.sh
+
+
+* 国外用户下载途径：
+.. code-block:: shell
+
+  wget -c https://github.com/WeBankFinTech/weid-build-tools/raw/master/common/script/install/weid-install.sh
+
 
 2.执行安装脚本
 """"""""""
 
 .. code-block:: shell
 
-  chmod u+x install_build_tool.sh
-  ./install_build_tool.sh
+  chmod u+x weid-install.sh
+  ./weid-install.sh
   cd weid-build-tools
+  
+.. note::
+     此脚本支持两个可选参数：./weid-install.sh [-v] [-t]。
+     
+     -v)：指定安装版本，如：./weid-install.sh -v 1.0.12, 不指定版本默认安装最新版本。
+     
+     -t)：指定依赖下载源，如：./weid-install.sh -t [ en | cn ], en : 指向国外源， cn : 指向国内源，国内用户建议使用 cn 或者不指定依赖源，国外用户建议使用 en，不指定依赖源默认采用 cn。
 
-3.执行构建脚本
-""""""""""
 
-.. code-block:: shell
-
-  ./build.sh
-
-4.启动Web服务
+3.启动Web服务
 """"""""""
 
 .. code-block:: shell
@@ -49,7 +59,7 @@ WeIdentity JAVA SDK安装部署文档（可视化版本）
 .. code-block:: shell
 
     the server start successfully.
-    the server url:  http://localhost:6102/index.html
+    the server url:  http://127.0.0.1:6102/index.html
 
 .. note::
      如果您想使用命令版本, 可以按照 `命令版本部署 - 1.2章节 <./weidentity-build-with-deploy.html>`_ 来操作。
