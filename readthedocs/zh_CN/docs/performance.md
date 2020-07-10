@@ -16,9 +16,9 @@
 | IsAuthorityIssuer         | 1707173  | 70.16   | 1    | 1048  | 5708     |
 | IsSpecificTypeIssuer      | 900017   | 133.3   | 3    | 1763  | 3063.23  |
 | QueryAuthorityIssuerInfo  | 982550   | 122.12  | 2    | 1912  | 3314.7   |
-| QueryCpt                  | 25757519 | 0.03    | 0    | 40    | 86071.28 |
+| QueryCpt                  | 25757519 | 数据暂无       | 0    | 40    | 86071.28 |
 | CreateCredential          | 101318   | 103.36  | 1    | 10184 | 3343.97  |
-| CreateSelectiveCredential | 4765140  | 0.62    | 0    | 263   | 15946.42 |
+| CreateSelectiveCredential | 4765140  |  数据暂无       | 0    | 263   | 15946.42 |
 | CreatePresentation        | 716447   | 85.89   | 3    | 1447  | 2831.7   |
 | Verify                    | 493131   | 242.88  | 9    | 1416  | 1662.27  |
 | VerifyByPresention        | 302936   | 396.49  | 10   | 2566  | 1015.41  |
