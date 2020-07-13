@@ -27,27 +27,32 @@
  | 验证 Presentation
 
 
+前提条件
+~~~~~~~~
+
+
+运行 WeIdentity-Sample 需要提前使用 WeIdentity 部署工具完成部署，请参考\ `WeIdentity JAVA
+SDK安装部署 <./weidentity-installation.html>`__\ 完成部署，并参照\ `Java应用集成章节 <./weidentity-build-with-deploy.html#weid-java-sdk>`__\ 完成
+weid-sample 的配置。
+
+
+
 1. 配置与部署
 ~~~~~~~~~~~~~~~~
 
-1.1 下载 weid-sample 源码：
+1.1 下载 WeIdentity-Sample 源码：
 ''''''''''''''''''''''''''''''''''''
 
 .. code:: shell
 
-    git clone https://github.com/WeBankFinTech/weid-sample.git
+    git clone https://github.com/WeBankFinTech/WeIdentity-Sample
     
+.. note::
+     如果您的服务器在中国内地，下载速度可能会比较慢，可以直接使用在国内的源：:code:`git clone https://gitee.com/WeBank/WeIdentity-Sample`
+
 
 1.2 部署 weid-java-sdk 与配置基本信息
 ''''''''''''''''''''''''''''''''''''''
-
--  安装部署 weid-java-sdk
-
-   weid-sample 需要依赖 weid-java-sdk，您需要参考\ `WeIdentity JAVA
-   SDK安装部署 <./weidentity-installation.html>`__\ 完成
-   weid-java-sdk 的安装部署，并参照\ `Java应用集成章节 <./weidentity-build-with-deploy.html#weid-java-sdk>`__\ 完成
-   weid-sample 的配置。
-
 
 
 -  配置 Committee Member 私钥
@@ -83,9 +88,9 @@
   nodes=10.10.10.10:20200 
 
 
-- 编译 weid-sample
+- 编译 WeIdentity-Sample
 
-如果您是第一次运行 weid-sample，您需要先进行编译：
+如果您是第一次运行 WeIdentity-Sample，您需要先进行编译：
 
 .. code:: shell
 
@@ -227,4 +232,4 @@ weid-sample 里的 AMOP 服务是模拟 Verifier 向 User Agent 发送获取秘�
     begin get the presentation json...
 
 
-至此，您已经体验了 weid-sample 实现的各个角色的运行流程，实现的入口类在weid-sample工程的 ``com.webank.weid.demo.command.DemoCommand``，您可以参考进行您的 Java 应用开发。
+至此，您已经体验了 WeIdentity-Sample 实现的各个角色的运行流程，实现的入口类在 WeIdentity-Sample 工程的 ``com.webank.weid.demo.command.DemoCommand``，您可以参考进行您的 Java 应用开发。

@@ -13,14 +13,13 @@ WeIdentity JAVA SDK安装部署文档（源码方式）
      注意：如果您使用了openjdk13，那么您需要手动修改build.gradle，禁用spotbugs相关功能。具体地，请打开build.gradle，然后将所有spotbugs相关项注释掉即可。
 
 
-* `WeIdentity JAVA SDK <https://github.com/WeBankFinTech/WeIdentity.git>`_\ :raw-html-m2r:`<br>`
-  建议下载最新版本的release
+* 下载最新的代码
   
 .. code-block:: shell
 
   git clone https://github.com/WeBankFinTech/WeIdentity.git
 
-
+WeIdentity Java SDK 工程见\ `WeIdentity JAVA SDK <https://github.com/WeBankFinTech/WeIdentity.git>`_\ :raw-html-m2r:`<br>`
 
 - 配置节点证书和秘钥文件
 
