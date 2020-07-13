@@ -3,8 +3,8 @@
 
 .. _weidentity-installation-by-sourcecode:
 
-WeIdentity JAVA SDK安装部署文档（可视化版本）
-=================================================
+WeIdentity 安装部署工具使用文档（可视化安装部署方式）
+=====================================================
 
 整体介绍
 --------
@@ -12,26 +12,26 @@ WeIdentity JAVA SDK安装部署文档（可视化版本）
 可视化版本只需要简单的几步就可以完成安装，其他的操作都可以在网页上面进行完成，大大降低了操作难度。
 
 .. note::
-     注意: 建议在内网安装部署。
+     注意: 建议在内网环境搭建安装部署。启动的可视化安装工具默认会监听6102端口，不能对外网开放访问。
+
+服务器在中国内地的用户安装步骤：
+---------------------------------
+
+
+.. note::
+     服务器在海外的用户，可以参考这个文档，安装速度可能会更快： `WeIdentity 安装部署工具海外用户安装步骤： <./weidentity-installation-by-web-overseas.html>`_ 。
 
 
 1.下载安装脚本
-""""""""""
+"""""""""""""""
 
-* 国内用户下载途径：
 .. code-block:: shell
 
   wget -c https://www.fisco.com.cn/cdn/weevent/weidentity/download/releases/weid-install.sh
 
 
-* 国外用户下载途径：
-.. code-block:: shell
-
-  wget -c https://github.com/WeBankFinTech/weid-build-tools/raw/master/common/script/install/weid-install.sh
-
-
 2.执行安装脚本
-""""""""""
+"""""""""""""""
 
 .. code-block:: shell
 
@@ -40,15 +40,11 @@ WeIdentity JAVA SDK安装部署文档（可视化版本）
   cd weid-build-tools
   
 .. note::
-     此脚本支持两个可选参数：./weid-install.sh [-v] [-t]。
      
-     -v)：指定安装版本，如：./weid-install.sh -v 1.0.12, 不指定版本默认安装最新版本。
-     
-     -t)：指定依赖下载源，如：./weid-install.sh -t [ en | cn ], en : 指向国外源， cn : 指向国内源，国内用户建议使用 cn 或者不指定依赖源，国外用户建议使用 en，不指定依赖源默认采用 cn。
-
+     - 默认会下载最新版本的可视化安装工具，如果想指定安装版本，可以执行：:code:`./weid-install.sh -v 1.0.12`。
 
 3.启动Web服务
-""""""""""
+""""""""""""""
 
 .. code-block:: shell
 
@@ -61,70 +57,12 @@ WeIdentity JAVA SDK安装部署文档（可视化版本）
     the server start successfully.
     the server url:  http://127.0.0.1:6102/index.html
 
-.. note::
-     如果您想使用命令版本, 可以按照 `命令版本部署 - 1.2章节 <./weidentity-build-with-deploy.html>`_ 来操作。
 
-操作说明
---------
+4.安装完成
+""""""""""""""
 
-通过内网ip访问http://ip:6102/index.html将开启可视化操作之旅。
+* 可以使用可视化的方式完成部署：通过 IP 访问 :code:`http://ip:6102/index.html` ，详见文档：\ `部署文档（可视化部署方式） <./deploy-via-web.html>`_\，完成部署和配置。
 
-1. 配置admin账户
-""""""""""
-
-此步骤将配置您在 weid-build-tools 里面的账户，后续的部署等操作将使用该秘钥，请妥善保管，谨防丢失。
-
-2. 配置区块链节点
-""""""""""
-
-此步骤将配置连接的区块链节点，您需要提前部署区块链节点。
-
-.. note::
-     1. 请选择合适的部署环境，联盟链成员的环境需要一致。
-     2. 配置区块链节点端口时请使用channel端口。
-     3. 配置chainId时，联盟链成员的chainId需要一致
-     4. 配置主群组时，联盟链成员的主群组Id需要一致
-
-3. 配置数据库
-""""""""""
-
-此步骤将配置连接的数据库环境，请提前准备数据库名称。
-
-4. 主群组部署合约
-""""""""""
-
-完成以上3步操作即完成了 weid-build-tools 的基础配置工作，此步骤将区分联盟链管理员和非管理员进行操作。
-
-* 联盟链管理员
-
-如果您是联盟链管理员，请点击页面的合约部署功能按钮，此步骤将在联盟链的当前主群组中部署您的WeID智能合约, 并且将会自动启用该合约的CNS地址。
+* 也可以使用命令行的方式完成部署，详见文档：\ `部署文档(命令行部署方式) <./deploy-via-commandline.html>`_\ ，完成部署和配置。
 
 
-* 非管理员
-
-如果您不是联盟链管理员，请先联系联盟链管理员部署WeId智能合约，联盟链管理员部署完WeId智能合约后，请刷新当前页面并确认智能合约的CNS地址，请启用该CNS地址。
-
-.. note::
-     当您启用完CNS地址后，weid-build-tools 将自动帮您在第一步配置的账户注册成WeID, 如果有需要请将WeId地址发给联盟链管理员进行权威机构注册，可以通过WeId管理菜单查看您的WeId地址。
-
-5. 部署Evidence合约
-""""""""""
-
-此步骤可根据群组Id部署Evidence合约，如果您的机构不需要部署Evidence合约，只需要启用群组管理员部署的Evidence合约，请跟当前群组Id的管理员机构确认CNS编码，确认后再点击启用即可。
-
-
-附
-""""""""""""""""""""""""""""""""
-
-1. 请访问主页通过指引来完成配置和部署合约等相关操作。
-
-* 需要提前准备区块链节点
-
-* 需要有可访问的MySql数据库
-
-
-2. 合约部署完成将会生成相关的配置文件:
-
-* admin密钥文件目录 : ./output/admin/
-
-* 资源文件目录(用于应用集成SDK): ./resources/
