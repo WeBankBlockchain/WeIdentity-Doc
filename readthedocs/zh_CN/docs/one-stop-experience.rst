@@ -45,7 +45,7 @@ Demo体验
      - 访问入口
      - 设计说明
    * - 学历信息电子化
-     - \ `开始体验 <https://sandbox.webank.com/weid>`_\
+     - \ `开始体验（目前暂时下线，暂停体验） <https://sandbox.webank.com/weid>`_\
      - 基于WeID，将用户身份同电子身份ID对应的学历信息电子化，Hash上链，保证身份和学历信息高效验证，不可篡改
 
 1. 安装 WeIdentity 部署工具

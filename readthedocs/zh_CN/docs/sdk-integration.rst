@@ -23,28 +23,23 @@
     compile("com.webank:weid-java-sdk:x.x.x")
 
 .. note::
-   x.x.x为您使用的weid-java-sdk版本，建议使用最新版本。 查看 \ `版本历史 <https://mvnrepository.com/artifact/com.webank/weid-java-sdk>`__  
+   x.x.x为您使用的weid-java-sdk版本号，建议指定使用版本号，避免自动引入最新版本导致前后不兼容。 版本号可以查看 \ `版本历史 <https://mvnrepository.com/artifact/com.webank/weid-java-sdk>`__  
 
 
 
 2. 配置您的 Java 应用
 ''''''''''''''''''''''''
 
-将 weid-build-tools 里配置好的配置文件拷贝至您的 Java 应用中：
-::
+通过“WeIdentity 部署工具”完成部署和配置后，会在其``resources``目录生成相应的配置文件，将这些配置文件拷贝至您的 Java 应用的``resources``目录：
 
-    cd resources/
-    ls
-
-
-您可以将 ``resources`` 目录下的所有文件拷贝至您的Java应用的 ``resources`` 目录下，weid-java-sdk 会自动加载相应的资源文件。
+您可以将 ``weid-build-tools/resources`` 目录下的所有文件拷贝至您的Java应用的 ``resources`` 目录下，WeIdentity Java SDK 会自动加载相应的资源文件。
 
 
 
 3. 集成完成
 ''''''''''''''''
 
-现在您可以使用 WeIdentity 开发您的区块链身份应用。weid-java-sdk 相关接口请见：\ `WeIdentity JAVA SDK文档 <./projects/javasdk/weidentity-java-sdk-doc.html>`__ 。
+现在您可以使用 WeIdentity 开发您的区块链身份应用。WeIdentity Java SDK 相关接口请见：\ `WeIdentity JAVA SDK文档 <./projects/javasdk/weidentity-java-sdk-doc.html>`__ 。
 
 
 
