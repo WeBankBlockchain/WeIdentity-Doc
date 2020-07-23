@@ -17,7 +17,6 @@
 - User Agent
 
  | 创建 WeID
- | 通过 AMOP 获取 Verifier 发布的 Presentation Policy
  | 创建 Presentation
  | 打包 Presentation 成 QRcode 或者 Json 串，发送给 Verifier
 
@@ -50,42 +49,12 @@ weid-sample 的配置。
 .. note::
      如果您的服务器在中国内地，下载速度可能会比较慢，可以直接使用在国内的源：:code:`git clone https://gitee.com/WeBank/WeIdentity-Sample`
 
-
-1.2 部署 weid-java-sdk 与配置基本信息
+1.2 配置基本信息
 ''''''''''''''''''''''''''''''''''''''
+若您在体验WeIdentity Sample之前已经完成WeIdentity Build Tool的部署和配置，weid-sample会自动从Build Tool中加载基本配置信息，无需您再次进行配置。
 
+若您想单独体验WeIdentity Sample, 您可以参考\ `部署weid-java-sdk与配置基本信息 <./weidentity-sample-deploy.html>`__\进行配置。
 
--  配置 Committee Member 私钥
-
-.. note::
-  此项配置并非必要。由于注册 Authority Issuer 需要委员会机构成员（ Committee Member ）权限，若您不是发布智能合约的机构，您无需关注此配置项。
-  若您是智能合约发布的机构，您可以参考以下进行配置：
-
-
-将您在\ `部署WeIdentity智能合约阶段 <./weidentity-build-with-deploy.html#id7>`__\ 生成的私钥文件拷贝至
-``weid-sample/keys/priv/`` 目录中，此私钥后续将用于注册 Authority Issuer，weid-sample 会自动加载。
-
-
-- 修改节点和机构配置
-
-多个角色之间会使用 \ `AMOP <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/manual/amop_protocol.html>`__ 进行通信，根据 AMOP 协议，每个机构需要配置为连接不同的区块链节点。
-
-.. code:: shell
-
-   cd weid-sample
-   vim src/main/resources/weidentity.properties
-
-关键配置如下：
-
- | ``blockchain.orgid`` ：机构名称。样例以 organizationA 为例，请修改为 organizationA。
- | ``nodes`` ：区块链节点信息。你可以修改为您区块链网络中的任一节点即可。
-
-配置样例：
-
-.. code:: properties
-
-  blockchain.orgid=organizationA
-  nodes=10.10.10.10:20200 
 
 
 - 编译 WeIdentity-Sample
@@ -96,38 +65,6 @@ weid-sample 的配置。
 
     chmod +x *.sh
     ./build.sh
-
-- 启动 AMOP 服务
-
-weid-sample 里的 AMOP 服务是模拟 Verifier 向 User Agent 发送获取秘钥的请求，因此 Verifier 和 User Agent 需要连接同一条链中的不同的区块链节点。
-先启动 Verifier 进程：
-
-.. code:: shell
-
-    ./command.sh daemon
-
-运行成功，会启动 Verifier 的 AMOP 服务，输出如下日志：
-
-.. code:: text
-
-    the AMOP server start success.
-
-- 修改 User Agent 配置
-
-在启动完 Verifier 进程之后，还需要修改 User Agent 的配置，确保 User Agent 连接的区块链节点和 Verifier 连接的区块链节点在同一条链上，且连接的是不同的区块链节点：
-
-.. code:: shell
-
-    vim dist/conf/weidentity.properties
-
-此处主要是修改机构名称和区块链节点配置，要确保和 Verifier 连接的不是同一个区块链节点。
-
-配置样例：
-
-.. code:: properties
-
-    blockchain.orgid=organizationB
-    nodes=10.10.10.11:20200  
 
 
 2. 流程演示
@@ -186,7 +123,7 @@ weid-sample 里的 AMOP 服务是模拟 Verifier 向 User Agent 发送获取秘�
 
     ./command.sh user_agent
 
-运行成功，则会打印包括创建 WeID、 通过 AMOP 获取 Verifier 发布的 Presentation Policy、创建 Presentation 以及打包 Presentation 成 QRcode 或者 Json 串的流程。
+运行成功，则会打印包括创建 WeID、创建 Presentation 以及打包 Presentation 成 QRcode 或者 Json 串的流程。
 以下为截取的部分日志： 
 
 ::
