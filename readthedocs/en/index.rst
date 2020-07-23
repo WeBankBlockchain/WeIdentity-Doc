@@ -13,4 +13,5 @@ WeIdentity Documentation
    :caption: Contents:
 
    README.rst
+   docs/beginner_guide.md
    docs/faq.md
