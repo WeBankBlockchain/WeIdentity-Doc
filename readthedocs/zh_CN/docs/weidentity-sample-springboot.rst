@@ -6,7 +6,7 @@ spring-boot服务方式使用
 
 ::
 
-    使用 spring-boot 方式，weid-sample 程序将作为一个后台进程运行，您可以使用 http 方式体验交互流程。
+    使用 spring-boot 方式，weid-sample 程序将作为一个后台进程运行，您可以使用swagger可视化地体验交互流程。
 
 1. 下载源码
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -21,23 +21,10 @@ spring-boot服务方式使用
 2.1 部署 weid-java-sdk 与配置基本信息
 ''''''''''''''''''''''''''''''''''''''
 
--  安装部署 weid-java-sdk
+若您在体验WeIdentity Sample springboot之前已经完成WeIdentity Build Tool的部署和配置，无需您再次进行配置。
 
-   weid-sample 需要依赖 weid-java-sdk，您需要参考\ `WeIdentity JAVA
-   SDK安装部署 <./weidentity-installation.html>`__\ 完成
-   weid-java-sdk
-   的安装部署，并参照\ `Java应用集成章节 <./weidentity-build-with-deploy.html#weid-java-sdk>`__\ 完成
-   weid-sample 的配置。
+若您想单独体验WeIdentity Sample, 您可以参考\ `部署weid-java-sdk与配置基本信息 <./weidentity-sample-deploy.html>`__\进行配置。
 
-
--  配置 Committee Member 私钥
-
-   将您在\ `部署WeIdentity智能合约阶段 <./weidentity-build-with-deploy.html#id7>`__\ 生成的私钥文件拷贝至
-   ``weid-sample/keys/priv/`` 目录中，此私钥后续将用于注册 Authority Issuer，weid-sample 会自动加载。
-
-.. note::
-   此项配置并非必要，注册 Authority Issuer 需要委员会机构成员（ Committee Member ）权限，发布智能合约时生成的公私钥对会自动成为委员会机构成员，若您不是发布智能合约的机构，您无需关注此配置项。
-   若您是智能合约发布的机构，您可以参考以下进行配置：
 
 
 2.2 基本流程的演示
@@ -78,166 +65,47 @@ spring-boot服务方式使用
 >>>>>>>>>>>>>>>>>>>>>>>>
 
 以下将为您演示
-假设您的服务部署在本地，地址是 ``127.0.0.1``，服务端口是 ``6101``。您可以在 ``src/main/resources`` 里修改端口信息。
+假设您的服务部署在本地，地址是 ``127.0.0.1``，服务端口是 ``6101``。您可以在 ``resources/`` 里修改端口信息。
+您可以使用浏览器打开http://127.0.0.1:6101/swagger-ui.html，通过可视化的方式体验WeIdentity的核心功能。
 
 - 创建 WeID
 
-.. code:: shell
+单击``/step1/issuer/createWeId``，创建WeID，并返回结果。
 
-    curl -l -H "Content-type: application/json" -X POST   http://127.0.0.1:6101/createWeId
+若调用成功，则会显示以下信息：
 
-若调用成功，则会打印以下信息：
-::
+.. image:: images/weid-sample-springboot-1.png
 
-    
-    {
-        "result":{
-            "weId":"did:weid:101:0xd613fbc0249f2ce5088ed484fa6b7b51ecb95e24",
-            "userWeIdPublicKey":{
-                "publicKey":"3170902924087212850995053706205512080445198963430287429721846825598988998466716040533782467342119206581749393570668868631792331397183368695050591746049552"
-            },
-            "userWeIdPrivateKey":null
-        },
-        "errorCode":0,
-        "errorMessage":"success",
-        "transactionInfo":{
-            "blockNumber":60643,
-            "transactionHash":"0xc73b7ba6af39614761423dc8fcbbbc7e5f24c82e8187bc467cf0398b4ce4330b",
-            "transactionIndex":0
-        }
-    }
+表明创建的 WeID 是 did:weid:1:0xbb96163789a4e16790f3d213319bd4cf2b517582。
 
-表明创建的 WeID 是 did:weid:101:0xd613fbc0249f2ce5088ed484fa6b7b51ecb95e24。
+- 注册 Cpt
 
-- 注册 Authority Issuer
-
-.. code:: shell
-
-    curl -l -H "Content-type: application/json" -X POST -d '{"issuer":"did:weid:101:0xd613fbc0249f2ce5088ed484fa6b7b51ecb95e24","org-id":"webank"}'  
-    http://127.0.0.1:6101/registerAuthorityIssuer
+单击``/step2/registCpt``，参数里的 publisher 传入step1刚刚注册的WeID
 
 运行成功，则会打印以下信息：
 
-::
+.. image:: images/weid-sample-springboot-2.png
 
-    
-    {
-        "result":true,
-        "errorCode":0,
-        "errorMessage":"success",
-        "transactionInfo":{
-            "blockNumber":60668,
-            "transactionHash":"0xa0b84473705da2679cfec9119e2cdef03175df0f1af676e0579d5809e4e8d6cd",
-            "transactionIndex":0
-        }
-    }
-
-- 注册 CPT
-
-.. code:: shell
-
-    curl -l -H "Content-type: application/json" -X POST -d '{"publisher": "did:weid:101:0xd613fbc0249f2ce5088ed484fa6b7b51ecb95e24",
-    "claim": {"properties": {"id":{"type":"string","description":"user weid"},"name":{"type":"string","description":"user name"},"gender":{"type":"string","description":"user gender"}}}}' 
-    http://127.0.0.1:6101/registCpt
-
-
-运行成功，则会打印以下信息：
-::
-
-
-    {
-        "result":{
-            "cptId":1189,
-            "cptVersion":1
-        },
-        "errorCode":0,
-        "errorMessage":"success",
-        "transactionInfo":{
-            "blockNumber":60676,
-            "transactionHash":"0x72d55eb1d020acd09b115177a46e230ffdb0177ab5dd74e16765d79338522093",
-            "transactionIndex":0
-        }
-    }
-
-表明注册 CPT 成功，CPT ID 为 1189。
+表明注册 CPT 成功，CPT ID 为 2000000。
 
 - 创建 Credential
 
-创建 Credential 依赖于具体的 CPT，参数里的 cptId 传入刚刚注册的 CPT 的 ID：
-
-.. code:: shell
-
-    curl -l -H "Content-type: application/json" -X POST -d 
-    '{"cptId": "1189","issuer": "did:weid:101:0xd613fbc0249f2ce5088ed484fa6b7b51ecb95e24",
-    "claimData": {"id":"did:weid:101:0xf36fb2308d36bb94c579f568bdf670743d949deb","name":"zhangsan","gender":"F"}}' 
-    http://127.0.0.1:6101/createCredential
-
-若运行成功，则会打印以下信息：
-
-::
+单击``/step3/createCredential``，修改参数``claimData``为具体值，参数issuer为step1的WeID，参数cptId为step2返回的Cpt ID
 
 
-    {
-        "result":{
-            "credential":{
-                "context":"https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1",
-                "id":"e4f4accd-6026-4fd0-9392-1379ddd4f778",
-                "cptId":1189,
-                "issuer":"did:weid:101:0xd613fbc0249f2ce5088ed484fa6b7b51ecb95e24",
-                "issuanceDate":1564371227764,
-                "expirationDate":1595475227763,
-                "claim":{
-                    "gender":"F",
-                    "name":"zhangsan",
-                    "id":"did:weid:101:0xf36fb2308d36bb94c579f568bdf670743d949deb"
-                },
-                "proof":{
-                    "creator":"did:weid:101:0xd613fbc0249f2ce5088ed484fa6b7b51ecb95e24",
-                    "signature":"G2kD4u4jrnmYbq/oVl9idmTEQzP3a0KEomHGJaVpWzhITIE+dDYSRMyF9TDy+jPANpYRJGg7pGnANM+QeJ9Ba00=",
-                    "created":"1564371227764",
-                    "type":"EcdsaSignature"
-                },
-                "signature":"G2kD4u4jrnmYbq/oVl9idmTEQzP3a0KEomHGJaVpWzhITIE+dDYSRMyF9TDy+jPANpYRJGg7pGnANM+QeJ9Ba00=",
-                "proofType":"EcdsaSignature"
-            },
-            "disclosure":{
-                "name":1,
-                "id":1,
-                "gender":1
-            }
-        },
-        "errorCode":0,
-        "errorMessage":"success",
-        "transactionInfo":null
-    }
+运行成功，则会打印以下信息：
 
-表明创建 Credential 成功，Credential 的具体信息为输出中的 Credential 字段对应的内容。
+.. image:: images/weid-sample-springboot-3.png
+
+表明创建 Credential 成功，Credential 的具体信息为图中的 credential 字段对应的内容。
 
 - 验证 Credential
 
-
-.. code:: shell
-
-    curl -l -H "Content-type: application/json" -X POST -d 
-    '{"context":"https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1",
-    "id":"e4f4accd-6026-4fd0-9392-1379ddd4f778","cptId":1189,"issuer":"did:weid:101:0xd613fbc0249f2ce5088ed484fa6b7b51ecb95e24",
-    "issuanceDate":1564371227764,"expirationDate":1595475227763,"claim":{"gender":"F","name":"zhangsan","id":"did:weid:101:0xf36fb2308d36bb94c579f568bdf670743d949deb"},
-    "proof":{"creator":"did:weid:101:0xd613fbc0249f2ce5088ed484fa6b7b51ecb95e24","signature":"G2kD4u4jrnmYbq/oVl9idmTEQzP3a0KEomHGJaVpWzhITIE+dDYSRMyF9TDy+jPANpYRJGg7pGnANM+QeJ9Ba00=",
-    "created":"1564371227764","type":"EcdsaSignature"},"signature":"G2kD4u4jrnmYbq/oVl9idmTEQzP3a0KEomHGJaVpWzhITIE+dDYSRMyF9TDy+jPANpYRJGg7pGnANM+QeJ9Ba00=","proofType":"EcdsaSignature"},
-    "disclosure":{"name":1,"id":1,"gender":1}'  
-    http://127.0.0.1:6101/verifyCredential
-
+单击``/step1/verifyCredential``，修改参数为上步所得到的``credential``。
 
 若运行成功，则会打印以下信息：
 
-::
-
-    {
-        "result":true,
-        "errorCode":0,
-        "errorMessage":"success",
-        "transactionInfo":null
-    }
+.. image:: images/weid-sample-springboot-4.png
 
 表明 Credential 验证成功。
 
