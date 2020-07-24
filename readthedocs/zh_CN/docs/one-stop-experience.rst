@@ -78,7 +78,7 @@ Demo体验
      如果您是要的是其他语言而非 Java，可以参照\ `RestService文档 <./weidentity-rest.html>`_\，通过 WeIdentity Rest Service 来调用相关的接口。
 
 
-其他：SDK文档
+其他：WeIdentity Java SDK 接口文档
 ------------------
 
 参考\ `Java SDK文档 <https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/>`_\，深入了解 WeIdentity 的接口调用。
