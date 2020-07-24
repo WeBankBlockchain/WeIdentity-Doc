@@ -1,0 +1,29 @@
+{
+  "version" : 2,
+  "id" : 1001,
+  "orgId" : "demo",
+  "policyPublisherWeId" : null,
+  "policy" : {
+    "1001" : {
+      "fieldsToBeDisclosed" : {
+        "claim" : {
+          "age" : 0,
+          "gender" : 0,
+          "id" : 0,
+          "name" : 0
+        },
+        "context" : 0,
+        "cptId" : 0,
+        "expirationDate" : 0,
+        "id" : 0,
+        "issuanceDate" : 0,
+        "issuer" : 0
+      }
+    }
+  },
+  "extra" : {
+    "extra2" : "",
+    "extra1" : ""
+  },
+  "policyType" : "zkp"
+}
