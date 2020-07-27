@@ -34,7 +34,7 @@
      - W3C的DID规范定义的去中心化ID。详见：\ `W3C DID规范 <https://w3c-ccg.github.io/did-spec/>`_
    * - WeIdentity DID
      -
-     - 分布式身份标识，WeIdentity的分布式多中心的ID注册机制下生成的实体的ID。符合W3C DID规范
+     - 分布式身份标识，简称WeID，WeIdentity的分布式多中心的ID注册机制下生成的实体的ID。符合W3C DID规范
    * - WeIdentity Document
      -
      - 描述如何使用DID，至少包含了3个字段：披露的公钥列表；Authentication描述如何Authenticate；Service Endpoint
@@ -57,8 +57,8 @@
      - 凭证的声明类型
      - Claim Protocol Type,不同的Issuer按业务场景需要，各自定义不同类型数据结构的Claim，各种各样的Claim用不同的CPT来定义
    * - chain-id
-     - 网络id
-     - 用于路由到不同的网络
+     - 链 ID
+     - 用于路由到不同的链网络（如果需要跟其他链打通，需要找 WeIdentity 开源项目的 owner 微众银行注册路由信息），例如同时使用 WeIdentity 的可能有多条区块链，可以使用这个字段作为标识信息，路由到特定区块链
    * - Service Endpoint
      - 服务端点
      - Entity暴露的服务的地址，例如暴露自己的Credential托管的服务地址，暴露自己的文件存储服务地址
@@ -79,7 +79,7 @@
      - 任意拥有WeIdentity DID的Entity都可以作为Issuer来发行Credential
    * - Authority Issuer
      - 权威凭证发行者
-     - 例如对Claim进行认证的权威机构或者可信机构，例如下发驾照的交通事务局
+     - 对凭证或者用户的申明（Claim）进行认证的权威机构或者可信机构，例如给居民下发驾照的交通事务局，为学生授予大学毕业证书的大学，发行房产证的房屋管理部门，都属于权威凭证发行者。在你自己构建的 WeID 世界中，总有一些机构因为其权威性，可以为某一些信息背书，从而让大家都相信其发行的凭证（Credential），这类机构都属于权威凭证发行者
    * - Entity
      - 实体
      - WeIdentity Document或Credential描述的实体，即拥有WeIdentity DID的人或者物
