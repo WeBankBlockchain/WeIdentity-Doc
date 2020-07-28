@@ -9,8 +9,8 @@
 
 WeIdentity是一套分布式多中心的技术解决方案，可承载实体对象（人或者物）的现实身份与链上身份的可信映射、以及实现实体对象之间安全的访问授权与数据交换。WeIdentity由微众银行自主研发并完全开源，秉承公众联盟链整合资源、交换价值、服务公众的理念，致力于成为链接多个垂直行业领域的分布式商业基础设施，促进泛行业、跨机构、跨地域间的身份认证和数据合作。
 
-模块介绍
---------
+1. 主要模块介绍
+----------------
 
 WeIdentity目前主要包含两大模块：WeIdentity DID以及WeIdentity Credential。
 
@@ -68,8 +68,56 @@ WeIdentity DID秉承以下设计理念：
 WeIdentity支持认证机构自行注册标准化凭证模板，共同丰富公众联盟链的生态。
 
 
-当前状态
---------
+本页化繁为简地聊了聊WeIdentity，您可以在此快速了解WeIdentity的参考场景、体验Demo、快速部署并体验WeIdentity的核心功能。
+如果您是开发人员，还可以进一步了解WeIdentity的参考实现，以及深入了解SDK的使用方式。
+
+2. WeIdentity 参考场景
+-----------------------
+
+.. image:: docs/images/roles-relation.png
+   :alt: roles-relation.png
+
+在WeIdentity生态中，存在着上图所示的几类角色，不同角色的权责和角色之间的关系如下表所示：
+
+.. list-table::
+   :header-rows: 1
+
+   * - 角色
+     - 说明
+   * - User (Entity)
+     - 用户（实体）。会在链上注册属于自己的WeIdentity DID，从Issuer处申请Credential，并授权转发或直接出示给Verifier来使用之。
+   * - Issuer
+     - Credential的发行者。会验证实体对WeIdentity DID的所有权，其次发行实体相关的Credential。
+   * - Verifier
+     - Credential的使用者。会验证实体对WeIdentity DID的所有权，其次在链上验证Credential的真实性，以便处理相关业务。
+   * - User Agent / Credential Repository
+     - 用户（实体）在此生成WeIdentity DID。为了便于使用，实体也可将自己的私钥、持有的Credential托管于此。
+
+在实际业务里，WeIdentity可以被广泛运用在「实体身份标识」及「可信数据交换」场景中。首先，通过User Agent为不同的实体生成独立唯一的DID；其次，Issuer验证实体身份及DID所有权，为实体发行各种各样的电子化Credential。当实体需要办理业务的时候，可以直接将Credential出示给Verifier，也可以通过在链上进行主动授权 + 授权存证上链的方式，由之前授权的凭证存储机构转发给Verifier。
+
+以上流程，保证了数据以实体用户为中心，同时实体身份、确权、授权等操作在链上完成，可追溯，可验证，不可篡改。
+
+3. Demo体验
+-------------- 
+
+下面提供了几个不同场景的WeIdentity Demo：
+
+.. list-table::
+   :header-rows: 1
+
+   * - 使用场景
+     - 访问入口
+     - 设计说明
+   * - 学历信息电子化
+     - \ `开始体验（目前暂时下线，暂停体验） <https://sandbox.webank.com/weid>`_\
+     - 基于WeID，将用户身份同电子身份ID对应的学历信息电子化，Hash上链，保证身份和学历信息高效验证，不可篡改
+
+
+
+
+
+4. 当前状态
+------------
 
 WeIdentity目前支持基于FISCO-BCOS的区块链，并提供Java SDK及RestService方式供部署。具体的规范文档、安装部署和使用指引如下表所示：
 
@@ -93,7 +141,7 @@ WeIdentity目前支持基于FISCO-BCOS的区块链，并提供Java SDK及RestSer
                </ul>
             </td>
             <td>
-               <a href="https://travis-ci.org/WeBankFinTech/WeIdentity"><img src="https://travis-ci.org/WeBankFinTech/WeIdentity.svg?branch=master" /></a>
+               <a href="https://github.com/WeBankFinTech/WeIdentity/actions?query=workflow%3ACI"><img src="https://github.com/WeBankFinTech/WeIdentity/workflows/CI/badge.svg?branch=master" /></a>
                <a href="https://github.com/WeBankFinTech/WeIdentity/releases/latest"><img src="https://img.shields.io/github/release/WeBankFinTech/WeIdentity.svg" /></a>
                <a href="https://search.maven.org/search?q=g:%22com.webank%22%20AND%20a:%22weid-java-sdk%22"><img src="https://img.shields.io/maven-central/v/com.webank/weid-java-sdk.svg?label=Maven%20Central" /></a>
                <a href="https://www.codacy.com/manual/chaoxinhu/WeIdentity?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=WeBankFinTech/WeIdentity&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/37d3bc478ede4839ba16ccac469ad3f2" /></a>
@@ -107,10 +155,10 @@ WeIdentity目前支持基于FISCO-BCOS的区块链，并提供Java SDK及RestSer
       <br/>
     </embed>
 
-感受WeIdentity
-----------------
+5. Getting Started
+-------------------
 
-接下来，您可以在\ `此页 <https://weidentity.readthedocs.io/zh_CN/latest/docs/one-stop-experience.html>`_，一站式了解WeIdentity的参考场景，体验Demo流程，并了解完整的部署方式及参考实现。
+接下来，您可以在\ `此页 <https://weidentity.readthedocs.io/zh_CN/latest/docs/one-stop-experience.html>`_，从零开始安装，部署和使用WeIdentity。
 
 联系我们
 --------

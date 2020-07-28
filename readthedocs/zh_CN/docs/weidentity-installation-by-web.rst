@@ -60,7 +60,9 @@ WeIdentity 安装部署工具使用文档（可视化安装部署方式）
 4.安装完成
 """"""""""""""
 
-* 安装已经完成，可以使用可视化的方式完成 WeIdentity 的部署：通过 :code:`http://IP:6102/index.html` （IP 替换为自己服务器的IP）访问部署工具的 Web 页面，详见文档：\ `部署文档（可视化部署方式） <./deploy-via-web.html>`_\，完成 WeIdentity 的部署和其他相关配置。
+安装已经完成，接下来：
+
+* 可以使用可视化的方式完成 WeIdentity 的部署：通过 :code:`http://IP:6102/index.html` （IP 替换为自己服务器的IP）访问部署工具的 Web 页面，详见文档：\ `部署文档（可视化部署方式） <./deploy-via-web.html>`_\，完成 WeIdentity 的部署和其他相关配置。
 
 * 也可以使用命令行的方式完成部署，详见文档：\ `部署文档（命令行部署方式） <./deploy-via-commandline.html>`_\ ，完成 WeIdentity 的部署和其他相关配置。
 

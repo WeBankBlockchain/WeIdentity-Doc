@@ -25,9 +25,7 @@ WeIdentity文档
    docs/terminologies.rst
    docs/use-cases.rst
    docs/weidentity-spec.rst
-   docs/weidentity-installation.rst
-   docs/deploy.rst
-   WeIdentity Java SDK 文档 <https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/>
+   WeIdentity Java SDK 接口文档 <https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/>
    docs/weidentity-sample.rst
    docs/miscellaneous.md
    docs/faq.md
