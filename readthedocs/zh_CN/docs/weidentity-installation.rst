@@ -27,7 +27,7 @@
    * - JDK
      - 要求\ `JDK1.8+ <https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html>`_\ ，推荐使用jdk8u141。JDK 跟 WeID 直接的兼容性，可见\ `兼容性文档 <https://weidentity.readthedocs.io/zh_CN/latest/docs/weid-compatibility-test.html>`_\
    * - 网络连通
-     - 检查部署 WeIdentity JAVA SDK 的服务器是否能 telnet 通 FISCO BCOS 节点的 channel 端口（\ `channel端口是什么，详见 <https://https://mp.weixin.qq.com/s/XZ0pXEELaj8kXHo32UFprg>`_\），若telnet不通，需要检查网络连通性和安全策略。
+     - 检查部署 WeIdentity JAVA SDK 的服务器是否能 telnet 通 FISCO BCOS 节点的 channel 端口（\ `channel端口是什么，详见 <https://mp.weixin.qq.com/s/XZ0pXEELaj8kXHo32UFprg>`_\），若telnet不通，需要检查网络连通性和安全策略。
 
 
 安装 WeIdentity 部署工具
