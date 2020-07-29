@@ -28,9 +28,11 @@ in simple ways.
 + Run below commands one by one to install Openssl,Curl,Git,Openjdk,Mysql,Sdkman and Gradle on the server.
 ```
 sudo apt install -y openssl curl
-sudo apt install git
+sudo apt install -y git
 sudo apt install -y default-jdk
 sudo apt-get install mysql-server-5.7
+sudo apt install -y unzip
+sudo apt install -y zip
 curl -s "https://get.sdkman.io" | bash
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 sdk install gradle 6.4
@@ -40,7 +42,6 @@ sdk install gradle 6.4
 sudo mysql -u root
 ```
 ```
-GRANT ALL PRIVILEGES ON *.* TO root@localhost IDENTIFIED BY "root@123";
 create database weid;
 GRANT ALL PRIVILEGES ON weid.* TO weid@"%" IDENTIFIED BY "weid@123";
 exit;
@@ -90,7 +91,7 @@ cd ~/weid && ./weid-install.sh -t en &&
 cd weid-build-tools &&
 ./start.sh
 ```   
-There are two ways to deploy WeIdentity JAVA SDK and WeIdentity Contract.   
+There are two ways to deploy WeIdentity JAVA SDK and WeIdentity Contracts.   
 + (Option 1) Use command line to deploy.   
  + Update configurations in `~/weid/weid-build-tools/run.config` as below.
 ```
@@ -131,12 +132,14 @@ evidence contract address is 0x8cc0de880394cbde18ca17f6ce2cf7af5c51891e
 specificIssuer contract address is 0xca5fe4a67da7e25a24d76d24efbf955c475ab9ca
 ===========================================.
 ```   
-+ (Option 2) Use WeIdentity Web Tool to deploy (in Chinese language).   
- + Open URL `http://{public ip of the server}:6102/index.html` via browser and follow the guide shown on the web page.   
++ (Option 2) Use WeIdentity Web Tool for deployment (in Chinese language).   
+ + Open URL `http://{public ip of the server}:6102/guide.html` via browser and follow the guide shown on the web page. (You may copy the values from Option 1)
 ```
-http://127.0.0.1:6102/index.html
+http://127.0.0.1:6102/guide.html
 ```
- + Click button to generate admin account(WEID).
- + Setup FISCO BCOS (take the values from Option 1).
- + Setup Mysql (take the values from Option 1).
- + Click buttons to deploy WeIdentity Contract including WeId contract, Cpt contract, Authority Issuer contract, Evidence contract and Specific Issuer contract.
+ + Choose a role "As a Committee Member"(recommended) or "As a non Committee Member".
+ + Setup FISCO BCOS.
+ + Define main group id.
+ + Setup Mysql (Optional).
+ + Click button to generate admin account.
+ + Click button to deploy WeIdentity Contracts and WeIdentity JAVA SDK as a Committee Member only.
