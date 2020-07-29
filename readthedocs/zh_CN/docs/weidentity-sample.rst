@@ -14,16 +14,13 @@ WeIdentity Sample 开发样例
 快速体验
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-我们提供了两种方式体验 weid-sample：
+我们提供以下方式体验 weid-sample：
 
--  `命令行方式使用 <./weidentity-sample-commandline.html>`__
-   （推荐方式）
+-  `快速体验使用WdIdentity Sample <./weidentity-sample-tryit.html>`__
 
--  `spring-boot方式使用 <./weidentity-sample-springboot.html>`__
 
 .. toctree::
    :hidden:
    :maxdepth: 1
    
-   weidentity-sample-commandline.rst
-   weidentity-sample-springboot.rst
+   weidentity-sample-tryit.rst
