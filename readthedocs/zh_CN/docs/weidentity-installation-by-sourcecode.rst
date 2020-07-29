@@ -90,7 +90,7 @@ WeIdentity Java SDK 工程见\ `WeIdentity JAVA SDK <https://github.com/WeBankFi
 
 ::
 
-    chmod +x *.sh
+    chmod +x run.sh
     ./run.sh
 
 出现下列输出，则表示安装部署成功。

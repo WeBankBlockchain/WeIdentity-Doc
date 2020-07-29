@@ -136,7 +136,7 @@ Server 的环境要求与 WeIdentity-Java-SDK 的 `环境要求 <./weidentity-in
 .. code-block:: bash
 
     # 为脚本文件增加权限
-    $ chmod +x *.sh
+    $ chmod +x start.sh server_status.sh stop.sh
     # 启动应用
     $ ./start.sh
     # 观察应用状态
