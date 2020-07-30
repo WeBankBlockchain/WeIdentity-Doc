@@ -131,7 +131,7 @@ WeIdentity DID = did:weid:chain-id:bs-specific-string
 
 备注：bsSpecificString根据区块链底层平台和业务具体情况来确定生成规则，例如可以是随机字符串，或者区块链上的地址。
 
-示例: ``"did:weid:1:0x0086eb1f712ebc6f1c276e12ec21"``
+示例(这个例子中，chain-id是101): ``"did:weid:101:0x0086eb1f712ebc6f1c276e12ec21"``
 
 WeIdentity Document格式
 ^^^^^^^^^^^^^^^^^^^^^^^
