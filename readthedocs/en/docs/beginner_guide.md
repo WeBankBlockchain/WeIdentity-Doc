@@ -111,7 +111,7 @@ cns_profile_active=test
 cd ~/weid/weid-build-tools &&
 cp -f ~/fisco/nodes/127.0.0.1/sdk/ca.crt ~/weid/weid-build-tools/resources &&
 cp -f ~/fisco/nodes/127.0.0.1/sdk/node.crt ~/weid/weid-build-tools/resources &&
-cp -f ~/fisco/nodes/127.0.0.1/sdk/node.key ~/weid/weid-build-tools/resources &&
+cp -f ~/fisco/nodes/127.0.0.1/sdk/node.key ~/weid/weid-build-tools/resources
 ```   
   + Deploy WeIdentity JAVA SDK and WeIdentity Contract.   
 ```
