@@ -124,7 +124,7 @@ WeIdentity DID = did:weid:chain-id:bs-specific-string
    * - weid
      - WeIdentity DID规范的method name字段，固定为“weid”
    * - chain-id
-     - 链 ID，用于路由到不同的链网络，例如同时使用 WeIdentity 的可能有多条区块链，可以使用这个字段作为标识信息，路由到特定区块链。
+     - 链 ID，用于路由到不同的链网络（如果需要跟其他链打通，需要找 WeIdentity 开源项目的 owner 微众银行注册路由信息），例如同时使用 WeIdentity 的可能有多条区块链，可以使用这个字段作为标识信息，路由到特定区块链
    * - bs-specific-string
      - 基于底层区块链平台生成，代表Entity在链上的地址，保证全网唯一
 
