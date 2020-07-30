@@ -106,13 +106,12 @@
    .. image:: images/deploy-via-web-guide-deploy-weid-contract.png
       :alt: deploy-via-web-guide-deploy-weid-contract.png
 
-   - 配置链 ID (Chain Id)
-         * 配置说明：待连接节点所属的链ID, 安装区块链时自动生成, 一般情况下无需更改。
-         * 配置要求: 默认 Chain Id 为 1。
+   - 配置链 ID (chain-id)
+         * 配置说明：\ `「什么是链 ID (Chain Id) ?」 <./weidentity-spec.html#id4>`_\
+         * 如果是为了测试或者体验部署工具流程，可以填入一个随意的数字，例如1000
 
-.. note::
-   1. \ `「什么是链 ID (Chain Id) ?」 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/sdk/go_sdk/env_conf.html?highlight=%E9%93%BEid#id6>`_\
-   2. WeIdentity 智能合约部署完成后将会在 `./output/admin/` 目录下生成 Admin 密钥文件, 用于后续注册权威机构等操作, 请妥善保管。
-   3. WeIdentity 智能合约部署完成后将会在 `./resources/` 目录下生成相关文件, 以便于您的应用集成 WeIdentity JAVA SDK。
 
-至此, WeIdentity JAVA SDK 的部署已完成。您可以继续通过 WeIdentity 部署工具体验使用 WeIdentity JAVA SDK 的功能, 详见文档。
+最后
+""""""""""""""""""""""""""""""""""""""""""
+
+至此，配置和部署已经完成，在 `./output/admin/` 目录下生成 Admin 密钥文件, 用于后续注册权威机构等管理操作, 请妥善保管。

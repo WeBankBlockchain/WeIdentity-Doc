@@ -12,7 +12,7 @@ WeIdentity 入门
 第2步：使用 WeIdentity 部署工具完成部署
 ---------------------------------------
 
-参照\ `部署文档 <./deploy-via-web.html>`_\，完成部署和配置。
+参照\ `配置教程 <./deploy-via-web.html>`_\，完成配置和部署。
 
 
 第3步：运行 Sample 代码，体验接口（可选）
@@ -25,7 +25,7 @@ WeIdentity 入门
 您可以参考\ `开发样例使用 <./weidentity-sample-commandline.html>`_\，体验 WeIdentity 的各种接口。
 
 
-第4步：在自己的 Java Service 中集成 WeIdentity Java SDK 
+第4步：在自己的 Java Service 中集成 WeIdentity Java SDK
 -----------------------------------------------------
 
 参考：\ `集成 WeIdentity Java SDK <sdk-integration.html>`_\
@@ -44,4 +44,3 @@ WeIdentity 入门
 -----------------------------------------
 
 我们提供了一些快捷工具，可以帮您快速体验 weid-java-sdk，请参考\ `WeIdentity JAVA SDK 便捷工具使用 <./weidentity-quick-tools.html>`__\。
-
