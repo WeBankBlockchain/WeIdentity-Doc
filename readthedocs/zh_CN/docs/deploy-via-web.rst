@@ -38,7 +38,7 @@
       :alt: deploy-via-web-guide-setup-blockchain.png
 
    - 机构名称
-      * 配置说明：机构名称用于标识机构唯一性, 类似域名的作用，在同一条联盟链上，先注册先得。例如微众，可以填入"webank"作为其机构名称。
+      * 配置说明：机构名称用于标识机构唯一性, 类似域名的作用，在同一条联盟链上，先注册先得。例如微众，可以填入"WeBank"作为其机构名称。
       * 配置要求：建议使用机构的英文名称或简称, 并确保机构名称在联盟链成员中唯一。
 
    - AMOP 通讯 ID
@@ -60,7 +60,7 @@
       * 配置要求：登录区块链节点服务器, 生成/拷贝证书文件, 并下载到本机后上传。SDK 证书文件包括 ca.crt, node.crt 和 node.key。
 
 .. note::
-     1. \ `「如何获得 SDK 证书?」 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/enterprise_tools/operation.html#get-sdk-file>`_\
+     1. \ `「如何获得 SDK 证书文件?」 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/enterprise_tools/operation.html#get-sdk-file>`_\
      2. \ `「区块链中的各种证书」 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/manual/certificates.html>`_\
 
 第2步: 选择主群组
@@ -101,15 +101,14 @@
 第5步: 部署 WeIdentity 智能合约（仅联盟链委员会管理员需要执行这一步骤）
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-此步骤将部署 WeIdentity 智能合约 到指定的区块链上, 如图所示。
+此步骤将部署 WeIdentity 智能合约到指定的区块链上, 如图所示。
 
    .. image:: images/deploy-via-web-guide-deploy-weid-contract.png
       :alt: deploy-via-web-guide-deploy-weid-contract.png
 
    - 配置链 ID (chain-id)
          * 配置说明：\ `「什么是链 ID (Chain Id) ?」 <./weidentity-spec.html#id4>`_\
-         * 如果是为了测试或者体验部署工具流程，可以填入一个随意的数字，例如1000
-
+         * 如果是为了测试或者体验部署工具流程，可以填入一个随意的数字，例如1000。
 
 最后
 """"""""""""""""""""""""""""""""""""""""""
