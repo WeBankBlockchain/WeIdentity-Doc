@@ -7,7 +7,7 @@ WeIdentity 入门
 第1步：安装 WeIdentity 部署工具
 ------------------------------
 
-您可以参照\ `安装 WeIdentity 部署工具 <./weidentity-installation.html>`_\，安装 WeIdentity 部署工具。
+您可以参照\ `安装 WeIdentity 部署工具 <./weidentity-installation.html?highlight=推荐方式>`_\，安装 WeIdentity 部署工具。
 
 第2步：使用 WeIdentity 部署工具完成部署
 ---------------------------------------

@@ -43,7 +43,7 @@
 
    - AMOP 通讯 ID
       * 配置说明：此 ID 将作为节点间 AMOP 通讯所需要的Topic来进行监听。AMOP 通讯可在不同机构的节点间通讯, 亦可在同一机构内的不同节点间通讯。
-      * 配置要求：建议使用英文, 并确保 ID 机构唯一或 VPC 唯一。\ `「什么是 AMOP ?」 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/manual/amop_protocol.html?highlight=amop>`_\
+      * 配置要求：建议使用英文, 并确保该 ID 在联盟链中唯一。\ `「什么是 AMOP ?」 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/manual/amop_protocol.html?highlight=amop>`_\
 
    .. - 配置部署环境
       * 配置说明：目前支持三种部署环境, 生产环境, 测试环境和开发环境。不同环境可使用同一条区块链, 亦可各自使用独立的链。
@@ -72,9 +72,9 @@
       :alt: deploy-via-web-guide-choose-group-id.png
 
    - 选择主群组 ID
-      * 配置说明：主群组是 WeIdentity 智能合约部署的群组，需要协调所有部署了区块链节点的机构选择一个群组作为主群组，所有机构的所有区块链节点都需要加入这个主群组，这样才能保证所有的WeID都是相互可见的。
-      * 如果您使用到了多群组的架构，例如整个联盟链部署了 ID 为98，101，102三个区块链群组，然后所有部署了区块链节点的机构协商选择 98 作为主群组，则这个步骤所有机构都选择98即可；
-      * 如果整个联盟链只有一个群组，则这里就选择这个唯一的群组作为主群组。
+      * 主群组是联盟链所有机构的节点都需要加入的群组，即 WeIdentity 智能合约部署的群组。需要协调所有部署了区块链节点的机构选择一个群组作为主群组，这样才能保证所有的WeID都是相互可见的；
+      * 如果整个联盟链只有一个群组，则这里就选择这个唯一的群组作为主群组；
+      * 如果您使用到了多群组的架构，例如整个联盟链部署了 ID 为98，101，102三个区块链群组，然后所有部署了区块链节点的机构协商选择 98 作为主群组，则这个步骤所有机构都选择98即可。
 
 .. note::
    \ `「如何查看群组?」 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/manual/console.html#getgrouplist>`_\
@@ -94,6 +94,8 @@
 """"""""""""""""""""""""""""""""""""""""""
 
 此步骤将配置您在 weid-build-tools 里面的 Admin 账户, 后续的部署等操作将使用该账户（请妥善保管私钥, 谨防丢失）。
+
+   - 推荐"系统自动创建公私钥"
 
    .. image:: images/deploy-via-web-guide-create-admin-weid.png
       :alt: deploy-via-web-guide-create-admin-weid.png
