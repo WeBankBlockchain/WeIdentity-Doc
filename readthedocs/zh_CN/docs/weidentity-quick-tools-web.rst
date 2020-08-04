@@ -6,51 +6,38 @@
 WeIdentity 部署工具使用简介
 ============================================================
 
-通过 WeIdentity 部署工具的 Web 页面, 您可以快速的部署和使用 WeIdentity JAVA SDK。
-WeIdentity 部署工具主要提供以下功能:
+.. note::
+   如果还未完成配置，详见文档: \ `使用 WeIdentity 部署工具完成部署（可视化部署方式） <./deploy-via-web.html>`__\。
 
-   - 配置管理
 
-   - 配置区块链节点
-   - 配置主群组
-   - 配置数据库
-   - 配置WeID账户
+WeIdentity 部署工具的 Web 页面, 主要提供以下功能:
 
-   - 功能管理
+  - 配置管理
+    - 配置区块链节点
+    - 配置主群组
+    - 配置数据库
+    - 配置WeID账户
 
-   - 部署 WeIdentity 智能合约
-   - 部署 Evidence 智能合约
-   - 管理 WeID
-   - 管理权威凭证发行者(Authority Issuer)
-   - 管理特定类型的发行者(Specific Issuer)
-   - 管理凭证类型(CPT)
-   - 管理披露策略(Presentation Policy)
+  - 功能管理
+    - 部署 WeIdentity 智能合约
+    - 部署 Evidence 智能合约
+    - 管理 WeID
+    - 管理权威凭证发行者(Authority Issuer)
+    - 管理特定类型的发行者(Specific Issuer)
+    - 管理凭证类型(CPT)
+    - 管理披露策略(Presentation Policy)
 
-   - 异步上链管理
-
-   - 管理 Evidence 异步上链
+  - 异步上链管理
+    - 管理 Evidence 异步上链
 
    .. image:: images/weidentity-quick-tools-web.png
       :alt: weidentity-quick-tools-web.png
 
-安装部署 WeIdentity JAVA SDK
+
+WeIdentity 部署工具功能介绍
 --------------------------------
 
-   安装部署 WeIdentity JAVA SDK, 详见文档: \ `使用 WeIdentity 部署工具完成部署（可视化部署方式） <./deploy-via-web.html>`__\。
-
-
-使用 WeIdentity JAVA SDK
---------------------------------
-
-准备: 打开 WeIdentity 部署工具的 Web 页面
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-   通过安装 “ WeIdentity 部署工具” 的服务器的公网 IP 访问 Web 页面 :code:`http://ip:6102/index.html` 以便捷的使用 WeIdentity JAVA SDK 的功能。
-
-   .. note::
-      在使用之前, 请确保已安装部署 WeIdentity JAVA SDK。
-
-1. 部署 WeIdentity 智能合约(仅联盟链委员会管理员)
+1. 部署 WeIdentity 智能合约(仅联盟链委员会管理员可用)
 """""""""""""""""""""""""""""""""""""""""""""""
 
    - 部署 WeIdentity 智能合约
@@ -62,7 +49,6 @@ WeIdentity 部署工具主要提供以下功能:
 
    - 启用 WeIdentity 智能合约
       在菜单栏点击功能管理 -> 部署 WeIdentity 智能合约, 选择合约, 点击`启用`按钮。
-      首次部署的 WeIdentity 智能合约, 将自动被启用。
 
    - 删除 WeIdentity 智能合约
       在菜单栏点击功能管理 -> 部署 WeIdentity 智能合约, 选择合约, 点击`删除`按钮。
