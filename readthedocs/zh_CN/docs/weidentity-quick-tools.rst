@@ -37,7 +37,7 @@ WeIdentity JAVA SDK 便捷使用工具
 ::
 
     cd ../tools
-    chmod +x *.sh
+    chmod +x create_weid.sh
     ./create_weid.sh
 
 若执行成功，则会打印以下信息。
@@ -66,6 +66,7 @@ WeIdentity JAVA SDK 便捷使用工具
 假设您要注册的 Authority Issuer 的 WeIdentity DID 为did:weid:1:0x5efd256d02c1a27675de085b86989fa2ac1baddb，机构名称是 test。
 ::
 
+    chmod +x register_authority_issuer.sh
     ./register_authority_issuer.sh --org-id test --weid did:weid:1:0x5efd256d02c1a27675de085b86989fa2ac1baddb
 
 如果执行成功，会打印以下信息。
@@ -101,6 +102,7 @@ WeIdentity JAVA SDK 便捷使用工具
 
 ::
 
+    chmod +x register_specific_issuer.sh
     ./register_specific_issuer.sh --type college --weid did:weid:1:0x5efd256d02c1a27675de085b86989fa2ac1baddb
 
 执行成功，则会打印以下信息。
@@ -136,6 +138,7 @@ WeIdentity JAVA SDK 便捷使用工具
 
 ::
 
+    chmod +x register_cpt.sh
     ./register_cpt.sh --cpt-dir test_data/single/ --weid did:weid:1:0x5efd256d02c1a27675de085b86989fa2ac1baddb
 
 若执行成功，则会打印以下信息：
@@ -170,6 +173,7 @@ WeIdentity JAVA SDK 便捷使用工具
 
 ::
 
+    chmod +x cpt_to_pojo.sh
     ./cpt_to_pojo.sh --cpt-list 1000
 
 若执行成功，则会打印以下信息。
