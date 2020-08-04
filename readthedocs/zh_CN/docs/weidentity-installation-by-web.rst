@@ -27,7 +27,7 @@ WeIdentity 安装部署工具使用文档（可视化安装部署方式）
 
 .. code-block:: shell
 
-  wget -c https://www.fisco.com.cn/cdn/weevent/weidentity/download/releases/weid-install.sh; chmod u+x weid-install.sh
+  wget -c https://www.fisco.com.cn/cdn/weevent/weidentity/download/releases/weid-install.sh
 
 
 2.执行安装脚本
@@ -35,7 +35,7 @@ WeIdentity 安装部署工具使用文档（可视化安装部署方式）
 
 .. code-block:: shell
 
-  ./weid-install.sh
+  chmod u+x weid-install.sh; ./weid-install.sh
   cd weid-build-tools
 
 .. note::
