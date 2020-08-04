@@ -39,8 +39,11 @@ WeIdentity 入门
 
 参考\ `Java SDK文档 <https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/>`_\，深入了解 WeIdentity 的接口调用。
 
+其他： WeIdentity 部署工具其他功能介绍
+-----------------------------------------
+参考\ ` <./weidentity-quick-tools-web.html>`_\
 
-其他： WeIdentity JAVA SDK 便捷工具使用
+其他： WeIdentity 命令行工具使用
 -----------------------------------------
 
 我们提供了一些快捷工具，可以帮您快速体验 weid-java-sdk，请参考\ `WeIdentity JAVA SDK 便捷工具使用 <./weidentity-quick-tools.html>`__\。
