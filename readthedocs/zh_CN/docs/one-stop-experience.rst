@@ -22,7 +22,7 @@ WeIdentity 入门
      如果不想体验 Sample，可以直接跳过这一步
 
 
-您可以参考\ `开发样例使用 <./weidentity-sample-commandline.html>`_\，体验 WeIdentity 的各种接口。
+您可以参考\ `开发样例使用 <./weidentity-sample-tryit.html>`_\，体验 WeIdentity 的各种接口。
 
 
 第4步：在自己的 Java Service 中集成 WeIdentity Java SDK
