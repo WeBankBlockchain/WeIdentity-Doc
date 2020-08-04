@@ -94,7 +94,7 @@
 
 此步骤将为机构创建 WeID, 后续的合约部署，发交易等操作将使用该账户（请妥善保管私钥, 谨防丢失）。
 
-   - 推荐"系统自动创建公私钥"：会在 `./output/admin/` 目录下会自动生成私钥文件, 请妥善保管。
+   - 推荐"系统自动创建公私钥"：在部署工具的安装目录下，有一个目录： `./output/admin/`， 会存放自动生成的私钥文件, 请妥善保管。
 
    .. image:: images/deploy-via-web-guide-create-admin-weid.png
       :alt: deploy-via-web-guide-create-admin-weid.png

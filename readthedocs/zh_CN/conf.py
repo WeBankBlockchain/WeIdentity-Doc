@@ -31,6 +31,7 @@ author = 'WeIdentity Team'
 
 extensions = [
     'sphinx_markdown_tables',
+    'sphinx_copybutton',
     # 'sphinx.ext.autodoc',
     # 'sphinx.ext.napoleon',
     # 'sphinx.ext.mathjax',
