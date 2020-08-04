@@ -12,9 +12,8 @@
 通过安装“WeIdentity 部署工具”的服务器的 IP 访问 Web 页面 :code:`http://IP:6102` 以进行 WeIdentity 的部署。
 
 .. note::
-     1. 在使用之前, 请确保已安装“WeIdentity 部署工具”, 详见文档：\ `安装 WeIdentity 部署工具 <./weidentity-installation.html>`_\。
-     2. 若无法使用 Web 页面, 可以使用命令行的方式完成部署, 详见文档：\ `部署文档(命令行部署方式) <./deploy-via-commandline.html>`_\。
-     3. 因为“WeIdentity 部署工具”没有账号登录机制，所以必须确保整个环境只有在内网（不会被其他外部用户访问到的网络）可以访问，公网的其他用户不能访问。
+     1. 若无法使用 Web 页面, 可以使用命令行的方式完成部署, 详见文档：\ `部署文档(命令行部署方式) <./deploy-via-commandline.html>`_\。
+     2. 因为“WeIdentity 部署工具”没有账号登录机制，所以必须确保整个环境只有在内网（不会被其他外部用户访问到的网络）可以访问，公网的其他用户不能访问。
 
 第0步: 选择角色
 """""""""""""""""""""""""""
@@ -90,12 +89,12 @@
    .. image:: images/deploy-via-web-guide-setup-database.png
       :alt: deploy-via-web-guide-setup-database.png
 
-第4步: 创建管理员 WeID
+第4步: 创建机构的 WeID
 """"""""""""""""""""""""""""""""""""""""""
 
-此步骤将配置您在 weid-build-tools 里面的 Admin 账户, 后续的部署等操作将使用该账户（请妥善保管私钥, 谨防丢失）。
+此步骤将为机构创建 WeID, 后续的合约部署，发交易等操作将使用该账户（请妥善保管私钥, 谨防丢失）。
 
-   - 推荐"系统自动创建公私钥"
+   - 推荐"系统自动创建公私钥"：会在 `./output/admin/` 目录下会自动生成私钥文件, 请妥善保管。
 
    .. image:: images/deploy-via-web-guide-create-admin-weid.png
       :alt: deploy-via-web-guide-create-admin-weid.png
@@ -115,4 +114,4 @@
 最后
 """"""""""""""""""""""""""""""""""""""""""
 
-至此，配置和部署已经完成，在 `./output/admin/` 目录下生成 Admin 密钥文件, 用于后续注册权威机构等管理操作, 请妥善保管。
+至此，配置和部署已经完成。
