@@ -41,7 +41,8 @@ WeIdentity 入门
 
 其他： WeIdentity 部署工具其他功能介绍
 -----------------------------------------
-参考\ ` <./weidentity-quick-tools-web.html>`_\
+
+参考\ `WeIdentity 部署工具使用简介 <./weidentity-quick-tools-web.html>`_\。
 
 其他： WeIdentity 命令行工具使用
 -----------------------------------------
