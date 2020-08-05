@@ -68,6 +68,9 @@ WeIdentity 部署工具功能介绍
       .. image:: images/ weidentity-quick-tools-web-deploy-evidence-contract.png
          :alt: weidentity-quick-tools-web-deploy-evidence-contract.png
 
+      .. image:: images/ weidentity-quick-tools-web-deploy-evidence-contract2.png
+         :alt: weidentity-quick-tools-web-deploy-evidence-contract2.png
+
    .. note::
       Evidence 智能合约仅可在多群组的场景下, 根据实际业务需要创建。
 
@@ -79,11 +82,33 @@ WeIdentity 部署工具功能介绍
       在菜单栏点击功能管理 -> WeID管理 -> 创建WeID 。
       可选择以下任意一种方式创建新的 WeID, 如下图所示。
          * 默认方式创建 WeID (系统自动创建公私钥)
-         * 自定义私钥创建 WeID (自行上传私钥, :download:`点击下载密钥生成示例代码 <./samples/ECKeySampleApp.java>`)
-         * 代理模式创建 WeID (自行上传公钥, :download:`点击下载密钥生成示例代码 <./samples/ECKeySampleApp.java>`)
+         * 自定义私钥创建 WeID (自行上传私钥)
+         * 代理模式创建 WeID (自行上传公钥)
 
       .. image:: images/weidentity-quick-tools-web-create-weid.png
          :alt: weidentity-quick-tools-web-create-weid.png
+
+      创建密钥示例代码
+      ::
+
+         import org.fisco.bcos.web3j.crypto.ECKeyPair;
+         import org.fisco.bcos.web3j.crypto.Keys;
+         import java.security.InvalidAlgorithmParameterException;
+         import java.security.NoSuchAlgorithmException;
+         import java.security.NoSuchProviderException;
+
+         public class ECKeySampleApp {
+
+             public static void main (String[] args) throws InvalidAlgorithmParameterException, NoSuchAlgorithmException, NoSuchProviderException {
+                 ECKeyPair keyPair = Keys.createEcKeyPair();
+                 System.out.println("public key " + keyPair.getPublicKey());
+                 System.out.println("private key " + keyPair.getPrivateKey());
+                 // public key
+                 // 2826353706326430136059766899918547268257144433345028935544246672544715811531698763009967557019653807523504447872634462259780101707992526761608737256788009
+                 // private key
+                 // 51801066929398358250268966823436564939107125383375289829603669124463475610644
+             }
+         }
 
    - 将 WeID 注册为权威凭证发行者
 
