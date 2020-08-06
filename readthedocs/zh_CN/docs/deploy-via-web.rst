@@ -65,7 +65,7 @@
       * 配置要求：登录区块链节点服务器, 生成/拷贝证书文件, 并下载到本机后上传。SDK 证书文件包括 ca.crt, node.crt 和 node.key。
 
 .. note::
-     1. \ `「如何获得 SDK 证书文件?」 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/enterprise_tools/operation.html#get-sdk-file>`_\
+     1. 请从您的FISCO-BCOS节点安装目录获取 SDK 证书文件, 例如:`~/fisco/nodes/127.0.0.1/sdk/` 或 `~/fisco/generator/tmp_one_click/agencyA/sdk/`。
      2. \ `「区块链中的各种证书」 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/manual/certificates.html>`_\
 
 
