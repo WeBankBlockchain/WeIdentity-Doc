@@ -60,13 +60,16 @@
       * 连接单个节点的配置示例：10.10.4.1:20200
       * 连接多个节点的配置示例：10.10.4.1:20200,10.10.4.2:20200,127.0.0.1:20200
 
-   - 配置 SDK 证书
+.. _certificate-create:
+
+   - 配置SDK证书
       * 配置说明：连接区块链节点时需要使用的 SDK 证书。
-      * 配置要求：登录区块链节点服务器, 生成/拷贝证书文件, 并下载到本机后上传。SDK 证书文件包括 ca.crt, node.crt 和 node.key。
+      * 请从您的FISCO-BCOS节点安装目录获取 SDK 证书文件(包括三个文件：ca.crt, node.crt 和 node.key), 可能正在下面两个目录: ``~/fisco/nodes/127.0.0.1/sdk/`` 或 ``~/fisco/generator/tmp_one_click/agencyA/sdk/``。
+
+
 
 .. note::
-     1. 请从您的FISCO-BCOS节点安装目录获取 SDK 证书文件, 例如:`~/fisco/nodes/127.0.0.1/sdk/` 或 `~/fisco/generator/tmp_one_click/agencyA/sdk/`。
-     2. \ `「区块链中的各种证书」 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/manual/certificates.html>`_\
+     1. 对证书有疑问，可以参看这篇文章： \ `「区块链中的各种证书详解」 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/manual/certificates.html>`_\
 
 
 .. _group-selection:
