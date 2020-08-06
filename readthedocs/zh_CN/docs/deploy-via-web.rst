@@ -6,6 +6,8 @@
 使用 WeIdentity 部署工具完成部署（可视化部署方式）
 =====================================================================
 
+.. _preparation:
+
 准备: 打开 WeIdentity 部署工具的 Web 页面
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -14,6 +16,8 @@
 .. note::
      1. 若无法使用 Web 页面, 可以使用命令行的方式完成部署, 详见文档：\ `部署文档(命令行部署方式) <./deploy-via-commandline.html>`_\。
      2. 因为“WeIdentity 部署工具”没有账号登录机制，所以必须确保整个环境只有在内网（不会被其他外部用户访问到的网络）可以访问，公网的其他用户不能访问。
+
+.. _role-selection:
 
 第0步: 选择角色
 """""""""""""""""""""""""""
@@ -27,6 +31,8 @@
      什么是“联盟链委员会管理员”?
        一条联盟链中，选取一家机构来作为联盟链委员会管理员，此机构将会管理和运维此联盟链，并负责
        完成 WeIdentity 智能合约的部署。举个例子，一条联盟链有4个机构，其中一个机构可以作为联盟链委员会管理员，其他则是联盟链委员会普通成员。
+
+.. _blockchain-configuration:
 
 第1步: 配置区块链节点
 """""""""""""""""""""""""""
@@ -62,6 +68,9 @@
      1. \ `「如何获得 SDK 证书文件?」 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/enterprise_tools/operation.html#get-sdk-file>`_\
      2. \ `「区块链中的各种证书」 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/manual/certificates.html>`_\
 
+
+.. _group-selection:
+
 第2步: 选择主群组
 """""""""""""""""""""""""""
 
@@ -78,6 +87,8 @@
 .. note::
    \ `「如何查看群组?」 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/manual/console.html#getgrouplist>`_\
 
+.. _db-configuration:
+
 第3步: 配置数据库(可选)
 """""""""""""""""""""""""""
 
@@ -89,6 +100,8 @@
    .. image:: images/deploy-via-web-guide-setup-database.png
       :alt: deploy-via-web-guide-setup-database.png
 
+.. _weid-create:
+
 第4步: 创建机构的 WeID
 """"""""""""""""""""""""""""""""""""""""""
 
@@ -98,6 +111,8 @@
 
    .. image:: images/deploy-via-web-guide-create-admin-weid.png
       :alt: deploy-via-web-guide-create-admin-weid.png
+
+.. _weid-deploy:
 
 第5步: 部署 WeIdentity 智能合约（仅联盟链委员会管理员需要执行这一步骤）
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
