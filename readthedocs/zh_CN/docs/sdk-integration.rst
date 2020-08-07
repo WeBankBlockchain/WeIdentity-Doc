@@ -23,7 +23,7 @@
     compile("com.webank:weid-java-sdk:x.x.x")
 
 .. note::
-   x.x.x为您使用的weid-java-sdk版本号，建议指定使用版本号，避免自动引入最新版本导致前后不兼容。 版本号可以查看 \ `版本历史 <https://mvnrepository.com/artifact/com.webank/weid-java-sdk>`__  
+   x.x.x为您使用的weid-java-sdk版本号，建议指定使用版本号，避免自动引入最新版本导致前后不兼容。 版本号可以查看 \ `版本历史 <https://mvnrepository.com/artifact/com.webank/weid-java-sdk>`__
 
 
 
@@ -42,4 +42,5 @@
 现在您可以使用 WeIdentity 开发您的区块链身份应用。WeIdentity Java SDK 相关接口请见：\ `WeIdentity JAVA SDK文档 <./projects/javasdk/weidentity-java-sdk-doc.html>`__ 。
 
 
-
+.. note::
+     注意：如果您使用了针对oracle jdk1.8.0.231及以上版本，不论用哪种方式部署SDK，在使用时都需要配置jvm参数 -Djdk.tls.namedGroups="secp256k1" 。详细原因，请见Oracle JDK 8u231的Release Notes： https://www.oracle.com/technetwork/java/javase/8u231-relnotes-5592812.html

@@ -268,8 +268,8 @@ Credential的重新生成则为重新发行一个Credential ID不相同的全新
 
 Evidence的key是数据的hash值（通过WeIdentity SDK提供的sha3函数计算得出）。
 
-| 字段	| 类型| 说明| 
-| ----- | ----- | ----- | 
+| 字段	| 类型| 说明|
+| ----- | ----- | ----- |
 | hash|  bytes32[] | 存证数据的 hash，同时也是key |
 | signer| address[]| 签名人的地址（WeAddress）
 | sigs|  string[] | 对应每个签名人的签名值 |
@@ -316,4 +316,3 @@ Evidence的key是数据的hash值（通过WeIdentity SDK提供的sha3函数计�
 如果MYSQL有设置最大链接数，请注意将连接数设置为：业务系统连接池maxActive + SDK的maxActive。否则有可能出现数据库锁表的情况。
 
 ---
-
