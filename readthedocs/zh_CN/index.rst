@@ -32,3 +32,4 @@ WeIdentity文档
    docs/weidentity-rest.rst
    docs/weidentity-endpoint.rst
    docs/weidentity-contract-design.rst
+   docs/how-to-contribute.rst

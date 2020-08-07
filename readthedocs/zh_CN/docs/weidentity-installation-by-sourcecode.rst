@@ -6,6 +6,10 @@
 WeIdentity JAVA SDK安装部署文档（源码方式）
 =================================================
 
+.. note::
+     注意：如果您使用了针对oracle jdk1.8.0.231及以上版本，不论用哪种方式部署SDK，在使用时都需要配置jvm参数 -Djdk.tls.namedGroups="secp256k1" 。详细原因，请见Oracle JDK 8u231的Release Notes： https://www.oracle.com/technetwork/java/javase/8u231-relnotes-5592812.html
+
+
 1.下载源码
 """"""""""
 
@@ -14,7 +18,7 @@ WeIdentity JAVA SDK安装部署文档（源码方式）
 
 
 * 下载最新的代码
-  
+
 .. code-block:: shell
 
   git clone https://github.com/WeBankFinTech/WeIdentity.git
@@ -51,7 +55,7 @@ WeIdentity Java SDK 工程见\ `WeIdentity JAVA SDK <https://github.com/WeBankFi
  | ``mysql_database`` ：配置数据库名称
  | ``mysql_username`` ：配置数据库用户名
  | ``mysql_password`` ：配置数据库用户对应的密码
- 
+
 
 配置样例：
 ::
@@ -63,20 +67,20 @@ WeIdentity Java SDK 工程见\ `WeIdentity JAVA SDK <https://github.com/WeBankFi
     org_id=organizationA
 
     #链标识
-    chain_id=1 
-    
+    chain_id=1
+
     #数据库ip和port
     mysql_address=0.0.0.0:3306
-    
+
     #数据库名称
     mysql_database=database
-    
+
     #数据库用户名
     mysql_username=username
-    
+
     #数据库密码
     mysql_password=password
- 
+
 .. note::
      注意：如果您使用了Gradle 6.0+，那么您需要手动修改build.gradle中spotbug的Gradle插件版本号为2.0.0+。具体地，打开WeIdentity/build.gradle，将“classpath "gradle.plugin.com.github.spotbugs:spotbugs-gradle-plugin:1.6.5"”中的1.6.5改成2.0.0或更高版本。
 
