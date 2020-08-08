@@ -9,7 +9,7 @@ WeIdentity Sample 开发样例
 环境准备
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-您可以参考 WeIdentity JAVA SDK 安装部署文档中的\ `准备工作 <./weidentity-installation.html#id2>`__\ 章节进行准备。
+您可以参考 WeIdentity 安装部署文档\ `准备工作 <./one-stop-experience.rst>`__\ 进行准备。
 
 快速体验
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -22,5 +22,5 @@ WeIdentity Sample 开发样例
 .. toctree::
    :hidden:
    :maxdepth: 1
-   
+
    weidentity-sample-tryit.rst
