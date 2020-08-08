@@ -88,6 +88,8 @@ WeIdentity 部署工具功能介绍
       .. image:: images/weidentity-quick-tools-web-create-weid.png
          :alt: weidentity-quick-tools-web-create-weid.png
 
+      .. _key_generation:
+
       创建密钥示例代码
       ::
 
@@ -195,13 +197,20 @@ WeIdentity 部署工具功能介绍
    - 注册凭证类型
 
       在菜单栏点击功能管理 -> 凭证类型(CPT)管理 -> 注册新的凭证类型(CPT)。
-      通过以下任意一种方式提供 CPT 内容, 并点击`注册`按钮, 如图所示。
-         * 上传 CPT JSON 文件(:download:`点击下载 CPT 样例 <./samples/id_card.json>`)
+      通过以下任意一种方式提供 CPT 内容, 并点击`注册`按钮, 如下图所示。
+         * 上传 CPT JSON 文件
          * 选择预置 CPT 模版
          * 在窗口内直接编辑 CPT 内容
 
       .. image:: images/weidentity-quick-tools-web-register-cpt.png
          :alt: weidentity-quick-tools-web-register-cpt.png
+
+      .. _cpt_sample:
+
+      CPT 样例文件 id_card.json
+
+      .. literalinclude:: ./samples/id_card.json
+
 
    - 下载凭证类型
 
