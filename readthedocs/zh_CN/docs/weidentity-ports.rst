@@ -34,5 +34,15 @@ WeIdentity 网络端口
      - HTTP
      - WeIdentity Sample服务端
      - Sample监听来自外部请求
+   * - 6200
+     - 6200 ~ 6210
+     - HTTP
+     - WeIdentity Saas Demo前端nginx配置端口
+     - 显示WeIdentity Saas Demo的页面
+  *  - 6201
+     - 6200 ~ 6210
+     - HTTP
+     - WeIdentity Saas Demo服务端
+     - 监听来自外部请求
 
 注：如果您需要修改对应服务的端口配置，请确认修改后的端口落入对应服务的“预留范围”中，以免和其他服务产生冲突。 
