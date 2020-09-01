@@ -29,20 +29,30 @@ WeIdentity 网络端口
      - HTTPS
      - WeIdentity Sample服务端
      - Sample监听来自外部请求
-   * - 6101
+  *  - 6020
+     - 6020 ~ 6030
+     - HTTPS
+     - WeIdentity-Buid-Tools服务端
+     - Buid-Tools监听来自外部请求
+  *  - 6021
+     - 6020 ~ 6030
+     - HTTP
+     - WeIdentity-Buid-Tools服务端
+     - Buid-Tools监听来自外部请求
+  *  - 6101
      - 6101 ~ 6110
      - HTTP
      - WeIdentity Sample服务端
      - Sample监听来自外部请求
-   * - 6200
-     - 6200 ~ 6210
+  *  - 6110, 6111
+     - 6110 ~ 6120
      - HTTP
-     - WeIdentity Saas Demo前端nginx配置端口
-     - 显示WeIdentity Saas Demo的页面
-  *  - 6201
+     - WeIdentity Saas Demo
+     - 6110为web，6111为service
+  *  - 6112， 6113
      - 6200 ~ 6210
-     - HTTP
-     - WeIdentity Saas Demo服务端
-     - 监听来自外部请求
+     - HTTPS
+     - WeIdentity Saas Demo
+     - 6112为web，6113为service
 
 注：如果您需要修改对应服务的端口配置，请确认修改后的端口落入对应服务的“预留范围”中，以免和其他服务产生冲突。 
