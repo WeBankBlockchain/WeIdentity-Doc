@@ -320,30 +320,36 @@ Evidence的key是数据的hash值（通过WeIdentity SDK提供的sha3函数计�
 
 - **联盟链管理员丢失了私钥怎么办？**
 
-在使用可视化工具过程中，如果联盟链管理员丢失了私钥，则说明当前的合约数据都不安全了，需要重新配置并部署合约，具体操作如下:
+在使用可视化工具过程中，如果联盟链管理员丢失了私钥，那当前的智能合约部分需要管理员才具有的写权限就丢失了，可以重新配置并部署智能合约，具体操作如下:
 
-1.进入tools/目录升级链上数据桶版本
 
-完成此操作之前请确保output/admin目录中存在新的私钥，如果没有新私钥，请先通过可视化工具配置管理员新私钥
+完成此操作之前请确保 `output/admin` 目录中存在新的私钥，如果没有新私钥，请先通过'WeIdentity 部署工具'生成一个新的管理员私钥。
 
-.. code-block:: shell
+1.清理历史数据
 
+从'WeIdentity 部署工具'的根目录进入 `tools/` 目录。
+
+* 注意，执行下面的命令会清理掉链上 CNS 和智能合约的数据，等于让之前的所有的数据都失效了（不能再通过CNS访问，而智能通过合约地址访问）。
+
+```
   cd tools
   chmod u+x upgrade_databucket.sh
   ./upgrade_databucket.sh
+```
 
-2. 删除weid-build-tools指引文件
+2. 删除 `weid-build-tools` 指引文件。
 
-.. code-block:: shell
-
+```
   cd ..
   rm -r output/other/guide
+```
 
 3. 重启服务
 
-.. code-block:: shell
-
+```
   ./stop.sh
   ./start.sh
-  
+```
+
+4. 重新进入网页，即可从 0 开始。
 ---
