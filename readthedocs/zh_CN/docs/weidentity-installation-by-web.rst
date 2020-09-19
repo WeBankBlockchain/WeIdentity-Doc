@@ -80,7 +80,7 @@ WeIdentity 安装部署工具使用文档（可视化安装部署方式）
 
 .. code-block:: shell
 
-  ./weid_install.sh -n webase
+    ./weid_install.sh -n webase
 
 出现下列输出，则表示Web服务启动成功。
 
