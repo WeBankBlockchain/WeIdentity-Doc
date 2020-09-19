@@ -316,3 +316,34 @@ Evidence的key是数据的hash值（通过WeIdentity SDK提供的sha3函数计�
 如果MYSQL有设置最大链接数，请注意将连接数设置为：业务系统连接池maxActive + SDK的maxActive。否则有可能出现数据库锁表的情况。
 
 ---
+
+
+- **联盟链管理员丢失了私钥怎么办？**
+
+在使用可视化工具过程中，如果联盟链管理员丢失了私钥，则说明当前的合约数据都不安全了，需要重新配置并部署合约，具体操作如下:
+
+1.进入tools/目录升级链上数据桶版本
+
+完成此操作之前请确保output/admin目录中存在新的私钥，如果没有新私钥，请先通过可视化工具配置管理员新私钥
+
+.. code-block:: shell
+
+  cd tools
+  chmod u+x upgrade_databucket.sh
+  ./upgrade_databucket.sh
+
+2. 删除weid-build-tools指引文件
+
+.. code-block:: shell
+
+  cd ..
+  rm -r output/other/guide
+
+3. 重启服务
+
+.. code-block:: shell
+
+  ./stop.sh
+  ./start.sh
+  
+---

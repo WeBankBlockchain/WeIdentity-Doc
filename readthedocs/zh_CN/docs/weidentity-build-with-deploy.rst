@@ -19,7 +19,7 @@
 
 ::
 
-    cd weid-build-tools   
+    cd weid-build-tools 
     vim run.config   
 
 - 配置区块链节点信息，填入区块链节点 IP 和 Channel端口，示例如下：

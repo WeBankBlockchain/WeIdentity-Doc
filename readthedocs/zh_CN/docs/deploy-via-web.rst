@@ -11,7 +11,7 @@
 准备: 打开 WeIdentity 部署工具的 Web 页面
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
-通过安装“WeIdentity 部署工具”的服务器的 IP 访问 Web 页面 :code:`http://IP:6102` 以进行 WeIdentity 的部署。
+通过安装“WeIdentity 部署工具”的服务器的 IP 访问 Web 页面 :code:`http://IP:6021` 以进行 WeIdentity 的部署。
 
 .. note::
      1. 若无法使用 Web 页面, 可以使用命令行的方式完成部署, 详见文档：\ `部署文档(命令行部署方式) <./deploy-via-commandline.html>`_\。
