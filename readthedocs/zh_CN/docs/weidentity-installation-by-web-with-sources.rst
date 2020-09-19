@@ -3,7 +3,7 @@
 
 .. _weidentity-installation-by-sourcecode:
 
-WeIdentity 安装部署工具使用文档（可视化安装部署方式）
+WeIdentity 安装部署工具使用文档（可视化源码安装部署方式）
 =====================================================
 
 整体介绍
@@ -34,7 +34,6 @@ WeIdentity 安装部署工具使用文档（可视化安装部署方式）
 
 .. code-block:: shell
   cd WeIdentity-Build-Tools
-  git checkout develop
   chmod u+x *.sh
 
 3.编译项目
