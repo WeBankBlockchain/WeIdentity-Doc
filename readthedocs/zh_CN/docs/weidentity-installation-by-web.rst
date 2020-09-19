@@ -81,21 +81,21 @@ WeIdentity 安装部署工具使用文档（可视化安装部署方式）
 .. code-block:: shell
 
   ./weid_install.sh -n webase
-  
+
 出现下列输出，则表示Web服务启动成功。
 
 .. code-block:: shell
 
---------------------------------------------------------------------------
-fisco-bcos-browser is installed successfully, please go to the fisco-bcos-browser/server directory and start the server.
-Example: cd fisco-bcos-browser/server && ./start.sh
---------------------------------------------------------------------------
+    --------------------------------------------------------------------------
+    fisco-bcos-browser is installed successfully, please go to the fisco-bcos-browser/server directory and start the server.
+    Example: cd fisco-bcos-browser/server && ./start.sh
+    --------------------------------------------------------------------------
 
 3.进入fisco-bcos-browser服务目录，并且启动服务
- 
+
 .. code-block:: shell
 
-  cd fisco-bcos-browser/server
-  ./start.sh
+    cd fisco-bcos-browser/server
+    ./start.sh
 
 4.可以通过可视化工具进行访问fisco-bcos-browser
