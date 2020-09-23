@@ -301,19 +301,17 @@ Credential结构
      - Claim Protocol Type的ID，申请按序递增，例如中国内地驾照设置为CPT100
    * - revocation
      - 撤销相关实现，待补充
-   * - signature
+   * - proof
      - Issuer的签名列表，是一个数组，可由holder和issuer分别打上签名
-   * - signature.type
+   * - proof.type
      - 签名类型
-   * - signature.created
+   * - proof.created
      - 签名的创建时间
-   * - signature.creator
+   * - proof.creator
      - 签名机构的WeIdentity DID
-   * - signature.domain
-     - domain
-   * - signature.nonce
-     - 随机数
-   * - signature.signatureValue
+   * - proof.salt
+     - 盐值，选择性披露时用于保证不被类似彩虹表的方式反向破解 hash 算法
+   * - proof.signatureValue
      - 签名的具体value，对整个Credential结构中除去signature字段的其他字段做签名
 
 
@@ -342,30 +340,36 @@ Credential结构
 .. code-block:: javascript
 
    {
-     "@context": "https://weidentity.webank.com/vc/v1",
-     "id": "dsfewr23sdcsdfeqeddadfd",
-     "type": ["Credential", "cpt100"],
-     "issuer": "did:weid:1:2323e3e3dweweewew2",
-     "issued": "2010-01-01T21:19:10Z",
      "claim": {
-       "primeNumberIdx":"1234"
-       //the other properties in this structure varied according to different CPT
+        "age": 1,
+        "gender": "F",
+        "id": "did:weid:101:0xd6f4d1215c52ee7e7975ac946a0e094040aa5eeb",
+        "name": "1"
      },
-     "revocation": {
-       "id": "did:weid:1:2323e3e3dweweewew2",
-       "type": "SimpleRevocationList2017"
-     },
-     "signature": [{
-       "type": "LinkedDataSignature2015",
-       "created": "2016-06-18T21:19:10Z",
-       "creator": "did:weid:1:2323e3e3dweweewew2",
-       "domain": "www.diriving_card.com",
-       "nonce": "598c63d6",
-       "signatureValue": "BavEll0/I1zpYw8XNi1bgVg/sCneO4Jugez8RwDg/+MCRVpjOboDoe4SxxKjkC
-     OvKiCHGDvc4krqi6Z1n0UfqzxGfmatCuFibcC1wpsPRdW+gGsutPTLzvueMWmFhwYmfIFpbBu95t501+r
-       SLHIEuujM/+PXr9Cky6Ed+W3JT24="
-     }]
-   }
+     "context": "https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1",
+     "cptId": 2000006,
+     "expirationDate": "2020-09-24T14:34:44Z",
+     "id": "f894d33d-88c3-4122-afb6-87e21d2ae656",
+     "issuanceDate": "2020-09-23T14:34:44Z",
+     "issuer": "did:weid:101:0xd6f4d1215c52ee7e7975ac946a0e094040aa5eeb",
+     "proof": {
+        "created": "2020-09-23T14:34:44Z",
+        "creator": "did:weid:101:0xd6f4d1215c52ee7e7975ac946a0e094040aa5eeb#keys-0",
+        "salt": {
+           "age": "IObiF",
+           "gender": "GdzQs",
+           "id": "dDIIt",
+           "name": "PecuG"
+        },
+        "signatureValue": "/T21Vb5aw2dyB5kgh5LQmMHCQcx7MLJvFLf0g+EPkJVwoFH7+tPwokNBBHjQWn3BWLORDHJcbsUo+6OrRgTp8wA=",
+        "type": "Secp256k1"
+      },
+     "type": [
+        "VerifiableCredential",
+        "original"
+     ],
+     "$from": "toJson"
+    }
 
 Claim Protocol Type（CPT）注册机制
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -384,20 +388,25 @@ Claim Protocol Type（CPT）注册机制
      - 用于描述CPT等信息
    * - id
      - CPT的编号，要保证唯一
-   * - version
-     - CPT的版本号
-   * - publisher
-     - CPT的发布者的WeIdentity DID
-   * - signature
-     - CPT的发布者的签名
-   * - claim
-     - Claim的格式定义
+   * - cptType
+     - Credential 的类型，目前有三种：lite1，original，zkp
+   * - title
+     - CPT的名字，例如“FISCO BCOS 高级工程师证书”，或者“驾照”
+   * - description
+     - CPT的描述信息
+   * - properties
+     - Claim 结构的说明
    * - created
      - 创建时间
    * - updated
      - 更新时间
-   * - description
-     - CPT的描述信息
+   * - version
+     - CPT的版本号
+   * - publisher
+     - CPT的发布者的WeIdentity DID
+   * - proof
+     - CPT的发布者的签名
+
 
 
 
@@ -405,21 +414,23 @@ Claim Protocol Type（CPT）注册机制
 
 .. code-block:: javascript
 
-   "CPT": {
-     "@context" : "https://weidentity.webank.com/cpt100/v1",
-     "version" : "v1",
-     "id" : "CPT100",
-     "publisher" : "did:weid:1:2323e3e3dweweewew2",
-     "signature" : "BavEll0/I1zpYw8XNi1bgVg/sCneO4Jugez8RwDg/+MCRVpjOboDoe4SxxKjkC
-     OvKiCHGDvc4krqi6Z1n0UfqzxGfmatCuFibcC1wpsPRdW+gGsutPTLzvueMWmFhwYmfIFpbBu95t501+r
-       SLHIEuujM/+PXr9Cky6Ed+W3JT24=",
-     "claim" : "",
-     "address" : "重庆",
-     "class" : "C1",
-     "created" : "2010-06-20T21:19:10Z",
-     "updated" : "2016-06-20T21:19:10Z",
-     "description" : "中国内地驾照"
-   }
+   {
+      "$context" : "http://json-schema.org/draft-04/schema#",
+      "cptType" : "original",
+      "description" : "学历证书说明",
+      "title" : "学历证书",
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "description" : "学生证id",
+          "type" : "string"
+        },
+        "name" : {
+          "description" : "名字",
+          "type" : "string"
+        }
+      }
+    }
 
 
 .. image:: images/cpt-er.png
