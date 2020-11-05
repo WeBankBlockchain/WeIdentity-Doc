@@ -1146,6 +1146,508 @@ WeIdentity RestService API 说明文档
         "ErrorMessage": "success"
     }
 
+
+12. 通过公钥创建WeID接口
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+调用接口：
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 50
+
+   * - 标题
+     - 描述
+   * - 接口名
+     - weid/api/invoke
+   * - Method
+     - POST
+   * - Content-Type
+     - application/json
+
+
+接口入参：
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 60 20
+
+   * - Key
+     - Value
+     - Required
+   * - functionName
+     - createWeIdWithPubKey
+     - Y
+   * - functionArg
+     - 
+     - Y
+   * - functionArg.publicKeySecp256k1
+     - WeIdentity DID对应的公钥，以Base64编码格式的字符串，传自己机构的Secp256k1公钥。
+     - Y
+   * - transactionArg
+     - 
+     - Y
+   * - transactionArg.invokerWeId
+     - 传入配置的passphrase的名称或者管理员的WeIdentity DID
+     - Y
+   * - v
+     - 版本号
+     - Y
+
+接口入参：
+
+.. code-block:: java
+
+    {
+        "functionArg": {
+            "publicKeySecp256k1": "QjLbjzs5YqJB1uku0f6od1eTxChyOhSeGLRrlG0JTaCIa7H0FOiQvwDE0CC5TdueuewzwY0DmA6yJH8ZCcOvFg=="
+        },
+        "transactionArg": {
+            "invokerWeId": "admin"
+        },
+        "functionName": "createWeIdWithPubKey",
+        "v": "1.0.0"
+    }
+
+
+接口返回: application/json
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 50
+
+   * - Key
+     - Value
+   * - ErrorCode
+     - 错误码，0表示成功
+   * - ErrorMessage
+     - 错误信息
+   * - respBody
+     - WeIdentity DID
+
+
+接口返回：
+
+.. code-block:: java
+
+    {
+        "respBody": "did:weid:1:0x3c6673d54a1dbd8055f3a86793314c2f757d753f",
+        "errorCode": 0,
+        "errorMessage": "success"
+    }
+
+13. 根据Authority Issuer机构名获取公钥等信息
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+调用接口：
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 50
+
+   * - 标题
+     - 描述
+   * - 接口名
+     - weid/api/invoke
+   * - Method
+     - POST
+   * - Content-Type
+     - application/json
+
+
+接口入参：
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 60 20
+
+   * - Key
+     - Value
+     - Required
+   * - functionName
+     - getWeIdDocumentByOrgId
+     - Y
+   * - functionArg
+     - 
+     - Y
+   * - functionArg.orgId
+     - 传入Authority Issuer机构名
+     - Y
+   * - transactionArg
+     - 
+     - N, 传空
+   * - v
+     - 版本号
+     - Y
+
+接口入参：
+
+.. code-block:: java
+
+    {
+        "functionArg": {
+            "orgId": "IssueName"
+        },
+        "transactionArg": {
+        },
+        "functionName": "getWeIdDocumentByOrgId",
+        "v": "1.0.0"
+    }
+
+
+接口返回: application/json
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 50
+
+   * - Key
+     - Value
+   * - ErrorCode
+     - 错误码，0表示成功
+   * - ErrorMessage
+     - 错误信息
+   * - respBody
+     - WeIdentity Document
+
+
+接口返回：
+
+.. code-block:: java
+
+    {
+        "respBody": {
+            "@context": "https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1",
+            "authentication": [
+                {
+                    "type": "Secp256k1",
+                    "publicKey": "did:weid:1:0x2378023a62deebfd7cfbf9083267fbe1f1ba922f#keys-0",
+                    "revoked": false
+                }
+            ],
+            "created": 1598514175,
+            "id": "did:weid:1:0x2378023a62deebfd7cfbf9083267fbe1f1ba922f",
+            "publicKey": [
+                {
+                    "id": "did:weid:1:0x2378023a62deebfd7cfbf9083267fbe1f1ba922f#keys-0",
+                    "type": "Secp256k1",
+                    "owner": "did:weid:1:0x2378023a62deebfd7cfbf9083267fbe1f1ba922f",
+                    "publicKey": "NHCPv3dXdMRzbuCsG/zvVFQ6BK7D6qQ9DfjkwsTNgijEwy4M0C8Wq5+Q1LJDazanGocLYAaXpIb7QKwQIzbMZA==",
+                    "revoked": false
+                }
+            ],
+            "service": [],
+            "updated": null
+        },
+        "errorCode": 0,
+        "errorMessage": "success"
+    }
+
+14. 代理创建存证
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+调用接口：
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 50
+
+   * - 标题
+     - 描述
+   * - 接口名
+     - weid/api/invoke
+   * - Method
+     - POST
+   * - Content-Type
+     - application/json
+
+
+接口入参：
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 60 20
+
+   * - Key
+     - Value
+     - Required
+   * - functionName
+     - delegateCreateEvidence
+     - Y
+   * - functionArg
+     - 
+     - Y
+   * - functionArg.hash
+     - Credential的hash
+     - Y
+   * - functionArg.sign
+     - 签名数据
+     - Y
+   * - functionArg.log
+     - 其他额外数据
+     - N
+   * - transactionArg
+     - 
+     - Y
+   * - transactionArg.groupId
+     - 存证上链群组
+     - Y
+   * - v
+     - 版本号
+     - Y
+
+接口入参：
+
+.. code-block:: java
+
+    {
+        "functionArg": {
+            "hash": "0x7cac5de010df5f51781f1e87fd9be63bdc6f35f7df55044b0e1c45d1e1f80c0a",
+            "sign": "0x2378023a62deebfd7cfbf9083267fbe1f1ba922f0df44b07cac5de1f9bf1e878",
+            "log": "this is create evidence by proxy"
+        },
+        "transactionArg": {
+            "groupId": 2
+        },
+        "functionName": "delegateCreateEvidence",
+        "v": "1.0.0"
+    }
+
+
+接口返回: application/json
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 50
+
+   * - Key
+     - Value
+   * - ErrorCode
+     - 错误码，0表示成功
+   * - ErrorMessage
+     - 错误信息
+   * - respBody
+     - True/False
+
+
+接口返回：
+
+.. code-block:: java
+
+    {
+        "respBody": true,
+        "errorCode": 0,
+        "errorMessage": "success"
+    }
+
+
+14. 代理创建存证（批量）
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+调用接口：
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 50
+
+   * - 标题
+     - 描述
+   * - 接口名
+     - weid/api/invoke
+   * - Method
+     - POST
+   * - Content-Type
+     - application/json
+
+
+接口入参：
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 60 20
+
+   * - Key
+     - Value
+     - Required
+   * - functionName
+     - delegateCreateEvidenceB
+     - Y
+   * - functionArg
+     - 
+     - Y
+    * - functionArg.list
+     - 数组
+     - Y
+   * - functionArg.list.hash
+     - Credential的hash
+     - Y
+   * - functionArg.list.sign
+     - 签名数据
+     - Y
+   * - functionArg.list.log
+     - 其他额外数据
+     - N
+   * - transactionArg
+     - 
+     - Y
+   * - transactionArg.groupId
+     - 存证上链群组
+     - Y
+   * - v
+     - 版本号
+     - Y
+
+接口入参：
+
+.. code-block:: java
+
+    {
+        "functionArg": {
+            "list": [
+                {
+                    "hash": "0x7cac5de010df5f51781f1e87fd9be63bdc6f35f7df55044b0e1c45d1e1f80c0a",
+                    "sign": "0x2378023a62deebfd7cfbf9083267fbe1f1ba922f0df44b07cac5de1f9bf1e878",
+                    "log": "this is create evidence by proxy"
+                },
+                {...}
+            ]
+        },
+        "transactionArg": {
+            "groupId": 2
+        },
+        "functionName": "delegateCreateEvidenceB",
+        "v": "1.0.0"
+    }
+
+
+接口返回: application/json
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 50
+
+   * - Key
+     - Value
+   * - ErrorCode
+     - 错误码，0表示成功
+   * - ErrorMessage
+     - 错误信息
+   * - respBody
+     - List<Boolean>
+
+
+接口返回：
+
+.. code-block:: java
+
+    {
+        "respBody": [true, false]
+        "errorCode": 0,
+        "errorMessage": "success"
+    }
+
+15. 根据Credential的hash值，获取存证信息
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+调用接口：
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 50
+
+   * - 标题
+     - 描述
+   * - 接口名
+     - weid/api/invoke
+   * - Method
+     - POST
+   * - Content-Type
+     - application/json
+
+
+接口入参：
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 60 20
+
+   * - Key
+     - Value
+     - Required
+   * - functionName
+     - getEvidence
+     - Y
+   * - functionArg
+     - 
+     - Y
+   * - functionArg.hashValue
+     - Credential的hash
+     - Y
+   * - transactionArg
+     - 
+     - Y
+   * - transactionArg.groupId
+     - 存证所在群组
+     - Y
+   * - v
+     - 版本号
+     - Y
+
+接口入参：
+
+.. code-block:: java
+
+    {
+        "functionArg": {
+            "hashValue": "0x7cac5de010df5f51781f1e87fd9be63bdc6f35f7df55044b0e1c45d1e1f80c0a"
+        },
+        "transactionArg": {
+            "groupId": 2
+        },
+        "functionName": "getEvidence",
+        "v": "1.0.0"
+    }
+
+
+接口返回: application/json
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 50
+
+   * - Key
+     - Value
+   * - ErrorCode
+     - 错误码，0表示成功
+   * - ErrorMessage
+     - 错误信息
+   * - respBody
+     - 存证Json
+
+
+接口返回：
+
+.. code-block:: java
+
+    {
+        "respBody": {
+            "credentialHash": "0x7cac5de010df5f51781f1e87fd9be63bdc6f35f7df55044b0e1c45d1e1f80c0a",
+            "signInfo": {
+                "did:weid:1000:0x2378023a62deebfd7cfbf9083267fbe1f1ba922f": {
+                    "logs": [
+                        "this is create evidence by proxy",
+                        "this is create evidence by proxy",
+                        "this is create evidence by proxy"
+                    ],
+                    "signature": "0x7cac5de010df5f51781f1e87fd9be63bdc6f35f7df55044b0e1c45d1e1f80c0a",
+                    "timestamp": "1604556849"
+                }
+            }
+        },
+        "errorCode": 0,
+        "errorMessage": "success"
+    }
+
 基于轻客户端模式的RestService API
 ------------------------------------
 
