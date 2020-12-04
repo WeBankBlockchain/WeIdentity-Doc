@@ -280,7 +280,7 @@ WeIdentity RestService API 说明文档
 
     {
         "functionArg": {
-            "weid": "did:weid:0x1Ae5b88d37327830307ab8da0ec5D8E8692A35D3",
+            "weId": "did:weid:0x1Ae5b88d37327830307ab8da0ec5D8E8692A35D3",
             "name": "Sample College"
         },
         "transactionArg": {
@@ -638,253 +638,7 @@ WeIdentity RestService API 说明文档
         "ErrorMessage": "success"
     }
 
-8. 创建Credential
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-调用接口：
-
-.. list-table::
-   :header-rows: 1
-   :widths: 30 50
-
-   * - 标题
-     - 描述
-   * - 接口名
-     - weid/api/invoke
-   * - Method
-     - POST
-   * - Content-Type
-     - application/json
-
-接口入参：
-
-.. list-table::
-   :header-rows: 1
-   :widths: 30 60 20
-
-   * - Key
-     - Value
-     - Required
-   * - functionName
-     - createCredential
-     - Y
-   * - functionArg
-     - 
-     - Y
-   * - functionArg.claim
-     - claim Json结构体，与SDK直接调用的方式入参一致，下同     
-     - Y
-   * - functionArg.cptId
-     - CPT ID
-     - Y
-   * - functionArg.issuer
-     - issuer WeIdentity DID
-     - Y
-   * - functionArg.expirationDate
-     - 过期时间（使用UTC格式）
-     - Y
-   * - transactionArg
-     - 
-     - Y
-   * - transactionArg.invokerWeId
-     - 用于索引私钥的WeIdentity DID，服务器端会凭此找到所托管的私钥
-     - Y
-   * - v
-     - 版本号
-     - Y
-
-接口入参：Json，以signature代替私钥
-
-.. code-block:: java
-
-    {
-        "functionArg": {
-            "cptId": 10,
-            "issuer": "did:weid:0xfd28ad212a2de77fee518b4914b8579a40c601fa",
-            "expirationDate": "2019-04-18T21:12:33Z",
-            "claim": {
-                "name": "zhang san",
-                "gender": "F",
-                "age": 18
-            },
-        },
-        "transactionArg": {
-            "invokerWeId": "did:weid:0xfd28ad212a2de77fee518b4914b8579a40c601fa"
-        },
-        "functionName": "createCredential",
-        "v": "1.0.0"
-    }
-
-接口返回: application/json
-
-.. list-table::
-   :header-rows: 1
-   :widths: 30 50
-
-   * - Key
-     - Value
-   * - ErrorCode
-     - 错误码，0表示成功
-   * - ErrorMessage
-     - 错误信息
-   * - respBody
-     - 完整的Credential信息
-
-
-接口返回示例:
-
-.. code-block:: java
-
-    {
-      "respBody": {
-          "@context": "https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1",
-          "claim": {
-              "content": "b1016358-cf72-42be-9f4b-a18fca610fca",
-              "receiver": "did:weid:101:0x7ed16eca3b0737227bc986dd0f2851f644cf4754",
-              "weid": "did:weid:101:0xfd28ad212a2de77fee518b4914b8579a40c601fa"
-          },
-          "cptId": 2000156,
-          "expirationDate": "2100-04-18T21:12:33Z",
-          "id": "da6fbdbb-b5fa-4fbe-8b0c-8659da2d181b",
-          "issuanceDate": "2020-02-06T22:24:00Z",
-          "issuer": "did:weid:101:0xfd28ad212a2de77fee518b4914b8579a40c601fa",
-          "proof": {
-              "created": "1580999040000",
-              "creator": "did:weid:101:0xfd28ad212a2de77fee518b4914b8579a40c601fa",
-              "signature": "G0XzzLY+MqUAo3xXkS3lxVsgFLnTtvdXM24p+G5hSNNMSIa5vAXYXXKl+Y79CO2ho5DIGPPvSs2hvAixmfIJGbw=",
-              "type": "Secp256k1"
-          }
-      },
-      "errorCode": 0,
-      "errorMessage": "success"
-    }
-
-
-9. 验证Credential
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-调用接口：
-
-.. list-table::
-   :header-rows: 1
-   :widths: 30 50
-
-   * - 标题
-     - 描述
-   * - 接口名
-     - weid/api/invoke
-   * - Method
-     - POST
-   * - Content-Type
-     - application/json
-
-
-接口入参：
-
-.. list-table::
-   :header-rows: 1
-   :widths: 30 60 20
-
-   * - Key
-     - Value
-     - Required
-   * - functionName
-     - verifyCredential
-     - Y
-   * - functionArg
-     - 
-     - Y
-   * - functionArg.claim
-     - claim Json 结构体，与SDK直接调用的方式入参一致，下同
-     - Y
-   * - functionArg.cptId
-     - CPT ID
-     - Y
-   * - functionArg.context
-     - context值
-     - Y
-   * - functionArg.uuid
-     - Credential的UUID
-     - Y
-   * - functionArg.issuer
-     - issuer WeIdentity DID
-     - Y
-   * - functionArg.issuranceDate
-     - 颁发时间
-     - Y
-   * - functionArg.expirationDate
-     - 过期时间
-     - Y
-   * - functionArg.proof
-     - Credential签名结构体
-     - Y
-   * - transactionArg
-     - 
-     - N，传空
-   * - v
-     - 版本号
-     - Y
-
-接口入参：
-
-.. code-block:: java
-
-    {
-        "functionArg": {
-          "@context": "https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1",
-          "claim": {
-              "content": "b1016358-cf72-42be-9f4b-a18fca610fca",
-              "receiver": "did:weid:101:0x7ed16eca3b0737227bc986dd0f2851f644cf4754",
-              "weid": "did:weid:101:0xfd28ad212a2de77fee518b4914b8579a40c601fa"
-          },
-          "cptId": 2000156,
-          "expirationDate": "2100-04-18T21:12:33Z",
-          "id": "da6fbdbb-b5fa-4fbe-8b0c-8659da2d181b",
-          "issuanceDate": "2020-02-06T22:24:00Z",
-          "issuer": "did:weid:101:0xfd28ad212a2de77fee518b4914b8579a40c601fa",
-          "proof": {
-              "created": "1580999040000",
-              "creator": "did:weid:101:0xfd28ad212a2de77fee518b4914b8579a40c601fa",
-              "signature": "G0XzzLY+MqUAo3xXkS3lxVsgFLnTtvdXM24p+G5hSNNMSIa5vAXYXXKl+Y79CO2ho5DIGPPvSs2hvAixmfIJGbw=",
-              "type": "Secp256k1"
-          }
-        },
-        "transactionArg": {
-        },
-        "functionName": "verifyCredential"
-        "v": "1.0.0"
-    }
-
-
-接口返回: application/json
-
-.. list-table::
-   :header-rows: 1
-   :widths: 30 50
-
-   * - Key
-     - Value
-   * - ErrorCode
-     - 错误码，0表示成功
-   * - ErrorMessage
-     - 错误信息
-   * - respBody
-     - True/False
-
-
-接口返回：
-
-.. code-block:: java
-
-    {
-        "respBody": true,
-        "ErrorCode": 0,
-        "ErrorMessage": "success"
-    }
-
-
-
-10. 创建CredentialPojo
+8. 创建CredentialPojo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 调用接口：
@@ -1015,7 +769,7 @@ WeIdentity RestService API 说明文档
     }
 
 
-11. 验证CredentialPojo
+9. 验证CredentialPojo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 调用接口：
@@ -1147,7 +901,7 @@ WeIdentity RestService API 说明文档
     }
 
 
-12. 通过公钥创建WeID接口
+10. 通过公钥创建WeID接口
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 调用接口：
@@ -1236,7 +990,7 @@ WeIdentity RestService API 说明文档
         "errorMessage": "success"
     }
 
-13. 根据Authority Issuer机构名获取公钥等信息
+11. 根据Authority Issuer机构名获取公钥等信息
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 调用接口：
@@ -1343,7 +1097,7 @@ WeIdentity RestService API 说明文档
         "errorMessage": "success"
     }
 
-14. 代理创建存证
+12. 代理创建存证
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 调用接口：
@@ -1441,7 +1195,7 @@ WeIdentity RestService API 说明文档
     }
 
 
-14. 代理创建存证（批量）
+13. 代理创建存证（批量）
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 调用接口：
@@ -1546,7 +1300,7 @@ WeIdentity RestService API 说明文档
         "errorMessage": "success"
     }
 
-15. 根据Credential的hash值，获取存证信息
+14. 根据Credential的hash值，获取存证信息
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 调用接口：
