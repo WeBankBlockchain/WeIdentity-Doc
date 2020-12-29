@@ -136,4 +136,11 @@ Control）。此外，在一个不需要token的区块链世界里，tx.origin�
 
 --------------
 
+-  **weid-java-sdk 1.6.7/1.7.0使用问题 **
 
+weid-java-sdk 1.6.7/1.7.0对应的weid-build-tools版本分别为1.0.20/1.0.21，在使用weid-build-tools此两个版本的时候会出现无法查询WeID列表问题。
+解决方案下载对应的特定版本替换原fisco-bcos版本：
+Centos系统下载地址： https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeIdentity/fisco-bcos-getBlockReceipts.tar.gz
+Ubuntu系统下载地址： https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeIdentity/fisco-bcos.tar.gz
+
+--------------
