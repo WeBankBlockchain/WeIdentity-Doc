@@ -657,7 +657,7 @@ Notification订阅
 -------
 
 
-* `W3C DID Spec <https://w3c-ccg.github.io/did-spec>`_
+* `W3C DID Spec <https://www.w3.org/TR/did-core/>`_
 * `W3C Verifiable Credentials <https://w3c.github.io/vc-data-model>`_
 * `Linked Data Signatures 1.0 Draft <https://w3c-dvcg.github.io/ld-signatures/>`_
 * `RSA Signature Suite 2018 <https://w3c-dvcg.github.io/lds-rsa2018/>`_
