@@ -143,4 +143,43 @@ weid-java-sdk 1.6.7/1.7.0对应的weid-build-tools版本分别为1.0.20/1.0.21�
 Centos系统下载地址： https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeIdentity/fisco-bcos-getBlockReceipts.tar.gz
 Ubuntu系统下载地址： https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeIdentity/fisco-bcos.tar.gz
 
+报错如下:
+
+   .. code:: shell
+java.io.IOException: METHOD_NOT_FOUND: The method being requested is not available on this server
+        at org.fisco.bcos.web3j.protocol.channel.ChannelEthereumService.send(ChannelEthereumService.java:81) [web3sdk-2.4.4.jar:?]
+        at org.fisco.bcos.web3j.protocol.core.Request.send(Request.java:90) [web3sdk-2.4.4.jar:?]
+        at com.webank.weid.service.impl.engine.fiscov2.WeIdServiceEngineV2.getTransactionReceipts(WeIdServiceEngineV2.java:606) [weid-java-sdk-1.7.0.jar:?]
+        at com.webank.weid.service.impl.engine.fiscov2.WeIdServiceEngineV2.getWeIdListByBlockNumber(WeIdServiceEngineV2.java:621) [weid-java-sdk-1.7.0.jar:?]
+        at com.webank.weid.service.impl.engine.fiscov2.WeIdServiceEngineV2.getWeIdList(WeIdServiceEngineV2.java:721) [weid-java-sdk-1.7.0.jar:?]
+        at com.webank.weid.service.impl.WeIdServiceImpl.getWeIdList(WeIdServiceImpl.java:953) [weid-java-sdk-1.7.0.jar:?]
+        at com.webank.weid.service.BuildToolService.getWeIdList(BuildToolService.java:337) [weid-build-tools-1.0.21.jar:?]
+        at com.webank.weid.controller.BuildToolController.getWeIdList(BuildToolController.java:426) [weid-build-tools-1.0.21.jar:?]
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_201]
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_201]
+        at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_201]
+
+--------------
+
+-  **weid-java-sdk 1.7.1及以上版本使用问题**
+
+weid-java-sdk 1.7.1对应的weid-build-tools版本为1.0.22，在使用weid-build-tools-1.0.22及以上版本时，需要配套使用FISCO-BCOS2.7.1及以上版本。
+
+报错如下:
+   .. code:: shell
+java.io.IOException: METHOD_NOT_FOUND: The method being requested is not available on this server
+        at org.fisco.bcos.web3j.protocol.channel.ChannelEthereumService.send(ChannelEthereumService.java:81) [web3sdk-2.6.3.jar:?]
+        at org.fisco.bcos.web3j.protocol.core.Request.send(Request.java:90) [web3sdk-2.6.3.jar:?]
+        at com.webank.weid.service.impl.engine.fiscov2.WeIdServiceEngineV2.getTransactionReceipts(WeIdServiceEngineV2.java:606) [weid-java-sdk-1.7.1.jar:?]
+        at com.webank.weid.service.impl.engine.fiscov2.WeIdServiceEngineV2.getWeIdListByBlockNumber(WeIdServiceEngineV2.java:621) [weid-java-sdk-1.7.1.jar:?]
+        at com.webank.weid.service.impl.engine.fiscov2.WeIdServiceEngineV2.getWeIdList(WeIdServiceEngineV2.java:721) [weid-java-sdk-1.7.1.jar:?]
+        at com.webank.weid.service.impl.WeIdServiceImpl.getWeIdList(WeIdServiceImpl.java:953) [weid-java-sdk-1.7.1.jar:?]
+        at com.webank.weid.service.BuildToolService.getWeIdList(BuildToolService.java:337) [weid-build-tools-1.0.22.jar:?]
+        at com.webank.weid.controller.BuildToolController.getWeIdList(BuildToolController.java:426) [weid-build-tools-1.0.22.jar:?]
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_201]
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_201]
+        at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_201]
+
 --------------
