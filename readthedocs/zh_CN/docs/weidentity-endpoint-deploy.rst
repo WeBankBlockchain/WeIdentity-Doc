@@ -38,7 +38,7 @@ Rest Service代理端，仅仅是一个收集来自各方端点请求并进行�
 3. 启动服务端
 ^^^^^^^^^^^^^^^^^^^
 
-Endpoint Service在服务端依托于WeIdentity-Java-SDK，环境要求也与其一致，请见 `Java-SDK 部署环境要求 <./weidentity-installation.html>`_。
+Endpoint Service在服务端依托于WeIdentity-Java-SDK，环境要求也与其一致，请见 `Java-SDK 部署环境要求 <./one-stop-experience.html>`_。
 
 在 ``src/main/resources`` 目录下，修改 ``weidentity.properties`` 文件中的 ``rpc.listener.port`` 这一项内容，以具体确定在哪个端口上进行监听。
 

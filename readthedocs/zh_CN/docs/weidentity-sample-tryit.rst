@@ -6,7 +6,7 @@
 
 
 运行 WeIdentity-Sample 需要提前使用 WeIdentity 部署工具完成部署，请参考\ `WeIdentity JAVA
-SDK安装部署 <./weidentity-installation.html>`__\ 完成部署，并参照\ `Java应用集成章节 <./weidentity-build-with-deploy.html#weid-java-sdk>`__\ 完成
+SDK安装部署 <./one-stop-experience.html>`__\ 完成部署，并参照\ `Java应用集成章节 <./weidentity-build-with-deploy.html#weid-java-sdk>`__\ 完成
 weid-sample 的配置。
 
 
