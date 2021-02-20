@@ -31,7 +31,7 @@
      - 详见：\ `Digital Signature Wiki定义 <https://en.wikipedia.org/wiki/Digital_signature>`_
    * - DID
      - 分布式身份标识
-     - W3C的DID规范定义的去中心化ID。详见：\ `W3C DID规范 <https://w3c-ccg.github.io/did-spec/>`_
+     - W3C的DID规范定义的去中心化ID。详见：\ `W3C DID规范 <https://github.com/w3c/did-spec-registries/>`_
    * - WeIdentity DID
      -
      - 分布式身份标识，WeIdentity的分布式多中心的ID注册机制下生成的实体的ID。符合W3C DID规范
