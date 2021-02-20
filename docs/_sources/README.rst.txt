@@ -18,7 +18,7 @@ WeIdentity目前主要包含两大模块：WeIdentity DID以及WeIdentity Creden
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 传统方式中，用户的注册和身份管理完全依赖于单一中心的注册机构；随着分布式账本技术（例如区块链）的出现，分布式多中心的身份注册、标识和管理成为可能。
-WeIdentity DID模块在\ `FISCO-BCOS区块链底层平台 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/>`_\ 上实现了一套符合\ `W3C DID规范 <https://w3c-ccg.github.io/did-spec/>`_\ 的分布式多中心的身份标识协议，使实体（人或物）的现实身份实现了链上的身份标识；同时，WeIdentity DID给与Entity（人或者物）直接拥有和控制自己身份ID的能力。
+WeIdentity DID模块在\ `FISCO-BCOS区块链底层平台 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/>`_\ 上实现了一套符合\ `W3C DID规范 <https://github.com/w3c/did-spec-registries/>`_\ 的分布式多中心的身份标识协议，使实体（人或物）的现实身份实现了链上的身份标识；同时，WeIdentity DID给与Entity（人或者物）直接拥有和控制自己身份ID的能力。
 
 WeIdentity DID秉承以下设计理念：
 
@@ -63,7 +63,7 @@ WeIdentity DID秉承以下设计理念：
 可验证数字凭证 (WeIdentity Credential)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-现实世界中存在着各种各样用于描述实体身份、实体间关系的数据，如身份证、行驶证、存款证明、处方、毕业证、房产证、信用报告等。WeIdentity Credential提供了一整套基于\ `W3C VC规范 <https://w3c.github.io/vc-data-model/>`_\ 的解决方案，旨在对这一类数据进行标准化、电子化，生成可验证、可交换的「凭证」（Credential），支持对凭证的属性进行选择性披露，及生成链上存证（Evidence）。
+现实世界中存在着各种各样用于描述实体身份、实体间关系的数据，如身份证、行驶证、存款证明、处方、毕业证、房产证、信用报告等。WeIdentity Credential提供了一整套基于\ `W3C VC规范 <https://github.com/w3c/vc-data-model/>`_\ 的解决方案，旨在对这一类数据进行标准化、电子化，生成可验证、可交换的「凭证」（Credential），支持对凭证的属性进行选择性披露，及生成链上存证（Evidence）。
 
 WeIdentity支持认证机构自行注册标准化凭证模板，共同丰富公众联盟链的生态。
 
