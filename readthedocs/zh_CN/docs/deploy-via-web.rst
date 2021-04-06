@@ -48,8 +48,8 @@
 
 此步骤可选择部署时所用的角色, 包括 “联盟链委员会管理员” 和 “非联盟链委员会管理员”, 如下图所示。
 
-   .. image:: images/deploy-via-web-guide-choose-role.png
-      :alt: deploy-via-web-guide-choose-role.png
+   .. image:: images/weid-build-tools-original-step2.png
+      :alt: weid-build-tools-original-step2.png
 
 .. note::
      什么是“联盟链委员会管理员”?
@@ -105,8 +105,8 @@
 
 如下图所示。
 
-   .. image:: images/deploy-via-web-guide-choose-group-id.png
-      :alt: deploy-via-web-guide-choose-group-id.png
+   .. image:: images/weid-build-tools-original-step4.png
+      :alt: weid-build-tools-original-step4.png
 
    - 选择主群组 ID
       * 主群组是联盟链所有机构的节点都需要加入的群组，即 WeIdentity 智能合约部署的群组。需要协调所有部署了区块链节点的机构选择一个群组作为主群组，这样才能保证所有的WeID都是相互可见的；
@@ -126,8 +126,8 @@
    - 配置数据库
       * 配置说明：当需要使用 Transportation, Envidence 异步存证,Persistence 数据存储等相关功能组件时, 数据库才是必须的。
 
-   .. image:: images/deploy-via-web-guide-setup-database.png
-      :alt: deploy-via-web-guide-setup-database.png
+   .. image:: images/weid-build-tools-original-step5.png
+      :alt: weid-build-tools-original-step5.png
 
 .. _weid-create:
 
@@ -141,8 +141,8 @@
 
    - 推荐"系统自动创建公私钥"：在部署工具的安装目录下，有一个目录： `./output/admin/`， 会存放自动生成的私钥文件, 请妥善保管。
 
-   .. image:: images/deploy-via-web-guide-create-admin-weid.png
-      :alt: deploy-via-web-guide-create-admin-weid.png
+   .. image:: images/weid-build-tools-original-step6.png
+      :alt: weid-build-tools-original-step6.png
 
 “WeID + WeBase集成模式”, 如下图所示：
 
@@ -161,8 +161,8 @@
 
 此步骤将部署 WeIdentity 智能合约到指定的区块链上, 如图所示。
 
-   .. image:: images/weid-build-tools-and-webase-step7.png
-      :alt: weid-build-tools-and-webase-step7.png
+   .. image:: images/weid-build-tools-original-step7.png
+      :alt: weid-build-tools-original-step7.png
 
    - 配置链 ID (chain-id)
          * 配置说明：\ `「什么是链 ID (Chain Id) ?」 <./weidentity-spec.html#id4>`_\
