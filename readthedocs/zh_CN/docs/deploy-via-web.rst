@@ -22,7 +22,7 @@
 第1步: 选择集成模式
 """""""""""""""""""""""""""
 
-此步骤可选择配置WeIdentity的方式,包括 “WeID原始模式” 和 “WeID + WeBase集成模式”：
+此步骤可选择配置WeIdentity的方式,包括 “WeID原始模式” 和 “WeID + WeBASE集成模式”：
 
 “WeID原始模式”, 如下图所示。
 
@@ -30,16 +30,16 @@
       :alt: weid-build-tools-original-step1.png
 
 
-“WeID + WeBase集成模式”, 如下图所示：
+“WeID + WeBASE集成模式”, 如下图所示：
 
    .. image:: images/weid-build-tools-and-webase-step1.png
       :alt: weid-build-tools-and-webase-step1.png
 
    - 粘贴区
-      * 配置说明：此配置从【WeBase管理台】-【应用管理】中找到对应的应用，通过复制应用的注册信息到粘贴区进行粘贴即可，如果没有部署WeBase管理台，请先\ `「部署WeBase管理台」 <https://webasedoc.readthedocs.io/zh_CN/latest/docs/WeBASE/install.html>`_\。
+      * 配置说明：此配置从【WeBASE管理台】-【应用管理】中找到对应的应用，通过复制应用的注册信息到粘贴区进行粘贴即可，如果没有部署WeBASE管理台，请先\ `「部署WeBASE管理台」 <https://webasedoc.readthedocs.io/zh_CN/latest/docs/WeBASE/install.html>`_\。
 
 .. note::
-       如果WeBase跟WeID非同机部署，请自行修改IP地址为WeBase的后台服务IP地址。
+       如果WeBASE跟WeID非同机部署，请自行修改IP地址为WeBASE的后台服务IP地址。
 
 .. _role-selection:
 
@@ -68,7 +68,7 @@
    .. image:: images/weid-build-tools-original-step3.png
       :alt: weid-build-tools-original-step3.png
 
-“WeID + WeBase集成模式”, 如下图所示：
+“WeID + WeBASE集成模式”, 如下图所示：
 
    .. image:: images/weid-build-tools-and-webase-step3.png
       :alt: weid-build-tools-and-webase-step3.png
@@ -95,8 +95,8 @@
 
 .. note::
      1. 对证书有疑问，可以参看这篇文章： \ `「区块链中的各种证书详解」 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/manual/certificates.html>`_\
-     2. “WeID + WeBase集成模式”下，可通过查询按钮，查询到WeBase中的节点信息进行配置。
-     3. “WeID + WeBase集成模式”下，其证书自动从WeBase中同步。
+     2. “WeID + WeBASE集成模式”下，可通过查询按钮，查询到WeBASE中的节点信息进行配置。
+     3. “WeID + WeBASE集成模式”下，其证书自动从WeBASE中同步。
 
 .. _group-selection:
 
@@ -144,15 +144,15 @@
    .. image:: images/weid-build-tools-original-step6.png
       :alt: weid-build-tools-original-step6.png
 
-“WeID + WeBase集成模式”, 如下图所示：
+“WeID + WeBASE集成模式”, 如下图所示：
 
-   - 此处选择"WeBase同步账户"：在部署工具的安装目录下，有一个目录： `./output/admin/`， 会存放从WeBase同步的私钥文件, 请妥善保管。
+   - 此处选择"WeBASE同步账户"：在部署工具的安装目录下，有一个目录： `./output/admin/`， 会存放从WeBASE同步的私钥文件, 请妥善保管。
 
    .. image:: images/weid-build-tools-and-webase-step6.png
       :alt: weid-build-tools-and-webase-step6.png
 
 .. note::
-     1. “WeID + WeBase集成模式”下，选择前两种创建账户方式，其私钥将同步到WeBase中存储。
+     1. “WeID + WeBASE集成模式”下，选择前两种创建账户方式，其私钥将同步到WeBASE中存储。
 
 .. _weid-deploy:
 
