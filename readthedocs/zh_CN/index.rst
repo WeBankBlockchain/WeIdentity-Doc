@@ -33,5 +33,4 @@ WeIdentity文档
    docs/weidentity-endpoint.rst
    docs/weidentity-contract-design.rst
    docs/how-to-contribute.rst
-   FISCO BCOS社区资源 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/community.html#fisco-bcos/>
-      更多开源工具 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/community.html#id2/>
+      社区资源和更多开源工具 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/community.html/>
