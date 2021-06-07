@@ -33,4 +33,4 @@ WeIdentity文档
    docs/weidentity-endpoint.rst
    docs/weidentity-contract-design.rst
    docs/how-to-contribute.rst
-      社区资源和更多开源工具 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/community.html>
+      微众银行参与和建立的所有区块链项目 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/community.html>
