@@ -24,7 +24,7 @@ from recommonmark.transform import AutoStructify
 # -- Project information -----------------------------------------------------
 
 project = 'WeIdentity'
-copyright = '(2018) WeBank Co., Ltd.'
+copyright = '(2021) WeBank Co., Ltd.'
 author = 'WeIdentity Team'
 
 # source_suffix = ['.rst']
