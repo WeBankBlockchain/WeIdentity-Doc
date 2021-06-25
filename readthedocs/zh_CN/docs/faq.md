@@ -156,7 +156,7 @@ Credential的重新生成则为重新发行一个Credential ID不相同的全新
 
 **字体下载**<br>
 
- 您可从此：[下载NotoSansCJKtc-Regular.ttf字体](https://raw.githubusercontent.com/WeBankFinTech/WeIdentity/master/dist/lib/NotoSansCJKtc-Regular.ttf)
+ 您可从此：[下载NotoSansCJKtc-Regular.ttf字体](https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeIdentity/NotoSansCJKtc-Regular.ttf)
 
 **CentOS**   
 1. 新建中文字体目录并拷贝字体到该目录
