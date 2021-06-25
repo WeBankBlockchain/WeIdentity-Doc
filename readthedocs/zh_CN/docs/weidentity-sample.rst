@@ -9,7 +9,7 @@ WeIdentity Sample 开发样例
 环境准备
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-您可以参考 WeIdentity 安装部署文档\ `准备工作 <./one-stop-experience.rst>`__\ 进行准备。
+您可以参考 WeIdentity 安装部署文档\ `准备工作 <./one-stop-experience.html>`__\ 进行准备。
 
 快速体验
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
