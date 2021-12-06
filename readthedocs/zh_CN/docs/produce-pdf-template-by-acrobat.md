@@ -1,7 +1,7 @@
 **使用Acrobat Pro DC制作PDF模板**
 <br>
 
-1. 安装NotoSansCJKtc-Regular.ttf 字体。[字体下载链接](https://raw.githubusercontent.com/WeBankFinTech/WeIdentity/master/dist/lib/NotoSansCJKtc-Regular.ttf)<br>
+1. 安装NotoSansCJKtc-Regular.ttf 字体。[字体下载链接](https://raw.githubusercontent.com/WeBankBlockchain/WeIdentity/master/dist/lib/NotoSansCJKtc-Regular.ttf)<br>
 2. 打开Acrobat Pro DC，点击编辑选项->首选项->内容编辑，设置用于添加文本的默认字体为NotoSansCJKtc-Regular.ttf<br>
 
    ![设置添加文本默认字体](./images/produce-pdf-template-1.png) <br>

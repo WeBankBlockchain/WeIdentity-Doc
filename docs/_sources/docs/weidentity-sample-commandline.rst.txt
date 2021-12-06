@@ -35,7 +35,7 @@
 
 .. code:: shell
 
-    git clone https://github.com/WeBankFinTech/weid-sample.git
+    git clone https://github.com/WeBankBlockchain/weid-sample.git
     
 
 1.2 部署 weid-java-sdk 与配置基本信息

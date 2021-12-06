@@ -184,7 +184,7 @@
 </div>
 <div class="section" id="id2">
 <h2>1. 下载源码<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/WeBankFinTech/weid-sample.git
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/WeBankBlockchain/weid-sample.git
 </pre></div>
 </div>
 </div>
@@ -331,7 +331,7 @@ http://127.0.0.1:6101/createCredential
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;result&quot;</span><span class="p">:{</span>
         <span class="s2">&quot;credential&quot;</span><span class="p">:{</span>
-            <span class="s2">&quot;context&quot;</span><span class="p">:</span><span class="s2">&quot;https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;context&quot;</span><span class="p">:</span><span class="s2">&quot;https://github.com/WeBankBlockchain/WeIdentity/blob/master/context/v1&quot;</span><span class="p">,</span>
             <span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;e4f4accd-6026-4fd0-9392-1379ddd4f778&quot;</span><span class="p">,</span>
             <span class="s2">&quot;cptId&quot;</span><span class="p">:</span><span class="mi">1189</span><span class="p">,</span>
             <span class="s2">&quot;issuer&quot;</span><span class="p">:</span><span class="s2">&quot;did:weid:101:0xd613fbc0249f2ce5088ed484fa6b7b51ecb95e24&quot;</span><span class="p">,</span>
@@ -368,7 +368,7 @@ http://127.0.0.1:6101/createCredential
 <li><p>验证 Credential</p></li>
 </ul>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl -l -H <span class="s2">&quot;Content-type: application/json&quot;</span> -X POST -d
-<span class="s1">&#39;{&quot;context&quot;:&quot;https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1&quot;,</span>
+<span class="s1">&#39;{&quot;context&quot;:&quot;https://github.com/WeBankBlockchain/WeIdentity/blob/master/context/v1&quot;,</span>
 <span class="s1">&quot;id&quot;:&quot;e4f4accd-6026-4fd0-9392-1379ddd4f778&quot;,&quot;cptId&quot;:1189,&quot;issuer&quot;:&quot;did:weid:101:0xd613fbc0249f2ce5088ed484fa6b7b51ecb95e24&quot;,</span>
 <span class="s1">&quot;issuanceDate&quot;:1564371227764,&quot;expirationDate&quot;:1595475227763,&quot;claim&quot;:{&quot;gender&quot;:&quot;F&quot;,&quot;name&quot;:&quot;zhangsan&quot;,&quot;id&quot;:&quot;did:weid:101:0xf36fb2308d36bb94c579f568bdf670743d949deb&quot;},</span>
 <span class="s1">&quot;proof&quot;:{&quot;creator&quot;:&quot;did:weid:101:0xd613fbc0249f2ce5088ed484fa6b7b51ecb95e24&quot;,&quot;signature&quot;:&quot;G2kD4u4jrnmYbq/oVl9idmTEQzP3a0KEomHGJaVpWzhITIE+dDYSRMyF9TDy+jPANpYRJGg7pGnANM+QeJ9Ba00=&quot;,</span>

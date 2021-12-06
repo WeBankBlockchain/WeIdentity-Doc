@@ -19,7 +19,7 @@ weid-sample 的配置。
 
 .. code:: shell
 
-    git clone https://github.com/WeBankFinTech/WeIdentity-Sample
+    git clone https://github.com/WeBankBlockchain/WeIdentity-Sample
 
 .. note::
      如果您的服务器在中国内地，下载速度可能会比较慢，可以直接使用在国内的源：:code:`git clone https://gitee.com/WeBank/WeIdentity-Sample`

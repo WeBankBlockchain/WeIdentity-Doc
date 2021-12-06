@@ -737,7 +737,7 @@ WeIdentity RestService API 说明文档
 
     {
       "respBody": {
-          "@context": "https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1",
+          "@context": "https://github.com/WeBankBlockchain/WeIdentity/blob/master/context/v1",
           "claim": {
               "content": "b1016358-cf72-42be-9f4b-a18fca610fca",
               "receiver": "did:weid:101:0x7ed16eca3b0737227bc986dd0f2851f644cf4754",
@@ -831,7 +831,7 @@ WeIdentity RestService API 说明文档
 
     {
         "functionArg": {
-          "@context": "https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1",
+          "@context": "https://github.com/WeBankBlockchain/WeIdentity/blob/master/context/v1",
           "claim": {
               "content": "b1016358-cf72-42be-9f4b-a18fca610fca",
               "receiver": "did:weid:101:0x7ed16eca3b0737227bc986dd0f2851f644cf4754",
@@ -985,7 +985,7 @@ WeIdentity RestService API 说明文档
       "respBody": {
           "cptId": 2000156,
           "issuanceDate": 1580996777,
-          "context": "https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1",
+          "context": "https://github.com/WeBankBlockchain/WeIdentity/blob/master/context/v1",
           "claim": {
               "content": "b1016358-cf72-42be-9f4b-a18fca610fca",
               "receiver": "did:weid:101:0x7ed16eca3b0737227bc986dd0f2851f644cf4754",
@@ -1088,7 +1088,7 @@ WeIdentity RestService API 说明文档
         "functionArg": {
           "cptId": 2000156,
           "issuanceDate": 1580996777,
-          "context": "https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1",
+          "context": "https://github.com/WeBankBlockchain/WeIdentity/blob/master/context/v1",
           "claim": {
               "content": "b1016358-cf72-42be-9f4b-a18fca610fca",
               "receiver": "did:weid:101:0x7ed16eca3b0737227bc986dd0f2851f644cf4754",
@@ -1676,7 +1676,7 @@ POST /weid/api/encode 接口入参
       "respBody": {
           "cptId": 2000156,
           "issuanceDate": 1580996777,
-          "context": "https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1",
+          "context": "https://github.com/WeBankBlockchain/WeIdentity/blob/master/context/v1",
           "claim": {
               "content": "b1016358-cf72-42be-9f4b-a18fca610fca",
               "receiver": "did:weid:101:0x7ed16eca3b0737227bc986dd0f2851f644cf4754",
@@ -1898,7 +1898,7 @@ WeIdentity 数据授权 API
               "serviceUrl": "http://127.0.0.1:6010/fetch-data",
               "toWeId": "did:weid:101:0x68bedb2cbe55b4c8e3473faa63f121c278f6dba9"
           },
-          "context": "https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1",
+          "context": "https://github.com/WeBankBlockchain/WeIdentity/blob/master/context/v1",
           "cptId": 101,
           "expirationDate": 1581347039,
           "id": "48b75424-9411-4d22-b925-4e730b445a31",

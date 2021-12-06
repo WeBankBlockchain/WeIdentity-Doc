@@ -215,8 +215,8 @@
 </div>
 <div class="section" id="id3">
 <h3>1.2 生成安装包<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
-<p>您可以从 <a class="reference external" href="https://github.com/WeBankFinTech/weid-http-service">GitHub</a>下载 RestService 的源代码，并进行编译以生成安装包（默认置于 <code class="docutils literal notranslate"><span class="pre">/dist</span></code> 目录下）：</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/WeBankFinTech/weid-http-service.git
+<p>您可以从 <a class="reference external" href="https://github.com/WeBankBlockchain/weid-http-service">GitHub</a>下载 RestService 的源代码，并进行编译以生成安装包（默认置于 <code class="docutils literal notranslate"><span class="pre">/dist</span></code> 目录下）：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/WeBankBlockchain/weid-http-service.git
 $ <span class="nb">cd</span> weid-http-service
 $ gradle build -x <span class="nb">test</span>
 $ <span class="nb">cd</span> dist
@@ -310,7 +310,7 @@ Stopping com.webank.weid.http.Application ... [SUCCESS]
 <h2>3. 使用 Postman 访问 RestServer 的 API<a class="headerlink" href="#postman-restserver-api" title="永久链接至标题">¶</a></h2>
 <p>RestServer 支持任何使用标准 HTTP/HTTPS 协议的 RESTful API 客户端访问，详细接口说明可见 API 文档。我们提供了一套 Postman 的环境与请求集供快速集成。使用步骤如下：</p>
 <ul class="simple">
-<li><p>点击Postman的Import按钮，导入环境文件 <code class="docutils literal notranslate"><span class="pre">weidentity-restservice.postman_environment.json</span></code> 和请求集 <code class="docutils literal notranslate"><span class="pre">invoke.postman_collection.json</span></code> 。这两个文件可以在 GitHub代码仓库的 <a class="reference external" href="https://github.com/WeBankFinTech/weid-http-service/tree/develop/PostmanConfig">对应目录</a>下找到</p></li>
+<li><p>点击Postman的Import按钮，导入环境文件 <code class="docutils literal notranslate"><span class="pre">weidentity-restservice.postman_environment.json</span></code> 和请求集 <code class="docutils literal notranslate"><span class="pre">invoke.postman_collection.json</span></code> 。这两个文件可以在 GitHub代码仓库的 <a class="reference external" href="https://github.com/WeBankBlockchain/weid-http-service/tree/develop/PostmanConfig">对应目录</a>下找到</p></li>
 <li><dl class="simple">
 <dt>确认 <code class="docutils literal notranslate"><span class="pre">weidentity-restservice</span></code> 这个环境文件已导入成功，它包含两个环境变量 <code class="docutils literal notranslate"><span class="pre">host</span></code> 和 <code class="docutils literal notranslate"><span class="pre">httpport</span></code></dt><dd><ul>
 <li><p>修改环境变量 <code class="docutils literal notranslate"><span class="pre">host</span></code> 属性的值为安装部署 <code class="docutils literal notranslate"><span class="pre">RestServer</span></code> 的服务器地址</p></li>

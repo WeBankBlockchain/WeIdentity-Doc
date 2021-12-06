@@ -12,11 +12,11 @@
 
 开始贡献之前，建议阅读我们的代码规范文档和代码提交步骤介绍。
 
-* `如何贡献提前必看 <https://github.com/WeBankFinTech/WeIdentity/blob/master/.github/CONTRIBUTING.md>`_
+* `如何贡献提前必看 <https://github.com/WeBankBlockchain/WeIdentity/blob/master/.github/CONTRIBUTING.md>`_
 
 
 
-为\ `WeIdentity Java SDK <https://github.com/WeBankFinTech/WeIdentity>`_\ 贡献代码
+为\ `WeIdentity Java SDK <https://github.com/WeBankBlockchain/WeIdentity>`_\ 贡献代码
 -----------------------------------------------------------------------------------------
 
 

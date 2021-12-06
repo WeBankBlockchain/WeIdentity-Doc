@@ -33,7 +33,7 @@ Rest Service代理端，仅仅是一个收集来自各方端点请求并进行�
 - 本地Endpoint数据配置项会被周期性地同步到代理端
 - 为了确保代理端能够正确地获取这些Endpoint，您需要启动 ``RpcServer`` 的 ``main()`` 进程
 
-详细的相关实现，可以参考源代码的 `EndpointSample.java <https://github.com/WeBankFinTech/WeIdentity-Sample/blob/master/src/main/java/com/webank/weid/demo/command/EndpointSample.java>`_ 。
+详细的相关实现，可以参考源代码的 `EndpointSample.java <https://github.com/WeBankBlockchain/WeIdentity-Sample/blob/master/src/main/java/com/webank/weid/demo/command/EndpointSample.java>`_ 。
 
 3. 启动服务端
 ^^^^^^^^^^^^^^^^^^^

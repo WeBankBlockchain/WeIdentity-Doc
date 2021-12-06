@@ -268,7 +268,7 @@ WeIdentity的CPT（Claim Protocol Type）合约，用于在链上存储凭证的
     </embed>
 
 关于每个系统CPT的详细字段要求，可以查阅代码中的
-\ `对应文件 <https://github.com/WeBankFinTech/WeIdentity/tree/master/src/main/java/com/webank/weid/protocol/cpt>`_\ 
+\ `对应文件 <https://github.com/WeBankBlockchain/WeIdentity/tree/master/src/main/java/com/webank/weid/protocol/cpt>`_\ 
 ，此处不再详细展开。
 
 授权CPT
