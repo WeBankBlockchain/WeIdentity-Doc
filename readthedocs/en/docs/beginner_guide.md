@@ -85,7 +85,7 @@ tail -f ~/fisco/nodes/127.0.0.1/node0/log/log*  | grep +++
 ```
 cd ~ && mkdir -p weid && cd weid &&
 sudo apt install git &&
-wget -c https://github.com/WeBankFinTech/weid-build-tools/raw/master/common/script/install/weid-install.sh &&
+wget -c https://github.com/WeBankBlockchain/weid-build-tools/raw/master/common/script/install/weid-install.sh &&
 chmod u+x weid-install.sh &&
 cd ~/weid && ./weid-install.sh -t en &&
 cd weid-build-tools &&

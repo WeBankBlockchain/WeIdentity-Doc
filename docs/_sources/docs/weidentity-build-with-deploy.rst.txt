@@ -27,11 +27,11 @@ WeIdentity JAVA SDK 安装部署工具（部署智能合约）
 ''''''''''''''''''''''''''''''
 ::
 
-    git clone https://github.com/WeBankFinTech/weid-build-tools.git
+    git clone https://github.com/WeBankBlockchain/weid-build-tools.git
  
 
 该工具默认会使用最新版本的
-`WeIdentity智能合约 <https://github.com/WeBankFinTech/weid-contract>`__\，该工具可以帮您发布智能合约和自动配置。
+`WeIdentity智能合约 <https://github.com/WeBankBlockchain/weid-contract>`__\，该工具可以帮您发布智能合约和自动配置。
 
 
 1.2  配置基本信息
@@ -180,7 +180,7 @@ FISCO BCOS 1.3请参考\ `1.3 web3sdk客户端配置 <https://fisco-bcos-documen
 
 现在您可以使用 WeIdentity 开发您的区块链身份应用。weid-java-sdk 相关接口请见：\ `WeIdentity JAVA SDK文档 <./projects/javasdk/weidentity-java-sdk-doc.html>`__ 。
 
-我们提供了一个基于WeID的 \ `开发样例 <https://github.com/WeBankFinTech/weid-sample>`__\， 您可以参考。
+我们提供了一个基于WeID的 \ `开发样例 <https://github.com/WeBankBlockchain/weid-sample>`__\， 您可以参考。
 
 
 3. WeIdentity JAVA SDK 便捷工具使用

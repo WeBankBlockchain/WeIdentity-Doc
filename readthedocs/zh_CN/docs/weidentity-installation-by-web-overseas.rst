@@ -12,7 +12,7 @@ WeIdentity 安装部署工具使用文档（部署WeIdentity的服务器在海�
 
 .. code-block:: shell
 
-  wget -c https://github.com/WeBankFinTech/weid-build-tools/raw/master/common/script/install/weid_install.sh
+  wget -c https://github.com/WeBankBlockchain/weid-build-tools/raw/master/common/script/install/weid_install.sh
 
 
 2.执行安装脚本

@@ -13,7 +13,7 @@ spring-boot服务方式使用
 
 .. code:: shell
 
-    git clone https://github.com/WeBankFinTech/weid-sample.git
+    git clone https://github.com/WeBankBlockchain/weid-sample.git
 
 2. 配置与部署
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -180,7 +180,7 @@ spring-boot服务方式使用
     {
         "result":{
             "credential":{
-                "context":"https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1",
+                "context":"https://github.com/WeBankBlockchain/WeIdentity/blob/master/context/v1",
                 "id":"e4f4accd-6026-4fd0-9392-1379ddd4f778",
                 "cptId":1189,
                 "issuer":"did:weid:101:0xd613fbc0249f2ce5088ed484fa6b7b51ecb95e24",
@@ -219,7 +219,7 @@ spring-boot服务方式使用
 .. code:: shell
 
     curl -l -H "Content-type: application/json" -X POST -d 
-    '{"context":"https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1",
+    '{"context":"https://github.com/WeBankBlockchain/WeIdentity/blob/master/context/v1",
     "id":"e4f4accd-6026-4fd0-9392-1379ddd4f778","cptId":1189,"issuer":"did:weid:101:0xd613fbc0249f2ce5088ed484fa6b7b51ecb95e24",
     "issuanceDate":1564371227764,"expirationDate":1595475227763,"claim":{"gender":"F","name":"zhangsan","id":"did:weid:101:0xf36fb2308d36bb94c579f568bdf670743d949deb"},
     "proof":{"creator":"did:weid:101:0xd613fbc0249f2ce5088ed484fa6b7b51ecb95e24","signature":"G2kD4u4jrnmYbq/oVl9idmTEQzP3a0KEomHGJaVpWzhITIE+dDYSRMyF9TDy+jPANpYRJGg7pGnANM+QeJ9Ba00=",

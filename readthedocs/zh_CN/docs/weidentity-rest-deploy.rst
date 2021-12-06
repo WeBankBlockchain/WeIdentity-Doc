@@ -40,11 +40,11 @@ Server 的环境要求与 WeIdentity-Java-SDK 的 `环境要求 <./one-stop-expe
 1.2 生成安装包
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-您可以从 \ `GitHub <https://github.com/WeBankFinTech/weid-http-service>`_\ 下载 RestService 的源代码，并进行编译以生成安装包（默认置于 ``/dist`` 目录下）：
+您可以从 \ `GitHub <https://github.com/WeBankBlockchain/weid-http-service>`_\ 下载 RestService 的源代码，并进行编译以生成安装包（默认置于 ``/dist`` 目录下）：
 
 .. code-block:: bash
 
-   $ git clone https://github.com/WeBankFinTech/weid-http-service.git
+   $ git clone https://github.com/WeBankBlockchain/weid-http-service.git
    $ cd weid-http-service
    $ gradle build -x test
    $ cd dist
@@ -173,7 +173,7 @@ Server 的环境要求与 WeIdentity-Java-SDK 的 `环境要求 <./one-stop-expe
 
 RestServer 支持任何使用标准 HTTP/HTTPS 协议的 RESTful API 客户端访问，详细接口说明可见 API 文档。我们提供了一套 Postman 的环境与请求集供快速集成。使用步骤如下：
 
-* 点击Postman的Import按钮，导入环境文件 ``weidentity-restservice.postman_environment.json`` 和请求集 ``invoke.postman_collection.json`` 。这两个文件可以在 GitHub代码仓库的 \ `对应目录 <https://github.com/WeBankFinTech/weid-http-service/tree/develop/PostmanConfig>`_\ 下找到
+* 点击Postman的Import按钮，导入环境文件 ``weidentity-restservice.postman_environment.json`` 和请求集 ``invoke.postman_collection.json`` 。这两个文件可以在 GitHub代码仓库的 \ `对应目录 <https://github.com/WeBankBlockchain/weid-http-service/tree/develop/PostmanConfig>`_\ 下找到
 * 确认 ``weidentity-restservice`` 这个环境文件已导入成功，它包含两个环境变量 ``host`` 和 ``httpport``
     * 修改环境变量 ``host`` 属性的值为安装部署 ``RestServer`` 的服务器地址
     * 修改环境变量 ``httpport`` 属性的值配置文件中的 Server 监听端口地址

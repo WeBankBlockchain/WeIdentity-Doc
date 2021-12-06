@@ -27,7 +27,7 @@
 
 
 .. note::
-    服务器在海外的用户，可以从github上下载： :code:`git clone git@github.com:WeBankFinTech/WeIdentity-Build-Tools.git`
+    服务器在海外的用户，可以从github上下载： :code:`git clone git@github.com:WeBankBlockchain/WeIdentity-Build-Tools.git`
 
 
 2.切换分支并给脚本授权

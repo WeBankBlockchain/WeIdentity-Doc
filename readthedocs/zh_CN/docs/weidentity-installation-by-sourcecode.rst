@@ -21,9 +21,9 @@ WeIdentity JAVA SDK安装部署文档（源码方式）
 
 .. code-block:: shell
 
-  git clone https://github.com/WeBankFinTech/WeIdentity.git
+  git clone https://github.com/WeBankBlockchain/WeIdentity.git
 
-WeIdentity Java SDK 工程见\ `WeIdentity JAVA SDK <https://github.com/WeBankFinTech/WeIdentity.git>`_\ :raw-html-m2r:`<br>`
+WeIdentity Java SDK 工程见\ `WeIdentity JAVA SDK <https://github.com/WeBankBlockchain/WeIdentity.git>`_\ :raw-html-m2r:`<br>`
 
 - 配置节点证书和秘钥文件
 

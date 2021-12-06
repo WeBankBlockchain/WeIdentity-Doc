@@ -346,7 +346,7 @@ Credential结构
         "id": "did:weid:101:0xd6f4d1215c52ee7e7975ac946a0e094040aa5eeb",
         "name": "1"
      },
-     "context": "https://github.com/WeBankFinTech/WeIdentity/blob/master/context/v1",
+     "context": "https://github.com/WeBankBlockchain/WeIdentity/blob/master/context/v1",
      "cptId": 2000006,
      "expirationDate": "2020-09-24T14:34:44Z",
      "id": "f894d33d-88c3-4122-afb6-87e21d2ae656",
