@@ -14,7 +14,13 @@ LINUX 系统上通过 gradle 执行单元测试
 流程
 ~~~~
 
-下载源代码进行安装部署后，以 ``weid-java-sdk`` 根目录为起点：
+下载源代码进行安装部署后，以 ``WeIdentity`` 根目录为起点：
+
+1, 拷贝秘钥文件到 ``src/test/resources`` 目录。
+
+.. code:: shell
+
+   cp ecdsa_key src/test/resources/
 
 1, 进入dist/conf目录。
 
@@ -40,10 +46,6 @@ LINUX 系统上通过 gradle 执行单元测试
 
 4, 将字体 ``NotoSansCJKtc-Regular.ttf`` 复制到 ``src/test/resources`` 目录，并进行字体安装。
 
-.. code:: shell
-
-   cp ../lib/NotoSansCJKtc-Regular.ttf  ../../src/test/resources/
-
 注：字体安装请参照 \ `技术问题列表 <./faq.html>`__\  中的字体安装说明。
 
 5, 回到项目根目录，执行测试命令。
@@ -51,5 +53,5 @@ LINUX 系统上通过 gradle 执行单元测试
 .. code:: shell
 
    cd ../../
-   gradle test
+   ./gradlew test
 
