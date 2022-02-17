@@ -31,6 +31,17 @@ WeIdentity JAVA SDK安装部署文档（源码方式）
 
 WeIdentity Java SDK 工程见\ `WeIdentity JAVA SDK <https://github.com/WeBankBlockchain/WeIdentity.git>`_\ :raw-html-m2r:`<br>`
 
+- WeIdentity 编译
+
+.. code-block:: shell
+
+  cd WeIdentity
+  chmod u+x ./gradlew
+  ./gradlew build -x test
+
+.. note::
+     如果出现 xx SpotBugs violations were found 这个提示，请忽略。
+
 - 配置节点证书和秘钥文件
 
 ::
