@@ -66,9 +66,9 @@ WeIdentity Java SDK 工程见\ `WeIdentity JAVA SDK <https://github.com/WeBankBl
 -  配置说明：
 
  | ``blockchain_address`` ： 区块链节点 IP 和channel端口， channel端口的配置可以参考\ `FISCO BCOS 2.0 配置项说明 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/manual/configuration.html#rpc>`__ 进行配置。
- | ``amop_id`` ：机构间的通信标识，\ 配置说明。`<./deploy-via-web.html#blockchain-configuration-amop-id>`_\
- | ``org_id`` ：机构名称，\ 配置说明。`<./deploy-via-web.html#blockchain-configuration-org-id>`_\
- | ``chain_id`` ：用于标识您接入的区块链网络, 默认填写：101，\ `配置说明。<./deploy-via-web.html#weid-deploy-chain-id>`_\
+ | ``amop_id`` ：机构间的通信标识，\ 配置说明。`<https://weidentity.readthedocs.io/zh_CN/latest/docs/deploy-via-web.html#blockchain-configuration>`__
+ | ``org_id`` ：机构名称，\ 配置说明。`<https://weidentity.readthedocs.io/zh_CN/latest/docs/deploy-via-web.html#blockchain-configuration>`__
+ | ``chain_id`` ：用于标识您接入的区块链网络, 默认填写：101，\ `配置说明。<https://weidentity.readthedocs.io/zh_CN/latest/docs/deploy-via-web.html#weid-deploy>`__
  | ``persistence_type`` ：数据存储类型, 默认填写：mysql。
  | ``mysql_address`` ：配置数据库的ip和port，例：0.0.0.0:3306
  | ``mysql_database`` ：配置数据库名称
