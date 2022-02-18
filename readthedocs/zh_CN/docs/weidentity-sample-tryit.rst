@@ -38,8 +38,8 @@ weid-sample 的配置。
 
 .. code:: shell
 
-chmod +x build.sh
-./build.sh
+    chmod +x build.sh
+    ./build.sh
 
 2. Swagger服务方式体验接口
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
