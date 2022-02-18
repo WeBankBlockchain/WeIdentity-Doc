@@ -73,9 +73,13 @@
    .. image:: images/weid-build-tools-and-webase-step3.png
       :alt: weid-build-tools-and-webase-step3.png
 
+.. _blockchain-configuration-org-id:
+
    - 机构名称 (org_id)
       * 配置说明：机构名称用于标识机构唯一性, 类似域名的作用，在同一条联盟链上，先注册先得。例如微众，可以填入"WeBank"作为其机构名称。
       * 配置要求：建议使用机构的英文名称或简称, 并确保机构名称在联盟链成员中唯一。
+
+.. _blockchain-configuration-amop-id:
 
    - AMOP 通讯 ID (amop_id)
       * 配置说明：此 ID 将作为节点间 AMOP 通讯所需要的Topic来进行监听。AMOP 通讯可在不同机构的节点间通讯, 亦可在同一机构内的不同节点间通讯。
@@ -163,6 +167,8 @@
 
    .. image:: images/weid-build-tools-original-step7.png
       :alt: weid-build-tools-original-step7.png
+
+.. _weid-deploy-chain-id:
 
    - 配置链 ID (chain-id)
          * 配置说明：\ `「什么是链 ID (Chain Id) ?」 <./weidentity-spec.html#id4>`_\
