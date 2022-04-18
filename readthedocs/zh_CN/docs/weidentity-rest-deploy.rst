@@ -40,12 +40,12 @@ Server 的环境要求与 WeIdentity-Java-SDK 的 `环境要求 <./one-stop-expe
 1.2 生成安装包
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-您可以从 \ `GitHub <https://github.com/WeBankBlockchain/weid-http-service>`_\ 下载 RestService 的源代码，并进行编译以生成安装包（默认置于 ``/dist`` 目录下）：
+您可以从 \ `GitHub <https://github.com/WeBankBlockchain/WeIdentity-Rest-Service>`_\ 下载 RestService 的源代码，并进行编译以生成安装包（默认置于 ``/dist`` 目录下）：
 
 .. code-block:: bash
 
-   $ git clone https://github.com/WeBankBlockchain/weid-http-service.git
-   $ cd weid-http-service
+   $ git clone https://github.com/WeBankBlockchain/WeIdentity-Rest-Service.git
+   $ cd WeIdentity-Rest-Service
    $ gradle build -x test
    $ cd dist
 
