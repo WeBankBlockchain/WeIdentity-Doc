@@ -39,7 +39,7 @@
 3. 集成完成
 ''''''''''''''''
 
-现在您可以使用 WeIdentity 开发您的区块链身份应用。WeIdentity Java SDK 相关接口请见：\ `WeIdentity JAVA SDK文档 <./projects/javasdk/weidentity-java-sdk-doc.html>`__ 。
+现在您可以使用 WeIdentity 开发您的区块链身份应用。
 
 
 .. note::
