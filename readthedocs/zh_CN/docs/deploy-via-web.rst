@@ -26,14 +26,14 @@
 
 “WeID原始模式”, 如下图所示。
 
-   .. image:: images/weid-build-tools-original-step1.png
-      :alt: weid-build-tools-original-step1.png
+   .. image:: images/weid-build-tools-original-step8.png
+      :alt: weid-build-tools-original-step8.png
 
 
 “WeID + WeBASE集成模式”, 如下图所示：
 
-   .. image:: images/weid-build-tools-and-webase-step1.png
-      :alt: weid-build-tools-and-webase-step1.png
+   .. image:: images/weid-build-tools-and-webase-step7.png
+      :alt: weid-build-tools-and-webase-step7.png
 
    - 粘贴区
       * 配置说明：此配置从【WeBASE管理台】-【应用管理】中找到对应的应用，通过复制应用的注册信息到粘贴区进行粘贴即可，如果没有部署WeBASE管理台，请先\ `「部署WeBASE管理台」 <https://webasedoc.readthedocs.io/zh_CN/latest/docs/WeBASE/install.html>`_\。
@@ -95,7 +95,7 @@
 
    - 配置SDK证书
       * 配置说明：连接区块链节点时需要使用的 SDK 证书。
-      * 请从您的FISCO-BCOS节点安装目录获取 SDK 证书文件(包括三个文件：ca.crt, node.crt 和 node.key), 可能正在下面两个目录: ``~/fisco/nodes/127.0.0.1/sdk/`` 或 ``~/fisco/generator/tmp_one_click/agencyA/sdk/``,（最新版本的FISCO BCOS链中，sdk证书node.crt/node.key已重命名为sdk.crt/sdk.key，因此只需要将sdk.crt/sdk.key复制或重命名为node.crt/node.key并放置到对应配置目录即可）。
+      * 请从您的FISCO-BCOS节点安装目录获取 SDK 证书文件(非国密包括三个文件：ca.crt, node.crt 和 node.key, 可能正在下面两个目录: ``~/fisco/nodes/127.0.0.1/sdk/`` 或 ``~/fisco/generator/tmp_one_click/agencyA/sdk/``，最新版本的FISCO BCOS链中，sdk证书node.crt/node.key已重命名为sdk.crt/sdk.key，因此只需要将sdk.crt/sdk.key复制或重命名为node.crt/node.key并放置到对应配置目录即可。国密包括五个文件：gmca.crt，gmsdk.crt，gmsdk.key，gmensdk.crt，gmensdk.key，可能正在下面这个目录: ``~/fisco/nodes/127.0.0.1/sdk/gm`` 或 ``~/fisco/generator/tmp_one_click/agencyA/sdk/gm``）。
 
 .. note::
      1. 对证书有疑问，可以参看这篇文章： \ `「区块链中的各种证书详解」 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/manual/certificates.html>`_\
@@ -115,7 +115,8 @@
    - 选择主群组 ID
       * 主群组是联盟链所有机构的节点都需要加入的群组，即 WeIdentity 智能合约部署的群组。需要协调所有部署了区块链节点的机构选择一个群组作为主群组，这样才能保证所有的WeID都是相互可见的；
       * 如果整个联盟链只有一个群组，则这里就选择这个唯一的群组作为主群组；
-      * 如果您使用到了多群组的架构，例如整个联盟链部署了 ID 为98，101，102三个区块链群组，然后所有部署了区块链节点的机构协商选择 98 作为主群组，则这个步骤所有机构都选择98即可。
+      * 如果您使用到了多群组的架构，例如整个联盟链部署了 ID 为98，101，102三个区块链群组，然后所有部署了区块链节点的机构协商选择 98 作为主群组，则这个步骤所有机构都选择98即可；
+      * 如果使用FISCO BCOS 3.0的链，同样可以根据自动拉取的群组列表中选择主群组，默认为group0。
 
 .. note::
    \ `「如何查看群组?」 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/manual/console.html#getgrouplist>`_\
