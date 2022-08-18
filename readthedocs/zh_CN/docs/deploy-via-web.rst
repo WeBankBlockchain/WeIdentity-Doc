@@ -26,14 +26,14 @@
 
 “WeID原始模式”, 如下图所示。
 
-   .. image:: images/weid-build-tools-original-step8.png
-      :alt: weid-build-tools-original-step8.png
+   .. image:: images/weid-build-tools-original-step1.png
+      :alt: weid-build-tools-original-step1.png
 
 
 “WeID + WeBASE集成模式”, 如下图所示：
 
-   .. image:: images/weid-build-tools-and-webase-step7.png
-      :alt: weid-build-tools-and-webase-step7.png
+   .. image:: images/weid-build-tools-and-webase-step1.png
+      :alt: weid-build-tools-and-webase-step1.png
 
    - 粘贴区
       * 配置说明：此配置从【WeBASE管理台】-【应用管理】中找到对应的应用，通过复制应用的注册信息到粘贴区进行粘贴即可，如果没有部署WeBASE管理台，请先\ `「部署WeBASE管理台」 <https://webasedoc.readthedocs.io/zh_CN/latest/docs/WeBASE/install.html>`_\。
@@ -65,13 +65,13 @@
 
 “WeID原始模式”, 如下图所示：
 
-   .. image:: images/weid-build-tools-original-step3.png
-      :alt: weid-build-tools-original-step3.png
+   .. image:: images/weid-build-tools-original-step8.png
+      :alt: weid-build-tools-original-step8.png
 
 “WeID + WeBASE集成模式”, 如下图所示：
 
-   .. image:: images/weid-build-tools-and-webase-step3.png
-      :alt: weid-build-tools-and-webase-step3.png
+   .. image:: images/weid-build-tools-and-webase-step7.png
+      :alt: weid-build-tools-and-webase-step7.png
 
 .. _blockchain-configuration-org-id:
 
