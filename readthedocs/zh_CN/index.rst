@@ -3,12 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-My Title
+WeIdentity文档
 *********
 
-##############################################################
-WeIdentity文档
-##############################################################
 
 
 .. include:: README.rst

@@ -9,20 +9,6 @@ Java SDK FAQ
 
 详见\ `WeIdentity Java SDK 与各版本JDK的兼容性 <./weid-compatibility-test.html>`__\ 。
 
-- 如何配置可信时间戳服务？
-
-当前，我们支持使用WeSign（https://fintech.webank.com/wesign/）作为时间戳的签发者服务方。未来，我们会进一步支持各种境内外的可信时间戳服务商。
-
-您首先需要联系WeSign团队，获取可用的测试或生产环境的URL及账号。接下来，访问您的weidentity.properties，将以下内容配置项填入：
-
-.. code:: shell
-
-  wesign.accessTokenUrl=<access token的地址>
-  wesign.signTicketUrl=<sign ticket的地址>
-  wesign.timestampUrl=<timestamp服务的地址>
-  wesign.appId=<服务商为您分配的appId>
-  wesign.secret=<服务商为您分配的secret>
-
 
 --------------
 
