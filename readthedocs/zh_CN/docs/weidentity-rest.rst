@@ -38,3 +38,10 @@ WeIdentity RestService提供了简化的WeIdentity集成方式与访问能力。
    :maxdepth: 1
    
    weidentity-rest-design.rst
+
+
+配置Weidentity RestService Python SDK
+-----------------------------
+
+配置完RestService服务之后, 这个时候可以根据RestService的API配置Weidentity RestService Python SDK
+\ `GitHub仓库 <https://github.com/99Kies/Weidentity-Python-SDK>`_\
