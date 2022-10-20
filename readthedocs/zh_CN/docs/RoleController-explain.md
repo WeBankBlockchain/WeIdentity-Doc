@@ -2,6 +2,10 @@
 
 在WeIdentity合约工程中，RoleController合约文件是被引用次数最多，这也说明它是整个工程的基础。它的总体思想是实现「角色—操作」这样的二元权限控制，也理解成不同的角色具备不同的操作权限。
 
+如果有读者喜欢通过视频的方式学习代码讲解，也可以点击下方的链接。
+
+配套视频讲解：[WeID合约代码讲解](https://www.bilibili.com/video/BV1R8411x7DM/?spm_id_from=333.337.search-card.all.click&vd_source=6874e63006b329860f78832e8a773416)
+
 ## 常量定义
 
 理解了RoleController的设计思路，就不难理解在合约中定义的2组常量。ROLE_AUTHORITY_ISSUER、ROLE_COMMITTEE、ROLE_ADMIN代表了3类角色，分布是权威发布者、委员会成员、管理员，MODIFY_AUTHORITY_ISSUER、MODIFY_COMMITTEE、MODIFY_ADMIN、MODIFY_KEY_CPT代表了4类操作权限，在业务上可以设置不同的角色具备不同的权限。
@@ -177,6 +181,7 @@
         }
     }
 ```
+
 
 
 
