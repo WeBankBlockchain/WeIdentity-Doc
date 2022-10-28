@@ -1707,17 +1707,17 @@ POST /weid/api/encode 接口入参
 
 请注意，这个生成的CredentialPojo的签名值（proof中的signatureValue项）并没有经过私钥签名。正确的签名方式包括下面几步：
 - base64解码，生成一个二进制字节数组
-- 对解码的byte[]做一次secp256k1的hash
+- 对解码的byte[]做一次secp256k1或sm3的hash
 - 对完成hash过byte[]，再做一次hash（如果您使用的是Java web3sdk的SignMessage()，这一步它替您完成了）
 - 传入私钥，进行签名，得到r，s，v
 - 对进行序列化
 - 把序列化的byte进行base64编码发回RestService
 
-使用ECDSA私钥进行签名和Base64编码的范例代码见下（Java和Go）：
+使用ECDSA或SM2私钥进行签名和Base64编码的范例代码见下（Java和Go）：
 
 .. code-block:: java
 
-    String signature = DataToolUtils.sign(new String(DataToolUtils.base64Decode(signatureValue)), privateKey);
+    RsvSignature signature = DataToolUtils.signToRsvSignature(new String(DataToolUtils.base64Decode(signatureValue)), privateKey);
 
 .. code-block:: go
 
