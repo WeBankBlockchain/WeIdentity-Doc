@@ -27,7 +27,7 @@ Server 的环境要求与 WeIdentity-Java-SDK 的 `环境要求 <./one-stop-expe
      - 1.8+
      - 推荐使用 1.8u141 及以上
    * - FISCO-BCOS 节点
-     - 1.3.8（即中央仓库的1.2.5）或 2.x
+     - 2.9以上（暂不支持3.0）
      - 确保它可以和部署 Server 机器互相连通，可 telnet 其 channelPort 端口
    * - Gradle
      - 4.6+
@@ -66,14 +66,15 @@ Server 的环境要求与 WeIdentity-Java-SDK 的 `环境要求 <./one-stop-expe
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * 首先，确认 WeIdentity 合约已部署完毕，同时您所部署的 FISCO-BCOS 节点可以正常连通。目前支持 2.x 的 FISCO-BCOS 节点。
-* 拷贝节点证书。您需要将节点的 ``ca.crt`` 、节点SDK目录下的 ``node.crt、node.key`` 拷贝到 ``dist/conf`` 目录下。
+* 拷贝节点证书。您需要将节点的 ``ca.crt`` 、节点SDK目录下的 ``sdk.crt、sdk.key`` 拷贝到 ``dist/conf`` 目录下。
 * 修改合约地址。如果您使用部署工具部署了 WeIdentity 合约，那么只需将部署工具生成的 ``fisco.properties`` 及 ``weidentity.properties`` 拷贝到 ``dist/conf`` 目录下即可。如果您使用源码部署，请手动修改 ``dist/conf/fisco.properties.tpl`` 及 ``dist/conf/weidentity.properties.tpl`` ，更新合约地址及区块链节点信息；修改完成后，将两个文件的子扩展名 ``.tpl`` 去掉。详情：
+合约地址修改示例。更新 ``dist/conf/fisco.properties`` 下列属性中cns.profile.active的值。
+* 更新 ``dist/conf/fisco.properties`` 下列属性中sdk.cert-path、amop.pub-path和amop.pri-path属性的值，把前缀 ``resources/`` 去掉
 
-合约地址修改示例。更新 ``dist/conf/fisco.properties`` 下列属性中cns.contract.follow的值。
 
 .. code-block:: xml
 
-   cns.contract.follow=0x161bcbd5afbdd2bb2c7f6cc31ed5897f041271c8c984284239370c1572e8545d
+   cns.profile.active=prdabc
 
 区块链节点信息修改示例：更新 ``dist/conf/weidentity.properties`` 中 ``nodes`` 项的值，注意每一条信息都应包含区块链用户、节点IP、节点channel端口地址；多于一个区块链节点，请用 “,” 半角逗号分隔。
 
@@ -120,8 +121,8 @@ Server 的环境要求与 WeIdentity-Java-SDK 的 `环境要求 <./one-stop-expe
 
 .. code-block:: bash
 
-    # 合约部署者私钥暗语。改成admin，您就可以使用此来调用合约部署者的私钥发交易了。
-    default.passphrase=admin
+    # 合约部署者私钥暗语。改成ecdsa_key，您就可以使用此来调用合约部署者的私钥发交易了。
+    default.passphrase=ecdsa_key
 
 * 最后，如果您需要连接使用MySQL，则需要在``dist/conf/weidentity.properties``内修改关于datasource相关的MySQL配置。
 

@@ -37,7 +37,7 @@ WeIdentity 安装部署工具使用文档（可视化安装部署方式）
 
   chmod u+x weid_install.sh
   ./weid_install.sh
-  cd weid-build-tools
+  cd weid-build-tools && mkdir -p resources/conf/amop && cp common/script/consumer_p* resources/conf/amop/
 
 .. note::
      - 默认会下载最新版本的可视化安装工具，如果想指定安装版本，可以通过 :code:`-v` 指定”WeIdentity 安装部署工具“的版本号（注意，不是 WeIdentity Java SDK 的版本号），例如执行： :code:`./weid_install.sh -v 1.0.12`。

@@ -32,7 +32,7 @@
 * 密码恢复，需要 2FA 或者 MFA
 * 互联网 APP 类、Web 类业务系统发布前应进行代码扫描和接口安全扫描及安全渗透性测试，相应测试结果及整改情况应提交系统上线检视会进行评估。 对外的接口需要做渗透测试。
 例如常见的厂家：[绿盟](http://www.nsfocus.com.cn/)；[漏洞盒子](https://www.vulbox.com/)。
-常见漏洞见：[OWASP_Top_Ten_Project](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project) 或者 [2017-owasp-top-10](http://www.owasp.org.cn/owasp-project/2017-owasp-top-10)
+常见漏洞见：[OWASP_Top_Ten_Project](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project) 或者 [2017-owasp-top-10](https://owasp.org/www-project-top-ten)
 * SDK 被嵌入执行的父应用判断，避免恶意应用嵌入
 * SDK 升级能力，保存在 APP 里面的证书需要定时更新
 * Android 接入腾讯乐固加固和腾讯金刚扫描（发现四大组件权限设置问题，如调用方权限；防止仿编译等。）
@@ -44,6 +44,6 @@
 ## 5.其它
 * 安全编码规范：OWASP 安全编码规范:
 
- [(English Version) OWASP_SCP_Quick_Reference_Guide](https://www.owasp.org/index.php/File:OWASP_SCP_Quick_Reference_Guide_v2.pdf) 
+ [(English Version) OWASP_SCP_Quick_Reference_Guide](https://owasp.org/www-pdf-archive/OWASP_SCP_Quick_Reference_Guide_v2.pdf) 
 
-[(中文) OWASP_SCP_Quick_Reference_Guide](https://www.owasp.org/index.php/File:OWASP_SCP_Quick_Reference_Guide_\(Chinese\).pdf)
+[(中文) OWASP_SCP_Quick_Reference_Guide](https://owasp.org/www-pdf-archive/OWASP_SCP_Quick_Reference_Guide_%28Chinese%29.pdf)
