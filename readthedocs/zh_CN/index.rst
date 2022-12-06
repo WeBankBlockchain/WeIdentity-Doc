@@ -18,6 +18,7 @@ WeIdentity文档
    :caption: Contents:
 
    README.rst
+   docs/compatibility.md
    docs/one-stop-experience.rst
    docs/terminologies.rst
    docs/use-cases.rst
