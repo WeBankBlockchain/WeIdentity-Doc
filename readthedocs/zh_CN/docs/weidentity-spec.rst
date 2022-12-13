@@ -149,6 +149,10 @@ WeIdentity Document格式
      - Document的创建时间
    * - updated
      - Document的更新时间
+   * - deactivated
+     - Document是否停用标识
+   * - versionId
+     - Document 版本id
    * - publicKey
      - 公钥数组列表，格式如下
    * - publicKey.id
@@ -159,14 +163,18 @@ WeIdentity Document格式
      - 指定控制对应私钥的Entity，遵从WeIdentity规范，如果为空，则表明owner是Document的id字段，如果是Credential类Entity，则owner一般是某用户
    * - authentication
      - 用于Entity证明其与当前Document的关联性
+   * - authentication.id
+     - 验证方法id 需要符合 DID URL ABNF 语法规则：did-url = did path-abempty [ "?" query ] [ "#" fragment ]
    * - authentication.type
-     - 用于指定signature suite
-   * - authentication.publicKey
-     - 用来验证签名的公钥，引用publicKey数组里定义的公钥
+     - 用于指定signature suite 非国密：Ed25519VerificationKey2020，国密：SM2VerificationKey
+   * - authentication.controller
+     - 验证方法控制器 需要符合DID ABNF 语法规则 "did:" method-name ":" method-specific-id
+   * - authentication.publicKeyMultibase
+     - 验证方法材料  符合\ `「MULTIBASE」 <https://datatracker.ietf.org/doc/html/draft-multiformats-multibase-03>`_\ 编码的公钥
    * - service
      - service描述数组，用于描述跟当前DID相关的服务，格式如下
    * - service.id
-     - service endpoint的ID
+     - service endpoint的ID 需要符合\ `「RFC3986」 <https://www.rfc-editor.org/rfc/rfc3986>`_\ uri规则
    * - service.type
      - service endpoint的协议
    * - service.serviceEndpoint
@@ -175,7 +183,6 @@ WeIdentity Document格式
      - 待定
    * - recovery
      - WeIdentity DID私钥丢失后，可由本字段指定的WeIdentity进行公私钥重置。是否需要抽象一层合约层来实现待定
-
 
 
 * WeIdentity DID的Authorization机制及Recovery机制由补充规范实现，不在本文中定义。
