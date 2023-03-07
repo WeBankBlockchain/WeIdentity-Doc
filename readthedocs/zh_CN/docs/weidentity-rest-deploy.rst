@@ -27,7 +27,7 @@ Server 的环境要求与 WeIdentity-Java-SDK 的 `环境要求 <./one-stop-expe
      - 1.8+
      - 推荐使用 1.8u141 及以上
    * - FISCO-BCOS 节点
-     - 2.9以上（暂不支持3.0）
+     - 2.9以上
      - 确保它可以和部署 Server 机器互相连通，可 telnet 其 channelPort 端口
    * - Gradle
      - 4.6+
