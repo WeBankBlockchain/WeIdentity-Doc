@@ -55,7 +55,7 @@
      - WeIdentity体系实现的通知机制
    * - CPT
      - 凭证的声明类型
-     - Claim Protocol Type,不同的Issuer按业务场景需要，各自定义不同类型数据结构的Claim，各种各样的Claim用不同的CPT来定义
+     - Claim Protocol Type，不同的Issuer按业务场景需要，各自定义不同类型数据结构的Claim，各种各样的Claim用不同的CPT来定义
    * - chain-id
      - 链 ID
      - 用于路由到不同的链网络（如果需要跟其他链打通，需要找 WeIdentity 开源项目的 owner 微众银行注册路由信息），例如同时使用 WeIdentity 的可能有多条区块链，可以使用这个字段作为标识信息，路由到特定区块链

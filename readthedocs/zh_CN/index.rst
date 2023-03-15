@@ -25,6 +25,7 @@ WeIdentity文档
    docs/weidentity-spec.rst
    WeIdentity Java SDK 接口文档 <https://weidentity.readthedocs.io/projects/javasdk/zh_CN/release-1.8.6/>
    docs/weidentity-sample.rst
+   docs/weidentity-kit.rst
    docs/miscellaneous.md
    docs/faq.md
    docs/weidentity-rest.rst
