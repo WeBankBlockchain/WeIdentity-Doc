@@ -286,10 +286,3 @@ weid-sample 的配置。
 至此，您已经体验了 WeIdentity-Sample 实现的各个角色的运行流程，实现的入口类在 WeIdentity-Sample 工程的 ``com.webank.weid.demo.command.DemoCommand``，您可以参考进行您的 Java 应用开发。
 
 
-
-
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-
-   weidentity-sample-deploy.rst
