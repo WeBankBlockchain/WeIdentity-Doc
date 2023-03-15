@@ -26,26 +26,11 @@ weid-sample 的配置。
 
 1.2 配置基本信息
 ''''''''''''''''''''''''''''''''''''''
-配置文件包括weid-sample自身的配置文件application.properties和WeIdentity相关的配置文件。
+若您在体验WeIdentity Sample之前已经完成WeIdentity Build Tool的部署和配置，weid-sample会自动从Build Tool中加载基本配置信息，无需您再次进行配置。
 
-修改application.properties文件，主要修改下面这两个参数，其他参数使用默认即可，也可以根据实际需要修改。
+若您想单独体验WeIdentity Sample, 您可以参考\ `部署weid-java-sdk与配置基本信息 <./weidentity-sample-deploy.html>`__\进行配置。
 
-.. code:: shell
 
-    #0非国密，1国密
-    encrypt.type=0
-    #2 FISCO BCOS V2，3 FISCO BCOS V3
-    bcos.version=2
-
-若您在体验WeIdentity Sample之前已经完成WeIdentity Build Tool的部署和配置，weid-sample会自动从WeId Build Tool中加载WeIdentity相关的配置文件，仅需修改application.properties文件（前提是在和WeIdentity Build Tool所处相同的机器上使用WeId Sample）。
-
-若您在另外的机器使用WeIdentity Sample或者通过其他方式完成了WeIdentity的部署, 您需要手动将WeIdentity相关的配置文件拷贝到WeIdentity Sample，详细如下：
-
-将您在\ `部署WeIdentity智能合约阶段 <./weidentity-build-with-deploy.html#id7>`__\ 所使用的私钥文件private_key拷贝至weid-sample/keys/priv/ 目录中，此私钥后续将用于注册 Authority Issuer，weid-sample 会自动加载。如果使用weid-build-tools可视化部署WeIdentity智能合约，该私钥文件位于weid-build-tools/output/admin目录。
-从已经使用weid-build-tools的机器上，在该工程的resources目录下，将weidentity.properties 和 fisco.properties
-复制到weid-sample的resources目录下。
-从已经使用weid-build-tools的机器上，在该工程的resources/conf目录下，将所有FISCO BCOS节点证书文件复制到weid-sample的resources/conf目录下（为了方便，可以直接将整个conf目录拷贝过来），
-或者从区块链节点获取对应的证书文件。
 
 - 编译 WeIdentity-Sample
 
@@ -286,3 +271,10 @@ weid-sample 的配置。
 至此，您已经体验了 WeIdentity-Sample 实现的各个角色的运行流程，实现的入口类在 WeIdentity-Sample 工程的 ``com.webank.weid.demo.command.DemoCommand``，您可以参考进行您的 Java 应用开发。
 
 
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   weidentity-sample-deploy.rst
