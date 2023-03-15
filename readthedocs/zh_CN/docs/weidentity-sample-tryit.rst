@@ -29,6 +29,7 @@ weid-sample 的配置。
 配置文件包括weid-sample自身的配置文件application.properties和WeIdentity相关的配置文件。
 
 修改application.properties文件，主要修改下面这两个参数，其他参数使用默认即可，也可以根据实际需要修改。
+
 .. code:: shell
 
     #0非国密，1国密
