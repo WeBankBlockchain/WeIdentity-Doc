@@ -65,24 +65,13 @@ Server 的环境要求与 WeIdentity-Java-SDK 的 `环境要求 <./one-stop-expe
 1.3 修改配置文件
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* 首先，确认 WeIdentity 合约已部署完毕，同时您所部署的 FISCO-BCOS 节点可以正常连通。目前支持 2.x 的 FISCO-BCOS 节点。
-* 拷贝节点证书。您需要将节点的 ``ca.crt`` 、节点SDK目录下的 ``sdk.crt、sdk.key`` 拷贝到 ``dist/conf`` 目录下。
-* 修改合约地址。如果您使用部署工具部署了 WeIdentity 合约，那么只需将部署工具生成的 ``fisco.properties`` 及 ``weidentity.properties`` 拷贝到 ``dist/conf`` 目录下即可。如果您使用源码部署，请手动修改 ``dist/conf/fisco.properties.tpl`` 及 ``dist/conf/weidentity.properties.tpl`` ，更新合约地址及区块链节点信息；修改完成后，将两个文件的子扩展名 ``.tpl`` 去掉。详情：
-合约地址修改示例。更新 ``dist/conf/fisco.properties`` 下列属性中cns.profile.active的值。
-* 更新 ``dist/conf/fisco.properties`` 下列属性中sdk.cert-path、amop.pub-path和amop.pri-path属性的值，把前缀 ``resources/`` 去掉
+* 首先，确认 WeIdentity 合约已部署完毕，同时您所部署的 FISCO-BCOS 节点可以正常连通。目前支持 2.x 和3.x的 FISCO-BCOS 节点。
+* 拷贝节点证书。您需要将节点的各个证书拷贝到 ``dist/conf`` 目录下。
+* 修改合约地址。如果您使用部署工具部署了 WeIdentity 合约，那么只需将部署工具生成的 ``fisco.properties`` 及 ``weidentity.properties`` 拷贝到 ``dist/conf`` 目录下即可。然后更新 ``dist/conf/fisco.properties`` 下列属性中sdk.cert-path、amop.pub-path和amop.pri-path属性的值，把前缀 ``resources/`` 去掉。
 
+如果使用无区块链（仅使用数据库）的WeIdentity，请跳过以上步骤，只需将根目录下的 ``fisco.properties`` 及 ``weidentity.properties`` 拷贝到 ``dist/conf`` 目录下即可，然后更新 ``weidentity.properties`` 中的datasource1.jdbc.url、datasource1.jdbc.username、datasource1.jdbc.password为你所要连接的数据库地址、用户和密码。
 
-.. code-block:: xml
-
-   cns.profile.active=prdabc
-
-区块链节点信息修改示例：更新 ``dist/conf/weidentity.properties`` 中 ``nodes`` 项的值，注意每一条信息都应包含区块链用户、节点IP、节点channel端口地址；多于一个区块链节点，请用 “,” 半角逗号分隔。
-
-.. code-block:: xml
-
-    nodes=127.0.0.1:8812,127.0.0.1:8900
-
-* 拷贝您 WeIdentity 合约部署者的私钥到 ``keys/priv`` 目录下，并重命名为 ``ecdsa_key``。如果您使用部署工具部署了 WeIdentity 合约，这个文件在 ``output/admin/`` 目录。如果您使用源码部署，这个文件在源代码根目录下。
+* 拷贝您 WeIdentity 合约部署者的私钥 ``private_key`` 到 ``keys/priv`` 目录下，和覆盖到工程的根目录下同名文件。如果您使用部署工具部署了 WeIdentity 合约，这个文件在 ``output/admin/`` 目录。如果使用无区块链的WeIdentity，文件在工程的根目录下。
 
 * 修改 ``dist/conf/application.properties`` ，填入需要打开的监听端口地址（用于 RestServer 监听外来的 HTTP/HTTPS RESTful 请求，默认为 6001，不可被其他程序占用）。
 
@@ -126,7 +115,7 @@ Server 的环境要求与 WeIdentity-Java-SDK 的 `环境要求 <./one-stop-expe
 
 * 最后，如果您需要连接使用MySQL，则需要在``dist/conf/weidentity.properties``内修改关于datasource相关的MySQL配置。
 
-2. Server 使用说明
+1. Server 使用说明
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 2.1 Server 启动/停止
