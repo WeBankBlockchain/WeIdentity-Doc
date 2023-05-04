@@ -69,7 +69,7 @@ Server 的环境要求与 WeIdentity-Java-SDK 的 `环境要求 <./one-stop-expe
 * 拷贝节点证书。您需要将节点的各个证书拷贝到 ``dist/conf`` 目录下。
 * 修改合约地址。如果您使用部署工具部署了 WeIdentity 合约，那么只需将部署工具生成的 ``fisco.properties`` 及 ``weidentity.properties`` 拷贝到 ``dist/conf`` 目录下即可。然后更新 ``dist/conf/fisco.properties`` 下列属性中sdk.cert-path、amop.pub-path和amop.pri-path属性的值，把前缀 ``resources/`` 去掉。
 
-如果使用无区块链（仅使用数据库）的WeIdentity，请跳过以上步骤，只需将根目录下的 ``fisco.properties`` 及 ``weidentity.properties`` 拷贝到 ``dist/conf`` 目录下即可，然后更新 ``weidentity.properties`` 中的datasource1.jdbc.url、datasource1.jdbc.username、datasource1.jdbc.password为你所要连接的数据库地址、用户和密码。
+**如果使用无区块链（仅使用数据库）的WeIdentity，请跳过上面三个步骤，只需将根目录下的 ``fisco.properties`` 及 ``weidentity.properties`` 拷贝到 ``dist/conf`` 目录下即可，然后更新 ``weidentity.properties`` 中的datasource1.jdbc.url、datasource1.jdbc.username、datasource1.jdbc.password为你所要连接的数据库地址、用户和密码。此外，crypto.type配置项可以选择国密或者非国密。**
 
 * 拷贝您 WeIdentity 合约部署者的私钥 ``private_key`` 到 ``keys/priv`` 目录下，和覆盖到工程的根目录下同名文件。如果您使用部署工具部署了 WeIdentity 合约，这个文件在 ``output/admin/`` 目录。如果使用无区块链的WeIdentity，文件在工程的根目录下。
 
