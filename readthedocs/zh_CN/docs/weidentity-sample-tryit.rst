@@ -40,12 +40,13 @@ weid-sample 的配置。
 若您在体验WeIdentity Sample之前已经完成WeIdentity Build Tool的部署和配置，weid-sample会自动从WeId Build Tool中加载WeIdentity相关的配置文件，仅需修改application.properties文件（前提是在和WeIdentity Build Tool所处相同的机器上使用WeId Sample）。
 
 若您在另外的机器使用WeIdentity Sample或者通过其他方式完成了WeIdentity的部署, 您需要手动将WeIdentity相关的配置文件拷贝到WeIdentity Sample，详细如下：
-
 将您在\ `部署WeIdentity智能合约阶段 <./weidentity-build-with-deploy.html#id7>`__\ 所使用的私钥文件private_key拷贝至weid-sample/keys/priv/ 目录中，此私钥后续将用于注册 Authority Issuer，weid-sample 会自动加载。如果使用weid-build-tools可视化部署WeIdentity智能合约，该私钥文件位于weid-build-tools/output/admin目录。
 从已经使用weid-build-tools的机器上，在该工程的resources目录下，将weidentity.properties 和 fisco.properties
 复制到weid-sample的resources目录下。
 从已经使用weid-build-tools的机器上，在该工程的resources/conf目录下，将所有FISCO BCOS节点证书文件复制到weid-sample的resources/conf目录下（为了方便，可以直接将整个conf目录拷贝过来），
 或者从区块链节点获取对应的证书文件。
+
+**若您想使用无区块链的WeIdentity，无需提前部署WeIdentity就可以直接使用WeIdentity-Sample的各项功能。仅需修改resources目录下的 ``weidentity.properties`` 文件中的datasource1.jdbc.url、datasource1.jdbc.username、datasource1.jdbc.password为你所要连接的数据库地址、用户和密码。此外，crypto.type配置项可以选择国密或者非国密。**
 
 - 编译 WeIdentity-Sample
 

@@ -146,21 +146,13 @@ WeIdentity Document格式
    * - id
      - WeIdentity DID，表示当前Document描述的Entity，用于自描述
    * - created
-     - Document的创建时间
+     - Document的创建时间,标识创建操作的时间戳(总毫秒数)
    * - updated
-     - Document的更新时间
+     - Document的更新时间,标识上次更新操作的时间戳(总毫秒数)
    * - deactivated
      - Document是否停用标识
    * - versionId
-     - Document 版本id
-   * - publicKey
-     - 公钥数组列表，格式如下
-   * - publicKey.id
-     - 公钥的ID
-   * - publicKey.type
-     - 用于指定signature suite
-   * - publicKey.owner
-     - 指定控制对应私钥的Entity，遵从WeIdentity规范，如果为空，则表明owner是Document的id字段，如果是Credential类Entity，则owner一般是某用户
+     - Document 版本id,上一次更新操作的版本
    * - authentication
      - 用于Entity证明其与当前Document的关联性
    * - authentication.id
@@ -172,13 +164,13 @@ WeIdentity Document格式
    * - authentication.publicKeyMultibase
      - 验证方法材料  符合\ `「MULTIBASE」 <https://datatracker.ietf.org/doc/html/draft-multiformats-multibase-03>`_\ 编码的公钥
    * - service
-     - service描述数组，用于描述跟当前DID相关的服务，格式如下
+     - service描述数组，用于描述跟当前DID相关的服务，一般以开放标准规范发布,格式如下
    * - service.id
      - service endpoint的ID 需要符合\ `「RFC3986」 <https://www.rfc-editor.org/rfc/rfc3986>`_\ uri规则
    * - service.type
      - service endpoint的协议
    * - service.serviceEndpoint
-     - serviceEndpoint列表，可以是URI或者一个JSON-LD对象
+     - serviceEndpoint列表，可以是URI或者一个JSON-LD对象,需要符合\ `「RFC3986」 <https://www.rfc-editor.org/rfc/rfc3986>`_\ uri规则
    * - service.其他
      - 待定
    * - recovery
@@ -194,29 +186,21 @@ WeIdentity Document格式
    {
      "@context": "https://weidentity.webank.com/did/v1",
      "id": "did:weid:1:123456789abcdefghi",
-     "created": "2017-09-24T17:00:00Z",
-     "updated": "2018-09-24T02:41:00Z",
-     "publicKey": [{
-       "id": "did:example:123456789abcdefghi#keys-1",
-       "type": "RsaVerificationKey2018",
-       "owner": "did:example:123456789abcdefghi",
-       "publicKeyPem": "-----BEGIN PUBLIC KEY...END PUBLIC KEY-----\r\n"
-     }, {
-       "id": "did:example:123456789abcdefghi#keys-2",
-       "type": "Secp256k1VerificationKey2018",
-       "owner": "did:example:123456789abcdefghi",
-       "publicKeyHex": "02b97c30de767f084ce3080168ee293053ba33b235d7116a3263d29f1450936b71"
-     }],
+     "created": "1560419409898",
+     "updated": "1560419409898",
      "authentication": [{
+       "id": "did:weid:1:123456789abcdefghi",
        // this key can be used to authenticate as DID ...9938
-       "type": "RsaSignatureAuthentication2018",
-       "publicKey": "did:weid:1:123456789abcdefghi#keys-1"
+       "type": "Ed25519VerificationKey2020",
+       "publicKeyMultibase": "did:weid:1:123456789abcdefghi#keys-1"
        }
      ],
      "service": [{
+       "id": "did:weid:1:123456789abcdefghi",
        "type": "drivingCardService",
        "serviceEndpoint": "https://weidentity.webank.com/endpoint/8377464"
        }, {
+       "id": "did:weid:1:123456789abcdefghi",
        "type": "padiCertificateService",
        "serviceEndpoint": "https://weidentity.webank.com/endpoint/8377465"
      }],
