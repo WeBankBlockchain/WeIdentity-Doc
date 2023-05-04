@@ -46,7 +46,7 @@ weid-sample 的配置。
 从已经使用weid-build-tools的机器上，在该工程的resources/conf目录下，将所有FISCO BCOS节点证书文件复制到weid-sample的resources/conf目录下（为了方便，可以直接将整个conf目录拷贝过来），
 或者从区块链节点获取对应的证书文件。
 
-若您想使用无区块链的WeIdentity，无需提前部署WeIdentity就可以直接使用WeIdentity-Sample的各项功能。仅需修改resources目录下的 ``weidentity.properties`` 文件中的datasource1.jdbc.url、datasource1.jdbc.username、datasource1.jdbc.password为你所要连接的数据库地址、用户和密码。
+**若您想使用无区块链的WeIdentity，无需提前部署WeIdentity就可以直接使用WeIdentity-Sample的各项功能。仅需修改resources目录下的 ``weidentity.properties`` 文件中的datasource1.jdbc.url、datasource1.jdbc.username、datasource1.jdbc.password为你所要连接的数据库地址、用户和密码。此外，crypto.type配置项可以选择国密或者非国密。**
 
 - 编译 WeIdentity-Sample
 
