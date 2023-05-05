@@ -36,6 +36,8 @@ weid-sample 的配置。
     encrypt.type=0
     #2 FISCO BCOS V2，3 FISCO BCOS V3
     bcos.version=2
+    #database数据库模式，blockchain区块链模式
+    deploy.style=database
 
 若您在体验WeIdentity Sample之前已经完成WeIdentity Build Tool的部署和配置，weid-sample会自动从WeId Build Tool中加载WeIdentity相关的配置文件，仅需修改application.properties文件（前提是在和WeIdentity Build Tool所处相同的机器上使用WeId Sample）。
 
@@ -46,7 +48,7 @@ weid-sample 的配置。
 从已经使用weid-build-tools的机器上，在该工程的resources/conf目录下，将所有FISCO BCOS节点证书文件复制到weid-sample的resources/conf目录下（为了方便，可以直接将整个conf目录拷贝过来），
 或者从区块链节点获取对应的证书文件。
 
-若您想使用无区块链的WeIdentity，无需提前部署WeIdentity就可以直接使用WeIdentity-Sample的各项功能。仅需修改resources目录下的 ``weidentity.properties`` 文件中的datasource1.jdbc.url、datasource1.jdbc.username、datasource1.jdbc.password为你所要连接的数据库地址、用户和密码。
+**若您想使用无区块链的WeIdentity，无需提前部署WeIdentity就可以直接使用WeIdentity-Sample的各项功能。仅需修改resources目录下的 ``weidentity.properties`` 文件中的datasource1.jdbc.url、datasource1.jdbc.username、datasource1.jdbc.password为你所要连接的数据库地址、用户和密码。此外，crypto.type配置项可以选择国密或者非国密。**
 
 - 编译 WeIdentity-Sample
 
