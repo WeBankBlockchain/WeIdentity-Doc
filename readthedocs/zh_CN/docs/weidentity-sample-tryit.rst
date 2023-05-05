@@ -36,6 +36,8 @@ weid-sample 的配置。
     encrypt.type=0
     #2 FISCO BCOS V2，3 FISCO BCOS V3
     bcos.version=2
+    #database数据库模式，blockchain区块链模式
+    deploy.style=database
 
 若您在体验WeIdentity Sample之前已经完成WeIdentity Build Tool的部署和配置，weid-sample会自动从WeId Build Tool中加载WeIdentity相关的配置文件，仅需修改application.properties文件（前提是在和WeIdentity Build Tool所处相同的机器上使用WeId Sample）。
 
