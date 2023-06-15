@@ -63,12 +63,12 @@ WeIdentity Java SDK 工程见\ `WeIdentity JAVA SDK <https://github.com/WeBankBl
 
 ::
 
-    cd src/main/resources/
+    mkdir -p resources/conf/amop && cp src/main/resources/consumer_p* resources/conf/amop/
 
 
-若您使用FISCO BCOS 2.0, 请参考\ `2.0 web3sdk客户端配置 <https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/sdk/java_sdk.html>`__，
-将证书文件 ``ca.crt``， ``node.crt`` 和 ``node.key`` 复制出来，拷贝至当前目录下。
-
+若您使用FISCO BCOS 2.x或者3.x的非国密链： 将证书文件 ``ca.crt``， ``sdk.crt`` 和 ``sdk.key`` 复制出来，拷贝至resources/conf目录下。
+若您使用FISCO BCOS 2.x的国密链，在resources/conf目录下再创建gm目录，将证书文件 ``gmca.crt``， ``gmsdk.crt``， ``gmsdk.key``， ``gmensdk.crt``和 ``gmensdk.key``拷贝至resources/conf/gm目录下。
+若您使用FISCO BCOS 3.x的国密链，在resources/conf目录下再创建gm目录，将证书文件 ``sm_ca.crt``， ``sm_sdk.crt``， ``sm_sdk.key``， ``sm_ensdk.crt``和 ``sm_ensdk.key``拷贝至resources/conf/gm目录下。
 
 - 配置基本信息
 
@@ -86,6 +86,9 @@ WeIdentity Java SDK 工程见\ `WeIdentity JAVA SDK <https://github.com/WeBankBl
  | ``amop_id`` ：机构间的通信标识，\ `见配置说明 <./deploy-via-web.html#blockchain-configuration-amop-id>`__
  | ``org_id`` ：机构名称， \ `见配置说明 <./deploy-via-web.html#blockchain-configuration-org-id>`__
  | ``chain_id`` ：用于标识您接入的区块链网络, 默认填写：101， \ `见配置说明 <./deploy-via-web.html#weid-deploy-chain-id>`__
+ | ``group_id`` ：群组标识，用于链接FISCO BCOS中特定的群组，注意FISCO BCOS的2.x和3.x版本的群组标识类型不同
+ | ``blockchain_fiscobcos_version`` ：使用哪一个版本的FISCO BCOS，2表示2.x，3表示3.x
+ | ``sm_crypto`` ：密码学套件类别，0表示非国密，1表示国密
  | ``persistence_type`` ：数据存储类型, 默认填写：mysql。
  | ``mysql_address`` ：配置数据库的ip和port，例：0.0.0.0:3306
  | ``mysql_database`` ：配置数据库名称
@@ -100,6 +103,9 @@ WeIdentity Java SDK 工程见\ `WeIdentity JAVA SDK <https://github.com/WeBankBl
     #节点的连接串，节点IP为10.10.10.10，和channel端口为20200。
     blockchain_address=10.10.10.10:20200
 
+    #FISCO BCOS版本。
+    blockchain_fiscobcos_version=2
+
     #机构间的通信标识
     amop_id=organizationA
 
@@ -108,6 +114,12 @@ WeIdentity Java SDK 工程见\ `WeIdentity JAVA SDK <https://github.com/WeBankBl
 
     #链标识
     chain_id=101
+
+    #群组标识
+    group_id=1
+
+    #密码学套件标识
+    sm_crypto=0
     
     #数据存储类型
     persistence_type=mysql
@@ -194,4 +206,4 @@ dist目录包含以下目录： ``app``， ``conf`` 和 ``lib``
    cd ../
    ls
 
-根目录下生成的文件 ``ecdsa_key`` 为weid-java-sdk部署合约动态生成的秘钥文件，您的Java应用集成weid-java-sdk的时候可能需要使用此文件，请妥善保管。
+根目录下生成的文件 ``private_key`` 为weid-java-sdk部署合约动态生成的秘钥文件，您的Java应用集成weid-java-sdk的时候可能需要使用此文件，请妥善保管。

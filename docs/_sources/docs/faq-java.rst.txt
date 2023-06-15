@@ -77,8 +77,7 @@ WeIdentity 智能合约是按分层设计的，分为：\ *数据层，逻辑层
 
 -  **目前支持哪些密钥管理套件？**
 
-目前，我们使用ECDSA
-SECP256套件进行密钥生成、签名验证操作。未来会加入国密版本套件。
+目前，我们使用国密SM和非国密SECP256套件进行密钥生成、签名验证操作。
 
 --------------
 
@@ -118,5 +117,5 @@ Control）。此外，在一个不需要token的区块链世界里，tx.origin�
        <dependency>
            <groupId>com.webank</groupId>
            <artifactId>weid-java-sdk</artifactId>
-           <version>1.4.0</version>
+           <version>3.1.1-rc.1</version>
        </dependency>
