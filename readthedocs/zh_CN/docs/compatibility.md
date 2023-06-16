@@ -26,14 +26,15 @@ WeIdentity的最新代码位于develop分支，具体某个版本的代码可切
 ## 组件关系
 
 各组件的依赖关系如下图，可以看出WeIdentity-Java-SDK是整个WeIdentity的核心，提供W3C DID和VC规范的完整实现，WeIdentity-Java-SDK通过WeIdentity-Blockchain组件与区块链交互，具体而言是与部署在区块链上的智能合约即WeIdentity-Contract交互（存储数据和权限控制等）。在WeIdentity-Java-SDK上面是对其接口的不同调用方式（WeIdentity-Sample和WeIdentity-Rest-Service）和功能扩展（WeIdentity-Kit）。最上层是WeIdentity的部署工具WeIdentity-Build-Tools，同时也提供了对WeIdentity-Java-SDK部分接口的可视化的调用、数据展示和状态管理等功能。
-![module-relation.png](https://weidentity.readthedocs.io/zh_CN/latest/_images/module-relation.png)
+
+![module-relation.png](./images/module-relation.png)
 
 ## 版本说明
 --------
 
 | WeIdentity |  Build-Tools  | Blockchain  | Kit  |Sample  | Rest-Service | WeId-Contract | 备注 |
 | :----    | :----     | :---- | :----| :----| :----|  :----|  :----|
-|  v3.1.1-rc.1 |  v3.1.1-rc.1 | v3.1.1-rc.1 | v3.1.1-rc.1 |   v3.1.1     | v3.1.0    | v1.3.2  | 增加纯功能接口，[WeIdentity v3.1.1文档](https://weidentity.readthedocs.io/zh_CN/release-3.1.0/) |
+|  v3.1.1-rc.1 |  v3.1.1-rc.1 | v3.1.1-rc.1 | v3.1.1-rc.1 |   v3.1.1     | v3.1.0    | v1.3.2  | 增加纯功能接口，[WeIdentity v3.1.1文档](https://weidentity.readthedocs.io/zh_CN/release-3.1.1/) |
 |  v3.1.0-rc.1 |  v3.1.0-rc.1 | v3.1.0-rc.1 | v3.1.0-rc.1 |   v3.1.0     | v3.1.0    | v1.3.2  | 支持数据库部署，[WeIdentity v3.1.0文档](https://weidentity.readthedocs.io/zh_CN/release-3.1.0/) |
 |  v3.0.0-rc.1 |  v3.0.0-rc.2 | v3.0.0-rc.1 | v3.0.0-rc.1 |   v1.0.13     | v1.6.0    | v1.3.1  | 重构WeIdentity，[WeIdentity v3.0.0文档](https://weidentity.readthedocs.io/zh_CN/release-3.0.0/) |
 |  v1.8.6-rc1 |  v1.3.1-rc1 |  |  |     feature/1.0.12     | v1.5.9    | v1.3.1  | 跟进W3C DID最新规范，重构WeId合约存储方式，[WeIdentity v1.8.6文档](https://weidentity.readthedocs.io/zh_CN/release-1.8.6/) |
@@ -42,7 +43,7 @@ WeIdentity的最新代码位于develop分支，具体某个版本的代码可切
 |  v1.8.3  |  v1.0.28  |      |      |      |      | v1.2.30 | 升级log4j |
 
 
-#### 关于1.x.x版本、rc版本、feature版本、develop分支的代码说明
+## 关于1.x.x版本、rc版本、feature版本、develop分支的代码说明
 - **v1.x.x版本或rc版本**：代码位于对应的tag或release/1.x.x分支中，或直接使用maven仓库中对应版本号的jar包。如`WeIdentity`的`v1.8.6-rc1`版本则位于 WeIdentity 代码仓库的`release/1.8.6`发布分支中，也位于`v1.8.6-rc1`的tag中（在Releases页面查看），同时也可以拉取maven中的`weid-java-sdk`的`v1.8.6-rc1`版本的jar包；
 - **feature版本**：代码位于该项目代码仓库的`feature/x.x.x`的开发分支，正在开发中。如`WeIdentity-Sample`的`feature/1.0.12`版本则位于 WeIdentity-Sample 的 feature/1.0.12 分支；
 - **develop分支**或**master分支**则是开发中最新代码，同理，feature分支则是某个功能特性的最新代码。**如需要使用稳定版，则建议拉取release分支或拉取tag**，release分支是该版本的最新代码，tag则是该8版本的里程碑tag标签。如1.8.6的`v1.8.6-rc1`是`release/1.8.6`分支的一个里程碑，后续可能基于该分支继续开发`v1.8.6-rc2`版本，以修复一些已知的bug。
