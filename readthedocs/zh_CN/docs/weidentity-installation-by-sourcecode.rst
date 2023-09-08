@@ -88,7 +88,7 @@ WeIdentity Java SDK 工程见\ `WeIdentity JAVA SDK <https://github.com/WeBankBl
  | ``chain_id`` ：用于标识您接入的区块链网络, 默认填写：101， \ `见配置说明 <./deploy-via-web.html#weid-deploy-chain-id>`__
  | ``group_id`` ：群组标识，用于链接FISCO BCOS中特定的群组，注意FISCO BCOS的2.x和3.x版本的群组标识类型不同
  | ``blockchain_fiscobcos_version`` ：使用哪一个版本的FISCO BCOS，2表示2.x，3表示3.x
- | ``sm_crypto`` ：密码学套件类别，0表示非国密，1表示国密
+ | ``sdk_sm_crypto`` ：密码学套件类别，0表示非国密，1表示国密
  | ``persistence_type`` ：数据存储类型, 默认填写：mysql。
  | ``mysql_address`` ：配置数据库的ip和port，例：0.0.0.0:3306
  | ``mysql_database`` ：配置数据库名称
@@ -115,11 +115,11 @@ WeIdentity Java SDK 工程见\ `WeIdentity JAVA SDK <https://github.com/WeBankBl
     #链标识
     chain_id=101
 
-    #群组标识
+    #群组标识 3.x的链则支持string 默认为group0
     group_id=1
 
     #密码学套件标识
-    sm_crypto=0
+    sdk_sm_crypto=0
     
     #数据存储类型
     persistence_type=mysql
