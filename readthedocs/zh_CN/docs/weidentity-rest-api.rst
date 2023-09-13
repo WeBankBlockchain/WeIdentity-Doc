@@ -1201,6 +1201,7 @@ WeIdentity RestService API 说明文档
 
     {
         "respBody": {
+            "blockLimit": 建议使用的交易处理期限,
             "encodedTransaction": 基于Base64编码的原始交易串信息
             "data": 交易特征值
         }
@@ -1218,19 +1219,18 @@ WeIdentity RestService API 说明文档
     
 .. note::
     当您生成签名的R，S，V之后，您需要将R，S，V存入一个65个字节长的二进制字节数组，再进行Base64编码方可正确由RestService解析。RestService只接受两种组成方式：
-    1. 按照R, S, V的顺序拼接成一个65个字节长的数组并使用Base64编码（这是WeID Go轻客户端默认方式，此时V的值为0或1）
-    2. 按照V+27, R, S的顺序拼接成一个65个字节长的数组并使用Base64编码（这是WeID Java SDK默认序列化方式，此时V的值为27或28）
+    1. 按照R, S, V的顺序拼接成一个65个字节长的数组并使用Base64编码（这是WeID Go轻客户端默认方式）
+    2. 按照V, R, S的顺序拼接成一个65个字节长的数组并使用Base64编码（这是WeID Java SDK默认序列化方式）
 
-您可以参考Java侧的客户端代码，使用默认Secp256k1私钥进行签名和Base64编码的范例代码见下：
+您可以使用WeID Java SDK代码，使用默认Secp256k1私钥进行签名和Base64编码的范例代码见下（可以在WeID Java SDK的\ `签名测试用例 <https://github.com/WeBankBlockchain/WeIdentity/blob/feature%2Freconstruction/src/test/java/com/webank/weid/util/TestSignatureUtils.java>`_\里编写和执行下面代码）：
 
 .. code-block:: java
 
-    // 依赖web3sdk 2.2.2和weid-java-sdk 1.5
-    byte[] encodedTransaction = DataToolUtils
-            .base64Decode("<encodedTransaction的值>".getBytes());
-        SignatureData clientSignedData = Sign.getSignInterface().signMessage(encodedTransactionClient, ecKeyPair);
-        String base64SignedMsg = new String(
-            DataToolUtils.base64Encode(TransactionEncoderUtilV2.simpleSignatureSerialization(clientSignedData)));
+    // 依赖weid-java-sdk 3.1.1-rc.1
+    byte[] decodeTransaction = DataToolUtils.base64Decode("<encodedTransaction的值>".getBytes());
+    String decodeTransactionStr = new String(decodeTransaction);
+    RsvSignature signatureResult = DataToolUtils.signToRsvSignature(decodeTransactionStr, privateKey);
+    String base64SignedMsg = DataToolUtils.SigBase64Serialization(signatureResult);
 
 
 - 第二次交互
@@ -1259,6 +1259,8 @@ WeIdentity RestService API 说明文档
         },
         "transactionArg": 交易参数json字符串 {
             "nonce": 用于防止重放攻击的交易随机数
+            "blockLimit": 用于限制交易处理期限，需和第一步中返回值一致,
+            "signType": 签名类型，"1"表示RSV，"2"表示VRS，如果使用上面WeID Java SDK示例代码来签名，则填"2"
             "data": 交易特征值，需和第一步中返回值一致
             "signedMessage": 基于Base64编码的、使用私钥签名之后的encodedTransaction签名值
         }
@@ -1289,7 +1291,7 @@ WeIdentity RestService API 说明文档
 可以看到，基于轻客户端的交易方式，本质上，是因为签名操作必须在本地完成，因此将原始交易串分成了两次交互完成。
 基于轻客户端的每个API的入参，也仅仅在第一次交互中不同。因此，在下文的介绍中，我们会忽略第二次交互的入参，只提供第一次交互的入参和第二次交互的返回值。
 
-2. 创建WeIdentity DID（有参创建方式）
+1. 创建WeIdentity DID（有参创建方式）
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 第一次交互，POST /weid/api/encode 的接口入参：
