@@ -1146,6 +1146,210 @@ WeIdentity RestService API 说明文档
         "ErrorMessage": "success"
     }
 
+12. 验证CreateEvidence
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+调用接口：
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 50
+
+   * - 标题
+     - 描述
+   * - 接口名
+     - weid/api/invoke
+   * - Method
+     - POST
+   * - Content-Type
+     - application/json
+
+
+接口入参：
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 60 20
+
+   * - Key
+     - Value
+     - Required
+   * - functionName
+     - createEvidence
+     - Y
+   * - functionArg
+     -
+     - Y
+   * - functionArg.id
+     - uuid，该存证的唯一id值
+     - Y
+   * - functionArg.hash
+     - 上链存证信息的hash值
+     - Y
+   * - functionArg.proof
+     - 存证信息的签名
+     - Y
+   * - functionArg.log
+     - 记录额外的上链信息
+     - Y
+   * - transactionArg
+     -
+     - Y
+   * - transactionArg.groupId
+     - groupId的值
+     - Y
+   * - v
+     - 版本号
+     - Y
+
+接口入参：
+
+.. code-block:: java
+
+    {
+        "functionArg": {
+            "id": "31c38f4c-4d12-40fd-92c4-4d9f1dce0135",
+            "hash": "0x6726391a7fa259470c26a2e9c9467ddbb1f1e7108eeb6f279248b70bb91f8235",
+            "proof": "3divzA7mgEv3774UtZRIxjUeQP0IEzMv/FfnRE6RgMjN1lMuyRJNvHF+N8NJjVydRmC9cWffKJjE30W8Vbk+MwA=",
+            "log": "temp"
+        },
+        "transactionArg": {
+            "groupId": 1000
+        },
+        "v": "1.0.0",
+        "functionName": "createEvidence"
+    }
+
+
+接口返回: application/json
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 50
+
+   * - Key
+     - Value
+   * - ErrorCode
+     - 错误码，0表示成功
+   * - ErrorMessage
+     - 错误信息
+   * - respBody
+     - True/False
+
+
+接口返回：
+
+.. code-block:: java
+
+    {
+      "respBody": true,
+      "loopback": null,
+      "errorCode": 0,
+      "errorMessage": "success"
+    }
+
+13. 获取存证信息GetEvidence
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+调用接口：
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 50
+
+   * - 标题
+     - 描述
+   * - 接口名
+     - weid/api/invoke
+   * - Method
+     - POST
+   * - Content-Type
+     - application/json
+
+
+接口入参：
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 60 20
+
+   * - Key
+     - Value
+     - Required
+   * - functionName
+     - getEvidence
+     - Y
+   * - functionArg
+     -
+     - Y
+   * - functionArg.hashValue
+     - 上链存证信息的hash值
+     - Y
+   * - transactionArg
+     -
+     - Y
+   * - transactionArg.groupId
+     - groupId的值
+     - Y
+   * - v
+     - 版本号
+     - Y
+
+接口入参：
+
+.. code-block:: java
+
+    {
+        "functionArg": {
+            "hashValue": "0x6726391a7fa259470c26a2e9c9467ddbb1f1e7108eeb6f279248b70bb91f8235"
+        },
+        "transactionArg": {
+            "groupId": 1
+        },
+        "v": "1.0.0",
+        "functionName": "getEvidence"
+    }
+
+
+接口返回: application/json
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 50
+
+   * - Key
+     - Value
+   * - ErrorCode
+     - 错误码，0表示成功
+   * - ErrorMessage
+     - 错误信息
+   * - respBody
+     - True/False
+
+
+接口返回：
+
+.. code-block:: java
+
+    {
+        "respBody": {
+            "credentialHash": "0x6726391a7fa259470c26a2e9c9467ddbb1f1e7108eeb6f279248b70bb91f8235",
+            "signInfo": {
+                "0xcaf924d782c83e134860951ed750945c1ff484a2": {
+                    "logs": [
+                        "temp"
+                    ],
+                    "revoked": false,
+                    "signature": "3divzA7mgEv3774UtZRIxjUeQP0IEzMv/FfnRE6RgMjN1lMuyRJNvHF+N8NJjVydRmC9cWffKJjE30W8Vbk+MwA=",
+                    "timestamp": "1695708037"
+                }
+            }
+        },
+        "loopback": null,
+        "errorCode": 0,
+        "errorMessage": "success"
+    }
+
 基于轻客户端模式的RestService API
 ------------------------------------
 
