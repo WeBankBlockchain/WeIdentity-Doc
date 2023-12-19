@@ -49,7 +49,7 @@ WeIdentity 入门
 
 
 
-第1步：安装 WeIdentity 部署工具
+第1步：安装 WeIdentity （如果使用不依赖区块链的方式，可以跳过部署，直接体验Sample和使用WeIdentity Java SDK）
 ------------------------------------------
 
 您可以参照\ `“安装 WeIdentity 部署工具” <./weidentity-installation-by-web.html>`_\，安装 WeIdentity 部署工具，这是一个网页工具，可以通过工具可以完成WeIdentity的部署，同时也提供了一些其他功能。

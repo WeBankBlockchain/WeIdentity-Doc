@@ -18,12 +18,14 @@ WeIdentity文档
    :caption: Contents:
 
    README.rst
+   docs/compatibility.md
    docs/one-stop-experience.rst
    docs/terminologies.rst
    docs/use-cases.rst
    docs/weidentity-spec.rst
-   WeIdentity Java SDK 接口文档 <https://weidentity.readthedocs.io/projects/javasdk/zh_CN/release-1.8.6/>
+   WeIdentity Java SDK 接口文档 <https://weidentity.readthedocs.io/projects/javasdk/zh_CN/latest/>
    docs/weidentity-sample.rst
+   docs/weidentity-kit.rst
    docs/miscellaneous.md
    docs/faq.md
    docs/weidentity-rest.rst
