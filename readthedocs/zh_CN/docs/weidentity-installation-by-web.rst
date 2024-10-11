@@ -27,7 +27,7 @@ WeIdentity 安装部署工具使用文档（可视化安装部署方式）
 
 .. code-block:: shell
 
-  wget -c https://github.com/WeBankBlockchain/WeIdentity-Build-Tools/blob/master/common/script/install/weid_install.sh
+  wget -c https://github.com/WeBankBlockchain/WeIdentity-Build-Tools/raw/master/common/script/install/weid_install.sh
 
 
 2.执行安装脚本
