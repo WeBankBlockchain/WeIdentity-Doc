@@ -22,7 +22,7 @@ weid-sample 的配置。
     git clone https://github.com/WeBankBlockchain/WeIdentity-Sample
 
 .. note::
-     如果您的服务器在中国内地，下载速度可能会比较慢，可以直接使用在国内的源：:code:`git clone https://gitee.com/WeBank/WeIdentity-Sample`
+     如果您的服务器在中国内地，下载速度可能会比较慢，可以直接使用在国内的源：:code:`git clone https://gitee.com/WeBank/WeIdentity-Sample`,请务必关注相关模块组件之间的版本兼容性问题，版本的兼容可以在【WeIdentity 版本说明】栏目进行确认。
 
 1.2 配置基本信息
 ''''''''''''''''''''''''''''''''''''''
